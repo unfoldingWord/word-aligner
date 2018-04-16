@@ -1,2 +1,2 @@
 # word-aligner
-Logic for aiding in word alignment
+Logic for handling word alignment
