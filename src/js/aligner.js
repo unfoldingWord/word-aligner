@@ -1,6 +1,7 @@
 // helpers
 import * as VerseObjectHelpers from './helpers/verseObjects';
 import * as ArrayHelpers from './helpers/array';
+import tokenizer from 'string-punctuation-tokenizer';
 
 /**
  * @description pivots alignments into bottomWords/targetLanguage verseObjectArray sorted by verseText
@@ -130,8 +131,8 @@ export function verseStringWordsContainedInAlignments(
  */
 const sameMilestone = (a, b) => {
   const same = (a.type === b.type) &&
-  (a.content === b.content) &&
-  (a.occurrence === b.occurrence);
+    (a.content === b.content) &&
+    (a.occurrence === b.occurrence);
   return same;
 };
 
@@ -165,7 +166,7 @@ export const addVerseObjectToAlignment = (verseObject, alignment) => {
     );
     const duplicate = alignment.topWords.find(function(obj) {
       return (obj.word === wordObject.word) &&
-      (obj.occurrence === wordObject.occurrence);
+        (obj.occurrence === wordObject.occurrence);
     });
     if (!duplicate) {
       alignment.topWords.push(wordObject);
@@ -330,3 +331,114 @@ export const unmerge = (verseObjects, alignedVerse) => {
   return {alignment, wordBank};
 };
 
+/**
+ * get text from word type verse object or word object
+ * @param {object} wordObject - Word object to get text from
+ * @return {string|undefined} text from word object
+ */
+export const getWordText = wordObject => {
+  if (wordObject && (wordObject.type === 'word')) {
+    return wordObject.text;
+  }
+  return wordObject ? wordObject.word : undefined;
+};
+
+/**
+ * Concatenates an array of words into a verse.
+ * @param {array} verseArray - array of strings in a verse.
+ * @return {string} combined verse
+ */
+export const combineVerseArray = verseArray => {
+  return verseArray.map(o => getWordText(o)).join(' ');
+};
+
+/**
+ * create an array of word objects with occurrence(s)
+ * @param {String|Array|Object} words - List of words without occurrences
+ * @return {Array} - array of wordObjects
+ */
+export const populateOccurrencesInWordObjects = words => {
+  words = VerseObjectHelpers.getWordList(words);
+  let index = 0; // only count verseObject words
+  return words.map(wordObject => {
+    const wordText = getWordText(wordObject);
+    if (wordText) { // if verseObject is word
+      wordObject.occurrence = VerseObjectHelpers.getOccurrence(
+        words, index++, wordText);
+      wordObject.occurrences = VerseObjectHelpers.getOccurrences(
+        words, wordText
+      );
+      return wordObject;
+    }
+    return null;
+  }).filter(wordObject => (wordObject !== null));
+};
+
+/**
+ * @description wordObjectArray via string
+ * @param {String} string - The string to search in
+ * @return {Array} - array of wordObjects
+ */
+export const wordObjectArrayFromString = string => {
+  const wordObjectArray = tokenizer.tokenize(string).map((word, index) => {
+    const occurrence = tokenizer.occurrenceInString(string, index, word);
+    const occurrences = tokenizer.occurrencesInString(string, word);
+    return {
+      word,
+      occurrence: occurrence,
+      occurrences: occurrences
+    };
+  });
+  return wordObjectArray;
+};
+
+/**
+ * @description sorts wordObjectArray via string
+ * @param {Array} wordObjectArray - array of wordObjects
+ * @param {String|Array|Object} stringData - The string to search in
+ * @return {Array} - sorted array of wordObjects
+ */
+export const sortWordObjectsByString = (wordObjectArray, stringData) => {
+  if (stringData.verseObjects) {
+    stringData = populateOccurrencesInWordObjects(stringData.verseObjects);
+  } else if (Array.isArray(stringData)) {
+    stringData = populateOccurrencesInWordObjects(stringData);
+  } else {
+    stringData = wordObjectArrayFromString(stringData);
+  }
+  let _wordObjectArray = wordObjectArray.map(wordObject => {
+    const {word, occurrence, occurrences} = wordObject;
+    const _wordObject = {
+      word,
+      occurrence,
+      occurrences
+    };
+    const indexInString = stringData.findIndex(object => {
+      const equal = (
+        getWordText(object) === getWordText(_wordObject) &&
+        object.occurrence === _wordObject.occurrence &&
+        object.occurrences === _wordObject.occurrences
+      );
+      return equal;
+    });
+    wordObject.index = indexInString;
+    return wordObject;
+  });
+  _wordObjectArray = _wordObjectArray.sort((a, b) => {
+    return a.index - b.index;
+  });
+  _wordObjectArray = _wordObjectArray.map(wordObject => {
+    delete wordObject.index;
+    return wordObject;
+  });
+  return _wordObjectArray;
+};
+
+/**
+ * Helper function to flatten a double nested array
+ * @param {array} arr - Array to be flattened
+ * @return {array} - Flattened array
+ */
+export const flattenArray = arr => {
+  return [].concat(...arr);
+};

@@ -1,6 +1,6 @@
 import usfm from 'usfm-js';
 import stringHelpers from 'string-punctuation-tokenizer';
-import {getWordText} from "./WordAlignmentHelpers";
+import {getWordText} from "../aligner.js";
 
 /**
  * Gets the occurrence of a subString in words by counting up to subString index
