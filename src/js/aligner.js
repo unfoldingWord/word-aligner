@@ -1,6 +1,8 @@
 // helpers
-import * as VerseObjectHelpers from './helpers/verseObjects';
-import * as ArrayHelpers from './helpers/array';
+exports.VerseObjectUtils = require('./utils/verseObjects');
+exports.ArrayUtils = require('./utils/array');
+import * as VerseObjectUtils from './utils/verseObjects';
+import * as ArrayUtils from './utils/array';
 import tokenizer from 'string-punctuation-tokenizer';
 
 /**
@@ -13,7 +15,7 @@ import tokenizer from 'string-punctuation-tokenizer';
 export const merge = (alignments, wordBank, verseString) => {
   let verseObjects; // array to return
   // get the definitive list of verseObjects from the verse, unaligned but in order
-  const unalignedOrdered = VerseObjectHelpers.getOrderedVerseObjectsFromString(
+  const unalignedOrdered = VerseObjectUtils.getOrderedVerseObjectsFromString(
     verseString
   );
   // assign verseObjects with unaligned objects to be replaced with aligned ones
@@ -28,10 +30,10 @@ export const merge = (alignments, wordBank, verseString) => {
   }
   // each wordBank object should result in one verseObject
   wordBank.forEach(bottomWord => {
-    const verseObject = VerseObjectHelpers.wordVerseObjectFromBottomWord(
+    const verseObject = VerseObjectUtils.wordVerseObjectFromBottomWord(
       bottomWord
     );
-    const index = VerseObjectHelpers.indexOfVerseObject(
+    const index = VerseObjectUtils.indexOfVerseObject(
       unalignedOrdered, verseObject
     );
     if (index > -1) verseObjects[index] = verseObject;
@@ -47,10 +49,10 @@ export const merge = (alignments, wordBank, verseString) => {
     // located inside innermost nested topWord/k verseObject
     let replacements = {};
     bottomWords.forEach(bottomWord => {
-      const verseObject = VerseObjectHelpers.wordVerseObjectFromBottomWord(
+      const verseObject = VerseObjectUtils.wordVerseObjectFromBottomWord(
         bottomWord
       );
-      const index = VerseObjectHelpers.indexOfVerseObject(
+      const index = VerseObjectUtils.indexOfVerseObject(
         unalignedOrdered, verseObject
       );
       if (index === -1) {
@@ -60,11 +62,11 @@ export const merge = (alignments, wordBank, verseString) => {
     });
     // each topWord results in a nested verseObject of tag: k, type: milestone
     const milestones = topWords.map(topWord =>
-      VerseObjectHelpers.milestoneVerseObjectFromTopWord(topWord)
+      VerseObjectUtils.milestoneVerseObjectFromTopWord(topWord)
     );
     const indices = Object.keys(replacements);
     // group consecutive indexes so that they can be aggregated
-    const groupedConsecutiveIndices = ArrayHelpers.groupConsecutiveNumbers(
+    const groupedConsecutiveIndices = ArrayUtils.groupConsecutiveNumbers(
       indices
     );
     // loop through groupedConsecutiveIndices to reduce and place where needed.
@@ -80,13 +82,13 @@ export const merge = (alignments, wordBank, verseString) => {
       // place the replacementVerseObjects in the last milestone as children
       milestones[milestones.length - 1].children = replacementVerseObjects;
       // nest the milestones so that the first is the parent and each subsequent is nested
-      const milestone = VerseObjectHelpers.nestMilestones(milestones);
+      const milestone = VerseObjectUtils.nestMilestones(milestones);
       // replace the original verseObject from the verse text with the aligned milestone verseObject
       verseObjects[indexToReplace] = milestone;
     });
   });
   // deleteIndices that were queued due to consecutive bottomWords in alignments
-  verseObjects = ArrayHelpers.deleteIndices(verseObjects, indicesToDelete);
+  verseObjects = ArrayUtils.deleteIndices(verseObjects, indicesToDelete);
   return verseObjects;
 };
 
@@ -161,7 +163,7 @@ const getAlignmentForMilestone = (baseMilestones, newMilestone) => {
  */
 export const addVerseObjectToAlignment = (verseObject, alignment) => {
   if (verseObject.type === 'milestone' && verseObject.children.length > 0) {
-    const wordObject = VerseObjectHelpers.alignmentObjectFromVerseObject(
+    const wordObject = VerseObjectUtils.alignmentObjectFromVerseObject(
       verseObject
     );
     const duplicate = alignment.topWords.find(function(obj) {
@@ -175,7 +177,7 @@ export const addVerseObjectToAlignment = (verseObject, alignment) => {
       addVerseObjectToAlignment(_verseObject, alignment);
     });
   } else if (verseObject.type === 'word' && !verseObject.children) {
-    const wordObject = VerseObjectHelpers.alignmentObjectFromVerseObject(
+    const wordObject = VerseObjectUtils.alignmentObjectFromVerseObject(
       verseObject
     );
     alignment.bottomWords.push(wordObject);
@@ -251,11 +253,11 @@ export const indexOfMilestone = (alignments, verseObject) => {
  */
 export const orderAlignments = function(alignmentVerse, alignmentUnOrdered) {
   if (typeof alignmentVerse === 'string') {
-    alignmentVerse = VerseObjectHelpers.getOrderedVerseObjectsFromString(
+    alignmentVerse = VerseObjectUtils.getOrderedVerseObjectsFromString(
       alignmentVerse
     );
   } else {
-    alignmentVerse = VerseObjectHelpers.getOrderedVerseObjects(alignmentVerse);
+    alignmentVerse = VerseObjectUtils.getOrderedVerseObjects(alignmentVerse);
   }
   if (Array.isArray(alignmentVerse)) {
     let alignment = [];
@@ -279,7 +281,7 @@ export const orderAlignments = function(alignmentVerse, alignmentUnOrdered) {
           index = indexOfMilestone(alignment, nextWord);
         }
         if (index < 0) { // if still not found in topWords, it's an unaligned topWord
-          const wordObject = VerseObjectHelpers.alignmentObjectFromVerseObject(
+          const wordObject = VerseObjectUtils.alignmentObjectFromVerseObject(
             nextWord
           );
           alignment.push({topWords: [wordObject], bottomWords: []});
@@ -308,7 +310,7 @@ export const unmerge = (verseObjects, alignedVerse) => {
     verseObjects = verseObjects.verseObjects;
   }
   if (typeof alignedVerse !== 'string') {
-    alignedVerse = VerseObjectHelpers.getWordList(alignedVerse);
+    alignedVerse = VerseObjectUtils.getWordList(alignedVerse);
   }
   for (let verseObject of verseObjects) {
     let alignment = getAlignmentForMilestone(baseMilestones, verseObject);
@@ -358,14 +360,14 @@ export const combineVerseArray = verseArray => {
  * @return {Array} - array of wordObjects
  */
 export const populateOccurrencesInWordObjects = words => {
-  words = VerseObjectHelpers.getWordList(words);
+  words = VerseObjectUtils.getWordList(words);
   let index = 0; // only count verseObject words
   return words.map(wordObject => {
     const wordText = getWordText(wordObject);
     if (wordText) { // if verseObject is word
-      wordObject.occurrence = VerseObjectHelpers.getOccurrence(
+      wordObject.occurrence = VerseObjectUtils.getOccurrence(
         words, index++, wordText);
-      wordObject.occurrences = VerseObjectHelpers.getOccurrences(
+      wordObject.occurrences = VerseObjectUtils.getOccurrences(
         words, wordText
       );
       return wordObject;
@@ -484,11 +486,11 @@ export const getWordsFromVerseObjects = verseObjects => {
  * @return {Array} alignmentObjects from verse text
  */
 export const generateBlankAlignments = verseData => {
-  let wordList = VerseObjectHelpers.getWordList(verseData);
+  let wordList = VerseObjectUtils.getWordList(verseData);
   const alignments = wordList.map((wordData, index) => {
     const word = wordData.word || wordData.text;
-    let occurrences = VerseObjectHelpers.getOccurrences(wordList, word);
-    let occurrence = VerseObjectHelpers.getOccurrence(wordList, index, word);
+    let occurrences = VerseObjectUtils.getOccurrences(wordList, word);
+    let occurrence = VerseObjectUtils.getOccurrence(wordList, index, word);
     const alignment = {
       topWords: [
         {
@@ -513,11 +515,11 @@ export const generateBlankAlignments = verseData => {
  * @return {Array} alignmentObjects from verse text
  */
 export const generateWordBank = verseData => {
-  const verseWords = VerseObjectHelpers.getWordList(verseData);
+  const verseWords = VerseObjectUtils.getWordList(verseData);
   const wordBank = verseWords.map((object, index) => {
     const word = object.text;
-    let occurrences = VerseObjectHelpers.getOccurrences(verseWords, word);
-    let occurrence = VerseObjectHelpers.getOccurrence(verseWords, index, word);
+    let occurrences = VerseObjectUtils.getOccurrences(verseWords, word);
+    let occurrence = VerseObjectUtils.getOccurrence(verseWords, index, word);
     return {
       word,
       occurrence,
