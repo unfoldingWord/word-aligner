@@ -1,6 +1,4 @@
 // helpers
-exports.VerseObjectUtils = require('./utils/verseObjects');
-exports.ArrayUtils = require('./utils/array');
 import * as VerseObjectUtils from './utils/verseObjects';
 import * as ArrayUtils from './utils/array';
 import tokenizer from 'string-punctuation-tokenizer';

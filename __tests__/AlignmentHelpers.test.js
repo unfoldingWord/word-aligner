@@ -4,7 +4,6 @@ import path from 'path';
 jest.unmock('fs-extra');
 import aligner from '../src/';
 const RESOURCES = path.join('__tests__', 'fixtures', 'pivotAlignmentVerseObjects');
-
 /**
  * Reads a usfm file from the resources dir
  * @param {string} filename relative path to usfm file
