@@ -1,1 +1,2 @@
-module.exports = require('./js/aligner.js');
+const aligner = require('./js/aligner.js');
+export default aligner;

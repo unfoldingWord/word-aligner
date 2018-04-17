@@ -1,8 +1,8 @@
 /* eslint-env jest */
 import fs from 'fs-extra';
 import path from 'path';
-jest.unmock('fs-extra')
-import * as aligner from '../src/';
+jest.unmock('fs-extra');
+import aligner from '../src/';
 const RESOURCES = path.join('__tests__', 'fixtures', 'pivotAlignmentVerseObjects');
 
 /**
