@@ -3,7 +3,7 @@ import fs from 'fs-extra';
 import path from 'path';
 jest.unmock('fs-extra');
 // helpers
-import {aligner} from '../src/';
+import * as aligner from '../src/';
 const RESOURCES = path.join('__tests__', 'fixtures', 'pivotAlignmentVerseObjects');
 
 /**

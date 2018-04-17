@@ -1,1 +1,1 @@
-module.exports.aligner = require('./js/aligner.js');
+module.exports = require('./js/aligner.js');
