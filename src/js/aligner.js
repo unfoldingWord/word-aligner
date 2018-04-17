@@ -97,7 +97,7 @@ export const merge = (alignments, wordBank, verseString) => {
  * @param {Array} alignments - array of aligned word objects {bottomWords, topWords}
  * @param {Array} wordBank - array of unused topWords for aligning
  * @param {Object} verseObjects - verse objects from verse string to be checked
- * @return {boolean} - Returns if the given verse objects from a string are contained in
+ * @return {boolean} - returns if the given verse objects from a string are contained in
  * the given alignments
  */
 export function verseStringWordsContainedInAlignments(
@@ -201,7 +201,7 @@ const compareOccurrences = function(a, b) {
 };
 
 /**
- * @description Returns index of the verseObject in the alignments first milestone (ignores occurrences since that can be off)
+ * @description returns index of the verseObject in the alignments first milestone (ignores occurrences since that can be off)
  * @param {Array} alignments - array of the alignments to search in
  * @param {Object} verseObject - verseObject to search for
  * @return {Int} - the index of the verseObject
@@ -223,7 +223,7 @@ export const indexOfFirstMilestone = (alignments, verseObject) => {
 };
 
 /**
- * @description Returns index of the verseObject in the alignments milestone (ignores occurrences since that can be off)
+ * @description returns index of the verseObject in the alignments milestone (ignores occurrences since that can be off)
  * @param {Array} alignments - array of the alignments to search in
  * @param {Object} verseObject - verseObject to search for
  * @return {Int} - the index of the verseObject
@@ -441,4 +441,103 @@ export const sortWordObjectsByString = (wordObjectArray, stringData) => {
  */
 export const flattenArray = arr => {
   return [].concat(...arr);
+};
+
+/**
+ * Helper method to find if the given alignments object actually
+ * has aligned data. If not we do not want to show the reset dialog
+ *
+ * @param {array} alignments - alignments object with array of top words/bottom words
+ * @return {boolean} - Whether or not the verse has alignments
+ */
+export const verseHasAlignments = ({alignments}) => {
+  if (alignments) {
+    return alignments.filter(({bottomWords}) => {
+      return bottomWords.length > 0;
+    }).length > 0;
+  }
+};
+
+/**
+ * Helper method to grab only verse objects or childen of verse objects but
+ * not grab verse objects containing children.
+ * i.e. given {a:1, b:{2, children:{2a, 2b}} returns 1, 2a, 2b (skips 2)
+ *
+ * @param {array} verseObjects - Objects containing data for the words such as
+ * occurences, occurence, tag, text and type
+ * @return {array} - same format as input, except objects containing childern
+ * get flatten to top level
+ */
+export const getWordsFromVerseObjects = verseObjects => {
+  const wordObjects = verseObjects.map(versebject => {
+    if (versebject.children) {
+      return getWordsFromVerseObjects(versebject.children);
+    }
+    return versebject;
+  });
+  return flattenArray(wordObjects);
+};
+
+/**
+ * @description - generates the word alignment tool alignmentData from the UGNT verseData
+ * @param {String|Array|Object} verseData - array of verseObjects
+ * @return {Array} alignmentObjects from verse text
+ */
+export const generateBlankAlignments = verseData => {
+  let wordList = VerseObjectHelpers.getWordList(verseData);
+  const alignments = wordList.map((wordData, index) => {
+    const word = wordData.word || wordData.text;
+    let occurrences = VerseObjectHelpers.getOccurrences(wordList, word);
+    let occurrence = VerseObjectHelpers.getOccurrence(wordList, index, word);
+    const alignment = {
+      topWords: [
+        {
+          word: word,
+          strong: (wordData.strong || wordData.strongs),
+          lemma: wordData.lemma,
+          morph: wordData.morph,
+          occurrence,
+          occurrences
+        }
+      ],
+      bottomWords: []
+    };
+    return alignment;
+  });
+  return alignments;
+};
+
+/**
+ * @description - generates the word alignment tool word bank from targetLanguage verse
+ * @param {String|Array|Object} verseData - string of the verseText in the targetLanguage
+ * @return {Array} alignmentObjects from verse text
+ */
+export const generateWordBank = verseData => {
+  const verseWords = VerseObjectHelpers.getWordList(verseData);
+  const wordBank = verseWords.map((object, index) => {
+    const word = object.text;
+    let occurrences = VerseObjectHelpers.getOccurrences(verseWords, word);
+    let occurrence = VerseObjectHelpers.getOccurrence(verseWords, index, word);
+    return {
+      word,
+      occurrence,
+      occurrences
+    };
+  });
+  return wordBank;
+};
+
+/**
+ * Wrapper method for resetting alignments in verse to being blank alignments
+ * i.e. (all words in word bank and not joined with alignments data)
+ * Note: This method does not overwrite any data
+ * @param {string} ugntVerse - Array of verse objects containing ugnt words
+ * @param {string} targetLanguageVerse - Current target language string from the bibles reducer
+ * @return {{alignments, wordBank}} - Reset alignments data
+ */
+export const getBlankAlignmentDataForVerse = (
+  ugntVerse, targetLanguageVerse) => {
+  const alignments = generateBlankAlignments(ugntVerse);
+  const wordBank = generateWordBank(targetLanguageVerse);
+  return {alignments, wordBank};
 };
