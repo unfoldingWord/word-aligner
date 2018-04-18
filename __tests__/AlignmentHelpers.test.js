@@ -2,7 +2,7 @@
 import fs from 'fs-extra';
 import path from 'path';
 jest.unmock('fs-extra');
-import aligner from '../src/';
+import wordaligner, {VerseObjectUtils} from '../src/';
 const RESOURCES = path.join('__tests__', 'fixtures', 'pivotAlignmentVerseObjects');
 /**
  * Reads a usfm file from the resources dir
@@ -27,7 +27,7 @@ const mergeTest = (name = {}) => {
   const json = readJSON(`${name}.json`);
   expect(json).toBeTruthy();
   const {alignment, verseObjects, verseString, wordBank} = json;
-  const output = aligner.merge(alignment, wordBank, verseString);
+  const output = wordaligner.merge(alignment, wordBank, verseString);
   expect(output).toEqual(verseObjects);
 };
 /**
@@ -38,7 +38,7 @@ const unmergeTest = (name = {}) => {
   const json = readJSON(`${name}.json`);
   expect(json).toBeTruthy();
   const {verseObjects, alignment, wordBank, alignedVerseString} = json;
-  const output = aligner.unmerge(verseObjects, alignedVerseString);
+  const output = wordaligner.unmerge(verseObjects, alignedVerseString);
   expect(output).toEqual({alignment, wordBank});
 };
 
@@ -121,4 +121,97 @@ describe("UnMerge Alignment from Verse Objects", () => {
   it('handles titus 1-1 nested milestones, merged greek', () => {
     unmergeTest('tit1-1.nested_milestones_merged_greek');
   });
+});
+
+describe('wordaligner.generateBlankAlignments', () => {
+  const createEmptyAlignment = function(verseObjects) {
+    let wordList = VerseObjectUtils.getWordList(verseObjects);
+    wordList = VerseObjectUtils.populateOccurrencesInWordObjects(wordList);
+    const nullAlignments = wordList.map(word => {
+      return {
+        topWords: [
+          {
+            word: word.text,
+            strong: word.strong,
+            lemma: word.lemma,
+            morph: word.morph,
+            occurrence: word.occurrence,
+            occurrences: word.occurrences
+          }
+        ],
+        bottomWords: []
+      };
+    });
+    return nullAlignments;
+  };
+  it('should generate blank alignment from nested objects', () => {
+    // given
+    const testData = require('./fixtures/pivotAlignmentVerseObjects/tit1-1.nested_milestones.json');
+    const nullAlignments = createEmptyAlignment(testData.alignedVerseString);
+
+    // when
+    const results = wordaligner.generateBlankAlignments(
+      testData.alignedVerseString);
+
+    // then
+    expect(results).toEqual(nullAlignments);
+  });
+
+  it('should generate blank alignment from string', () => {
+    // given
+    const testData = require('./fixtures/pivotAlignmentVerseObjects/tit1-1.nested_milestones.json');
+    const nullAlignments = createEmptyAlignment(testData.verseString);
+
+    // when
+    const results = wordaligner.generateBlankAlignments(testData.verseString);
+
+    // then
+    expect(results).toEqual(nullAlignments);
+  });
+
+  //
+  // helpers
+  //
+});
+
+describe('wordaligner.generateWordBank', () => {
+  const createEmptyWordBank = function(verseObjects) {
+    let wordList = VerseObjectUtils.getWordList(verseObjects);
+    wordList = VerseObjectUtils.populateOccurrencesInWordObjects(wordList);
+    const wordBank = wordList.map(word => {
+      return {
+        word: word.text,
+        occurrence: word.occurrence,
+        occurrences: word.occurrences
+      };
+    });
+    return wordBank;
+  };
+  it('should generate blank alignment from string', () => {
+    // given
+    const testData = require('./fixtures/pivotAlignmentVerseObjects/tit1-1.nested_milestones.json');
+    const wordBank = createEmptyWordBank(testData.verseString);
+
+    // when
+    const results = wordaligner.generateWordBank(testData.verseString);
+
+    // then
+    expect(results).toEqual(wordBank);
+  });
+
+  it('should generate blank alignment from nested objects', () => {
+    // given
+    const testData = require('./fixtures/pivotAlignmentVerseObjects/tit1-1.nested_milestones.json');
+    const wordBank = createEmptyWordBank(testData.alignedVerseString);
+
+    // when
+    const results = wordaligner.generateWordBank(testData.alignedVerseString);
+
+    // then
+    expect(results).toEqual(wordBank);
+  });
+
+  //
+  // helpers
+  //
 });
