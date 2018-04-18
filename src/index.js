@@ -1,3 +1,3 @@
-module.exports.VerseObjectUtils = require('./js/utils/verseObjects');
-module.exports.ArrayUtils = require('./js/utils/array');
-module.exports = require('./js/aligner');
+export const VerseObjectUtils = require('./js/utils/verseObjects');
+export const ArrayUtils = require('./js/utils/array');
+export default require('./js/aligner');
