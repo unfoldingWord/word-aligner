@@ -33,3 +33,12 @@ export const deleteIndices = (array, indices) => {
   });
   return _array;
 };
+
+/**
+ * Helper function to flatten a double nested array
+ * @param {array} arr - Array to be flattened
+ * @return {array} - Flattened array
+ */
+export const flattenArray = arr => {
+  return [].concat(...arr);
+};

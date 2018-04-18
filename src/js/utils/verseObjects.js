@@ -1,5 +1,6 @@
 import usfm from 'usfm-js';
 import tokenizer from 'string-punctuation-tokenizer';
+import * as ArrayUtils from './array';
 
 /**
  * An object containing information about the word in a target language
@@ -515,15 +516,6 @@ export const sortWordObjectsByString = (wordObjectArray, stringData) => {
 };
 
 /**
- * Helper function to flatten a double nested array
- * @param {array} arr - Array to be flattened
- * @return {array} - Flattened array
- */
-export const flattenArray = arr => {
-  return [].concat(...arr);
-};
-
-/**
  * Helper method to grab only verse objects or childen of verse objects but
  * not grab verse objects containing children.
  * i.e. given {a:1, b:{2, children:{2a, 2b}} returns 1, 2a, 2b (skips 2)
@@ -540,5 +532,5 @@ export const getWordsFromVerseObjects = verseObjects => {
     }
     return versebject;
   });
-  return flattenArray(wordObjects);
+  return ArrayUtils.flattenArray(wordObjects);
 };
