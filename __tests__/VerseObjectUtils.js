@@ -277,9 +277,9 @@ describe("getOrderedVerseObjectsFromString", () => {
         text: "."
       },
       {
-        "tag": "f",
-        "type": "footnote",
-        "content": "Footnotes shouldn't be rendered as text but as content in their own object."
+        tag: "f",
+        type: "footnote",
+        content: "Footnotes shouldn't be rendered as text but as content in their own object."
       }
     ];
     expect(json).toEqual(expected);
