@@ -1,7 +1,12 @@
+/**
+ *
+ * @file   Contains the logic for aligning words.
+ * @author unfoldingWord
+ */
+
 // helpers
 import * as VerseObjectUtils from './utils/verseObjects';
 import * as ArrayUtils from './utils/array';
-import tokenizer from 'string-punctuation-tokenizer';
 
 /**
  * @description pivots alignments into bottomWords/targetLanguage verseObjectArray sorted by verseText
@@ -124,19 +129,6 @@ export function verseStringWordsContainedInAlignments(
 }
 
 /**
- * @description test to see if this is the same milestone (needed when milestones are not contiguous)
- * @param {Object} a - First milestone to test
- * @param {Object} b - Second milestone to test
- * @return {boolean} true if same milestone
- */
-const sameMilestone = (a, b) => {
-  const same = (a.type === b.type) &&
-    (a.content === b.content) &&
-    (a.occurrence === b.occurrence);
-  return same;
-};
-
-/**
  * @description find the alignment to use for this milestone.  If milestone has already been given an alignment, then
  *                use that one.  Otherwise return null.  This is needed because milestones are not always
  *                contiguous.
@@ -147,39 +139,11 @@ const sameMilestone = (a, b) => {
 const getAlignmentForMilestone = (baseMilestones, newMilestone) => {
   for (let baseMilestone of baseMilestones) {
     if (baseMilestone.alignment &&
-      sameMilestone(baseMilestone.milestone, newMilestone)) {
+      VerseObjectUtils.sameMilestone(baseMilestone.milestone, newMilestone)) {
       return baseMilestone.alignment;
     }
   }
   return null;
-};
-
-/**
- * @description adds verse object to alignment
- * @param {Object} verseObject - Verse object to be added
- * @param {Object} alignment - The alignment object that will be added to
- */
-export const addVerseObjectToAlignment = (verseObject, alignment) => {
-  if (verseObject.type === 'milestone' && verseObject.children.length > 0) {
-    const wordObject = VerseObjectUtils.alignmentObjectFromVerseObject(
-      verseObject
-    );
-    const duplicate = alignment.topWords.find(function(obj) {
-      return (obj.word === wordObject.word) &&
-        (obj.occurrence === wordObject.occurrence);
-    });
-    if (!duplicate) {
-      alignment.topWords.push(wordObject);
-    }
-    verseObject.children.forEach(_verseObject => {
-      addVerseObjectToAlignment(_verseObject, alignment);
-    });
-  } else if (verseObject.type === 'word' && !verseObject.children) {
-    const wordObject = VerseObjectUtils.alignmentObjectFromVerseObject(
-      verseObject
-    );
-    alignment.bottomWords.push(wordObject);
-  }
 };
 
 /**
@@ -317,7 +281,7 @@ export const unmerge = (verseObjects, alignedVerse) => {
       alignments.push(alignment);
       baseMilestones.push({alignment: alignment, milestone: verseObject});
     }
-    addVerseObjectToAlignment(verseObject, alignment);
+    VerseObjectUtils.addVerseObjectToAlignment(verseObject, alignment);
   }
   const alignmentUnOrdered = [];
   for (let _alignment of alignments) {
@@ -329,118 +293,6 @@ export const unmerge = (verseObjects, alignedVerse) => {
   }
   let alignment = orderAlignments(alignedVerse, alignmentUnOrdered);
   return {alignment, wordBank};
-};
-
-/**
- * get text from word type verse object or word object
- * @param {object} wordObject - Word object to get text from
- * @return {string|undefined} text from word object
- */
-export const getWordText = wordObject => {
-  if (wordObject && (wordObject.type === 'word')) {
-    return wordObject.text;
-  }
-  return wordObject ? wordObject.word : undefined;
-};
-
-/**
- * Concatenates an array of words into a verse.
- * @param {array} verseArray - array of strings in a verse.
- * @return {string} combined verse
- */
-export const combineVerseArray = verseArray => {
-  return verseArray.map(o => getWordText(o)).join(' ');
-};
-
-/**
- * create an array of word objects with occurrence(s)
- * @param {String|Array|Object} words - List of words without occurrences
- * @return {Array} - array of wordObjects
- */
-export const populateOccurrencesInWordObjects = words => {
-  words = VerseObjectUtils.getWordList(words);
-  let index = 0; // only count verseObject words
-  return words.map(wordObject => {
-    const wordText = getWordText(wordObject);
-    if (wordText) { // if verseObject is word
-      wordObject.occurrence = VerseObjectUtils.getOccurrence(
-        words, index++, wordText);
-      wordObject.occurrences = VerseObjectUtils.getOccurrences(
-        words, wordText
-      );
-      return wordObject;
-    }
-    return null;
-  }).filter(wordObject => (wordObject !== null));
-};
-
-/**
- * @description wordObjectArray via string
- * @param {String} string - The string to search in
- * @return {Array} - array of wordObjects
- */
-export const wordObjectArrayFromString = string => {
-  const wordObjectArray = tokenizer.tokenize(string).map((word, index) => {
-    const occurrence = tokenizer.occurrenceInString(string, index, word);
-    const occurrences = tokenizer.occurrencesInString(string, word);
-    return {
-      word,
-      occurrence: occurrence,
-      occurrences: occurrences
-    };
-  });
-  return wordObjectArray;
-};
-
-/**
- * @description sorts wordObjectArray via string
- * @param {Array} wordObjectArray - array of wordObjects
- * @param {String|Array|Object} stringData - The string to search in
- * @return {Array} - sorted array of wordObjects
- */
-export const sortWordObjectsByString = (wordObjectArray, stringData) => {
-  if (stringData.verseObjects) {
-    stringData = populateOccurrencesInWordObjects(stringData.verseObjects);
-  } else if (Array.isArray(stringData)) {
-    stringData = populateOccurrencesInWordObjects(stringData);
-  } else {
-    stringData = wordObjectArrayFromString(stringData);
-  }
-  let _wordObjectArray = wordObjectArray.map(wordObject => {
-    const {word, occurrence, occurrences} = wordObject;
-    const _wordObject = {
-      word,
-      occurrence,
-      occurrences
-    };
-    const indexInString = stringData.findIndex(object => {
-      const equal = (
-        getWordText(object) === getWordText(_wordObject) &&
-        object.occurrence === _wordObject.occurrence &&
-        object.occurrences === _wordObject.occurrences
-      );
-      return equal;
-    });
-    wordObject.index = indexInString;
-    return wordObject;
-  });
-  _wordObjectArray = _wordObjectArray.sort((a, b) => {
-    return a.index - b.index;
-  });
-  _wordObjectArray = _wordObjectArray.map(wordObject => {
-    delete wordObject.index;
-    return wordObject;
-  });
-  return _wordObjectArray;
-};
-
-/**
- * Helper function to flatten a double nested array
- * @param {array} arr - Array to be flattened
- * @return {array} - Flattened array
- */
-export const flattenArray = arr => {
-  return [].concat(...arr);
 };
 
 /**
@@ -456,26 +308,6 @@ export const verseHasAlignments = ({alignments}) => {
       return bottomWords.length > 0;
     }).length > 0;
   }
-};
-
-/**
- * Helper method to grab only verse objects or childen of verse objects but
- * not grab verse objects containing children.
- * i.e. given {a:1, b:{2, children:{2a, 2b}} returns 1, 2a, 2b (skips 2)
- *
- * @param {array} verseObjects - Objects containing data for the words such as
- * occurences, occurence, tag, text and type
- * @return {array} - same format as input, except objects containing childern
- * get flatten to top level
- */
-export const getWordsFromVerseObjects = verseObjects => {
-  const wordObjects = verseObjects.map(versebject => {
-    if (versebject.children) {
-      return getWordsFromVerseObjects(versebject.children);
-    }
-    return versebject;
-  });
-  return flattenArray(wordObjects);
 };
 
 /**
