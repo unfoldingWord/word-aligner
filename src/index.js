@@ -1,5 +1,3 @@
-import * as VerseObectUtils from './js/utils/verseObjects';
-import * as ArrayUtils from './js/utils/array';
-
-export {VerseObectUtils, ArrayUtils};
-export {default} from './js/aligner';
+module.exports.VerseObjectUtils = require('./js/utils/verseObjects');
+module.exports.ArrayUtils = require('./js/utils/array');
+module.exports = require('./js/aligner');
