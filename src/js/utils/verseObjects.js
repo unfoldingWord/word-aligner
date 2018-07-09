@@ -115,8 +115,15 @@ export const getOrderedVerseObjectsFromString = string => {
     .join(' ');
   let nonWordVerseObjectCount = 0;
   _verseObjects.forEach(_verseObject => {
-    if (_verseObject.text) {
-      tokenizer.tokenizeWithPunctuation(_verseObject.text).forEach(text => {
+    let vsObjText = _verseObject.text;
+    if (vsObjText && vsObjText.trim()) { // only if non-whitespace characters in text
+      if ((_verseObject.type !== 'text')) {
+        // preseserve non-text verseObject except for text part which will be split into words
+        delete _verseObject.text;
+        verseObjects.push(_verseObject);
+        nonWordVerseObjectCount++;
+      }
+      tokenizer.tokenizeWithPunctuation(vsObjText).forEach(text => {
         let verseObject;
         if (tokenizer.word.test(text)) { // if the text has word characters, its a word object
           const wordIndex = verseObjects.length - nonWordVerseObjectCount;

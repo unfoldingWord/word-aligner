@@ -119,8 +119,8 @@ export const merge = (alignments, wordBank, verseString,
  * @param {Array} alignments - array of aligned word objects {bottomWords, topWords}
  * @param {Array} wordBank - array of unused topWords for aligning
  * @param {Object} verseObjects - verse objects from verse string to be checked
- * @return {boolean} - returns if the given verse objects from a string are contained in
- * the given alignments
+ * @return {Array} - returns array of word verse objects from a string that are not contained in
+ *                      the given alignments
  */
 export function verseStringWordsContainedInAlignments(
   alignments, wordBank, verseObjects) {
