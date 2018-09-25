@@ -316,8 +316,8 @@ export const getWordListFromVerseObjectArray = verseObjects => {
 const addContentAttributeToChildren = (childrens, parentObject, grandParentObject) => {
   const childrensWithAttribute = [];
 
-  for(let i = 0; i < childrens.length; i++) {
-    const child = childrens[i];
+  for (let i = 0; i < childrens.length; i++) {
+    let child = childrens[i];
     if (child.children) {
       child = addContentAttributeToChildren(child.children, child, parentObject);
     } else if (!child.content && parentObject.content) {
@@ -337,7 +337,7 @@ const addContentAttributeToChildren = (childrens, parentObject, grandParentObjec
  * @param {array} words - output array that will be filled with flattened verseObjects
  */
 const flattenVerseObjects = (verse, words) => {
-  for(let i = 0; i < verse.length; i++) {
+  for (let i = 0; i < verse.length; i++) {
     let object = verse[i];
     if (object) {
       if (object.type === 'word') {

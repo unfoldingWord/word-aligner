@@ -23,14 +23,7 @@
       }
     ],
     "no-console": "off",
-    "max-len": [
-      "error",
-      {
-        "ignoreStrings": true,
-        "ignoreComments": true,
-        "ignoreTemplateLiterals": true
-      }
-    ]
+    "max-len": 0
   },
   "parser": "babel-eslint",
   "parserOptions": {
