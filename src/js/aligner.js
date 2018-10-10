@@ -232,23 +232,30 @@ export const indexOfMilestone = (alignments, verseObject) => {
  * @return {Array} ordered alignments if alignment string given, else unordered alignments
  */
 export const orderAlignments = function(alignmentVerse, alignmentUnOrdered) {
+  let orderedObjects = null;
   if (typeof alignmentVerse === 'string') {
-    alignmentVerse = VerseObjectUtils.getOrderedVerseObjectsFromString(
-      alignmentVerse);
+    orderedObjects = VerseObjectUtils.getOrderedVerseObjectsFromString(
+        alignmentVerse);
   } else {
-    alignmentVerse = VerseObjectUtils.getOrderedVerseObjects(alignmentVerse);
+    orderedObjects = VerseObjectUtils.getOrderedVerseObjects(alignmentVerse);
   }
-  if (Array.isArray(alignmentVerse)) {
+  const wordMap = orderedObjects.wordMap;
+  if (Array.isArray(wordMap)) {
     let alignment = [];
     // order alignments
-    for (let i = 0; i < alignmentVerse.length; i++) {
-      const nextWord = alignmentVerse[i];
+    for (let i = 0; i < wordMap.length; i++) {
+      const location = wordMap[i];
+      const nextWord = location.array[location.pos];
       let index = indexOfFirstMilestone(alignmentUnOrdered, nextWord);
-      if ((index < 0) && (nextWord.type === 'word') && (i < alignmentVerse.length - 1)) {
-        const wordAfter = alignmentVerse[i + 1];
-        if (wordAfter.type === 'text') { // maybe this was punctuation split from word
-          nextWord.text += wordAfter.text; // add possible punctuation
+      if ((index < 0) && (nextWord.type === 'word') && (i < wordMap.length - 1)) {
+        const verseObjectAfter = location.array[location.pos + 1];
+        if (verseObjectAfter.type === 'text') { // maybe this was punctuation split from word
+          const originalText = nextWord.text;
+          nextWord.text += verseObjectAfter.text; // add possible punctuation
           index = indexOfFirstMilestone(alignmentUnOrdered, nextWord); // try again
+          if (index < 0) {
+            nextWord.text = originalText; // restore original text if not a match
+          }
         }
       }
       if (index >= 0) {
@@ -268,7 +275,7 @@ export const orderAlignments = function(alignmentVerse, alignmentUnOrdered) {
       }
     }
     if (alignmentUnOrdered.length > 0) {
-      alignment = alignment.concat(alignmentUnOrdered);
+      alignment.push.apply(alignment, alignmentUnOrdered); // fast concat
     }
     return alignment;
   }
@@ -302,6 +309,28 @@ export const addVerseObjectToAlignment = (verseObject, alignment) => {
 };
 
 /**
+ * extracts alignment from verse object and adds to baseMilestones and alignments
+ * @param {Array} baseMilestones - array of milestones found
+ * @param {Object} verseObject - to add to arrays
+ * @param {Array} alignments - array of alignments found
+ */
+const addAlignment = (baseMilestones, verseObject, alignments) => {
+  let alignment = getAlignmentForMilestone(baseMilestones, verseObject);
+  if (!alignment) {
+    alignment = {topWords: [], bottomWords: []};
+    alignments.push(alignment);
+    baseMilestones.push({alignment: alignment, milestone: verseObject});
+  }
+  addVerseObjectToAlignment(verseObject, alignment);
+  if (verseObject.children && verseObject.type !== "milestone") {
+    const length = verseObject.children.length;
+    for (let i = 0; i < length; i++) {
+      addAlignment(baseMilestones, verseObject.children[i], alignments);
+    }
+  }
+};
+
+/**
  * @description pivots alignments into bottomWords/targetLanguage verseObjectArray sorted by verseText
  * @param {Array} verseObjects - array of aligned verseObjects [{milestone children={verseObject}}, ...]
  * @param {Array|Object|String} alignedVerse - optional verse to use for ordering alignments
@@ -318,13 +347,7 @@ export const unmerge = (verseObjects, alignedVerse) => {
     alignedVerse = VerseObjectUtils.getWordList(alignedVerse);
   }
   for (let verseObject of verseObjects) {
-    let alignment = getAlignmentForMilestone(baseMilestones, verseObject);
-    if (!alignment) {
-      alignment = {topWords: [], bottomWords: []};
-      alignments.push(alignment);
-      baseMilestones.push({alignment: alignment, milestone: verseObject});
-    }
-    addVerseObjectToAlignment(verseObject, alignment);
+    addAlignment(baseMilestones, verseObject, alignments);
   }
   const alignmentUnOrdered = [];
   for (let _alignment of alignments) {

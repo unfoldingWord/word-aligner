@@ -83,9 +83,10 @@ export const getOccurrences = (words, subString) => {
 /**
  * @description verseObjects with occurrences from verseObjects
  * @param {Array} verseObjects - Word list to add occurrence(s) to
- * @return {Array} - verseObjects with occurrences
+ * @return {{newVerseObjects:(Array), wordMap:(Array)}}
  */
 export const getOrderedVerseObjects = verseObjects => {
+  const wordMap = [];
   const _verseObjects = JSON.parse(JSON.stringify(verseObjects)); // clone data before modifying
   _verseObjects.forEach((verseObject, i) => {
     if (verseObject.type === 'word') {
@@ -94,9 +95,10 @@ export const getOrderedVerseObjects = verseObjects => {
         i,
         verseObject.text);
       verseObject.occurrences = getOccurrences(_verseObjects, verseObject.text);
+      wordMap.push({array: _verseObjects, pos: i});
     }
   });
-  return _verseObjects;
+  return {newVerseObjects: _verseObjects, wordMap};
 };
 
 /**
@@ -206,7 +208,7 @@ const getWordsFromNestedVerseObjects = (verseObjects, newVerseObjects, wordMap, 
 /**
  * @description verseObjects with occurrences via string
  * @param {String} string - The string to search in
- * @returns {Array} - verseObjects with occurrences, and wordMap of words to verseObjects
+ * @return {{newVerseObjects:(Array), wordMap:(Array)}}
  */
 export const getOrderedVerseObjectsFromString = string => {
   if (!string) return [];
