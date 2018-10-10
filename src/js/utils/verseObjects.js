@@ -316,7 +316,7 @@ export const extractWordsFromVerseObject = verseObject => {
   if (typeof verseObject === 'object') {
     if (verseObject.word || verseObject.type === 'word') {
       words.push(verseObject);
-    } else if (verseObject.type === 'milestone' && verseObject.children) {
+    } else if (verseObject.children) {
       for (let child of verseObject.children) {
         const childWords = extractWordsFromVerseObject(child);
         words = words.concat(childWords);
@@ -441,7 +441,8 @@ export const getWordListForVerse = verse => {
 export const getWordList = verseObjects => {
   let wordList = [];
   if (typeof verseObjects === 'string') {
-    verseObjects = getOrderedVerseObjectsFromString(verseObjects);
+    const {newVerseObjects} = getOrderedVerseObjectsFromString(verseObjects);
+    verseObjects = newVerseObjects;
   }
   if (verseObjects && verseObjects.verseObjects) {
     verseObjects = verseObjects.verseObjects;

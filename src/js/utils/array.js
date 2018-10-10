@@ -7,7 +7,7 @@
 export const groupConsecutiveNumbers = (numbers, wordMap) => (
   numbers.reduce(function(
     accumulator, currentValue, currentIndex, originalArray) {
-    if (currentValue) { // ignore undefined entries
+    if (currentValue >= 0) { // ignore undefined entries
       const current = wordMap[currentValue];
       const last = (currentIndex > 0) ? wordMap[originalArray[currentIndex - 1]] : {};
       // if this iteration is consecutive to the last, add it to the previous run
@@ -35,7 +35,9 @@ export const deleteIndices = (array, indices, wordMap) => {
   indices.forEach(index => {
     if (index >= 0) {
       const location = wordMap[index];
-      location.array.splice(location.pos, 1);
+      if (location) {
+        location.array.splice(location.pos, 1);
+      }
     }
   });
   return array;

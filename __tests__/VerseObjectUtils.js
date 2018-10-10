@@ -114,7 +114,6 @@ describe('VerseObjectUtils.getWordsFromVerseObjects', () => {
 describe("getOrderedVerseObjectsFromString", () => {
   it('handles words without punctuation', () => {
     const string = "hello world";
-    const json = VerseObjectUtils.getOrderedVerseObjectsFromString(string);
     const expected = [
       {
         tag: "w",
@@ -131,12 +130,13 @@ describe("getOrderedVerseObjectsFromString", () => {
         occurrences: 1
       }
     ];
-    expect(json).toEqual(expected);
+    const {newVerseObjects, wordMap} = VerseObjectUtils.getOrderedVerseObjectsFromString(string);
+    expect(newVerseObjects).toEqual(expected);
+    expect(wordMap.length).toEqual(expected.length);
   });
 
   it('handles words with punctuation', () => {
     const string = "hello, world.";
-    const json = VerseObjectUtils.getOrderedVerseObjectsFromString(string);
     const expected = [
       {
         tag: "w",
@@ -161,12 +161,14 @@ describe("getOrderedVerseObjectsFromString", () => {
         text: "."
       }
     ];
-    expect(json).toEqual(expected);
+    const expectedWordCount = expected.filter(item => (item.type === "word")).length;
+    const {newVerseObjects, wordMap} = VerseObjectUtils.getOrderedVerseObjectsFromString(string);
+    expect(newVerseObjects).toEqual(expected);
+    expect(wordMap.length).toEqual(expectedWordCount);
   });
 
   it('handles multiple occurrences of words and punctuation', () => {
     const string = "son of David, son of Abraham.";
-    const json = VerseObjectUtils.getOrderedVerseObjectsFromString(string);
     const expected = [
       {
         tag: "w",
@@ -219,12 +221,14 @@ describe("getOrderedVerseObjectsFromString", () => {
         text: "."
       }
     ];
-    expect(json).toEqual(expected);
+    const expectedWordCount = expected.filter(item => (item.type === "word")).length;
+    const {newVerseObjects, wordMap} = VerseObjectUtils.getOrderedVerseObjectsFromString(string);
+    expect(newVerseObjects).toEqual(expected);
+    expect(wordMap.length).toEqual(expectedWordCount);
   });
 
   it('handles embeded markers like footnotes', () => {
     const string = "son of David, son of Abraham. \\f Footnotes shouldn't be rendered as text but as content in their own object.\\f*";
-    const json = VerseObjectUtils.getOrderedVerseObjectsFromString(string);
     const expected = [
       {
         tag: "w",
@@ -279,10 +283,14 @@ describe("getOrderedVerseObjectsFromString", () => {
       {
         tag: "f",
         type: "footnote",
+        endTag: "f*",
         content: "Footnotes shouldn't be rendered as text but as content in their own object."
       }
     ];
-    expect(json).toEqual(expected);
+    const expectedWordCount = expected.filter(item => (item.type === "word")).length;
+    const {newVerseObjects, wordMap} = VerseObjectUtils.getOrderedVerseObjectsFromString(string);
+    expect(newVerseObjects).toEqual(expected);
+    expect(wordMap.length).toEqual(expectedWordCount);
   });
 });
 
