@@ -1,3 +1,4 @@
+/* eslint-disable no-negated-condition */
 import usfm from 'usfm-js';
 import tokenizer from 'string-punctuation-tokenizer';
 import * as ArrayUtils from './array';
@@ -83,7 +84,7 @@ export const getOccurrences = (words, subString) => {
 /**
  * @description verseObjects with occurrences from verseObjects
  * @param {Array} verseObjects - Word list to add occurrence(s) to
- * @return {{newVerseObjects:(Array), wordMap:(Array)}}
+ * @return {{newVerseObjects: Array, wordMap: Array}} - clone of verseObjects and word map
  */
 export const getOrderedVerseObjects = verseObjects => {
   const wordMap = [];
@@ -126,14 +127,14 @@ const getVerseObjectsText = verseObjects => {
 
 /**
  * parse text into tokens
- * @param {string} text
+ * @param {string} text - string to tokenize
  * @param {Array} newVerseObjects - nested verse objects
  * @param {Array} wordMap - ordered map of word locations in verseObjects
- * @param {Number} nonWordVerseObjectCount
- * @param {String} verseObjectsWithTextString
+ * @param {Number} nonWordVerseObjectCount - keeps count of entries that are not actually words
+ * @param {String} verseText - text of the entire verse
  * @return {Number} new nonWordVerseObjectCount
  */
-const tokenizeText = (text, newVerseObjects, wordMap, nonWordVerseObjectCount, verseObjectsWithTextString) => {
+const tokenizeText = (text, newVerseObjects, wordMap, nonWordVerseObjectCount, verseText) => {
   if (text) {
     const tokens = tokenizer.tokenizeWithPunctuation(text);
     const tokenLength = tokens.length;
@@ -143,11 +144,11 @@ const tokenizeText = (text, newVerseObjects, wordMap, nonWordVerseObjectCount, v
       if (tokenizer.word.test(word)) { // if the text has word characters, its a word object
         const wordIndex = wordMap.length;
         let occurrence = tokenizer.occurrenceInString(
-          verseObjectsWithTextString,
+          verseText,
           wordIndex,
           word);
         const occurrences = tokenizer.occurrencesInString(
-          verseObjectsWithTextString,
+          verseText,
           word);
         if (occurrence > occurrences) occurrence = occurrences;
         verseObject = {
@@ -176,11 +177,11 @@ const tokenizeText = (text, newVerseObjects, wordMap, nonWordVerseObjectCount, v
  * @param {Array} verseObjects - original array of verse objects with words split
  * @param {Array} newVerseObjects - new array of verse objects with words split
  * @param {Array} wordMap - ordered map of word locations in verseObjects
- * @param {String} verseObjectsWithTextString
- * @param {Number} nonWordVerseObjectCount
+ * @param {String} verseText - text of the entire verse
+ * @param {Number} nonWordVerseObjectCount - keeps count of entries that are not actually words
  * @return {Number} updated nonWordVerseObjectCount
  */
-const getWordsFromNestedVerseObjects = (verseObjects, newVerseObjects, wordMap, verseObjectsWithTextString, nonWordVerseObjectCount) => {
+const getWordsFromNestedVerseObjects = (verseObjects, newVerseObjects, wordMap, verseText, nonWordVerseObjectCount) => {
   const voLength = verseObjects.length;
   for (let i = 0; i < voLength; i++) {
     const verseObject = verseObjects[i];
@@ -191,15 +192,15 @@ const getWordsFromNestedVerseObjects = (verseObjects, newVerseObjects, wordMap, 
       newVerseObjects.push(verseObject);
       if (verseObject.children) {
         const newChildVerseObjects = [];
-        nonWordVerseObjectCount = tokenizeText(vsObjText, newChildVerseObjects, wordMap, nonWordVerseObjectCount, verseObjectsWithTextString);
+        nonWordVerseObjectCount = tokenizeText(vsObjText, newChildVerseObjects, wordMap, nonWordVerseObjectCount, verseText);
         nonWordVerseObjectCount = getWordsFromNestedVerseObjects(verseObject.children, newChildVerseObjects,
-          wordMap, verseObjectsWithTextString, nonWordVerseObjectCount);
+          wordMap, verseText, nonWordVerseObjectCount);
         verseObject.children = newChildVerseObjects;
       } else {
-        nonWordVerseObjectCount = tokenizeText(vsObjText, newVerseObjects, wordMap, nonWordVerseObjectCount, verseObjectsWithTextString);
+        nonWordVerseObjectCount = tokenizeText(vsObjText, newVerseObjects, wordMap, nonWordVerseObjectCount, verseText);
       }
     } else {
-      nonWordVerseObjectCount = tokenizeText(vsObjText, newVerseObjects, wordMap, nonWordVerseObjectCount, verseObjectsWithTextString);
+      nonWordVerseObjectCount = tokenizeText(vsObjText, newVerseObjects, wordMap, nonWordVerseObjectCount, verseText);
     }
   }
   return nonWordVerseObjectCount;
@@ -208,7 +209,7 @@ const getWordsFromNestedVerseObjects = (verseObjects, newVerseObjects, wordMap, 
 /**
  * @description verseObjects with occurrences via string
  * @param {String} string - The string to search in
- * @return {{newVerseObjects:(Array), wordMap:(Array)}}
+ * @return {{newVerseObjects: Array, wordMap: Array}} - clone of verseObjects and word map
  */
 export const getOrderedVerseObjectsFromString = string => {
   if (!string) return [];
