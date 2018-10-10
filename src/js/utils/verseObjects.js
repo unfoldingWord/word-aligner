@@ -98,64 +98,125 @@ export const getOrderedVerseObjects = verseObjects => {
   });
   return _verseObjects;
 };
+
+/**
+ * get texts from nested verse objects
+ * @param {Array} verseObjects - nested verse objects to extract text from
+ * @return {Array} array of texts found
+ */
+const getVerseObjectsText = verseObjects => {
+  const texts = [];
+  if (verseObjects) {
+    const length = verseObjects.length;
+    for (let i = 0; i < length; i++) {
+      const vo = verseObjects[i];
+      if (vo.text) {
+        texts.push(vo.text);
+      }
+      if (vo.children) {
+        const childTexts = getVerseObjectsText(vo.children);
+        texts.push.apply(texts, childTexts); // concat arrays
+      }
+    }
+  }
+  return texts;
+};
+
+/**
+ * parse text into tokens
+ * @param {string} text
+ * @param {Array} newVerseObjects - nested verse objects
+ * @param {Array} wordMap - ordered map of word locations in verseObjects
+ * @param {Number} nonWordVerseObjectCount
+ * @param {String} verseObjectsWithTextString
+ * @return {Number} new nonWordVerseObjectCount
+ */
+const tokenizeText = (text, newVerseObjects, wordMap, nonWordVerseObjectCount, verseObjectsWithTextString) => {
+  if (text) {
+    const tokens = tokenizer.tokenizeWithPunctuation(text);
+    const tokenLength = tokens.length;
+    for (let j = 0; j < tokenLength; j++) {
+      const word = tokens[j];
+      let verseObject;
+      if (tokenizer.word.test(word)) { // if the text has word characters, its a word object
+        const wordIndex = wordMap.length;
+        let occurrence = tokenizer.occurrenceInString(
+          verseObjectsWithTextString,
+          wordIndex,
+          word);
+        const occurrences = tokenizer.occurrencesInString(
+          verseObjectsWithTextString,
+          word);
+        if (occurrence > occurrences) occurrence = occurrences;
+        verseObject = {
+          tag: "w",
+          type: "word",
+          text: word,
+          occurrence,
+          occurrences
+        };
+        wordMap.push({array: newVerseObjects, pos: newVerseObjects.length});
+      } else { // the text does not have word characters
+        nonWordVerseObjectCount++;
+        verseObject = {
+          type: "text",
+          text: word
+        };
+      }
+      newVerseObjects.push(verseObject);
+    }
+  }
+  return nonWordVerseObjectCount;
+};
+
+/**
+ * step through verse objects extracting words
+ * @param {Array} verseObjects - original array of verse objects with words split
+ * @param {Array} newVerseObjects - new array of verse objects with words split
+ * @param {Array} wordMap - ordered map of word locations in verseObjects
+ * @param {String} verseObjectsWithTextString
+ * @param {Number} nonWordVerseObjectCount
+ * @return {Number} updated nonWordVerseObjectCount
+ */
+const getWordsFromNestedVerseObjects = (verseObjects, newVerseObjects, wordMap, verseObjectsWithTextString, nonWordVerseObjectCount) => {
+  const voLength = verseObjects.length;
+  for (let i = 0; i < voLength; i++) {
+    const verseObject = verseObjects[i];
+    let vsObjText = verseObject.text && verseObject.text.trim();
+    if ((verseObject.type !== 'text')) {
+      // preseserve non-text verseObject except for text part which will be split into words
+      delete verseObject.text;
+      newVerseObjects.push(verseObject);
+      if (verseObject.children) {
+        const newChildVerseObjects = [];
+        nonWordVerseObjectCount = tokenizeText(vsObjText, newChildVerseObjects, wordMap, nonWordVerseObjectCount, verseObjectsWithTextString);
+        nonWordVerseObjectCount = getWordsFromNestedVerseObjects(verseObject.children, newChildVerseObjects,
+          wordMap, verseObjectsWithTextString, nonWordVerseObjectCount);
+        verseObject.children = newChildVerseObjects;
+      } else {
+        nonWordVerseObjectCount = tokenizeText(vsObjText, newVerseObjects, wordMap, nonWordVerseObjectCount, verseObjectsWithTextString);
+      }
+    } else {
+      nonWordVerseObjectCount = tokenizeText(vsObjText, newVerseObjects, wordMap, nonWordVerseObjectCount, verseObjectsWithTextString);
+    }
+  }
+  return nonWordVerseObjectCount;
+};
+
 /**
  * @description verseObjects with occurrences via string
  * @param {String} string - The string to search in
- * @returns {Array} - verseObjects with occurrences
+ * @returns {Array} - verseObjects with occurrences, and wordMap of words to verseObjects
  */
-
 export const getOrderedVerseObjectsFromString = string => {
   if (!string) return [];
-  let verseObjects = [];
   // convert string using usfm to JSON
   const _verseObjects = usfm.toJSON('\\v 1 ' + string, {chunk: true}).verses["1"].verseObjects;
-  const _verseObjectsWithTextString = _verseObjects
-    .map(verseObject => verseObject.text)
-    .filter(text => text)
-    .join(' ');
-  let nonWordVerseObjectCount = 0;
-  _verseObjects.forEach(_verseObject => {
-    let vsObjText = _verseObject.text;
-    if (vsObjText && vsObjText.trim()) { // only if non-whitespace characters in text
-      if ((_verseObject.type !== 'text')) {
-        // preseserve non-text verseObject except for text part which will be split into words
-        delete _verseObject.text;
-        verseObjects.push(_verseObject);
-        nonWordVerseObjectCount++;
-      }
-      tokenizer.tokenizeWithPunctuation(vsObjText).forEach(text => {
-        let verseObject;
-        if (tokenizer.word.test(text)) { // if the text has word characters, its a word object
-          const wordIndex = verseObjects.length - nonWordVerseObjectCount;
-          let occurrence = tokenizer.occurrenceInString(
-            _verseObjectsWithTextString,
-            wordIndex,
-            text);
-          const occurrences = tokenizer.occurrencesInString(
-            _verseObjectsWithTextString,
-            text);
-          if (occurrence > occurrences) occurrence = occurrences;
-          verseObject = {
-            tag: "w",
-            type: "word",
-            text,
-            occurrence,
-            occurrences
-          };
-        } else { // the text does not have word characters
-          nonWordVerseObjectCount++;
-          verseObject = {
-            type: "text",
-            text: text
-          };
-        }
-        verseObjects.push(verseObject);
-      });
-    } else {
-      verseObjects.push(_verseObject);
-    }
-  });
-  return verseObjects;
+  const _verseObjectsWithTextString = getVerseObjectsText(_verseObjects).join(' ');
+  let newVerseObjects = [];
+  let wordMap = [];
+  getWordsFromNestedVerseObjects(_verseObjects, newVerseObjects, wordMap, _verseObjectsWithTextString, 0);
+  return {newVerseObjects, wordMap};
 };
 
 /**
@@ -228,12 +289,13 @@ export const alignmentObjectFromVerseObject = verseObject => {
 
 /**
  * @description Returns index of the verseObject in the verseObjects (ignores occurrences since that can be off)
- * @param {Array} verseObjects - array of the verseObjects to search in
+ * @param {Array} wordMap - ordered map of word locations in verseObjects
  * @param {Object} verseObject - verseObject to search for
  * @return {Int} - the index of the verseObject
  */
-export const indexOfVerseObject = (verseObjects, verseObject) => (
-  verseObjects.findIndex(_verseObject => {
+export const indexOfVerseObject = (wordMap, verseObject) => (
+  wordMap.findIndex(wordItem => {
+    const _verseObject = wordItem.array[wordItem.pos];
     return (_verseObject.text === verseObject.text) &&
     (_verseObject.occurrence === verseObject.occurrence) &&
     (_verseObject.type === verseObject.type) &&

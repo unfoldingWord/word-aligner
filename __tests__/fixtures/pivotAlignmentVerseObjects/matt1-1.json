@@ -255,6 +255,7 @@
     {
       "tag": "f",
       "type": "footnote",
+      "endTag": "f*",
       "content": "This is a footnote about this verse, It shouldn't be rendered inline with the text."
     }
   ],

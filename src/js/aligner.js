@@ -30,16 +30,14 @@ export const hasAlignments = alignments => {
  */
 export const merge = (alignments, wordBank, verseString,
   useVerseText = false) => {
-  let verseObjects; // array to return
   // get the definitive list of verseObjects from the verse, unaligned but in order
-  const unalignedOrdered = VerseObjectUtils.getOrderedVerseObjectsFromString(
+  const {newVerseObjects: unalignedOrdered, wordMap} = VerseObjectUtils.getOrderedVerseObjectsFromString(
     verseString
   );
   // assign verseObjects with unaligned objects to be replaced with aligned ones
-  verseObjects = JSON.parse(JSON.stringify(unalignedOrdered));
   // check each word in the verse string is also in the word bank or alignments
   const verseObjectsNotInAlignmentData = verseStringWordsContainedInAlignments(
-    alignments, wordBank, verseObjects);
+    alignments, wordBank, wordMap);
   if (verseObjectsNotInAlignmentData.length > 0) {
     if (hasAlignments(alignments)) { // if verse has some alignments
       const verseWordsJoined = verseObjectsNotInAlignmentData.map(({text}) => text).join(', ');
@@ -48,7 +46,7 @@ export const merge = (alignments, wordBank, verseString,
         type: 'InvalidatedAlignments'
       };
     } else { // if verse had no alignments
-      return useVerseText ? verseObjects : null; // use parsed verse text
+      return useVerseText ? unalignedOrdered : null; // use parsed verse text
     }
   }
   // each wordBank object should result in one verseObject
@@ -56,13 +54,14 @@ export const merge = (alignments, wordBank, verseString,
     const verseObject = VerseObjectUtils.wordVerseObjectFromBottomWord(
       bottomWord);
     const index = VerseObjectUtils.indexOfVerseObject(
-      unalignedOrdered, verseObject);
+      wordMap, verseObject);
     if (index > -1) {
-      verseObjects[index] = verseObject;
+      const location = wordMap[index];
+      location.array[location.pos] = verseObject;
     } else if (hasAlignments(alignments)) { // if verse has some alignments
       throw {message: `Word "${bottomWord.word}" is in wordBank, but missing from target language verse.`, type: 'InvalidatedAlignments'};
     } else { // if verse had no alignments
-      return useVerseText ? verseObjects : null; // use parsed verse text
+      return useVerseText ? unalignedOrdered : null; // use parsed verse text
     }
   }
   let indicesToDelete = [];
@@ -76,7 +75,7 @@ export const merge = (alignments, wordBank, verseString,
       const verseObject = VerseObjectUtils.wordVerseObjectFromBottomWord(
         bottomWord);
       const index = VerseObjectUtils.indexOfVerseObject(
-        unalignedOrdered, verseObject);
+        wordMap, verseObject);
       if (index === -1) {
         throw {message: "VerseObject not found in verseText while merging:" + JSON.stringify(verseObject), type: 'InvalidatedAlignments'};
       }
@@ -88,8 +87,8 @@ export const merge = (alignments, wordBank, verseString,
     );
     const indices = Object.keys(replacements);
     // group consecutive indexes so that they can be aggregated
-    const groupedConsecutiveIndices = ArrayUtils.groupConsecutiveNumbers(
-      indices);
+    const groupedConsecutiveIndices =
+      ArrayUtils.groupConsecutiveNumbers(indices, wordMap);
     // loop through groupedConsecutiveIndices to reduce and place where needed.
     groupedConsecutiveIndices.forEach(consecutiveIndices => {
       // map the consecutiveIndices to replacement verseObjects
@@ -104,11 +103,12 @@ export const merge = (alignments, wordBank, verseString,
       // nest the milestones so that the first is the parent and each subsequent is nested
       const milestone = VerseObjectUtils.nestMilestones(milestones);
       // replace the original verseObject from the verse text with the aligned milestone verseObject
-      verseObjects[indexToReplace] = milestone;
+      const location = wordMap[indexToReplace];
+      location.array[location.pos] = milestone;
     });
   });
   // deleteIndices that were queued due to consecutive bottomWords in alignments
-  verseObjects = ArrayUtils.deleteIndices(verseObjects, indicesToDelete);
+  const verseObjects = ArrayUtils.deleteIndices(unalignedOrdered, indicesToDelete, wordMap);
   return verseObjects;
 };
 
@@ -118,13 +118,14 @@ export const merge = (alignments, wordBank, verseString,
  *
  * @param {Array} alignments - array of aligned word objects {bottomWords, topWords}
  * @param {Array} wordBank - array of unused topWords for aligning
- * @param {Object} verseObjects - verse objects from verse string to be checked
+ * @param {Array} wordMap - ordered map of word locations in verseObjects
  * @return {Array} - returns array of word verse objects from a string that are not contained in
  *                      the given alignments
  */
 export function verseStringWordsContainedInAlignments(
-  alignments, wordBank, verseObjects) {
-  return verseObjects.filter(verseObject => {
+  alignments, wordBank, wordMap) {
+  return wordMap.filter(wordItem => {
+    const verseObject = wordItem.array[wordItem.pos];
     const checkIfWordMatches = function(verseObject) {
       return function({word, occurrence, occurrences}) {
         const verseObjectWord = verseObject.text;
