@@ -31,9 +31,8 @@ export const hasAlignments = alignments => {
 export const merge = (alignments, wordBank, verseString,
   useVerseText = false) => {
   // get the definitive list of verseObjects from the verse, unaligned but in order
-  const {newVerseObjects: unalignedOrdered, wordMap} = VerseObjectUtils.getOrderedVerseObjectsFromString(
-    verseString
-  );
+  const {newVerseObjects: unalignedOrdered, wordMap} =
+        VerseObjectUtils.getOrderedVerseObjectsFromString(verseString);
   // assign verseObjects with unaligned objects to be replaced with aligned ones
   // check each word in the verse string is also in the word bank or alignments
   const verseObjectsNotInAlignmentData = verseStringWordsContainedInAlignments(

@@ -212,13 +212,15 @@ const getWordsFromNestedVerseObjects = (verseObjects, newVerseObjects, wordMap, 
  * @return {{newVerseObjects: Array, wordMap: Array}} - clone of verseObjects and word map
  */
 export const getOrderedVerseObjectsFromString = string => {
-  if (!string) return [];
-  // convert string using usfm to JSON
-  const _verseObjects = usfm.toJSON('\\v 1 ' + string, {chunk: true}).verses["1"].verseObjects;
-  const _verseObjectsWithTextString = getVerseObjectsText(_verseObjects).join(' ');
   let newVerseObjects = [];
   let wordMap = [];
-  getWordsFromNestedVerseObjects(_verseObjects, newVerseObjects, wordMap, _verseObjectsWithTextString, 0);
+  if (string) {
+    // convert string using usfm to JSON
+    const _verseObjects = usfm.toJSON('\\v 1 ' + string, {chunk: true}).verses["1"].verseObjects;
+    const _verseObjectsWithTextString = getVerseObjectsText(_verseObjects).join(' ');
+
+    getWordsFromNestedVerseObjects(_verseObjects, newVerseObjects, wordMap, _verseObjectsWithTextString, 0);
+  }
   return {newVerseObjects, wordMap};
 };
 

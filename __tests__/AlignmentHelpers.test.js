@@ -88,6 +88,9 @@ describe("Merge Alignment into Verse Objects", () => {
   it('handles acts 1-4', () => {
     mergeTest('acts-1-4');
   });
+  it('handles acts 19-41', () => {
+    mergeTest('acts-19-41');
+  });
 });
 
 describe("UnMerge Alignment from Verse Objects", () => {
