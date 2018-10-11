@@ -123,7 +123,7 @@ export const merge = (alignments, wordBank, verseString,
  */
 export function verseStringWordsContainedInAlignments(
   alignments, wordBank, wordMap) {
-  return wordMap.filter(wordItem => {
+  const unalignedMap = wordMap.filter(wordItem => {
     const verseObject = wordItem.array[wordItem.pos];
     const checkIfWordMatches = function(verseObject) {
       return function({word, occurrence, occurrences}) {
@@ -143,6 +143,7 @@ export function verseStringWordsContainedInAlignments(
     }));
     return !containedInWordBank && !containedInAlignments;
   });
+  return unalignedMap.map(location => (location.array[location.pos]));
 }
 
 /**

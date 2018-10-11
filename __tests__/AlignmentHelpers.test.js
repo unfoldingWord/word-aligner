@@ -91,6 +91,17 @@ describe("Merge Alignment into Verse Objects", () => {
   it('handles acts 19-41', () => {
     mergeTest('acts-19-41');
   });
+  it('handles acts-1-4-unaligned-nested', () => {
+    let fail = false;
+    try {
+      mergeTest('acts-1-4-unaligned-nested');
+      fail = false;
+    } catch (e) {
+      console.log(e);
+      fail = true;
+    }
+    expect(fail).toBeTruthy();
+  });
 });
 
 describe("UnMerge Alignment from Verse Objects", () => {
