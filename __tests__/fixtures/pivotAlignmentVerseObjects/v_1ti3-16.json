@@ -664,7 +664,7 @@
     {
       "tag": "s5",
       "type": "section",
-      "text": "\n"
+      "nextChar": "\n"
     },
     {
       "tag": "p",

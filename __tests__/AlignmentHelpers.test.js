@@ -82,6 +82,26 @@ describe("Merge Alignment into Verse Objects", () => {
   it('handles 1 timothy 3-16', () => {
     mergeTest('v_1ti3-16');
   });
+  it('handles acts 1-11', () => {
+    mergeTest('acts-1-11');
+  });
+  it('handles acts 1-4', () => {
+    mergeTest('acts-1-4');
+  });
+  it('handles acts 19-41', () => {
+    mergeTest('acts-19-41');
+  });
+  it('handles acts-1-4-unaligned-nested', () => {
+    let fail = false;
+    try {
+      mergeTest('acts-1-4-unaligned-nested');
+      fail = false;
+    } catch (e) {
+      console.log(e);
+      fail = true;
+    }
+    expect(fail).toBeTruthy();
+  });
 });
 
 describe("UnMerge Alignment from Verse Objects", () => {
@@ -126,6 +146,12 @@ describe("UnMerge Alignment from Verse Objects", () => {
   });
   it('handles 1 timothy 3-16', () => {
     unmergeTest('v_1ti3-16');
+  });
+  it('handles acts 1-11', () => {
+    unmergeTest('acts-1-11');
+  });
+  it('handles acts 1-4', () => {
+    unmergeTest('acts-1-4');
   });
 });
 

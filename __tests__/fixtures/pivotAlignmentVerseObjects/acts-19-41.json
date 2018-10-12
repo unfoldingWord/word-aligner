@@ -1,0 +1,87 @@
+{
+  "alignedVerseString": "καὶ ταῦτα εἰπὼν, ἀπέλυσεν τὴν ἐκκλησίαν.”",
+  "verseString": "",
+  "alignment": [
+    {
+      "topWords": [
+        {
+          "word": "καὶ",
+          "strong": "G25320",
+          "lemma": "καί",
+          "morph": "Gr,CC,,,,,,,,",
+          "occurrence": 1,
+          "occurrences": 1
+        }
+      ],
+      "bottomWords": []
+    },
+    {
+      "topWords": [
+        {
+          "word": "ταῦτα",
+          "strong": "G37780",
+          "lemma": "οὗτος",
+          "morph": "Gr,RD,,,,ANP,",
+          "occurrence": 1,
+          "occurrences": 1
+        }
+      ],
+      "bottomWords": []
+    },
+    {
+      "topWords": [
+        {
+          "word": "εἰπὼν",
+          "strong": "G30040",
+          "lemma": "λέγω",
+          "morph": "Gr,V,PAA,NMS,",
+          "occurrence": 1,
+          "occurrences": 1
+        }
+      ],
+      "bottomWords": []
+    },
+    {
+      "topWords": [
+        {
+          "word": "ἀπέλυσεν",
+          "strong": "G06300",
+          "lemma": "ἀπολύω",
+          "morph": "Gr,V,IAA3,,S,",
+          "occurrence": 1,
+          "occurrences": 1
+        }
+      ],
+      "bottomWords": []
+    },
+    {
+      "topWords": [
+        {
+          "word": "τὴν",
+          "strong": "G35880",
+          "lemma": "ὁ",
+          "morph": "Gr,EA,,,,AFS,",
+          "occurrence": 1,
+          "occurrences": 1
+        }
+      ],
+      "bottomWords": []
+    },
+    {
+      "topWords": [
+        {
+          "word": "ἐκκλησίαν",
+          "strong": "G15770",
+          "lemma": "ἐκκλησία",
+          "morph": "Gr,N,,,,,AFS,",
+          "occurrence": 1,
+          "occurrences": 1
+        }
+      ],
+      "bottomWords": []
+    }
+  ],
+  "verseObjects": [],
+  "wordBank": []
+}
+

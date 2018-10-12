@@ -30,16 +30,13 @@ export const hasAlignments = alignments => {
  */
 export const merge = (alignments, wordBank, verseString,
   useVerseText = false) => {
-  let verseObjects; // array to return
   // get the definitive list of verseObjects from the verse, unaligned but in order
-  const unalignedOrdered = VerseObjectUtils.getOrderedVerseObjectsFromString(
-    verseString
-  );
+  const {newVerseObjects: unalignedOrdered, wordMap} =
+        VerseObjectUtils.getOrderedVerseObjectsFromString(verseString);
   // assign verseObjects with unaligned objects to be replaced with aligned ones
-  verseObjects = JSON.parse(JSON.stringify(unalignedOrdered));
   // check each word in the verse string is also in the word bank or alignments
   const verseObjectsNotInAlignmentData = verseStringWordsContainedInAlignments(
-    alignments, wordBank, verseObjects);
+    alignments, wordBank, wordMap);
   if (verseObjectsNotInAlignmentData.length > 0) {
     if (hasAlignments(alignments)) { // if verse has some alignments
       const verseWordsJoined = verseObjectsNotInAlignmentData.map(({text}) => text).join(', ');
@@ -48,50 +45,59 @@ export const merge = (alignments, wordBank, verseString,
         type: 'InvalidatedAlignments'
       };
     } else { // if verse had no alignments
-      return useVerseText ? verseObjects : null; // use parsed verse text
+      return useVerseText ? unalignedOrdered : null; // use parsed verse text
     }
   }
   // each wordBank object should result in one verseObject
-  for (let bottomWord of wordBank) {
+  const wbLen = wordBank.length;
+  for (let i = 0; i < wbLen; i++) {
+    const bottomWord = wordBank[i];
     const verseObject = VerseObjectUtils.wordVerseObjectFromBottomWord(
       bottomWord);
     const index = VerseObjectUtils.indexOfVerseObject(
-      unalignedOrdered, verseObject);
+      wordMap, verseObject);
     if (index > -1) {
-      verseObjects[index] = verseObject;
+      const location = wordMap[index];
+      location.array[location.pos] = verseObject;
     } else if (hasAlignments(alignments)) { // if verse has some alignments
       throw {message: `Word "${bottomWord.word}" is in wordBank, but missing from target language verse.`, type: 'InvalidatedAlignments'};
     } else { // if verse had no alignments
-      return useVerseText ? verseObjects : null; // use parsed verse text
+      return useVerseText ? unalignedOrdered : null; // use parsed verse text
     }
   }
   let indicesToDelete = [];
   // each alignment should result in one verseObject
-  alignments.forEach(alignment => {
+  const aLen = alignments.length;
+  for (let i = 0; i < aLen; i++) {
+    const alignment = alignments[i];
     const {topWords, bottomWords} = alignment;
     // each bottomWord results in a nested verseObject of tag: w, type: word
     // located inside innermost nested topWord/k verseObject
     let replacements = {};
-    bottomWords.forEach(bottomWord => {
+    const bwLen = bottomWords.length;
+    for (let j = 0; j < bwLen; j++) {
+      const bottomWord = bottomWords[j];
       const verseObject = VerseObjectUtils.wordVerseObjectFromBottomWord(
         bottomWord);
       const index = VerseObjectUtils.indexOfVerseObject(
-        unalignedOrdered, verseObject);
+        wordMap, verseObject);
       if (index === -1) {
         throw {message: "VerseObject not found in verseText while merging:" + JSON.stringify(verseObject), type: 'InvalidatedAlignments'};
       }
       replacements[index] = verseObject;
-    });
+    }
     // each topWord results in a nested verseObject of tag: k, type: milestone
     const milestones = topWords.map(topWord =>
       VerseObjectUtils.milestoneVerseObjectFromTopWord(topWord)
     );
     const indices = Object.keys(replacements);
     // group consecutive indexes so that they can be aggregated
-    const groupedConsecutiveIndices = ArrayUtils.groupConsecutiveNumbers(
-      indices);
+    const groupedConsecutiveIndices =
+      ArrayUtils.groupConsecutiveNumbers(indices, wordMap);
     // loop through groupedConsecutiveIndices to reduce and place where needed.
-    groupedConsecutiveIndices.forEach(consecutiveIndices => {
+    const gLen = groupedConsecutiveIndices.length;
+    for (let j = 0; j < gLen; j++) {
+      const consecutiveIndices = groupedConsecutiveIndices[j];
       // map the consecutiveIndices to replacement verseObjects
       const replacementVerseObjects = consecutiveIndices.map(
         index => replacements[index]);
@@ -104,11 +110,12 @@ export const merge = (alignments, wordBank, verseString,
       // nest the milestones so that the first is the parent and each subsequent is nested
       const milestone = VerseObjectUtils.nestMilestones(milestones);
       // replace the original verseObject from the verse text with the aligned milestone verseObject
-      verseObjects[indexToReplace] = milestone;
-    });
-  });
+      const location = wordMap[indexToReplace];
+      location.array[location.pos] = milestone;
+    }
+  }
   // deleteIndices that were queued due to consecutive bottomWords in alignments
-  verseObjects = ArrayUtils.deleteIndices(verseObjects, indicesToDelete);
+  const verseObjects = ArrayUtils.deleteIndices(unalignedOrdered, indicesToDelete, wordMap);
   return verseObjects;
 };
 
@@ -118,13 +125,14 @@ export const merge = (alignments, wordBank, verseString,
  *
  * @param {Array} alignments - array of aligned word objects {bottomWords, topWords}
  * @param {Array} wordBank - array of unused topWords for aligning
- * @param {Object} verseObjects - verse objects from verse string to be checked
+ * @param {Array} wordMap - ordered map of word locations in verseObjects
  * @return {Array} - returns array of word verse objects from a string that are not contained in
  *                      the given alignments
  */
 export function verseStringWordsContainedInAlignments(
-  alignments, wordBank, verseObjects) {
-  return verseObjects.filter(verseObject => {
+  alignments, wordBank, wordMap) {
+  const unalignedMap = wordMap.filter(wordItem => {
+    const verseObject = wordItem.array[wordItem.pos];
     const checkIfWordMatches = function(verseObject) {
       return function({word, occurrence, occurrences}) {
         const verseObjectWord = verseObject.text;
@@ -143,6 +151,7 @@ export function verseStringWordsContainedInAlignments(
     }));
     return !containedInWordBank && !containedInAlignments;
   });
+  return unalignedMap.map(location => (location.array[location.pos]));
 }
 
 /**
@@ -231,23 +240,30 @@ export const indexOfMilestone = (alignments, verseObject) => {
  * @return {Array} ordered alignments if alignment string given, else unordered alignments
  */
 export const orderAlignments = function(alignmentVerse, alignmentUnOrdered) {
+  let orderedObjects = null;
   if (typeof alignmentVerse === 'string') {
-    alignmentVerse = VerseObjectUtils.getOrderedVerseObjectsFromString(
-      alignmentVerse);
+    orderedObjects = VerseObjectUtils.getOrderedVerseObjectsFromString(
+        alignmentVerse);
   } else {
-    alignmentVerse = VerseObjectUtils.getOrderedVerseObjects(alignmentVerse);
+    orderedObjects = VerseObjectUtils.getOrderedVerseObjects(alignmentVerse);
   }
-  if (Array.isArray(alignmentVerse)) {
+  const wordMap = orderedObjects.wordMap;
+  if (Array.isArray(wordMap)) {
     let alignment = [];
     // order alignments
-    for (let i = 0; i < alignmentVerse.length; i++) {
-      const nextWord = alignmentVerse[i];
+    for (let i = 0; i < wordMap.length; i++) {
+      const location = wordMap[i];
+      const nextWord = location.array[location.pos];
       let index = indexOfFirstMilestone(alignmentUnOrdered, nextWord);
-      if ((index < 0) && (nextWord.type === 'word') && (i < alignmentVerse.length - 1)) {
-        const wordAfter = alignmentVerse[i + 1];
-        if (wordAfter.type === 'text') { // maybe this was punctuation split from word
-          nextWord.text += wordAfter.text; // add possible punctuation
+      if ((index < 0) && (nextWord.type === 'word') && (i < wordMap.length - 1)) {
+        const verseObjectAfter = location.array[location.pos + 1];
+        if (verseObjectAfter.type === 'text') { // maybe this was punctuation split from word
+          const originalText = nextWord.text;
+          nextWord.text += verseObjectAfter.text; // add possible punctuation
           index = indexOfFirstMilestone(alignmentUnOrdered, nextWord); // try again
+          if (index < 0) {
+            nextWord.text = originalText; // restore original text if not a match
+          }
         }
       }
       if (index >= 0) {
@@ -267,7 +283,7 @@ export const orderAlignments = function(alignmentVerse, alignmentUnOrdered) {
       }
     }
     if (alignmentUnOrdered.length > 0) {
-      alignment = alignment.concat(alignmentUnOrdered);
+      alignment.push.apply(alignment, alignmentUnOrdered); // fast concat
     }
     return alignment;
   }
@@ -301,6 +317,28 @@ export const addVerseObjectToAlignment = (verseObject, alignment) => {
 };
 
 /**
+ * extracts alignment from verse object and adds to baseMilestones and alignments
+ * @param {Array} baseMilestones - array of milestones found
+ * @param {Object} verseObject - to add to arrays
+ * @param {Array} alignments - array of alignments found
+ */
+const addAlignment = (baseMilestones, verseObject, alignments) => {
+  let alignment = getAlignmentForMilestone(baseMilestones, verseObject);
+  if (!alignment) {
+    alignment = {topWords: [], bottomWords: []};
+    alignments.push(alignment);
+    baseMilestones.push({alignment: alignment, milestone: verseObject});
+  }
+  addVerseObjectToAlignment(verseObject, alignment);
+  if (verseObject.children && verseObject.type !== "milestone") {
+    const length = verseObject.children.length;
+    for (let i = 0; i < length; i++) {
+      addAlignment(baseMilestones, verseObject.children[i], alignments);
+    }
+  }
+};
+
+/**
  * @description pivots alignments into bottomWords/targetLanguage verseObjectArray sorted by verseText
  * @param {Array} verseObjects - array of aligned verseObjects [{milestone children={verseObject}}, ...]
  * @param {Array|Object|String} alignedVerse - optional verse to use for ordering alignments
@@ -316,17 +354,15 @@ export const unmerge = (verseObjects, alignedVerse) => {
   if (typeof alignedVerse !== 'string') {
     alignedVerse = VerseObjectUtils.getWordList(alignedVerse);
   }
-  for (let verseObject of verseObjects) {
-    let alignment = getAlignmentForMilestone(baseMilestones, verseObject);
-    if (!alignment) {
-      alignment = {topWords: [], bottomWords: []};
-      alignments.push(alignment);
-      baseMilestones.push({alignment: alignment, milestone: verseObject});
-    }
-    addVerseObjectToAlignment(verseObject, alignment);
+  let len = verseObjects.length;
+  for (let i = 0; i < len; i++) {
+    const verseObject = verseObjects[i];
+    addAlignment(baseMilestones, verseObject, alignments);
   }
   const alignmentUnOrdered = [];
-  for (let _alignment of alignments) {
+  len = alignments.length;
+  for (let i = 0; i < len; i++) {
+    const _alignment = alignments[i];
     if (_alignment.topWords.length > 0) {
       alignmentUnOrdered.push(_alignment);
     } else {

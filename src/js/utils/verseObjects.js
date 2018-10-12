@@ -1,3 +1,5 @@
+/* eslint-disable no-negated-condition */
+import _ from 'lodash';
 import usfm from 'usfm-js';
 import tokenizer from 'string-punctuation-tokenizer';
 import * as ArrayUtils from './array';
@@ -83,79 +85,146 @@ export const getOccurrences = (words, subString) => {
 /**
  * @description verseObjects with occurrences from verseObjects
  * @param {Array} verseObjects - Word list to add occurrence(s) to
- * @return {Array} - verseObjects with occurrences
+ * @return {{newVerseObjects: Array, wordMap: Array}} - clone of verseObjects and word map
  */
 export const getOrderedVerseObjects = verseObjects => {
-  const _verseObjects = JSON.parse(JSON.stringify(verseObjects)); // clone data before modifying
-  _verseObjects.forEach((verseObject, i) => {
+  const wordMap = [];
+  const _verseObjects = _.cloneDeep(verseObjects);
+  const length = _verseObjects.length;
+  for (let i = 0; i < length; i++) {
+    const verseObject = _verseObjects[i];
     if (verseObject.type === 'word') {
       verseObject.occurrence = getOccurrence(
         _verseObjects,
         i,
         verseObject.text);
       verseObject.occurrences = getOccurrences(_verseObjects, verseObject.text);
+      wordMap.push({array: _verseObjects, pos: i});
     }
-  });
-  return _verseObjects;
+  }
+  return {newVerseObjects: _verseObjects, wordMap};
 };
+
+/**
+ * get texts from nested verse objects
+ * @param {Array} verseObjects - nested verse objects to extract text from
+ * @return {Array} array of texts found
+ */
+const getVerseObjectsText = verseObjects => {
+  const texts = [];
+  if (verseObjects) {
+    const length = verseObjects.length;
+    for (let i = 0; i < length; i++) {
+      const vo = verseObjects[i];
+      if (vo.text) {
+        texts.push(vo.text);
+      }
+      if (vo.children) {
+        const childTexts = getVerseObjectsText(vo.children);
+        texts.push.apply(texts, childTexts); // concat arrays
+      }
+    }
+  }
+  return texts;
+};
+
+/**
+ * parse text into tokens
+ * @param {string} text - string to tokenize
+ * @param {Array} newVerseObjects - nested verse objects
+ * @param {Array} wordMap - ordered map of word locations in verseObjects
+ * @param {Number} nonWordVerseObjectCount - keeps count of entries that are not actually words
+ * @param {String} verseText - text of the entire verse
+ * @return {Number} new nonWordVerseObjectCount
+ */
+const tokenizeText = (text, newVerseObjects, wordMap, nonWordVerseObjectCount, verseText) => {
+  if (text) {
+    const tokens = tokenizer.tokenizeWithPunctuation(text);
+    const tokenLength = tokens.length;
+    for (let j = 0; j < tokenLength; j++) {
+      const word = tokens[j];
+      let verseObject;
+      if (tokenizer.word.test(word)) { // if the text has word characters, its a word object
+        const wordIndex = wordMap.length;
+        let occurrence = tokenizer.occurrenceInString(
+          verseText,
+          wordIndex,
+          word);
+        const occurrences = tokenizer.occurrencesInString(
+          verseText,
+          word);
+        if (occurrence > occurrences) occurrence = occurrences;
+        verseObject = {
+          tag: "w",
+          type: "word",
+          text: word,
+          occurrence,
+          occurrences
+        };
+        wordMap.push({array: newVerseObjects, pos: newVerseObjects.length});
+      } else { // the text does not have word characters
+        nonWordVerseObjectCount++;
+        verseObject = {
+          type: "text",
+          text: word
+        };
+      }
+      newVerseObjects.push(verseObject);
+    }
+  }
+  return nonWordVerseObjectCount;
+};
+
+/**
+ * step through verse objects extracting words
+ * @param {Array} verseObjects - original array of verse objects with words split
+ * @param {Array} newVerseObjects - new array of verse objects with words split
+ * @param {Array} wordMap - ordered map of word locations in verseObjects
+ * @param {String} verseText - text of the entire verse
+ * @param {Number} nonWordVerseObjectCount - keeps count of entries that are not actually words
+ * @return {Number} updated nonWordVerseObjectCount
+ */
+const getWordsFromNestedVerseObjects = (verseObjects, newVerseObjects, wordMap, verseText, nonWordVerseObjectCount) => {
+  const voLength = verseObjects.length;
+  for (let i = 0; i < voLength; i++) {
+    const verseObject = verseObjects[i];
+    let vsObjText = verseObject.text && verseObject.text.trim();
+    if ((verseObject.type !== 'text')) {
+      // preseserve non-text verseObject except for text part which will be split into words
+      delete verseObject.text;
+      newVerseObjects.push(verseObject);
+      if (verseObject.children) {
+        const newChildVerseObjects = [];
+        nonWordVerseObjectCount = tokenizeText(vsObjText, newChildVerseObjects, wordMap, nonWordVerseObjectCount, verseText);
+        nonWordVerseObjectCount = getWordsFromNestedVerseObjects(verseObject.children, newChildVerseObjects,
+          wordMap, verseText, nonWordVerseObjectCount);
+        verseObject.children = newChildVerseObjects;
+      } else {
+        nonWordVerseObjectCount = tokenizeText(vsObjText, newVerseObjects, wordMap, nonWordVerseObjectCount, verseText);
+      }
+    } else {
+      nonWordVerseObjectCount = tokenizeText(vsObjText, newVerseObjects, wordMap, nonWordVerseObjectCount, verseText);
+    }
+  }
+  return nonWordVerseObjectCount;
+};
+
 /**
  * @description verseObjects with occurrences via string
  * @param {String} string - The string to search in
- * @returns {Array} - verseObjects with occurrences
+ * @return {{newVerseObjects: Array, wordMap: Array}} - clone of verseObjects and word map
  */
-
 export const getOrderedVerseObjectsFromString = string => {
-  if (!string) return [];
-  let verseObjects = [];
-  // convert string using usfm to JSON
-  const _verseObjects = usfm.toJSON('\\v 1 ' + string, {chunk: true}).verses["1"].verseObjects;
-  const _verseObjectsWithTextString = _verseObjects
-    .map(verseObject => verseObject.text)
-    .filter(text => text)
-    .join(' ');
-  let nonWordVerseObjectCount = 0;
-  _verseObjects.forEach(_verseObject => {
-    let vsObjText = _verseObject.text;
-    if (vsObjText && vsObjText.trim()) { // only if non-whitespace characters in text
-      if ((_verseObject.type !== 'text')) {
-        // preseserve non-text verseObject except for text part which will be split into words
-        delete _verseObject.text;
-        verseObjects.push(_verseObject);
-        nonWordVerseObjectCount++;
-      }
-      tokenizer.tokenizeWithPunctuation(vsObjText).forEach(text => {
-        let verseObject;
-        if (tokenizer.word.test(text)) { // if the text has word characters, its a word object
-          const wordIndex = verseObjects.length - nonWordVerseObjectCount;
-          let occurrence = tokenizer.occurrenceInString(
-            _verseObjectsWithTextString,
-            wordIndex,
-            text);
-          const occurrences = tokenizer.occurrencesInString(
-            _verseObjectsWithTextString,
-            text);
-          if (occurrence > occurrences) occurrence = occurrences;
-          verseObject = {
-            tag: "w",
-            type: "word",
-            text,
-            occurrence,
-            occurrences
-          };
-        } else { // the text does not have word characters
-          nonWordVerseObjectCount++;
-          verseObject = {
-            type: "text",
-            text: text
-          };
-        }
-        verseObjects.push(verseObject);
-      });
-    } else {
-      verseObjects.push(_verseObject);
-    }
-  });
-  return verseObjects;
+  let newVerseObjects = [];
+  let wordMap = [];
+  if (string) {
+    // convert string using usfm to JSON
+    const _verseObjects = usfm.toJSON('\\v 1 ' + string, {chunk: true}).verses["1"].verseObjects;
+    const _verseObjectsWithTextString = getVerseObjectsText(_verseObjects).join(' ');
+
+    getWordsFromNestedVerseObjects(_verseObjects, newVerseObjects, wordMap, _verseObjectsWithTextString, 0);
+  }
+  return {newVerseObjects, wordMap};
 };
 
 /**
@@ -228,12 +297,13 @@ export const alignmentObjectFromVerseObject = verseObject => {
 
 /**
  * @description Returns index of the verseObject in the verseObjects (ignores occurrences since that can be off)
- * @param {Array} verseObjects - array of the verseObjects to search in
+ * @param {Array} wordMap - ordered map of word locations in verseObjects
  * @param {Object} verseObject - verseObject to search for
  * @return {Int} - the index of the verseObject
  */
-export const indexOfVerseObject = (verseObjects, verseObject) => (
-  verseObjects.findIndex(_verseObject => {
+export const indexOfVerseObject = (wordMap, verseObject) => (
+  wordMap.findIndex(wordItem => {
+    const _verseObject = wordItem.array[wordItem.pos];
     return (_verseObject.text === verseObject.text) &&
     (_verseObject.occurrence === verseObject.occurrence) &&
     (_verseObject.type === verseObject.type) &&
@@ -252,10 +322,10 @@ export const extractWordsFromVerseObject = verseObject => {
   if (typeof verseObject === 'object') {
     if (verseObject.word || verseObject.type === 'word') {
       words.push(verseObject);
-    } else if (verseObject.type === 'milestone' && verseObject.children) {
+    } else if (verseObject.children) {
       for (let child of verseObject.children) {
         const childWords = extractWordsFromVerseObject(child);
-        words = words.concat(childWords);
+        words.push.apply(words, childWords); // fast concat arrays
       }
     }
   }
@@ -308,7 +378,7 @@ export const getWordListFromVerseObjectArray = verseObjects => {
   let wordList = [];
   for (let verseObject of verseObjects) {
     const words = extractWordsFromVerseObject(verseObject);
-    wordList = wordList.concat(words);
+    wordList.push.apply(wordList, words); // fast concat arrays
   }
   return wordList;
 };
@@ -377,7 +447,8 @@ export const getWordListForVerse = verse => {
 export const getWordList = verseObjects => {
   let wordList = [];
   if (typeof verseObjects === 'string') {
-    verseObjects = getOrderedVerseObjectsFromString(verseObjects);
+    const {newVerseObjects} = getOrderedVerseObjectsFromString(verseObjects);
+    verseObjects = newVerseObjects;
   }
   if (verseObjects && verseObjects.verseObjects) {
     verseObjects = verseObjects.verseObjects;
