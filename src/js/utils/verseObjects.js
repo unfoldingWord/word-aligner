@@ -1,4 +1,5 @@
 /* eslint-disable no-negated-condition */
+import _ from 'lodash';
 import usfm from 'usfm-js';
 import tokenizer from 'string-punctuation-tokenizer';
 import * as ArrayUtils from './array';
@@ -88,8 +89,10 @@ export const getOccurrences = (words, subString) => {
  */
 export const getOrderedVerseObjects = verseObjects => {
   const wordMap = [];
-  const _verseObjects = JSON.parse(JSON.stringify(verseObjects)); // clone data before modifying
-  _verseObjects.forEach((verseObject, i) => {
+  const _verseObjects = _.cloneDeep(verseObjects);
+  const length = _verseObjects.length;
+  for (let i = 0; i < length; i++) {
+    const verseObject = _verseObjects[i];
     if (verseObject.type === 'word') {
       verseObject.occurrence = getOccurrence(
         _verseObjects,
@@ -98,7 +101,7 @@ export const getOrderedVerseObjects = verseObjects => {
       verseObject.occurrences = getOccurrences(_verseObjects, verseObject.text);
       wordMap.push({array: _verseObjects, pos: i});
     }
-  });
+  }
   return {newVerseObjects: _verseObjects, wordMap};
 };
 
@@ -322,7 +325,7 @@ export const extractWordsFromVerseObject = verseObject => {
     } else if (verseObject.children) {
       for (let child of verseObject.children) {
         const childWords = extractWordsFromVerseObject(child);
-        words = words.concat(childWords);
+        words.push.apply(words, childWords); // fast concat arrays
       }
     }
   }
@@ -375,7 +378,7 @@ export const getWordListFromVerseObjectArray = verseObjects => {
   let wordList = [];
   for (let verseObject of verseObjects) {
     const words = extractWordsFromVerseObject(verseObject);
-    wordList = wordList.concat(words);
+    wordList.push.apply(wordList, words); // fast concat arrays
   }
   return wordList;
 };

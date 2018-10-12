@@ -32,14 +32,16 @@ export const groupConsecutiveNumbers = (numbers, wordMap) => (
  */
 export const deleteIndices = (array, indices, wordMap) => {
   indices.sort((a, b) => b - a);
-  indices.forEach(index => {
+  const length = indices.length;
+  for (let i = 0; i < length; i++) {
+    const index = indices[i];
     if (index >= 0) {
       const location = wordMap[index];
       if (location) {
         location.array.splice(location.pos, 1);
       }
     }
-  });
+  }
   return array;
 };
 

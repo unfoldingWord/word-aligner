@@ -852,9 +852,9 @@
           "type": "milestone"
         }
       ],
+      "endTag": "",
       "tag": "qt-s",
-      "type": "quote",
-      "usfm3Milestone": true
+      "type": "quote"
     }
   ],
   "wordBank": []

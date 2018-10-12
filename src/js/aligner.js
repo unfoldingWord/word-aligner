@@ -49,7 +49,9 @@ export const merge = (alignments, wordBank, verseString,
     }
   }
   // each wordBank object should result in one verseObject
-  for (let bottomWord of wordBank) {
+  const wbLen = wordBank.length;
+  for (let i = 0; i < wbLen; i++) {
+    const bottomWord = wordBank[i];
     const verseObject = VerseObjectUtils.wordVerseObjectFromBottomWord(
       bottomWord);
     const index = VerseObjectUtils.indexOfVerseObject(
@@ -65,12 +67,16 @@ export const merge = (alignments, wordBank, verseString,
   }
   let indicesToDelete = [];
   // each alignment should result in one verseObject
-  alignments.forEach(alignment => {
+  const aLen = alignments.length;
+  for (let i = 0; i < aLen; i++) {
+    const alignment = alignments[i];
     const {topWords, bottomWords} = alignment;
     // each bottomWord results in a nested verseObject of tag: w, type: word
     // located inside innermost nested topWord/k verseObject
     let replacements = {};
-    bottomWords.forEach(bottomWord => {
+    const bwLen = bottomWords.length;
+    for (let j = 0; j < bwLen; j++) {
+      const bottomWord = bottomWords[j];
       const verseObject = VerseObjectUtils.wordVerseObjectFromBottomWord(
         bottomWord);
       const index = VerseObjectUtils.indexOfVerseObject(
@@ -79,7 +85,7 @@ export const merge = (alignments, wordBank, verseString,
         throw {message: "VerseObject not found in verseText while merging:" + JSON.stringify(verseObject), type: 'InvalidatedAlignments'};
       }
       replacements[index] = verseObject;
-    });
+    }
     // each topWord results in a nested verseObject of tag: k, type: milestone
     const milestones = topWords.map(topWord =>
       VerseObjectUtils.milestoneVerseObjectFromTopWord(topWord)
@@ -89,7 +95,9 @@ export const merge = (alignments, wordBank, verseString,
     const groupedConsecutiveIndices =
       ArrayUtils.groupConsecutiveNumbers(indices, wordMap);
     // loop through groupedConsecutiveIndices to reduce and place where needed.
-    groupedConsecutiveIndices.forEach(consecutiveIndices => {
+    const gLen = groupedConsecutiveIndices.length;
+    for (let j = 0; j < gLen; j++) {
+      const consecutiveIndices = groupedConsecutiveIndices[j];
       // map the consecutiveIndices to replacement verseObjects
       const replacementVerseObjects = consecutiveIndices.map(
         index => replacements[index]);
@@ -104,8 +112,8 @@ export const merge = (alignments, wordBank, verseString,
       // replace the original verseObject from the verse text with the aligned milestone verseObject
       const location = wordMap[indexToReplace];
       location.array[location.pos] = milestone;
-    });
-  });
+    }
+  }
   // deleteIndices that were queued due to consecutive bottomWords in alignments
   const verseObjects = ArrayUtils.deleteIndices(unalignedOrdered, indicesToDelete, wordMap);
   return verseObjects;
@@ -346,11 +354,15 @@ export const unmerge = (verseObjects, alignedVerse) => {
   if (typeof alignedVerse !== 'string') {
     alignedVerse = VerseObjectUtils.getWordList(alignedVerse);
   }
-  for (let verseObject of verseObjects) {
+  let len = verseObjects.length;
+  for (let i = 0; i < len; i++) {
+    const verseObject = verseObjects[i];
     addAlignment(baseMilestones, verseObject, alignments);
   }
   const alignmentUnOrdered = [];
-  for (let _alignment of alignments) {
+  len = alignments.length;
+  for (let i = 0; i < len; i++) {
+    const _alignment = alignments[i];
     if (_alignment.topWords.length > 0) {
       alignmentUnOrdered.push(_alignment);
     } else {
