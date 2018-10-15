@@ -102,6 +102,9 @@ describe("Merge Alignment into Verse Objects", () => {
     }
     expect(fail).toBeTruthy();
   });
+  it('handles titus 1-12', () => {
+    mergeTest('tit1-12');
+  });
 });
 
 describe("UnMerge Alignment from Verse Objects", () => {
@@ -152,6 +155,9 @@ describe("UnMerge Alignment from Verse Objects", () => {
   });
   it('handles acts 1-4', () => {
     unmergeTest('acts-1-4');
+  });
+  it('handles titus 1-12', () => {
+    unmergeTest('tit1-12');
   });
 });
 

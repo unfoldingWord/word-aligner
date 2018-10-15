@@ -141,9 +141,26 @@ const tokenizeText = (text, newVerseObjects, wordMap, nonWordVerseObjectCount, v
   if (text) {
     const tokens = tokenizer.tokenizeWithPunctuation(text);
     const tokenLength = tokens.length;
+    let verseObject;
+    let lastPos = 0;
     for (let j = 0; j < tokenLength; j++) {
       const word = tokens[j];
-      let verseObject;
+      const pos = text.indexOf(word, lastPos);
+      if (pos > lastPos) { // make sure we are not dropping white space
+        const gap = text.substring(lastPos, pos);
+        const lastVerseObject = newVerseObjects.length && newVerseObjects[newVerseObjects.length - 1];
+        if (lastVerseObject && (lastVerseObject.type === 'text')) { // append to previous text
+          lastVerseObject.text += gap;
+        } else
+        if (gap !== ' ') { // if not default single space, then save gap
+          verseObject = {
+            type: "text",
+            text: gap
+          };
+          newVerseObjects.push(verseObject);
+        }
+        lastPos += gap.length;
+      }
       if (tokenizer.word.test(word)) { // if the text has word characters, its a word object
         const wordIndex = wordMap.length;
         let occurrence = tokenizer.occurrenceInString(
@@ -169,6 +186,7 @@ const tokenizeText = (text, newVerseObjects, wordMap, nonWordVerseObjectCount, v
           text: word
         };
       }
+      lastPos += word.length;
       newVerseObjects.push(verseObject);
     }
   }

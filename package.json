@@ -1,13 +1,16 @@
 {
   "name": "word-aligner",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A library for handling word alignment",
   "main": "lib/index.js",
   "scripts": {
     "test": "eslint ./src ./index.js && jest",
     "fix": "eslint ./src ./index.js --fix",
     "compile": "rimraf lib && babel src/ -d lib/",
-    "prepublish": "npm run compile"
+    "prebuild": "rm -rf ./lib",
+    "build": "babel ./src -d ./lib",
+    "prepare": "if [ ! -d './lib/' ]; then npm run build; fi",
+    "prepublishOnly": "npm test && npm run build"
   },
   "jest": {
     "collectCoverageFrom": [
