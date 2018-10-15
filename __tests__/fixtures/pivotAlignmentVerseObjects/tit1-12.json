@@ -1,6 +1,6 @@
 {
   "alignedVerseString": "εἶπέν τις ἐξ αὐτῶν, ἴδιος αὐτῶν προφήτης, “Κρῆτες ἀεὶ ψεῦσται, κακὰ θηρία, γαστέρες ἀργαί.”",
-  "verseString": "One of their own prophets has said, \"Cretans are always liars, evil beasts, lazy gluttons.\"",
+  "verseString": "One  of their own prophets has said, \"Cretans are always liars, evil beasts, lazy gluttons.\"",
   "verseObjects": [
     {
       "children": [
@@ -20,6 +20,10 @@
       "strong": "G51000",
       "tag": "zaln",
       "type": "milestone"
+    },
+    {
+      "text": "  ",
+      "type": "text"
     },
     {
       "children": [
