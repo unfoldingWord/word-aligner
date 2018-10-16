@@ -67,7 +67,7 @@ describe('VerseObjectUtils.getWordsFromVerseObjects', () => {
       occurrence: 1,
       occurrences: 1
     },
-    {type: 'text', text: ','},
+    {type: 'text', text: ', '},
     {
       tag: 'w',
       type: 'word',
@@ -147,7 +147,7 @@ describe("getOrderedVerseObjectsFromString", () => {
       },
       {
         type: "text",
-        text: ","
+        text: ", "
       },
       {
         tag: "w",
@@ -193,7 +193,7 @@ describe("getOrderedVerseObjectsFromString", () => {
       },
       {
         type: "text",
-        text: ","
+        text: ", "
       },
       {
         tag: "w",
@@ -253,7 +253,7 @@ describe("getOrderedVerseObjectsFromString", () => {
       },
       {
         type: "text",
-        text: ","
+        text: ", "
       },
       {
         tag: "w",
@@ -278,7 +278,7 @@ describe("getOrderedVerseObjectsFromString", () => {
       },
       {
         type: "text",
-        text: "."
+        text: ". "
       },
       {
         tag: "f",

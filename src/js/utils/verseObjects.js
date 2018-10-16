@@ -129,6 +129,32 @@ const getVerseObjectsText = verseObjects => {
 };
 
 /**
+ * make sure we pick up extra white space between tokens
+ * @param {string} text - string to tokenize
+ * @param {Number} lastPos - position of end of last token
+ * @param {Number} pos - position to grab up to
+ * @param {Array} newVerseObjects - nested verse objects
+ * @param {Boolean} end - if true, then at end of line
+ * @return {{lastPos: *, verseObject: *}} - new verse object and updated position
+ */
+const fillGap = (text, lastPos, pos, newVerseObjects, end = false) => {
+  let verseObject = null;
+  const gap = text.substring(lastPos, pos);
+  const lastVerseObject = newVerseObjects.length && newVerseObjects[newVerseObjects.length - 1];
+  if (lastVerseObject && (lastVerseObject.type === 'text')) { // append to previous text
+    lastVerseObject.text += gap;
+  } else if (end || (gap !== ' ')) { // if not default single space, then save gap
+    verseObject = {
+      type: "text",
+      text: gap
+    };
+    newVerseObjects.push(verseObject);
+  }
+  lastPos += gap.length;
+  return lastPos;
+};
+
+/**
  * parse text into tokens
  * @param {string} text - string to tokenize
  * @param {Array} newVerseObjects - nested verse objects
@@ -141,9 +167,14 @@ const tokenizeText = (text, newVerseObjects, wordMap, nonWordVerseObjectCount, v
   if (text) {
     const tokens = tokenizer.tokenizeWithPunctuation(text);
     const tokenLength = tokens.length;
+    let verseObject;
+    let lastPos = 0;
     for (let j = 0; j < tokenLength; j++) {
       const word = tokens[j];
-      let verseObject;
+      const pos = text.indexOf(word, lastPos);
+      if (pos > lastPos) { // make sure we are not dropping white space
+        lastPos = fillGap(text, lastPos, pos, newVerseObjects);
+      }
       if (tokenizer.word.test(word)) { // if the text has word characters, its a word object
         const wordIndex = wordMap.length;
         let occurrence = tokenizer.occurrenceInString(
@@ -169,7 +200,11 @@ const tokenizeText = (text, newVerseObjects, wordMap, nonWordVerseObjectCount, v
           text: word
         };
       }
+      lastPos += word.length;
       newVerseObjects.push(verseObject);
+    }
+    if (lastPos < text.length) {
+      lastPos = fillGap(text, lastPos, text.length, newVerseObjects, true);
     }
   }
   return nonWordVerseObjectCount;
@@ -188,7 +223,7 @@ const getWordsFromNestedVerseObjects = (verseObjects, newVerseObjects, wordMap, 
   const voLength = verseObjects.length;
   for (let i = 0; i < voLength; i++) {
     const verseObject = verseObjects[i];
-    let vsObjText = verseObject.text && verseObject.text.trim();
+    let vsObjText = verseObject.text;
     if ((verseObject.type !== 'text')) {
       // preseserve non-text verseObject except for text part which will be split into words
       delete verseObject.text;

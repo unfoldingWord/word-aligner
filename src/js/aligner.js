@@ -163,7 +163,9 @@ export function verseStringWordsContainedInAlignments(
  * @return {Object} previous Alignment if found - else null.
  */
 const getAlignmentForMilestone = (baseMilestones, newMilestone) => {
-  for (let baseMilestone of baseMilestones) {
+  const length = baseMilestones.length;
+  for (let i = 0; i < length; i++) {
+    const baseMilestone = baseMilestones[i];
     if (baseMilestone.alignment &&
       VerseObjectUtils.sameMilestone(baseMilestone.milestone, newMilestone)) {
       return baseMilestone.alignment;
@@ -216,15 +218,19 @@ export const indexOfFirstMilestone = (alignments, verseObject) => {
  * @description returns index of the verseObject in the alignments milestone (ignores occurrences since that can be off)
  * @param {Array} alignments - array of the alignments to search in
  * @param {Object} verseObject - verseObject to search for
- * @return {Int} - the index of the verseObject
+ * @return {Number} - the index of the verseObject
  */
 export const indexOfMilestone = (alignments, verseObject) => {
   let index = -1;
   if (verseObject.type === 'word') {
     index = alignments.findIndex(alignment => {
-      for (let _verseObject of alignment.topWords) {
+      const length = alignment.topWords.length;
+      for (let i = 0; i < length; i++) {
+        const _verseObject = alignment.topWords[i];
         if (_verseObject.word === verseObject.text) {
-          return compareOccurrences(_verseObject, verseObject);
+          if (compareOccurrences(_verseObject, verseObject)) {
+            return true;
+          }
         }
       }
       return false;
@@ -251,18 +257,21 @@ export const orderAlignments = function(alignmentVerse, alignmentUnOrdered) {
   if (Array.isArray(wordMap)) {
     let alignment = [];
     // order alignments
-    for (let i = 0; i < wordMap.length; i++) {
+    const wmLen = wordMap.length;
+    for (let i = 0; i < wmLen; i++) {
       const location = wordMap[i];
       const nextWord = location.array[location.pos];
       let index = indexOfFirstMilestone(alignmentUnOrdered, nextWord);
-      if ((index < 0) && (nextWord.type === 'word') && (i < wordMap.length - 1)) {
+      if ((index < 0) && (nextWord.type === 'word') && (i < wmLen - 1)) {
         const verseObjectAfter = location.array[location.pos + 1];
         if (verseObjectAfter.type === 'text') { // maybe this was punctuation split from word
           const originalText = nextWord.text;
-          nextWord.text += verseObjectAfter.text; // add possible punctuation
+          nextWord.text += verseObjectAfter.text.substr(0, 1); // add possible punctuation
           index = indexOfFirstMilestone(alignmentUnOrdered, nextWord); // try again
           if (index < 0) {
             nextWord.text = originalText; // restore original text if not a match
+          } else {
+            verseObjectAfter.text = verseObjectAfter.text.substr(1, 0); // remove punctuation
           }
         }
       }
