@@ -278,7 +278,7 @@ describe("getOrderedVerseObjectsFromString", () => {
       },
       {
         type: "text",
-        text: "."
+        text: ". "
       },
       {
         tag: "f",
