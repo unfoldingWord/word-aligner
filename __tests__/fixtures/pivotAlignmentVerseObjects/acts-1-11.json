@@ -1,6 +1,6 @@
 {
   "alignedVerseString": "οἳ καὶ εἶπαν, “ ἄνδρες, Γαλιλαῖοι, τί ἑστήκατε βλέποντες εἰς τὸν οὐρανόν? οὗτος ὁ Ἰησοῦς ὁ ἀναλημφθεὶς ἀφ’ ὑμῶν εἰς τὸν οὐρανὸν, οὕτως ἐλεύσεται ὃν τρόπον ἐθεάσασθε αὐτὸν πορευόμενον εἰς τὸν οὐρανόν.”",
-  "verseString": "And they said,\"Men of Galilee, why do you stand looking into heaven? This Jesus who has been taken up from you into heaven, will likewise return in the same manner as you saw him going into heaven.\"\\p",
+  "verseString": "And they said,\"Men of Galilee, why do you stand looking into heaven? This Jesus who has been taken up from you into heaven, will likewise return in the same manner as you saw him going into heaven.\"\n\\p",
   "alignment": [
     {
       "topWords": [
@@ -1273,7 +1273,7 @@
       "type": "text"
     },
     {
-      "text": "\"",
+      "text": "\"\n",
       "type": "text"
     },
     {

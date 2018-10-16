@@ -1,46 +1,11 @@
+/* eslint-disable no-use-before-define */
 /* eslint-env jest */
 import fs from 'fs-extra';
 import path from 'path';
+import usfmjs from 'usfm-js';
 jest.unmock('fs-extra');
 import wordaligner, {VerseObjectUtils} from '../src/';
 const RESOURCES = path.join('__tests__', 'fixtures', 'pivotAlignmentVerseObjects');
-/**
- * Reads a usfm file from the resources dir
- * @param {string} filename relative path to usfm file
- * @return {Object} - The read JSON object
- */
-const readJSON = filename => {
-  const fullPath = path.join(RESOURCES, filename);
-  if (fs.existsSync(fullPath)) {
-    const json = fs.readJsonSync(fullPath);
-    return json;
-  }
-  console.log('File not found.');
-  return false;
-};
-
-/**
- * Generator for testing merging of alignment into verseObjects
- * @param {string} name - the name of the test files to use. e.g. `valid` will test `valid.usfm` to `valid.json`
- */
-const mergeTest = (name = {}) => {
-  const json = readJSON(`${name}.json`);
-  expect(json).toBeTruthy();
-  const {alignment, verseObjects, verseString, wordBank} = json;
-  const output = wordaligner.merge(alignment, wordBank, verseString);
-  expect(output).toEqual(verseObjects);
-};
-/**
- * Generator for testing unmerging of alignment from verseObjects
- * @param {string} name - the name of the test files to use. e.g. `valid` will test `valid.usfm` to `valid.json`
- */
-const unmergeTest = (name = {}) => {
-  const json = readJSON(`${name}.json`);
-  expect(json).toBeTruthy();
-  const {verseObjects, alignment, wordBank, alignedVerseString} = json;
-  const output = wordaligner.unmerge(verseObjects, alignedVerseString);
-  expect(output).toEqual({alignment, wordBank});
-};
 
 describe("Merge Alignment into Verse Objects", () => {
   it('handles one to one', () => {
@@ -161,6 +126,15 @@ describe("UnMerge Alignment from Verse Objects", () => {
   });
 });
 
+describe("export USFM3 from Verse Objects", () => {
+  it('handles acts-1-11', () => {
+    exportTest('acts-1-11');
+  });
+  it('handles acts 1-4', () => {
+    exportTest('acts-1-4');
+  });
+});
+
 describe('wordaligner.generateBlankAlignments', () => {
   const createEmptyAlignment = function(verseObjects) {
     let wordList = VerseObjectUtils.getWordList(verseObjects);
@@ -248,8 +222,90 @@ describe('wordaligner.generateWordBank', () => {
     // then
     expect(results).toEqual(wordBank);
   });
-
-  //
-  // helpers
-  //
 });
+
+//
+// helpers
+//
+
+/**
+ * Reads a json file from the resources dir
+ * @param {string} filename relative path to usfm file
+ * @return {Object} - The read JSON object
+ */
+const readJSON = filename => {
+  const fullPath = path.join(RESOURCES, filename);
+  if (fs.existsSync(fullPath)) {
+    const json = fs.readJsonSync(fullPath);
+    return json;
+  }
+  console.log('File not found.');
+  return false;
+};
+
+/**
+ * Reads a usfm file from the resources dir
+ * @param {string} filename relative path to usfm file
+ * @return {Object} - The read JSON object
+ */
+const readUSFM = filename => {
+  const fullPath = path.join(RESOURCES, filename);
+  if (fs.existsSync(fullPath)) {
+    const usfm = fs.readFileSync(fullPath, 'UTF-8').toString();
+    return usfm;
+  }
+  console.log('File not found.');
+  return false;
+};
+
+/**
+ * Generator for testing merging of alignment into verseObjects
+ * @param {string} name - the name of the test files to use. e.g. `valid` will test `valid.usfm` to `valid.json`
+ */
+const mergeTest = (name = {}) => {
+  const json = readJSON(`${name}.json`);
+  expect(json).toBeTruthy();
+  const {alignment, verseObjects, verseString, wordBank} = json;
+  const output = wordaligner.merge(alignment, wordBank, verseString);
+  expect(output).toEqual(verseObjects);
+};
+
+/**
+ * Generator for testing unmerging of alignment from verseObjects
+ * @param {string} name - the name of the test files to use. e.g. `valid` will test `valid.usfm` to `valid.json`
+ */
+const unmergeTest = (name = {}) => {
+  const json = readJSON(`${name}.json`);
+  expect(json).toBeTruthy();
+  const {verseObjects, alignment, wordBank, alignedVerseString} = json;
+  const output = wordaligner.unmerge(verseObjects, alignedVerseString);
+  expect(output).toEqual({alignment, wordBank});
+};
+
+/**
+ * Generator for testing merging of alignment into verseObjects
+ * @param {string} name - the name of the test files to use. e.g. `valid` will test `valid.usfm` to `valid.json`
+ */
+const exportTest = (name = {}) => {
+  const json = readJSON(`${name}.json`);
+  expect(json).toBeTruthy();
+  const expectedUsfm = readUSFM(`${name}.usfm`);
+  expect(expectedUsfm).toBeTruthy();
+  const {alignment, verseString, wordBank} = json;
+  const output = wordaligner.merge(alignment, wordBank, verseString);
+  const outputData = {
+    chapters: {},
+    headers: [],
+    verses: {
+      1: output
+    }
+  };
+  let usfm = usfmjs.toUSFM(outputData, {chunk: true});
+  const split = usfm.split("\\v 1");
+  usfm = split.length > 1 ? split[1] : "";
+  if (usfm.substr(0, 1) === ' ') {
+    usfm = usfm.substr(1);
+  }
+  expect(usfm).toEqual(expectedUsfm);
+};
+
