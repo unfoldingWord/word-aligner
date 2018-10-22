@@ -309,3 +309,17 @@ describe("getWordListFromVerseObjectArray", () => {
     expect(verseWords).toEqual(expected);
   });
 });
+
+describe("getWordListForVerse", () => {
+  it('handles arrays with punctuation', () => {
+    // given
+    const testFile = path.join('__tests__', 'fixtures', 'verseObjects', 'heb-12-27.grc.json');
+    const testData = fs.readJSONSync(testFile);
+
+    // when
+    const results = VerseObjectUtils.getWordListForVerse(testData.verseObjects);
+
+    // then
+    expect(results).toEqual(testData.wordList);
+  });
+});

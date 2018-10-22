@@ -35,6 +35,12 @@ describe("Merge Alignment into Verse Objects", () => {
   it('handles matt 1-1', () => {
     mergeTest('matt1-1');
   });
+  it('handles mat-4-6', () => {
+    mergeTest('mat-4-6');
+  });
+  it('handles mat-4-6.whitespace', () => {
+    mergeTest('mat-4-6.whitespace');
+  });
   it('handles noncontiguous', () => {
     mergeTest('noncontiguous');
   });
@@ -97,6 +103,12 @@ describe("UnMerge Alignment from Verse Objects", () => {
   it('handles matt 1-1', () => {
     unmergeTest('matt1-1');
   });
+  it('handles mat-4-6', () => {
+    unmergeTest('mat-4-6');
+  });
+  it('handles mat-4-6.whitespace', () => {
+    unmergeTest('mat-4-6.whitespace');
+  });
   it('handles noncontiguous', () => {
     unmergeTest('noncontiguous');
   });
@@ -132,6 +144,9 @@ describe("export USFM3 from Verse Objects", () => {
   });
   it('handles acts 1-4', () => {
     exportTest('acts-1-4');
+  });
+  it('handles mat-4-6.whitespace', () => {
+    exportTest('mat-4-6.whitespace');
   });
 });
 
@@ -282,6 +297,21 @@ const unmergeTest = (name = {}) => {
   expect(output).toEqual({alignment, wordBank});
 };
 
+function normalizeAtributes(tag, source) {
+  let parts = source.split(tag);
+  const length = parts.length;
+  for (let i = 1; i < length; i++) {
+    const part = parts[i];
+    let lines = part.split('\n');
+    let attributes = lines[0].split(' ');
+    attributes = attributes.sort();
+    lines[0] = attributes.join(' ');
+    parts[i] = lines.join('\n');
+  }
+  const normalized = parts.join(tag);
+  return normalized;
+}
+
 /**
  * Generator for testing merging of alignment into verseObjects
  * @param {string} name - the name of the test files to use. e.g. `valid` will test `valid.usfm` to `valid.json`
@@ -306,6 +336,9 @@ const exportTest = (name = {}) => {
   if (usfm.substr(0, 1) === ' ') {
     usfm = usfm.substr(1);
   }
-  expect(usfm).toEqual(expectedUsfm);
+  const tag = "\\zaln-s | ";
+  const outputNormal = normalizeAtributes(tag, usfm);
+  const expectedNormal = normalizeAtributes(tag, expectedUsfm);
+  expect(outputNormal).toEqual(expectedNormal);
 };
 

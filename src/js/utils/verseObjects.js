@@ -310,6 +310,7 @@ export const milestoneVerseObjectFromTopWord = topWord => {
   verseObject.type = "milestone";
   verseObject.content = topWord.word;
   delete verseObject.word;
+  delete verseObject.endTag;
   delete verseObject.tw;
   return verseObject;
 };
@@ -327,6 +328,7 @@ export const alignmentObjectFromVerseObject = verseObject => {
   delete wordObject.tag;
   delete wordObject.type;
   delete wordObject.children;
+  delete wordObject.endTag;
   return wordObject;
 };
 
@@ -411,7 +413,9 @@ export const mergeVerseData = (verseData, filter) => {
  */
 export const getWordListFromVerseObjectArray = verseObjects => {
   let wordList = [];
-  for (let verseObject of verseObjects) {
+  const length = verseObjects.length;
+  for (let i = 0; i < length; i++) {
+    const verseObject = verseObjects[i];
     const words = extractWordsFromVerseObject(verseObject);
     wordList.push.apply(wordList, words); // fast concat arrays
   }
