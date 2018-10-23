@@ -306,7 +306,8 @@
     },
     {
       "tag": "q",
-      "type": "quote"
+      "type": "quote",
+      "nextChar": " "
     },
     {
       "text": "'",
@@ -476,7 +477,8 @@
     },
     {
       "tag": "m",
-      "type": "paragraph"
+      "type": "paragraph",
+      "nextChar": " "
     },
     {
       "children": [
@@ -503,7 +505,8 @@
     },
     {
       "tag": "q",
-      "type": "quote"
+      "type": "quote",
+      "nextChar": " "
     },
     {
       "text": "'",
@@ -631,7 +634,8 @@
     },
     {
       "tag": "q",
-      "type": "quote"
+      "type": "quote",
+      "nextChar": " "
     },
     {
       "children": [

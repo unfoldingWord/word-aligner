@@ -169,7 +169,8 @@
     },
     {
       "tag": "q",
-      "type": "quote"
+      "type": "quote",
+      "nextChar": " "
     },
     {
       "type": "text",
@@ -264,7 +265,8 @@
     },
     {
       "tag": "q",
-      "type": "quote"
+      "type": "quote",
+      "nextChar": " "
     },
     {
       "strong": "G13440",
@@ -343,7 +345,8 @@
     },
     {
       "tag": "q",
-      "type": "quote"
+      "type": "quote",
+      "nextChar": " "
     },
     {
       "strong": "G37080",
@@ -403,7 +406,8 @@
     },
     {
       "tag": "q",
-      "type": "quote"
+      "type": "quote",
+      "nextChar": " "
     },
     {
       "strong": "G27840",
@@ -475,7 +479,8 @@
     },
     {
       "tag": "q",
-      "type": "quote"
+      "type": "quote",
+      "nextChar": " "
     },
     {
       "strong": "G41000",
@@ -561,7 +566,8 @@
     },
     {
       "tag": "q",
-      "type": "quote"
+      "type": "quote",
+      "nextChar": " "
     },
     {
       "strong": "G25320",

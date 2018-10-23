@@ -1,6 +1,6 @@
 {
   "alignedVerseString": "καὶ λέγει αὐτῷ, “εἰ Υἱὸς εἶ τοῦ Θεοῦ, βάλε σεαυτὸν κάτω; γέγραπται γὰρ, ὅτι τοῖς‘ ἀγγέλοις αὐτοῦ ἐντελεῖται περὶ σοῦ’, καὶ, ἐπὶ‘ χειρῶν ἀροῦσίν σε, μήποτε προσκόψῃς πρὸς λίθον τὸν πόδα σου.’”",
-  "verseString": "and said to him, \"If you are the Son of God, throw yourself down, for it is written,\n\\q 'He will command his angels to take care of you,'\n\\m  and,\n\\q 'They will lift you up in their hands,\n\\q so that you will not hit your foot against a stone.'\"\n\\m\n\n\\s5",
+  "verseString": "and said to him, \"If you are the Son of God, throw yourself down, for it is written,\n\\q 'He will command his angels to take care of you,'\n\\m and,\n\\q 'They will lift you up in their hands,\n\\q so that you will not hit your foot against a stone.'\"\n\\m\n\n\\s5",
   "verseObjects": [
     {
       "children": [
@@ -306,7 +306,8 @@
     },
     {
       "tag": "q",
-      "type": "quote"
+      "type": "quote",
+      "nextChar": " "
     },
     {
       "text": "'",
@@ -476,7 +477,8 @@
     },
     {
       "tag": "m",
-      "type": "paragraph"
+      "type": "paragraph",
+      "nextChar": " "
     },
     {
       "children": [
@@ -503,7 +505,8 @@
     },
     {
       "tag": "q",
-      "type": "quote"
+      "type": "quote",
+      "nextChar": " "
     },
     {
       "text": "'",
@@ -631,7 +634,8 @@
     },
     {
       "tag": "q",
-      "type": "quote"
+      "type": "quote",
+      "nextChar": " "
     },
     {
       "children": [
