@@ -227,6 +227,12 @@ const getWordsFromNestedVerseObjects = (verseObjects, newVerseObjects, wordMap, 
     if ((verseObject.type !== 'text')) {
       // preseserve non-text verseObject except for text part which will be split into words
       delete verseObject.text;
+      if (vsObjText) {
+        if (verseObject.nextChar) {
+          vsObjText += verseObject.nextChar; // preserve next char
+        }
+        verseObject.nextChar = ' '; // preserve space before text
+      }
       newVerseObjects.push(verseObject);
       if (verseObject.children) {
         const newChildVerseObjects = [];
