@@ -1,6 +1,6 @@
 {
   "name": "word-aligner",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A library for handling word alignment",
   "main": "lib/index.js",
   "scripts": {
@@ -58,6 +58,6 @@
     "rimraf": "^2.6.2",
     "string-punctuation-tokenizer": "0.9.1",
     "transform-runtime": "0.0.0",
-    "usfm-js": "^1.0.6"
+    "usfm-js": "^1.0.7"
   }
 }

@@ -308,4 +308,32 @@ describe("getWordListFromVerseObjectArray", () => {
     const verseWords = VerseObjectUtils.mergeVerseData(results);
     expect(verseWords).toEqual(expected);
   });
+
+  it('handles en ULT', () => {
+    // given
+    const testFile = path.join('__tests__', 'fixtures', 'verseObjects', 'mat-4-6.json');
+    const testData = fs.readJSONSync(testFile);
+    const expected = "and said to him If you are the Son of God throw yourself down for it is written He will command his angels to take care of you and They will lift you up in their hands so that you will not hit your foot against a stone";
+
+    // when
+    const results = VerseObjectUtils.getWordListFromVerseObjectArray(testData);
+
+    // then
+    const verseWords = VerseObjectUtils.mergeVerseData(results);
+    expect(verseWords).toEqual(expected);
+  });
+});
+
+describe("getWordListForVerse", () => {
+  it('handles arrays with punctuation', () => {
+    // given
+    const testFile = path.join('__tests__', 'fixtures', 'verseObjects', 'heb-12-27.grc.json');
+    const testData = fs.readJSONSync(testFile);
+
+    // when
+    const results = VerseObjectUtils.getWordListForVerse(testData.verseObjects);
+
+    // then
+    expect(results).toEqual(testData.wordList);
+  });
 });
