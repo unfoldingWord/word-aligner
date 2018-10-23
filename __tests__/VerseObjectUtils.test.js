@@ -308,6 +308,20 @@ describe("getWordListFromVerseObjectArray", () => {
     const verseWords = VerseObjectUtils.mergeVerseData(results);
     expect(verseWords).toEqual(expected);
   });
+
+  it('handles en ULT', () => {
+    // given
+    const testFile = path.join('__tests__', 'fixtures', 'verseObjects', 'mat-4-6.json');
+    const testData = fs.readJSONSync(testFile);
+    const expected = "and said to him If you are the Son of God throw yourself down for it is written He will command his angels to take care of you and They will lift you up in their hands so that you will not hit your foot against a stone";
+
+    // when
+    const results = VerseObjectUtils.getWordListFromVerseObjectArray(testData);
+
+    // then
+    const verseWords = VerseObjectUtils.mergeVerseData(results);
+    expect(verseWords).toEqual(expected);
+  });
 });
 
 describe("getWordListForVerse", () => {
