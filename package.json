@@ -58,6 +58,6 @@
     "rimraf": "^2.6.2",
     "string-punctuation-tokenizer": "0.9.1",
     "transform-runtime": "0.0.0",
-    "usfm-js": "github:translationCoreApps/usfm-js#bugfix-mcleanb-5063"
+    "usfm-js": "^1.0.7"
   }
 }
