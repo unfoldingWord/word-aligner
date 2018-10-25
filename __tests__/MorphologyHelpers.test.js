@@ -8,7 +8,7 @@ describe('MorphologyHelpers tests', () => {
     const morphsPath = path.join('__tests__', 'fixtures', 'morphs', 'all-titus-morphs.json');
     const allTitusMorphs = fs.readJSONSync(morphsPath);
     Object.keys(allTitusMorphs).forEach(morph => {
-      const morphStr = MorphologyHelpers.getFullMorphologicalString(morph, k=>k.split('.')[1]);
+      const morphStr = MorphologyHelpers.getFullMorphologicalString(morph, k=>k);
       // process.stdout.write('  "'+morph+'": "'+morphStr+'",\n');
       expect(morphStr).toEqual(allTitusMorphs[morph]);
     });
