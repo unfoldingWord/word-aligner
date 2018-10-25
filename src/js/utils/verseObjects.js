@@ -484,12 +484,15 @@ export const getWordListForVerse = (verse, translate) => {
   } else { // already a flat word list
     words = verse;
   }
+  console.log(words);
   for (let i = 0; i < words.length; ++i) {
+    console.log(word);
     if (words[i].morph) {
       if (translate)
         words.morphFull = MorphologyHelpers.getFullMorphologicalString(words[i].morph, translate);
       else
         words.morphFull = words.morph;
+      console.log(words.morphFull);
     }
   }
   return words;
