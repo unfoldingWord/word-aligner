@@ -5,137 +5,137 @@
 export const morphCodeLocalizationMap = {
   2: { // role
     N: {
-      key: 'tools.noun',
+      key: 'noun',
       3: { // noun types
-        S: 'tools.substatitive_adj',
-        P: 'tools.predicate_adj'
+        S: 'substatitive_adj',
+        P: 'predicate_adj'
       }
     },
     A: {
-      key: 'tools.adjective',
+      key: 'adjective',
       3: { // adjective types
-        A: 'tools.ascriptive',
-        R: 'tools.restrictive'
+        A: 'ascriptive',
+        R: 'restrictive'
       }
     },
     E: {
-      key: 'tools.determiner',
+      key: 'determiner',
       3: { // determiner types
-        A: 'tools.article',
-        D: 'tools.demonstrative',
-        F: 'tools.differential',
-        P: 'tools.possessive',
-        Q: 'tools.quantifier',
-        N: 'tools.number',
-        O: 'tools.ordinal',
-        R: 'tools.relative',
-        T: 'tools.interrogative'
+        A: 'article',
+        D: 'demonstrative',
+        F: 'differential',
+        P: 'possessive',
+        Q: 'quantifier',
+        N: 'number',
+        O: 'ordinal',
+        R: 'relative',
+        T: 'interrogative'
       }
     },
     R: {
-      key: 'tools.pronoun',
+      key: 'pronoun',
       3: { // pronoun types
-        D: 'tools.demonstrative',
-        P: 'tools.personal',
-        E: 'tools.reflexive',
-        C: 'tools.reciprocal',
-        I: 'tools.indefinite',
-        R: 'tools.relative',
-        T: 'tools.interrogative'
+        D: 'demonstrative',
+        P: 'personal',
+        E: 'reflexive',
+        C: 'reciprocal',
+        I: 'indefinite',
+        R: 'relative',
+        T: 'interrogative'
       }
     },
     V: {
-      key: 'tools.verb',
+      key: 'verb',
       3: { // verb types
-        T: 'tools.transitive',
-        I: 'tools.intransitive',
-        L: 'tools.linking',
-        M: 'tools.modal',
-        P: 'tools.periphrastic'
+        T: 'transitive',
+        I: 'intransitive',
+        L: 'linking',
+        M: 'modal',
+        P: 'periphrastic'
       }
     },
     I: {
-      key: 'tools.interjection',
+      key: 'interjection',
       3: { // interjection types
-        E: 'tools.exclamation',
-        D: 'tools.directive',
-        R: 'tools.response'
+        E: 'exclamation',
+        D: 'directive',
+        R: 'response'
       }
     },
     P: {
-      key: 'tools.preposition',
+      key: 'preposition',
       3: { // preposition types
-        I: 'tools.improper'
+        I: 'improper'
       }
     },
     D: {
-      key: 'tools.adverb',
+      key: 'adverb',
       3: { // adverb types
-        O: 'tools.correlative'
+        O: 'correlative'
       }
     },
     C: {
-      key: 'tools.conjunction',
+      key: 'conjunction',
       3: { // conjuction types
-        C: 'tools.coordinating',
-        S: 'tools.subordinating',
-        O: 'tools.correlative'
+        C: 'coordinating',
+        S: 'subordinating',
+        O: 'correlative'
       }
     },
     T: {
-      key: 'tools.particle',
+      key: 'particle',
       3: { // particle types
-        F: 'tools.foreign',
-        E: 'tools.error'
+        F: 'foreign',
+        E: 'error'
       }
     }
   },
   4: { // mood
-    I: 'tools.indicative',
-    M: 'tools.imperative',
-    S: 'tools.subjunctive',
-    O: 'tools.optative',
-    N: 'tools.infinitive',
-    P: 'tools.participle'
+    I: 'indicative',
+    M: 'imperative',
+    S: 'subjunctive',
+    O: 'optative',
+    N: 'infinitive',
+    P: 'participle'
   },
   5: { // tense
-    P: 'tools.present',
-    I: 'tools.imperfect',
-    F: 'tools.future',
-    A: 'tools.aorist',
-    E: 'tools.perfect',
-    L: 'tools.pluperfect'
+    P: 'present',
+    I: 'imperfect',
+    F: 'future',
+    A: 'aorist',
+    E: 'perfect',
+    L: 'pluperfect'
   },
   6: { // voice
-    A: 'tools.active',
-    M: 'tools.middle',
-    P: 'tools.passive'
+    A: 'active',
+    M: 'middle',
+    P: 'passive'
   },
   7: { // person
-    1: 'tools.first',
-    2: 'tools.second',
-    3: 'tools.third'
+    1: 'first',
+    2: 'second',
+    3: 'third'
   },
   8: { // case
-    N: 'tools.nominative',
-    G: 'tools.genitive',
-    D: 'tools.dative',
-    A: 'tools.accusative',
-    V: 'tools.vocative'
+    N: 'nominative',
+    G: 'genitive',
+    D: 'dative',
+    A: 'accusative',
+    V: 'vocative'
   },
   9: { // gender
-    M: 'tools.masculine',
-    F: 'tools.feminine',
-    N: 'tools.neuter'
+    M: 'masculine',
+    F: 'feminine',
+    N: 'neuter'
   },
   10: { // number
-    S: 'tools.singular',
-    P: 'tools.plural'
+    S: 'singular',
+    P: 'plural'
   },
   11: { // other
-    C: 'tools.comparative',
-    S: 'tools.superlatives',
-    D: 'tools.diminutive',
-    I: 'tools.indeclinable'
+    C: 'comparative',
+    S: 'superlatives',
+    D: 'diminutive',
+    I: 'indeclinable'
   }
 };
