@@ -486,13 +486,11 @@ export const getWordListForVerse = (verse, translate) => {
   }
   console.log(words);
   for (let i = 0; i < words.length; ++i) {
-    console.log(word);
+    console.log(words[i]);
     if (words[i].morph) {
       if (translate)
-        words.morphFull = MorphologyHelpers.getFullMorphologicalString(words[i].morph, translate);
-      else
-        words.morphFull = words.morph;
-      console.log(words.morphFull);
+        words.morph = MorphologyHelpers.getFullMorphologicalString(words[i].morph, translate);
+      console.log(words.morph);
     }
   }
   return words;
