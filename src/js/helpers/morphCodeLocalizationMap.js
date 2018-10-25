@@ -2,7 +2,7 @@
 // This helps us translate codes starting and the 3rd place (the 2nd index) of a morph string
 // The numbered keys are the index of that code in the string, where the letter index is the code
 // Each role's 3rd index (the type code) is different, so we nest index 3 in the role's entry
-export const morphCodeLocalizasionMap = {
+export const morphCodeLocalizationMap = {
   2: { // role
     N: {
       key: 'noun',
