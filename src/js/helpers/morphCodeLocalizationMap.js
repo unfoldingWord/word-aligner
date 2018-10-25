@@ -5,137 +5,137 @@
 export const morphCodeLocalizationMap = {
   2: { // role
     N: {
-      key: 'noun',
+      key: 'pane.noun',
       3: { // noun types
-        S: 'substatitive_adj',
-        P: 'predicate_adj'
+        S: 'pane.substatitive_adj',
+        P: 'pane.predicate_adj'
       }
     },
     A: {
-      key: 'adjective',
+      key: 'pane.adjective',
       3: { // adjective types
-        A: 'ascriptive',
-        R: 'restrictive'
+        A: 'pane.ascriptive',
+        R: 'pane.restrictive'
       }
     },
     E: {
-      key: 'determiner',
+      key: 'pane.determiner',
       3: { // determiner types
-        A: 'article',
-        D: 'demonstrative',
-        F: 'differential',
-        P: 'possessive',
-        Q: 'quantifier',
-        N: 'number',
-        O: 'ordinal',
-        R: 'relative',
-        T: 'interrogative'
+        A: 'pane.article',
+        D: 'pane.demonstrative',
+        F: 'pane.differential',
+        P: 'pane.possessive',
+        Q: 'pane.quantifier',
+        N: 'pane.number',
+        O: 'pane.ordinal',
+        R: 'pane.relative',
+        T: 'pane.interrogative'
       }
     },
     R: {
-      key: 'pronoun',
+      key: 'pane.pronoun',
       3: { // pronoun types
-        D: 'demonstrative',
-        P: 'personal',
-        E: 'reflexive',
-        C: 'reciprocal',
-        I: 'indefinite',
-        R: 'relative',
-        T: 'interrogative'
+        D: 'pane.demonstrative',
+        P: 'pane.personal',
+        E: 'pane.reflexive',
+        C: 'pane.reciprocal',
+        I: 'pane.indefinite',
+        R: 'pane.relative',
+        T: 'pane.interrogative'
       }
     },
     V: {
-      key: 'verb',
+      key: 'pane.verb',
       3: { // verb types
-        T: 'transitive',
-        I: 'intransitive',
-        L: 'linking',
-        M: 'modal',
-        P: 'periphrastic'
+        T: 'pane.transitive',
+        I: 'pane.intransitive',
+        L: 'pane.linking',
+        M: 'pane.modal',
+        P: 'pane.periphrastic'
       }
     },
     I: {
-      key: 'interjection',
+      key: 'pane.interjection',
       3: { // interjection types
-        E: 'exclamation',
-        D: 'directive',
-        R: 'response'
+        E: 'pane.exclamation',
+        D: 'pane.directive',
+        R: 'pane.response'
       }
     },
     P: {
-      key: 'preposition',
+      key: 'pane.preposition',
       3: { // preposition types
-        I: 'improper'
+        I: 'pane.improper'
       }
     },
     D: {
-      key: 'adverb',
+      key: 'pane.adverb',
       3: { // adverb types
-        O: 'correlative'
+        O: 'pane.correlative'
       }
     },
     C: {
-      key: 'conjunction',
+      key: 'pane.conjunction',
       3: { // conjuction types
-        C: 'coordinating',
-        S: 'subordinating',
-        O: 'correlative'
+        C: 'pane.coordinating',
+        S: 'pane.subordinating',
+        O: 'pane.correlative'
       }
     },
     T: {
-      key: 'particle',
+      key: 'pane.particle',
       3: { // particle types
-        F: 'foreign',
-        E: 'error'
+        F: 'pane.foreign',
+        E: 'pane.error'
       }
     }
   },
   4: { // mood
-    I: 'indicative',
-    M: 'imperative',
-    S: 'subjunctive',
-    O: 'optative',
-    N: 'infinitive',
-    P: 'participle'
+    I: 'pane.indicative',
+    M: 'pane.imperative',
+    S: 'pane.subjunctive',
+    O: 'pane.optative',
+    N: 'pane.infinitive',
+    P: 'pane.participle'
   },
   5: { // tense
-    P: 'present',
-    I: 'imperfect',
-    F: 'future',
-    A: 'aorist',
-    E: 'perfect',
-    L: 'pluperfect'
+    P: 'pane.present',
+    I: 'pane.imperfect',
+    F: 'pane.future',
+    A: 'pane.aorist',
+    E: 'pane.perfect',
+    L: 'pane.pluperfect'
   },
   6: { // voice
-    A: 'active',
-    M: 'middle',
-    P: 'passive'
+    A: 'pane.active',
+    M: 'pane.middle',
+    P: 'pane.passive'
   },
   7: { // person
-    1: 'first',
-    2: 'second',
-    3: 'third'
+    1: 'pane.first',
+    2: 'pane.second',
+    3: 'pane.third'
   },
   8: { // case
-    N: 'nominative',
-    G: 'genitive',
-    D: 'dative',
-    A: 'accusative',
-    V: 'vocative'
+    N: 'pane.nominative',
+    G: 'pane.genitive',
+    D: 'pane.dative',
+    A: 'pane.accusative',
+    V: 'pane.vocative'
   },
   9: { // gender
-    M: 'masculine',
-    F: 'feminine',
-    N: 'neuter'
+    M: 'pane.masculine',
+    F: 'pane.feminine',
+    N: 'pane.neuter'
   },
   10: { // number
-    S: 'singular',
-    P: 'plural'
+    S: 'pane.singular',
+    P: 'pane.plural'
   },
   11: { // other
-    C: 'comparative',
-    S: 'superlatives',
-    D: 'diminutive',
-    I: 'indeclinable'
+    C: 'pane.comparative',
+    S: 'pane.superlatives',
+    D: 'pane.diminutive',
+    I: 'pane.indeclinable'
   }
 };
