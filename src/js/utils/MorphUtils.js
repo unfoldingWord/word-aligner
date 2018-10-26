@@ -7,7 +7,7 @@ import {morphCodeLocalizationMap} from './morphCodeLocalizationMap';
  * @return {String} - the full mophological data string that is human readable
  */
 export const getFullMorphologicalString = (morph, translate) => {
-  if (!morph || typeof morph != 'string' || !morph.trim().length) {
+  if (!morph || typeof morph !== 'string' || !morph.trim().length) {
     return '';
   }
   morph = morph.trim();
