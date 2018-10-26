@@ -3,7 +3,6 @@ import _ from 'lodash';
 import usfm from 'usfm-js';
 import tokenizer from 'string-punctuation-tokenizer';
 import * as ArrayUtils from './array';
-import * as MorphologyHelpers from '../helpers/morphologyHelpers';
 
 /**
  * An object containing information about the word in a target language
@@ -474,24 +473,14 @@ const flattenVerseObjects = (verse, words) => {
 /**
  * @description returns a flat array of VerseObjects (currently needed for rendering UGNT since words may be nested in milestones)
  * @param {Object|Array} verse - verseObjects that need to be flattened.
- * @param {function} translate - translation function
  * @return {array} wordlist - flat array of VerseObjects
  */
-export const getWordListForVerse = (verse, translate) => {
+export const getWordListForVerse = verse => {
   let words = [];
   if (verse.verseObjects) {
     flattenVerseObjects(verse.verseObjects, words);
   } else { // already a flat word list
     words = verse;
-  }
-  console.log(words);
-  for (let i = 0; i < words.length; ++i) {
-    console.log(words[i]);
-    if (words[i].morph) {
-      if (translate)
-        words.morph = MorphologyHelpers.getFullMorphologicalString(words[i].morph, translate);
-      console.log(words.morph);
-    }
   }
   return words;
 };
