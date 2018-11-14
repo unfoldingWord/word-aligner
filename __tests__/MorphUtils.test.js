@@ -16,7 +16,7 @@ describe('MorphUtils tests', () => {
 
   it('Test MorphUtils.getFullMorphologicalString() - Unknown codes still return in comma delimited list', () => {
     const badMorph = 'AbCZEF,HI';
-    const expectedMorphStr = 'Z, E, F, H, I';
+    const expectedMorphStr = '*Z, *E, *F, *H, *I';
     const morphStr = MorphUtils.getFullMorphologicalString(badMorph);
     expect(morphStr).toEqual(expectedMorphStr);
   });

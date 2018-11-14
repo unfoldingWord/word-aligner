@@ -6,14 +6,11 @@ import {morphCodeLocalizationMap} from './morphCodeLocalizationMap';
  * @param {function} translate - translation function
  * @return {String} - the full mophological data string that is human readable
  */
-export const getFullMorphologicalString = (morph, translate) => {
+export const getFullMorphologicalString = morph => {
   if (!morph || typeof morph !== 'string' || !morph.trim().length) {
     return '';
   }
   morph = morph.trim();
-  if (!translate) {
-    translate = k => k;
-  }
 
   const morphForms = [];
   // Will parsed out the morph string to its 12 places, the 1st being language,
@@ -25,23 +22,23 @@ export const getFullMorphologicalString = (morph, translate) => {
   }
 
   if (morphCodeLocalizationMap[2].hasOwnProperty(codes[2]))
-    morphForms.push(translate(morphCodeLocalizationMap[2][codes[2]].key)); // role
+    morphForms.push(morphCodeLocalizationMap[2][codes[2]].key); // role
   else
-    morphForms.push(codes[2]); // unknown role, putting on stack withtout translation
+    morphForms.push('*' + codes[2]); // not a translate key, so prefixing with '*'
   if (codes[3]) {
     if (morphCodeLocalizationMap[2].hasOwnProperty(codes[2]) && morphCodeLocalizationMap[2][codes[2]][3].hasOwnProperty(codes[3]))
-      morphForms.push(translate(morphCodeLocalizationMap[2][codes[2]][3][codes[3]])); // type
+      morphForms.push(morphCodeLocalizationMap[2][codes[2]][3][codes[3]]); // type
     else
-      morphForms.push(codes[3]); // unknown type, putting on stack without translation
+      morphForms.push('*' + codes[3]); // unknown type, prefixing with '*'
   }
   codes.forEach((code, index) => {
     // 0 and 1  are ignored, already did 2 and 3 above
     if (index < 4 || !code)
       return;
     if (morphCodeLocalizationMap[index].hasOwnProperty(code))
-      morphForms.push(translate(morphCodeLocalizationMap[index][code]));
+      morphForms.push(morphCodeLocalizationMap[index][code]);
     else
-      morphForms.push(code); // unknown code, putting on stack without translation
+      morphForms.push('*' + code); // unknown code, prefixing with '*'
   });
   return morphForms.join(', ');
 };
