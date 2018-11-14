@@ -3,7 +3,7 @@ import {morphCodeLocalizationMap} from './morphCodeLocalizationMap';
 /**
  * @description - Get a list of all the localiation keys for a morph string
  * @param {String} morph - the morph string, e.g. Gr,N,,,,,GMS,
- * @return {String[]} - List of localization keys (unknown codes are prefixed with `*`)
+ * @return {Array} - List of localization keys (unknown codes are prefixed with `*`)
  */
 export const getMorphLocalizationKeys = morph => {
   if (!morph || typeof morph !== 'string' || !morph.trim().length) {
