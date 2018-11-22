@@ -2,48 +2,43 @@
 import {morphCodeLocalizationMapGrk, morphCodeLocalizationMapAr, morphCodeLocalizationMapHeb} from './morphCodeLocalizationMap';
 
 /**
- * @description - Get the human readable full morphological data from a morph string that is specific for language
+ * @description - Get a list of all the localization keys for a morph string in Greek
  * @param {String} morph - the morph string, e.g. Gr,N,,,,,GMS,
- * @param {function} translate - translation function
- * @return {String} - the full mophological data string that is human readable
- */
-* @description - Get a list of all the localization keys for a morph string in Greek
-* @param {String} morph - the morph string, e.g. Gr,N,,,,,GMS,
-* @return {Array} - List of localization keys (unknown codes are prefixed with `*`)
+ * @return {Array} - List of localization keys (unknown codes are prefixed with `*`)
   */
 export const getMorphLocalizationKeys = morph => {
-  const parts = ((typeof morph === 'string') && morph.split(','));
+  const parts = ((typeof morph === 'string') && morph.trim().split(','));
   const language = parts && parts[0].toLowerCase();
   switch (language) {
     case 'he':
     case 'ar':
       morph = parts.slice(1).join(',');
-      return getMorphLocalizationKeysHebrewAramaic(morph, language, translate);
+      return getMorphLocalizationKeysHebrewAramaic(morph, language);
 
     case 'gr':
     default:
-      return getMorphLocalizationKeysGreek(morph, translate);
+      return getMorphLocalizationKeysGreek(morph);
   }
 };
 
 /**
- * @description - Get the human readable full morphological data from a morph string in Hebrew or Aramaic
+ * @description - Get a list of all the localization keys for a morph string in Hebrew and Aramaic
  * @param {String} morph - the morph string, e.g. Gr,N,,,,,GMS,
  * @param {String} language - translation function
- * @return {String} - the full mophological data string that is human readable
+ * @return {Array} - List of localization keys (unknown codes are prefixed with `*`)
  */
-export const getFullMorphologicalStringHebrewAramaic = (morph, language) => {
+export const getMorphLocalizationKeysHebrewAramaic = (morph, language) => {
   const lookup = (language === 'ar') ? morphCodeLocalizationMapAr : morphCodeLocalizationMapHeb;
   const words = morph.split(':');
-  const morfForms = [];
+  const morKeys = [];
   for (let i = 0, len = words.length; i < len; i++) {
-    if (morfForms.length) {
-      morfForms.push(':');
+    if (morKeys.length) {
+      morKeys.push(':');
     }
-    const word = words[i];
+    const word = words[i].trim();
     let type = lookup[word[0]];
     if (type && type.key && type.params) {
-      morfForms.push(type.key);
+      morKeys.push('*' + type.key);
       let params = type.params;
       const wLen = Math.min(word.length, type.params.length + 1);
       for (let k = 1; k < wLen; k++) {
@@ -51,18 +46,17 @@ export const getFullMorphologicalStringHebrewAramaic = (morph, language) => {
         const param = params[k - 1];
         const values = lookup[param] || [];
         const descript = values[char] || char;
-        morfForms.push(descript);
+        morKeys.push('*' + descript);
       }
       if (word.length - 1 > type.params.length) {
-        morfForms.push(word.substr(type.params.length + 1));
+        morKeys.push(word.substr(type.params.length + 1));
       }
     } else {
-      morfForms.push(word);
+      morKeys.push(word);
     }
   }
-  return morfForms.join(', ');
+  return morKeys;
 };
-
 
 /**
  * @description - Get a list of all the localization keys for a morph string in Greek
@@ -73,7 +67,6 @@ export const getMorphLocalizationKeysGreek = morph => {
   if (!morph || typeof morph !== 'string' || !morph.trim().length) {
     return [];
   }
-  morph = morph.trim();
 
   const morphKeys = [];
   // Will parsed out the morph string to its 12 places, the 1st being language,
@@ -84,13 +77,13 @@ export const getMorphLocalizationKeysGreek = morph => {
     return morph;
   }
 
-  if (morphCodeLocalizationMap[2].hasOwnProperty(codes[2]))
-    morphKeys.push(morphCodeLocalizationMap[2][codes[2]].key); // role
+  if (morphCodeLocalizationMapGrk[2].hasOwnProperty(codes[2]))
+    morphKeys.push(morphCodeLocalizationMapGrk[2][codes[2]].key); // role
   else
     morphKeys.push('*' + codes[2]); // no known localization key, so prefixing with '*'
   if (codes[3]) {
-    if (morphCodeLocalizationMap[2].hasOwnProperty(codes[2]) && morphCodeLocalizationMap[2][codes[2]][3].hasOwnProperty(codes[3]))
-      morphKeys.push(morphCodeLocalizationMap[2][codes[2]][3][codes[3]]); // type
+    if (morphCodeLocalizationMapGrk[2].hasOwnProperty(codes[2]) && morphCodeLocalizationMapGrk[2][codes[2]][3].hasOwnProperty(codes[3]))
+      morphKeys.push(morphCodeLocalizationMapGrk[2][codes[2]][3][codes[3]]); // type
     else
       morphKeys.push('*' + codes[3]); // unknown type, prefixing with '*'
   }
@@ -98,8 +91,8 @@ export const getMorphLocalizationKeysGreek = morph => {
     // 0 and 1  are ignored, already did 2 and 3 above
     if (index < 4 || !code)
       return;
-    if (morphCodeLocalizationMap[index].hasOwnProperty(code))
-      morphKeys.push(morphCodeLocalizationMap[index][code]);
+    if (morphCodeLocalizationMapGrk[index].hasOwnProperty(code))
+      morphKeys.push(morphCodeLocalizationMapGrk[index][code]);
     else
       morphKeys.push('*' + code); // unknown code, prefixing with '*'
   });

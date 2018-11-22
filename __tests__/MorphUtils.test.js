@@ -49,20 +49,19 @@ describe('MorphUtils tests', () => {
       const morphKeys = MorphUtils.getMorphLocalizationKeys(badMorph);
       expect(morphKeys).toEqual(expectedMorphKeys);
     });
-
   });
 
   describe('Hebrew', () => {
     it('Test MorphUtils.getFullMorphologicalString() - Hebrew multipart noun', () => {
       const morph = "He,C:Td:Ncbsa";
       const expectedMorphStr = 'conjunction, :, particle, definite article, :, noun, common, both (noun), singular, absolute';
-      const morphStr = MorphUtils.getFullMorphologicalString(morph);
+      const morphStr = MorphUtils.getMorphLocalizationKeys(morph);
       expect(morphStr).toEqual(expectedMorphStr);
     });
     it('Test MorphUtils.getFullMorphologicalString() - Hebrew verb', () => {
       const morph = "He,Vqp3fs";
       const expectedMorphStr = "verb, qal, perfect (qatal), third, feminine, singular";
-      const morphStr = MorphUtils.getFullMorphologicalString(morph);
+      const morphStr = MorphUtils.getMorphLocalizationKeys(morph);
       expect(morphStr).toEqual(expectedMorphStr);
     });
   });
