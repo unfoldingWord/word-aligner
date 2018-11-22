@@ -1,4 +1,5 @@
 /* eslint-disable camelcase */
+import _ from 'lodash';
 
 // this is from http://openscriptures.github.io/morphhb/parsing/HebrewMorphologyCodes.html
 export const morphCodeLocalizationMapHeb = { // Hebrew
@@ -144,36 +145,36 @@ export const morphCodeLocalizationMapHeb = { // Hebrew
   }
 };
 
-export const morphCodeLocalizationMapAr = { // Aramaic, same as Hebrew except for verb stems
-  ...morphCodeLocalizationMapHeb,
-  verb_stems: {
-    q: 'peal',
-    Q: 'peil',
-    u: 'hithpeel',
-    p: 'pael',
-    P: 'ithpaal',
-    M: 'hithpaal',
-    a: 'aphel',
-    h: 'haphel',
-    s: 'saphel',
-    e: 'shaphel',
-    H: 'hophal',
-    i: 'ithpeel',
-    t: 'hishtaphel',
-    v: 'ishtaphel',
-    w: 'hithaphel',
-    o: 'polel',
-    z: 'ithpoel',
-    r: 'hithpolel',
-    f: 'hithpalpel',
-    b: 'hephal',
-    c: 'tiphel',
-    m: 'poel',
-    l: 'palpel',
-    L: 'ithpalpel',
-    O: 'ithpolel',
-    G: 'ittaphal'
-  }
+export const morphCodeLocalizationMapAr =  // Aramaic, same as Hebrew except for verb stems
+  _.cloneDeep(morphCodeLocalizationMapHeb);
+
+morphCodeLocalizationMapAr.verb_stems = {
+  q: 'peal',
+  Q: 'peil',
+  u: 'hithpeel',
+  p: 'pael',
+  P: 'ithpaal',
+  M: 'hithpaal',
+  a: 'aphel',
+  h: 'haphel',
+  s: 'saphel',
+  e: 'shaphel',
+  H: 'hophal',
+  i: 'ithpeel',
+  t: 'hishtaphel',
+  v: 'ishtaphel',
+  w: 'hithaphel',
+  o: 'polel',
+  z: 'ithpoel',
+  r: 'hithpolel',
+  f: 'hithpalpel',
+  b: 'hephal',
+  c: 'tiphel',
+  m: 'poel',
+  l: 'palpel',
+  L: 'ithpalpel',
+  O: 'ithpolel',
+  G: 'ittaphal'
 };
 
 // These reflect the columns on page 55 of https://greekcntr.org/downloads/project.pdf
