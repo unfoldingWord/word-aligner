@@ -52,17 +52,56 @@ describe('MorphUtils tests', () => {
   });
 
   describe('Hebrew', () => {
+    it('Test MorphUtils.getFullMorphologicalString() - Hebrew adjective', () => {
+      const morph = "He,Acmsa";
+      const expectedMorphKeys = ["*adjective", "*cardinal_number", "*masculine", "*singular", "*absolute"];
+      const morphKeys = MorphUtils.getMorphLocalizationKeys(morph);
+      expect(morphKeys).toEqual(expectedMorphKeys);
+    });
+    it('Test MorphUtils.getFullMorphologicalString() - Hebrew adverb', () => {
+      const morph = "He,D";
+      const expectedMorphKeys = ["*adverb"];
+      const morphKeys = MorphUtils.getMorphLocalizationKeys(morph);
+      expect(morphKeys).toEqual(expectedMorphKeys);
+    });
     it('Test MorphUtils.getFullMorphologicalString() - Hebrew multipart noun', () => {
       const morph = "He,C:Td:Ncbsa";
-      const expectedMorphStr = 'conjunction, :, particle, definite article, :, noun, common, both (noun), singular, absolute';
-      const morphStr = MorphUtils.getMorphLocalizationKeys(morph);
-      expect(morphStr).toEqual(expectedMorphStr);
+      const expectedMorphKeys = ["*conjunction", ":", "*particle", "*definite_article", ":", "*noun", "*common", "*both_genders", "*singular", "*absolute"];
+      const morphKeys = MorphUtils.getMorphLocalizationKeys(morph);
+      expect(morphKeys).toEqual(expectedMorphKeys);
+    });
+    it('Test MorphUtils.getFullMorphologicalString() - Hebrew Preposition', () => {
+      const morph = "He,R";
+      const expectedMorphKeys = ["*preposition"];
+      const morphKeys = MorphUtils.getMorphLocalizationKeys(morph);
+      expect(morphKeys).toEqual(expectedMorphKeys);
     });
     it('Test MorphUtils.getFullMorphologicalString() - Hebrew verb', () => {
       const morph = "He,Vqp3fs";
-      const expectedMorphStr = "verb, qal, perfect (qatal), third, feminine, singular";
-      const morphStr = MorphUtils.getMorphLocalizationKeys(morph);
-      expect(morphStr).toEqual(expectedMorphStr);
+      const expectedMorphKeys = ["*verb", "*qal", "*perfect_qatal", "*third", "*feminine", "*singular"];
+      const morphKeys = MorphUtils.getMorphLocalizationKeys(morph);
+      expect(morphKeys).toEqual(expectedMorphKeys);
+    });
+  });
+
+  describe('Aramaic', () => {
+    it('Test MorphUtils.getFullMorphologicalString() - Aramaic verb', () => {
+      const morph = "Ar,Vqp3ms";
+      const expectedMorphKeys = ["*verb", "*peal", "*perfect_qatal", "*third", "*masculine", "*singular"];
+      const morphKeys = MorphUtils.getMorphLocalizationKeys(morph);
+      expect(morphKeys).toEqual(expectedMorphKeys);
+    });
+    it('Test MorphUtils.getFullMorphologicalString() - Aramaic pronoun', () => {
+      const morph = "Ar,Pf3bs";
+      const expectedMorphKeys = ["*pronoun", "*indefinite", "*third", "*both_genders", "*singular"];
+      const morphKeys = MorphUtils.getMorphLocalizationKeys(morph);
+      expect(morphKeys).toEqual(expectedMorphKeys);
+    });
+    it('Test MorphUtils.getFullMorphologicalString() - Aramaic preposition, suffix', () => {
+      const morph = "Ar,R:Sp3ms";
+      const expectedMorphKeys = ["*preposition", ":", "*suffix", "*pronominal", "*third", "*masculine", "*singular"];
+      const morphKeys = MorphUtils.getMorphLocalizationKeys(morph);
+      expect(morphKeys).toEqual(expectedMorphKeys);
     });
   });
 });

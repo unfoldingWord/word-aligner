@@ -43,20 +43,20 @@ export const morphCodeLocalizationMapHeb = { // Hebrew
   // details
   adjective_types: {
     a: 'adjective',
-    c: 'cardinal number',
+    c: 'cardinal_number',
     g: 'gentilic',
-    o: 'ordinal number'
+    o: 'ordinal_number'
   },
   gender: {
-    b: 'both (noun)',
-    c: 'common (verb)',
+    b: 'both_genders',
+    c: 'common_gender',
     f: 'feminine',
     m: 'masculine'
   },
   noun_types: {
     c: 'common',
     g: 'gentilic',
-    p: 'proper name'
+    p: 'proper_name'
   },
   number: {
     d: 'dual',
@@ -65,13 +65,13 @@ export const morphCodeLocalizationMapHeb = { // Hebrew
   },
   particle_types: {
     a: 'affirmation',
-    d: 'definite article',
+    d: 'definite_article',
     e: 'exhortation',
     i: 'interrogative',
     j: 'interjection',
     m: 'demonstrative',
     n: 'negative',
-    o: 'direct object marker',
+    o: 'direct_object_marker',
     r: 'relative'
   },
   person: {
@@ -80,7 +80,7 @@ export const morphCodeLocalizationMapHeb = { // Hebrew
     3: 'third'
   },
   preposition_types: {
-    d: 'definite article'
+    d: 'definite_article'
   },
   pronoun_types: {
     d: 'demonstrative',
@@ -95,23 +95,23 @@ export const morphCodeLocalizationMapHeb = { // Hebrew
     d: 'determined'
   },
   suffix_types: {
-    d: 'directional he',
-    h: 'paragogic he',
-    n: 'paragogic nun',
+    d: 'directional_he',
+    h: 'paragogic_he',
+    n: 'paragogic_nun',
     p: 'pronominal'
   },
   verb_conjugation_types: {
-    p: 'perfect (qatal)',
-    q: 'sequential perfect (weqatal)',
-    i: 'imperfect (yiqtol)',
-    w: 'sequential imperfect (wayyiqtol)',
+    p: 'perfect_qatal',
+    q: 'sequential_perfect_weqatal',
+    i: 'imperfect_yiqtol',
+    w: 'sequential_imperfect_wayyiqtol',
     h: 'cohortative',
     j: 'jussive',
     v: 'imperative',
-    r: 'participle active',
+    r: 'participle_passive',
     s: 'participle passive',
-    a: 'infinitive absolute',
-    c: 'infinitive construct'
+    a: 'infinitive_absolute',
+    c: 'infinitive_construct'
   },
   verb_stems: {
     q: 'qal',
@@ -128,7 +128,7 @@ export const morphCodeLocalizationMapHeb = { // Hebrew
     M: 'poal',
     k: 'palel',
     K: 'pulal',
-    Q: 'qal passive',
+    Q: 'qal_passive',
     l: 'pilpel',
     L: 'polpal',
     f: 'hithpalpel',
