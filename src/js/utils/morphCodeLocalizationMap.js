@@ -186,7 +186,7 @@ export const morphCodeLocalizationMapGrk = {
     N: {
       key: 'noun',
       3: { // noun types
-        S: 'substatitive_adj',
+        S: 'substantive_adj',
         P: 'predicate_adj'
       }
     },

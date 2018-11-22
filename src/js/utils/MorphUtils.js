@@ -7,18 +7,22 @@ import {morphCodeLocalizationMapGrk, morphCodeLocalizationMapAr, morphCodeLocali
  * @param {function} translate - translation function
  * @return {String} - the full mophological data string that is human readable
  */
-export const getFullMorphologicalString = (morph, translate) => {
+* @description - Get a list of all the localization keys for a morph string in Greek
+* @param {String} morph - the morph string, e.g. Gr,N,,,,,GMS,
+* @return {Array} - List of localization keys (unknown codes are prefixed with `*`)
+  */
+export const getMorphLocalizationKeys = morph => {
   const parts = ((typeof morph === 'string') && morph.split(','));
   const language = parts && parts[0].toLowerCase();
   switch (language) {
     case 'he':
     case 'ar':
       morph = parts.slice(1).join(',');
-      return getFullMorphologicalStringHebrewAramaic(morph, language, translate);
+      return getMorphLocalizationKeysHebrewAramaic(morph, language, translate);
 
     case 'gr':
     default:
-      return getFullMorphologicalStringGreek(morph, translate);
+      return getMorphLocalizationKeysGreek(morph, translate);
   }
 };
 
@@ -59,22 +63,19 @@ export const getFullMorphologicalStringHebrewAramaic = (morph, language) => {
   return morfForms.join(', ');
 };
 
+
 /**
- * @description - Get the human readable full morphological data from a morph string in Greek
+ * @description - Get a list of all the localization keys for a morph string in Greek
  * @param {String} morph - the morph string, e.g. Gr,N,,,,,GMS,
- * @param {function} translate - translation function
- * @return {String} - the full mophological data string that is human readable
+ * @return {Array} - List of localization keys (unknown codes are prefixed with `*`)
  */
-export const getFullMorphologicalStringGreek = (morph, translate) => {
+export const getMorphLocalizationKeysGreek = morph => {
   if (!morph || typeof morph !== 'string' || !morph.trim().length) {
-    return '';
+    return [];
   }
   morph = morph.trim();
-  if (!translate) {
-    translate = k => k;
-  }
 
-  const morphForms = [];
+  const morphKeys = [];
   // Will parsed out the morph string to its 12 places, the 1st being language,
   // 2nd always empty, 3rd role, 4th type, and so on
   var regex = /([A-Z0-9,][a-z]*)/g; // Delimited by boundry of a comma or uppercase letter
@@ -83,24 +84,24 @@ export const getFullMorphologicalStringGreek = (morph, translate) => {
     return morph;
   }
 
-  if (morphCodeLocalizationMapGrk[2].hasOwnProperty(codes[2]))
-    morphForms.push(translate(morphCodeLocalizationMapGrk[2][codes[2]].key)); // role
+  if (morphCodeLocalizationMap[2].hasOwnProperty(codes[2]))
+    morphKeys.push(morphCodeLocalizationMap[2][codes[2]].key); // role
   else
-    morphForms.push(codes[2]); // unknown role, putting on stack withtout translation
+    morphKeys.push('*' + codes[2]); // no known localization key, so prefixing with '*'
   if (codes[3]) {
-    if (morphCodeLocalizationMapGrk[2].hasOwnProperty(codes[2]) && morphCodeLocalizationMapGrk[2][codes[2]][3].hasOwnProperty(codes[3]))
-      morphForms.push(translate(morphCodeLocalizationMapGrk[2][codes[2]][3][codes[3]])); // type
+    if (morphCodeLocalizationMap[2].hasOwnProperty(codes[2]) && morphCodeLocalizationMap[2][codes[2]][3].hasOwnProperty(codes[3]))
+      morphKeys.push(morphCodeLocalizationMap[2][codes[2]][3][codes[3]]); // type
     else
-      morphForms.push(codes[3]); // unknown type, putting on stack without translation
+      morphKeys.push('*' + codes[3]); // unknown type, prefixing with '*'
   }
   codes.forEach((code, index) => {
     // 0 and 1  are ignored, already did 2 and 3 above
     if (index < 4 || !code)
       return;
-    if (morphCodeLocalizationMapGrk[index].hasOwnProperty(code))
-      morphForms.push(translate(morphCodeLocalizationMapGrk[index][code]));
+    if (morphCodeLocalizationMap[index].hasOwnProperty(code))
+      morphKeys.push(morphCodeLocalizationMap[index][code]);
     else
-      morphForms.push(code); // unknown code, putting on stack without translation
+      morphKeys.push('*' + code); // unknown code, prefixing with '*'
   });
-  return morphForms.join(', ');
+  return morphKeys;
 };

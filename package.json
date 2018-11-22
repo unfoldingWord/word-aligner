@@ -1,6 +1,6 @@
 {
   "name": "word-aligner",
-  "version": "0.2.4",
+  "version": "0.2.7",
   "description": "A library for handling word alignment",
   "main": "lib/index.js",
   "scripts": {
@@ -10,7 +10,8 @@
     "prebuild": "rm -rf ./lib",
     "build": "babel ./src -d ./lib",
     "prepare": "if [ ! -d './lib/' ]; then npm run build; fi",
-    "prepublishOnly": "npm test && npm run build"
+    "prepublishOnly": "npm test && npm run build",
+    "postpublish": "git tag v$npm_package_version && git push origin v$npm_package_version"
   },
   "jest": {
     "collectCoverageFrom": [
