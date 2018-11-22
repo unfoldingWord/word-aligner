@@ -2,6 +2,70 @@
 // This helps us translate codes starting and the 3rd place (the 2nd index) of a morph string
 // The numbered keys are the index of that code in the string, where the letter index is the code
 // Each role's 3rd index (the type code) is different, so we nest index 3 in the role's entry
+export const morphCodeLocalizationMapHeb = {
+  A: {
+    key: 'adjective'
+  },
+  C: {
+    key: 'conjunction'
+  },
+  D: {
+    key: 'adverb'
+  },
+  N: {
+    key: 'noun'
+  },
+  P: {
+    key: 'pronoun'
+  },
+  R: {
+    key: 'preposition'
+  },
+  S: {
+    key: 'suffix'
+  },
+  T: {
+    key: 'particle'
+  },
+  V: {
+    key: 'verb',
+    parts: [
+      { // stems
+        q: 'qal',
+        N: 'niphal',
+        p: 'piel',
+        P: 'pual',
+        h: 'hiphil',
+        H: 'hophal',
+        t: 'hithpael',
+        o: 'polel',
+        O: 'polal',
+        r: 'hithpolel',
+        m: 'poel',
+        M: 'poal',
+        k: 'palel',
+        K: 'pulal',
+        Q: 'qal passive',
+        l: 'pilpel',
+        L: 'polpal',
+        f: 'hithpalpel',
+        D: 'nithpael',
+        j: 'pealal',
+        i: 'pilel',
+        u: 'hothpaal',
+        c: 'tiphil',
+        v: 'hishtaphel',
+        w: 'nithpalel',
+        y: 'nithpoel',
+        z: 'hithpoel'
+      },
+      {
+        // conjugations
+      }
+    ]
+  }
+};
+
 export const morphCodeLocalizationMap = {
   2: { // role
     N: {
