@@ -40,13 +40,26 @@ export const getMorphLocalizationKeysHebrewAramaic = (morph, language) => {
     if (type && type.key && type.params) {
       morKeys.push(type.key);
       let params = type.params;
+      if (type.variations) { // iterate through variations to find match
+        for (let variation of type.variations) {
+          if (variation.regex && variation.params) {
+            const match = word.match(variation.regex);
+            if (match) {
+              params = variation.params;
+              break;
+            }
+          }
+        }
+      }
       const wLen = Math.min(word.length, type.params.length + 1);
       for (let k = 1; k < wLen; k++) {
         const char = word[k];
         const param = params[k - 1];
         const values = lookup[param] || [];
-        const descript = values[char] || char;
-        morKeys.push(descript);
+        const descript = values[char] || ('*' + char);
+        if (char !== 'x') {
+          morKeys.push(descript);
+        }
       }
       if (word.length - 1 > type.params.length) {
         morKeys.push('*' + word.substr(type.params.length + 1));
@@ -71,8 +84,8 @@ export const getMorphLocalizationKeysGreek = morph => {
   const morphKeys = [];
   // Will parsed out the morph string to its 12 places, the 1st being language,
   // 2nd always empty, 3rd role, 4th type, and so on
-  var regex = /([A-Z0-9,][a-z]*)/g; // Delimited by boundry of a comma or uppercase letter
-  var codes = morph.match(regex).map(code => code === ',' ? null : code);
+  const regex = /([A-Z0-9,][a-z]*)/g; // Delimited by boundry of a comma or uppercase letter
+  const codes = morph.match(regex).map(code => code === ',' ? null : code);
   if (codes.length < 3) {
     return morph;
   }

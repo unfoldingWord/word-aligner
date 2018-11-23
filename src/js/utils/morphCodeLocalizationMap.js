@@ -38,7 +38,13 @@ export const morphCodeLocalizationMapHeb = { // Hebrew
   },
   V: {
     key: 'verb',
-    params: ['verb_stems', 'verb_conjugation_types', 'person', 'gender', 'number', 'state']
+    params: ['verb_stems', 'verb_conjugation_types', 'person', 'gender', 'number', 'state'],
+    variations: [
+      {
+        regex: "^V[\\w\\d][sr][\\w\\d]{1,3}",
+        params: ['verb_stems', 'verb_conjugation_types', 'gender', 'number', 'state']
+      }
+    ]
   },
 
   // details
@@ -109,7 +115,7 @@ export const morphCodeLocalizationMapHeb = { // Hebrew
     h: 'cohortative',
     j: 'jussive',
     v: 'imperative',
-    r: 'participle_passive',
+    r: 'participle_active',
     s: 'participle passive',
     a: 'infinitive_absolute',
     c: 'infinitive_construct'

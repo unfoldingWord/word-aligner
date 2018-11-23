@@ -1,6 +1,7 @@
 jest.unmock('fs-extra');
 import fs from 'fs-extra';
 import path from 'path-extra';
+const assert = require('assert');
 import * as MorphUtils from '../src/js/utils/MorphUtils';
 import ospath from 'ospath';
 
@@ -9,9 +10,9 @@ const OT_PATH = path.join(RESOURCE_PATH, 'hbo/bibles/uhb/v1.4.1');
 const outputFolder = path.join(__dirname, 'fixtures/morphs');
 
 describe('MorphUtils tests', () => {
-  it('test Genesis', () => {
+  it.skip('test whole book', () => { // reads all the words from book and saves parsed morphs to file
     const morphs = {};
-    const bookId = "1ch";
+    const bookId = "mal";
     const bookPath = path.join(OT_PATH, bookId);
     const files = fs.readdirSync(bookPath);
     for (let file of files) {
@@ -23,23 +24,49 @@ describe('MorphUtils tests', () => {
         getMorphs(objects, morphs);
       }
     }
-    for (let morph of Object.keys(morphs)) {
+    let output = "";
+    const morphEntry = Object.keys(morphs).sort();
+    for (let morph of morphEntry) {
       const morphKeys = MorphUtils.getMorphLocalizationKeys(morph);
+      for (let key of morphKeys) {
+        if (key.startsWith('*') && (key !== '*:')) {
+          console.log("In '" + morph + "', '" + key + "' is not translated!");
+        }
+      }
       morphs[morph] = morphKeys;
+      if (output) {
+        output += ',\n';
+      }
+      output += '  "' + morph + '": ' + JSON.stringify(morphKeys);
     }
+    output = '{\n' + output + '\n}\n';
     const outFile = path.join(outputFolder, bookId + '-morphs.json');
-    fs.writeJsonSync(outFile, morphs);
+    fs.outputFileSync(outFile, output);
   });
 
-  it('Test MorphUtils.getMorphLocalizationKeys() - All morph strings render as expected', () => {
-    const morphsPath = path.join('__tests__', 'fixtures', 'morphs', 'all-titus-morphs.json');
-    const allTitusMorphs = fs.readJSONSync(morphsPath);
-    Object.keys(allTitusMorphs).forEach(morph => {
-      const morphKeys = MorphUtils.getMorphLocalizationKeys(morph);
-      // process.stdout.write('  "'+morph+'": "'+morphKeys+'",\n');
-      expect(morphKeys).toEqual(allTitusMorphs[morph]);
+  const morphsPath = path.join('__tests__', 'fixtures', 'morphs');
+  const files = fs.readdirSync(morphsPath);
+  for (let file of files) {
+    const parse = path.parse(file);
+    if (parse.ext !== '.json') {
+      continue;
+    }
+
+    it('Test MorphUtils.getMorphLocalizationKeys() - All morph strings render as expected for ' + file, () => {
+      const filePath = path.join(morphsPath, file);
+      const allMorphs = fs.readJSONSync(filePath);
+      Object.keys(allMorphs).forEach(morph => {
+        const morphKeys = MorphUtils.getMorphLocalizationKeys(morph);
+        // process.stdout.write('  "'+morph+'": "'+morphKeys+'",\n');
+        expect(morphKeys).toEqual(allMorphs[morph]);
+        for (let key of morphKeys) {
+          if (key.startsWith('*') && (key !== '*:')) {
+            assert.fail("Invalid parsed morph '" + key + "' in " + JSON.stringify(morphKeys));
+          }
+        }
+      });
     });
-  });
+  }
 
   describe('Greek', () => {
     it('Test MorphUtils.getMorphLocalizationKeys() - Unknown codes still return in comma delimited list', () => {
