@@ -136,6 +136,24 @@ describe('MorphUtils tests', () => {
       const morphKeys = MorphUtils.getMorphLocalizationKeys(morph);
       expect(morphKeys).toEqual(expectedMorphKeys);
     });
+    it('Test MorphUtils.getFullMorphologicalString() - invalid type', () => {
+      const morph = "He,Xqp3fs";
+      const expectedMorphKeys = ["*Xqp3fs"];
+      const morphKeys = MorphUtils.getMorphLocalizationKeys(morph);
+      expect(morphKeys).toEqual(expectedMorphKeys);
+    });
+    it('Test MorphUtils.getFullMorphologicalString() - invalid verb stem', () => {
+      const morph = "He,V1p3fs";
+      const expectedMorphKeys = ["verb", "*1", "perfect_qatal", "third", "feminine", "singular"];
+      const morphKeys = MorphUtils.getMorphLocalizationKeys(morph);
+      expect(morphKeys).toEqual(expectedMorphKeys);
+    });
+    it('Test MorphUtils.getFullMorphologicalString() - Hebrew morph too long', () => {
+      const morph = "He,Vqp3fsaa";
+      const expectedMorphKeys = ["verb", "qal", "perfect_qatal", "third", "feminine", "singular", "absolute", "*a"];
+      const morphKeys = MorphUtils.getMorphLocalizationKeys(morph);
+      expect(morphKeys).toEqual(expectedMorphKeys);
+    });
   });
 
   describe('Aramaic', () => {
