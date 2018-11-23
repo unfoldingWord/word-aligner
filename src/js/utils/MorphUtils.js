@@ -33,12 +33,12 @@ export const getMorphLocalizationKeysHebrewAramaic = (morph, language) => {
   const morKeys = [];
   for (let i = 0, len = words.length; i < len; i++) {
     if (morKeys.length) {
-      morKeys.push(':');
+      morKeys.push('*:');
     }
     const word = words[i].trim();
     let type = lookup[word[0]];
     if (type && type.key && type.params) {
-      morKeys.push('*' + type.key);
+      morKeys.push(type.key);
       let params = type.params;
       const wLen = Math.min(word.length, type.params.length + 1);
       for (let k = 1; k < wLen; k++) {
@@ -46,13 +46,13 @@ export const getMorphLocalizationKeysHebrewAramaic = (morph, language) => {
         const param = params[k - 1];
         const values = lookup[param] || [];
         const descript = values[char] || char;
-        morKeys.push('*' + descript);
+        morKeys.push(descript);
       }
       if (word.length - 1 > type.params.length) {
-        morKeys.push(word.substr(type.params.length + 1));
+        morKeys.push('*' + word.substr(type.params.length + 1));
       }
     } else {
-      morKeys.push(word);
+      morKeys.push('*' + word);
     }
   }
   return morKeys;
