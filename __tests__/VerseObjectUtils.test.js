@@ -322,6 +322,20 @@ describe("getWordListFromVerseObjectArray", () => {
     const verseWords = VerseObjectUtils.mergeVerseData(results);
     expect(verseWords).toEqual(expected);
   });
+
+  it('handles numbers', () => {
+    // given
+    const testFile = path.join('__tests__', 'fixtures', 'verseObjects', 'gal-3-17.json');
+    const testData = fs.readJSONSync(testFile);
+    const expected = "Now what I mean is this The law which came 430 years afterward does not set aside the covenant previously established by God so as to nullify the promise";
+
+    // when
+    const results = VerseObjectUtils.getWordListFromVerseObjectArray(testData);
+
+    // then
+    const verseWords = VerseObjectUtils.mergeVerseData(results);
+    expect(verseWords).toEqual(expected);
+  });
 });
 
 describe("getWordListForVerse", () => {
