@@ -57,7 +57,7 @@
     "path": "0.12.7",
     "path-extra": "^4.2.1",
     "rimraf": "^2.6.2",
-    "string-punctuation-tokenizer": "github:translationCoreApps/string-punctuation-tokenizer#bugfix-mcleanb/number_fix",
+    "string-punctuation-tokenizer": "github:translationCoreApps/string-punctuation-tokenizer#bugfix-mcleanb-5513",
     "transform-runtime": "0.0.0",
     "usfm-js": "^1.0.7"
   }
