@@ -76,6 +76,9 @@ describe("Merge Alignment into Verse Objects", () => {
   it('handles titus 1-12', () => {
     mergeTest('tit1-12');
   });
+  it('handles gal 3-17', () => {
+    mergeTest('gal-3-17');
+  });
 });
 
 describe("UnMerge Alignment from Verse Objects", () => {
