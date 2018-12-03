@@ -139,9 +139,6 @@ describe("UnMerge Alignment from Verse Objects", () => {
   it('handles titus 1-12', () => {
     unmergeTest('tit1-12');
   });
-  it('handles gal 3-17', () => {
-    unmergeTest('gal-3-17');
-  });
 });
 
 describe("export USFM3 from Verse Objects", () => {

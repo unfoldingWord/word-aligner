@@ -518,12 +518,14 @@
         {
           "word": "is",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "type": "bottomWord"
         },
         {
           "word": "this",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "type": "bottomWord"
         }
       ]
     },
@@ -542,7 +544,8 @@
         {
           "word": "Now",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "type": "bottomWord"
         }
       ]
     },
@@ -561,17 +564,20 @@
         {
           "word": "what",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "type": "bottomWord"
         },
         {
           "word": "I",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "type": "bottomWord"
         },
         {
           "word": "mean",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "type": "bottomWord"
         }
       ]
     },
@@ -590,12 +596,14 @@
         {
           "word": "the",
           "occurrence": 1,
-          "occurrences": 2
+          "occurrences": 2,
+          "type": "bottomWord"
         },
         {
           "word": "covenant",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "type": "bottomWord"
         }
       ]
     },
@@ -614,12 +622,14 @@
         {
           "word": "previously",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "type": "bottomWord"
         },
         {
           "word": "established",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "type": "bottomWord"
         }
       ]
     },
@@ -638,7 +648,8 @@
         {
           "word": "by",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "type": "bottomWord"
         }
       ]
     },
@@ -665,7 +676,8 @@
         {
           "word": "God",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "type": "bottomWord"
         }
       ]
     },
@@ -684,7 +696,8 @@
         {
           "word": "The",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "type": "bottomWord"
         }
       ]
     },
@@ -703,7 +716,8 @@
         {
           "word": "afterward",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "type": "bottomWord"
         }
       ]
     },
@@ -738,7 +752,8 @@
         {
           "word": "430",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "type": "bottomWord"
         }
       ]
     },
@@ -757,7 +772,8 @@
         {
           "word": "years",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "type": "bottomWord"
         }
       ]
     },
@@ -776,12 +792,14 @@
         {
           "word": "which",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "type": "bottomWord"
         },
         {
           "word": "came",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "type": "bottomWord"
         }
       ]
     },
@@ -800,7 +818,8 @@
         {
           "word": "law",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "type": "bottomWord"
         }
       ]
     },
@@ -819,12 +838,14 @@
         {
           "word": "does",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "type": "bottomWord"
         },
         {
           "word": "not",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "type": "bottomWord"
         }
       ]
     },
@@ -843,12 +864,14 @@
         {
           "word": "set",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "type": "bottomWord"
         },
         {
           "word": "aside",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "type": "bottomWord"
         }
       ]
     },
@@ -867,17 +890,20 @@
         {
           "word": "so",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "type": "bottomWord"
         },
         {
           "word": "as",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "type": "bottomWord"
         },
         {
           "word": "to",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "type": "bottomWord"
         }
       ]
     },
@@ -904,7 +930,8 @@
         {
           "word": "nullify",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "type": "bottomWord"
         }
       ]
     },
@@ -923,7 +950,8 @@
         {
           "word": "the",
           "occurrence": 2,
-          "occurrences": 2
+          "occurrences": 2,
+          "type": "bottomWord"
         }
       ]
     },
@@ -942,7 +970,8 @@
         {
           "word": "promise",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "type": "bottomWord"
         }
       ]
     }
