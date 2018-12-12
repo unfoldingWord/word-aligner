@@ -6,7 +6,7 @@ import {morphCodeLocalizationMapGrk, morphCodeLocalizationMapAr, morphCodeLocali
  * @param {String} morph - the morph string, e.g. Gr,N,,,,,GMS,
  * @return {Array} - List of localization keys (unknown codes are prefixed with `*`)
   */
-export const getMorphLocalizationKeys = morph => {
+export const getMorphLocalizationKeys = (morph) => {
   const parts = ((typeof morph === 'string') && morph.trim().split(','));
   const language = parts && parts[0].toLowerCase();
   switch (language) {
@@ -76,7 +76,7 @@ export const getMorphLocalizationKeysHebrewAramaic = (morph, language) => {
  * @param {String} morph - the morph string, e.g. Gr,N,,,,,GMS,
  * @return {Array} - List of localization keys (unknown codes are prefixed with `*`)
  */
-export const getMorphLocalizationKeysGreek = morph => {
+export const getMorphLocalizationKeysGreek = (morph) => {
   if (!morph || typeof morph !== 'string' || !morph.trim().length) {
     return [];
   }
@@ -85,29 +85,33 @@ export const getMorphLocalizationKeysGreek = morph => {
   // Will parsed out the morph string to its 12 places, the 1st being language,
   // 2nd always empty, 3rd role, 4th type, and so on
   const regex = /([A-Z0-9,][a-z]*)/g; // Delimited by boundry of a comma or uppercase letter
-  const codes = morph.match(regex).map(code => code === ',' ? null : code);
+  const codes = morph.match(regex).map((code) => code === ',' ? null : code);
   if (codes.length < 3) {
     return morph;
   }
 
-  if (morphCodeLocalizationMapGrk[2].hasOwnProperty(codes[2]))
-    morphKeys.push(morphCodeLocalizationMapGrk[2][codes[2]].key); // role
-  else
-    morphKeys.push('*' + codes[2]); // no known localization key, so prefixing with '*'
+  if (morphCodeLocalizationMapGrk[2].hasOwnProperty(codes[2])) {
+    morphKeys.push(morphCodeLocalizationMapGrk[2][codes[2]].key);
+  } else {
+    morphKeys.push('*' + codes[2]);
+  } // no known localization key, so prefixing with '*'
   if (codes[3]) {
-    if (morphCodeLocalizationMapGrk[2].hasOwnProperty(codes[2]) && morphCodeLocalizationMapGrk[2][codes[2]][3].hasOwnProperty(codes[3]))
-      morphKeys.push(morphCodeLocalizationMapGrk[2][codes[2]][3][codes[3]]); // type
-    else
-      morphKeys.push('*' + codes[3]); // unknown type, prefixing with '*'
+    if (morphCodeLocalizationMapGrk[2].hasOwnProperty(codes[2]) && morphCodeLocalizationMapGrk[2][codes[2]][3].hasOwnProperty(codes[3])) {
+      morphKeys.push(morphCodeLocalizationMapGrk[2][codes[2]][3][codes[3]]);
+    } else {
+      morphKeys.push('*' + codes[3]);
+    } // unknown type, prefixing with '*'
   }
   codes.forEach((code, index) => {
     // 0 and 1  are ignored, already did 2 and 3 above
-    if (index < 4 || !code)
+    if (index < 4 || !code) {
       return;
-    if (morphCodeLocalizationMapGrk[index].hasOwnProperty(code))
+    }
+    if (morphCodeLocalizationMapGrk[index].hasOwnProperty(code)) {
       morphKeys.push(morphCodeLocalizationMapGrk[index][code]);
-    else
-      morphKeys.push('*' + code); // unknown code, prefixing with '*'
+    } else {
+      morphKeys.push('*' + code);
+    } // unknown code, prefixing with '*'
   });
   return morphKeys;
 };
