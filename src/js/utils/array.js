@@ -50,6 +50,6 @@ export const deleteIndices = (array, indices, wordMap) => {
  * @param {array} arr - Array to be flattened
  * @return {array} - Flattened array
  */
-export const flattenArray = arr => {
+export const flattenArray = (arr) => {
   return [].concat(...arr);
 };
