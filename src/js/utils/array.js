@@ -6,7 +6,7 @@
  */
 export const groupConsecutiveNumbers = (numbers, wordMap) => (
   numbers.reduce(function(
-    accumulator, currentValue, currentIndex, originalArray) {
+      accumulator, currentValue, currentIndex, originalArray) {
     if (currentValue >= 0) { // ignore undefined entries
       const current = wordMap[currentValue];
       const last = (currentIndex > 0) ? wordMap[originalArray[currentIndex - 1]] : {};
