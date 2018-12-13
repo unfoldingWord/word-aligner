@@ -1,4 +1,4 @@
-/* eslint-disable camelcase */
+/* eslint-disable camelcase, for-direction, getter-return */
 import _ from 'lodash';
 
 // this is from http://openscriptures.github.io/morphhb/parsing/HebrewMorphologyCodes.html
@@ -151,7 +151,7 @@ export const morphCodeLocalizationMapHeb = { // Hebrew
   },
 };
 
-export const morphCodeLocalizationMapAr =  // Aramaic, same as Hebrew except for verb stems
+export const morphCodeLocalizationMapAr = // Aramaic, same as Hebrew except for verb stems
   _.cloneDeep(morphCodeLocalizationMapHeb);
 
 morphCodeLocalizationMapAr.verb_stems = {
