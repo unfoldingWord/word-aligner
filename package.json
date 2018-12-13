@@ -40,7 +40,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
-    "babel-eslint": "^9.0.0",
+    "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
@@ -58,7 +58,7 @@
     "path": "0.12.7",
     "path-extra": "^4.2.1",
     "rimraf": "^2.6.2",
-    "string-punctuation-tokenizer": "0.9.1",
+    "string-punctuation-tokenizer": "0.9.3",
     "transform-runtime": "0.0.0",
     "usfm-js": "1.0.7"
   }
