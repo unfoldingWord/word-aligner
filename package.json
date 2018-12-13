@@ -60,6 +60,6 @@
     "rimraf": "^2.6.2",
     "string-punctuation-tokenizer": "0.9.1",
     "transform-runtime": "0.0.0",
-    "usfm-js": "1.0.7"
+    "usfm-js": "1.0.11"
   }
 }
