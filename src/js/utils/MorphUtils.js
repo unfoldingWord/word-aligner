@@ -36,12 +36,12 @@ export const getMorphLocalizationKeysHebrewAramaic = (morph, language) => {
       morKeys.push('*:');
     }
     const word = words[i].trim();
-    let type = lookup[word[0]];
+    const type = lookup[word[0]];
     if (type && type.key && type.params) {
       morKeys.push(type.key);
       let params = type.params;
       if (type.variations) { // iterate through variations to find match
-        for (let variation of type.variations) {
+        for (const variation of type.variations) {
           if (variation.regex && variation.params) {
             const match = word.match(variation.regex);
             if (match) {

@@ -75,7 +75,7 @@ export const getOccurrences = (words, subString) => {
 
   let occurrences = 0;
   if (Array.isArray(words)) {
-    for (let word of words) {
+    for (const word of words) {
       if (getWordText(word) === subString) occurrences++;
     }
   }
@@ -95,9 +95,9 @@ export const getOrderedVerseObjects = (verseObjects) => {
     const verseObject = _verseObjects[i];
     if (verseObject.type === 'word') {
       verseObject.occurrence = getOccurrence(
-        _verseObjects,
-        i,
-        verseObject.text);
+          _verseObjects,
+          i,
+          verseObject.text);
       verseObject.occurrences = getOccurrences(_verseObjects, verseObject.text);
       wordMap.push({array: _verseObjects, pos: i});
     }
@@ -178,12 +178,12 @@ const tokenizeText = (text, newVerseObjects, wordMap, nonWordVerseObjectCount, v
       if (tokenizer.word.test(word)) { // if the text has word characters, its a word object
         const wordIndex = wordMap.length;
         let occurrence = tokenizer.occurrenceInString(
-          verseText,
-          wordIndex,
-          word);
+            verseText,
+            wordIndex,
+            word);
         const occurrences = tokenizer.occurrencesInString(
-          verseText,
-          word);
+            verseText,
+            word);
         if (occurrence > occurrences) occurrence = occurrences;
         verseObject = {
           tag: 'w',
@@ -238,7 +238,7 @@ const getWordsFromNestedVerseObjects = (verseObjects, newVerseObjects, wordMap, 
         const newChildVerseObjects = [];
         nonWordVerseObjectCount = tokenizeText(vsObjText, newChildVerseObjects, wordMap, nonWordVerseObjectCount, verseText);
         nonWordVerseObjectCount = getWordsFromNestedVerseObjects(verseObject.children, newChildVerseObjects,
-          wordMap, verseText, nonWordVerseObjectCount);
+            wordMap, verseText, nonWordVerseObjectCount);
         verseObject.children = newChildVerseObjects;
       } else {
         nonWordVerseObjectCount = tokenizeText(vsObjText, newVerseObjects, wordMap, nonWordVerseObjectCount, verseText);
@@ -256,8 +256,8 @@ const getWordsFromNestedVerseObjects = (verseObjects, newVerseObjects, wordMap, 
  * @return {{newVerseObjects: Array, wordMap: Array}} - clone of verseObjects and word map
  */
 export const getOrderedVerseObjectsFromString = (string) => {
-  let newVerseObjects = [];
-  let wordMap = [];
+  const newVerseObjects = [];
+  const wordMap = [];
   if (string) {
     // convert string using usfm to JSON
     const _verseObjects = usfm.toJSON('\\v 1 ' + string, {chunk: true}).verses['1'].verseObjects;
@@ -311,7 +311,7 @@ export const wordVerseObjectFromBottomWord = (bottomWord, textKey = 'word') => (
  * @return {Object} - a verseObject of tag: w, type: word
  */
 export const milestoneVerseObjectFromTopWord = (topWord) => {
-  let verseObject = JSON.parse(JSON.stringify(topWord));
+  const verseObject = JSON.parse(JSON.stringify(topWord));
   verseObject.tag = 'zaln';
   verseObject.type = 'milestone';
   verseObject.content = topWord.word;
@@ -327,7 +327,7 @@ export const milestoneVerseObjectFromTopWord = (topWord) => {
  * @return {Object} - an alignmentObject
  */
 export const alignmentObjectFromVerseObject = (verseObject) => {
-  let wordObject = JSON.parse(JSON.stringify(verseObject));
+  const wordObject = JSON.parse(JSON.stringify(verseObject));
   wordObject.word = wordObject.text || wordObject.content;
   delete wordObject.content;
   delete wordObject.text;
@@ -361,12 +361,12 @@ export const indexOfVerseObject = (wordMap, verseObject) => (
  * @return {Array} words found
  */
 export const extractWordsFromVerseObject = (verseObject) => {
-  let words = [];
+  const words = [];
   if (typeof verseObject === 'object') {
     if (verseObject.word || verseObject.type === 'word') {
       words.push(verseObject);
     } else if (verseObject.children) {
-      for (let child of verseObject.children) {
+      for (const child of verseObject.children) {
         const childWords = extractWordsFromVerseObject(child);
         words.push(...childWords); // fast concat arrays
       }
@@ -401,7 +401,7 @@ export const mergeVerseData = (verseData, filter) => {
     });
   });
   let verseText = '';
-  for (let verse of verseArray) {
+  for (const verse of verseArray) {
     if (verse) {
       if (verseText && (verseText[verseText.length - 1] !== '\n')) {
         verseText += ' ';
@@ -418,7 +418,7 @@ export const mergeVerseData = (verseData, filter) => {
  * @return {Array} - words found
  */
 export const getWordListFromVerseObjectArray = (verseObjects) => {
-  let wordList = [];
+  const wordList = [];
   const length = verseObjects.length;
   for (let i = 0; i < length; i++) {
     const verseObject = verseObjects[i];
@@ -453,7 +453,7 @@ const addContentAttributeToChildren = (childrens, parentObject, grandParentObjec
  */
 const flattenVerseObjects = (verse, words) => {
   for (let i = 0; i < verse.length; i++) {
-    let object = verse[i];
+    const object = verse[i];
     if (object) {
       if (object.type === 'word') {
         object.strong = object.strong || object.strongs;
@@ -461,7 +461,7 @@ const flattenVerseObjects = (verse, words) => {
       } else if (object.type === 'milestone') { // get children of milestone
         // add content attibute to children
         const newObject = addContentAttributeToChildren(object.children,
-          object);
+            object);
         flattenVerseObjects(newObject, words);
       } else {
         words.push(object);
@@ -485,7 +485,7 @@ export const getWordListForVerse = (verse) => {
   return words;
 };
 
- /** Method to filter usfm markers from a string or verseObjects array
+/** Method to filter usfm markers from a string or verseObjects array
   * @param {String|Array|Object} verseObjects - The string to remove markers from
   * @return {Array} - Array without usfm markers
   */
@@ -527,7 +527,7 @@ export const addVerseObjectToAlignment = (verseObject, alignment) => {
   if (verseObject.type === 'milestone' && verseObject.children.length > 0) {
     /** @type{WordObject} */
     const wordObject = alignmentObjectFromVerseObject(
-      verseObject
+        verseObject
     );
     const duplicate = alignment.topWords.find(function(obj) {
       return (obj.word === wordObject.word) &&
@@ -542,7 +542,7 @@ export const addVerseObjectToAlignment = (verseObject, alignment) => {
   } else if (verseObject.type === 'word' && !verseObject.children) {
     /** @type{WordObject} */
     const wordObject = alignmentObjectFromVerseObject(
-      verseObject
+        verseObject
     );
     alignment.bottomWords.push(wordObject);
   }
@@ -569,9 +569,9 @@ export const populateOccurrencesInWordObjects = (words) => {
     const wordText = getWordText(wordObject);
     if (wordText) { // if verseObject is word
       wordObject.occurrence = getOccurrence(
-        words, index++, wordText);
+          words, index++, wordText);
       wordObject.occurrences = getOccurrences(
-        words, wordText
+          words, wordText
       );
       return wordObject;
     }
@@ -606,7 +606,7 @@ export const wordObjectArrayFromString = (string) => {
 export const sortWordObjectsByString = (wordObjectArray, stringData) => {
   if (stringData.verseObjects) {
     stringData = populateOccurrencesInWordObjects(
-      stringData.verseObjects);
+        stringData.verseObjects);
   } else if (Array.isArray(stringData)) {
     stringData = populateOccurrencesInWordObjects(stringData);
   } else {
