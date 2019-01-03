@@ -58,8 +58,8 @@
     "path": "0.12.7",
     "path-extra": "^4.2.1",
     "rimraf": "^2.6.2",
-    "string-punctuation-tokenizer": "0.9.3",
+    "string-punctuation-tokenizer": "^0.9.3",
     "transform-runtime": "0.0.0",
-    "usfm-js": "github:translationCoreApps/usfm-js#bugfix-mcleanb-5388"
+    "usfm-js": "^1.0.12"
   }
 }
