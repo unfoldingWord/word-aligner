@@ -793,7 +793,7 @@
       "type": "text"
     },
     {
-      "attrib": "|who=\"Jesus\"",
+      "attrib": " |who=\"Jesus\"",
       "children": [
         {
           "text": "\"",

@@ -330,7 +330,7 @@ const exportTest = (name = {}) => {
       1: output
     }
   };
-  let usfm = usfmjs.toUSFM(outputData, {chunk: true});
+  let usfm = usfmjs.toUSFM(outputData, {chunk: true, forcedNewLines: true});
   const split = usfm.split("\\v 1");
   usfm = split.length > 1 ? split[1] : "";
   if (usfm.substr(0, 1) === ' ') {
