@@ -175,7 +175,7 @@ const tokenizeText = (text, newVerseObjects, wordMap, nonWordVerseObjectCount, v
       if (pos > lastPos) { // make sure we are not dropping white space
         lastPos = fillGap(text, lastPos, pos, newVerseObjects);
       }
-      if (tokenizer.word.test(word)) { // if the text has word characters, its a word object
+      if (tokenizer.word.test(word) || tokenizer.number.test(word)) { // if the text has word or number characters, its a word object
         const wordIndex = wordMap.length;
         let occurrence = tokenizer.occurrenceInString(
             verseText,
