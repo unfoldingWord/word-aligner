@@ -18,7 +18,10 @@
     "arrow-parens": "off",
     "comma-dangle": "off",
     "quotes": "off",
-    "indent": [ "warn", 2 ],
+    "indent": [ "warn", 2,
+      { "SwitchCase": 1 },
+      { "CallExpression":  1}
+    ],
     "semi": [
       "error",
       "always",
