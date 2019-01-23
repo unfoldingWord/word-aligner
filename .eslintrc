@@ -18,9 +18,13 @@
     "arrow-parens": "off",
     "comma-dangle": "off",
     "quotes": "off",
-    "indent": [ "warn", 2,
-      { "SwitchCase": 1 },
-      { "CallExpression":  1}
+    "indent": ["warn", 2,
+      {
+        "CallExpression": {"arguments": "first"},
+        "FunctionDeclaration": {"parameters": "first"},
+        "SwitchCase": 1,
+        "ignoreComments": true
+      }
     ],
     "semi": [
       "error",
