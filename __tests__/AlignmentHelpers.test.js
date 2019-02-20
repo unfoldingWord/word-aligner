@@ -303,20 +303,56 @@ const unmergeTest = (name = {}) => {
   expect(output).toEqual({alignment, wordBank});
 };
 
-function normalizeAtributes(tag, source) {
+function normalizeAtributesAlign(tag, source) {
   let parts = source.split(tag);
   const length = parts.length;
   for (let i = 1; i < length; i++) {
     const part = parts[i];
-    let lines = part.split('\n');
+    let endMarker = "\n";
+    const posEndMarker = part.indexOf("\\*");
+    if (posEndMarker >= 0) {
+      const posNewLine = part.indexOf('\n');
+      if ((posNewLine < 0) || (posNewLine > posEndMarker)) {
+        endMarker = "\\*"; // old format ended at new line
+      }
+    }
+    let lines = part.split(endMarker);
     let attributes = lines[0].split(' ');
     attributes = attributes.sort();
-    lines[0] = attributes.join(' ');
-    parts[i] = lines.join('\n');
+    const newAttributes = attributes.join(' ');
+    lines[0] = newAttributes;
+    parts[i] = lines.join(endMarker);
   }
   const normalized = parts.join(tag);
   return normalized;
 }
+
+function normalizeAtributesWord(tag, source) {
+  let parts = source.split(tag);
+  const length = parts.length;
+  for (let i = 1; i < length; i++) {
+    const item = parts[i];
+    if (item.substr(0, 1) !== '*') {
+      let sections = item.split('|');
+      if (sections <= 1) {
+        console.log("Broken word tag: " + item);
+      } else {
+        const text = sections[0];
+        let attributes = sections[1].split(' ');
+        attributes = attributes.sort();
+        while (attributes.length && (attributes[0] === '')) {
+          attributes.splice(0, 1);
+        }
+        attributes = attributes.join(' ');
+        parts[i] = text + '|' + attributes;
+      }
+    }
+  }
+  const normalized = parts.join(tag);
+  return normalized;
+}
+
+
 
 /**
  * Generator for testing merging of alignment into verseObjects
@@ -343,8 +379,11 @@ const exportTest = (name = {}) => {
     usfm = usfm.substr(1);
   }
   const tag = "\\zaln-s | ";
-  const outputNormal = normalizeAtributes(tag, usfm);
-  const expectedNormal = normalizeAtributes(tag, expectedUsfm);
+  let outputNormal = normalizeAtributesAlign(tag, usfm);
+  let expectedNormal = normalizeAtributesAlign(tag, expectedUsfm);
+  const wordTag = '\\w';
+  outputNormal = normalizeAtributesWord(wordTag, outputNormal);
+  expectedNormal = normalizeAtributesWord(wordTag, expectedNormal);
   expect(outputNormal).toEqual(expectedNormal);
 };
 
