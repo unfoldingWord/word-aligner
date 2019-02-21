@@ -144,7 +144,7 @@ describe("UnMerge Alignment from Verse Objects", () => {
   });
 });
 
-describe("export USFM3 from Verse Objects", () => {
+describe("export USFM3 with merged alignments", () => {
   it('handles acts-1-11', () => {
     exportTest('acts-1-11');
   });

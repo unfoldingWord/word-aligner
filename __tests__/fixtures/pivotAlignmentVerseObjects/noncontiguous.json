@@ -42,6 +42,10 @@
       ]
     },
     {
+      "text": " ",
+      "type": "text"
+    },
+    {
       "tag": "zaln",
       "type": "milestone",
       "content": "Χριστοῦ",
@@ -61,6 +65,10 @@
       ]
     },
     {
+      "text": " ",
+      "type": "text"
+    },
+    {
       "tag": "zaln",
       "type": "milestone",
       "content": "Ἰησοῦ",
@@ -78,6 +86,10 @@
           "occurrences": 1
         }
       ]
+    },
+    {
+      "text": " ",
+      "type": "text"
     },
     {
       "tag": "zaln",

@@ -53,6 +53,10 @@
           "occurrences": 2
         },
         {
+          "text": " ",
+          "type": "text"
+        },
+        {
           "tag": "w",
           "type": "word",
           "text": "of",
@@ -60,6 +64,10 @@
           "occurrences": 2
         }
       ]
+    },
+    {
+      "text": " ",
+      "type": "text"
     },
     {
       "tag": "zaln",
@@ -96,6 +104,10 @@
           "occurrences": 2
         },
         {
+          "text": " ",
+          "type": "text"
+        },
+        {
           "tag": "w",
           "type": "word",
           "text": "of",
@@ -103,6 +115,10 @@
           "occurrences": 2
         }
       ]
+    },
+    {
+      "text": " ",
+      "type": "text"
     },
     {
       "tag": "zaln",

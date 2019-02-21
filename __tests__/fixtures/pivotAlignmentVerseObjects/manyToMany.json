@@ -42,6 +42,10 @@
               "occurrences": 1
             },
             {
+              "text": " ",
+              "type": "text"
+            },
+            {
               "tag": "w",
               "type": "word",
               "text": "Christ",
