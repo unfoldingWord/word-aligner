@@ -54,11 +54,19 @@ describe('VerseObjectUtils.getWordsFromVerseObjects', () => {
       occurrences: 2
     },
     {
+      "text": " ",
+      "type": "text"
+    },
+    {
       tag: 'w',
       type: 'word',
       text: 'of',
       occurrence: 1,
       occurrences: 2
+    },
+    {
+      "text": " ",
+      "type": "text"
     },
     {
       tag: 'w',
@@ -76,11 +84,19 @@ describe('VerseObjectUtils.getWordsFromVerseObjects', () => {
       occurrences: 2
     },
     {
+      "text": " ",
+      "type": "text"
+    },
+    {
       tag: 'w',
       type: 'word',
       text: 'of',
       occurrence: 2,
       occurrences: 2
+    },
+    {
+      "text": " ",
+      "type": "text"
     },
     {
       tag: 'w',
@@ -100,6 +116,10 @@ describe('VerseObjectUtils.getWordsFromVerseObjects', () => {
       text: 'de',
       occurrence: 1,
       occurrences: 1
+    },
+    {
+      "text": " ",
+      "type": "text"
     },
     {
       tag: 'w',
@@ -123,6 +143,10 @@ describe("getOrderedVerseObjectsFromString", () => {
         occurrences: 1
       },
       {
+        "text": " ",
+        "type": "text"
+      },
+      {
         tag: "w",
         type: "word",
         text: "world",
@@ -130,9 +154,10 @@ describe("getOrderedVerseObjectsFromString", () => {
         occurrences: 1
       }
     ];
+    const expectedWordCount = expected.filter(item => (item.type === "word")).length;
     const {newVerseObjects, wordMap} = VerseObjectUtils.getOrderedVerseObjectsFromString(string);
     expect(newVerseObjects).toEqual(expected);
-    expect(wordMap.length).toEqual(expected.length);
+    expect(wordMap.length).toEqual(expectedWordCount);
   });
 
   it('handles words with punctuation', () => {
@@ -178,11 +203,19 @@ describe("getOrderedVerseObjectsFromString", () => {
         occurrences: 2
       },
       {
+        "text": " ",
+        "type": "text"
+      },
+      {
         tag: "w",
         type: "word",
         text: "of",
         occurrence: 1,
         occurrences: 2
+      },
+      {
+        "text": " ",
+        "type": "text"
       },
       {
         tag: "w",
@@ -203,11 +236,19 @@ describe("getOrderedVerseObjectsFromString", () => {
         occurrences: 2
       },
       {
+        "text": " ",
+        "type": "text"
+      },
+      {
         tag: "w",
         type: "word",
         text: "of",
         occurrence: 2,
         occurrences: 2
+      },
+      {
+        "text": " ",
+        "type": "text"
       },
       {
         tag: "w",
@@ -238,11 +279,19 @@ describe("getOrderedVerseObjectsFromString", () => {
         occurrences: 2
       },
       {
+        "text": " ",
+        "type": "text"
+      },
+      {
         tag: "w",
         type: "word",
         text: "of",
         occurrence: 1,
         occurrences: 2
+      },
+      {
+        "text": " ",
+        "type": "text"
       },
       {
         tag: "w",
@@ -263,11 +312,19 @@ describe("getOrderedVerseObjectsFromString", () => {
         occurrences: 2
       },
       {
+        "text": " ",
+        "type": "text"
+      },
+      {
         tag: "w",
         type: "word",
         text: "of",
         occurrence: 2,
         occurrences: 2
+      },
+      {
+        "text": " ",
+        "type": "text"
       },
       {
         tag: "w",

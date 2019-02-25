@@ -129,7 +129,7 @@ const getVerseObjectsText = (verseObjects) => {
 };
 
 /**
- * make sure we pick up extra white space between tokens
+ * make sure we pick up white space between tokens
  * @param {string} text - string to tokenize
  * @param {Number} lastPos - position of end of last token
  * @param {Number} pos - position to grab up to
@@ -143,7 +143,7 @@ const fillGap = (text, lastPos, pos, newVerseObjects, end = false) => {
   const lastVerseObject = newVerseObjects.length && newVerseObjects[newVerseObjects.length - 1];
   if (lastVerseObject && (lastVerseObject.type === 'text')) { // append to previous text
     lastVerseObject.text += gap;
-  } else if (end || (gap !== ' ')) { // if not default single space, then save gap
+  } else if (end || gap) { // save gap
     verseObject = {
       type: 'text',
       text: gap,

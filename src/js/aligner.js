@@ -67,20 +67,16 @@ export const merge = (alignments, wordBank, verseString,
   }
   let indicesToDelete = [];
   // each alignment should result in one verseObject
-  const aLen = alignments.length;
-  for (let i = 0; i < aLen; i++) {
+  for (let i = 0, aLen = alignments.length; i < aLen; i++) {
     const alignment = alignments[i];
     const {topWords, bottomWords} = alignment;
     // each bottomWord results in a nested verseObject of tag: w, type: word
     // located inside innermost nested topWord/k verseObject
     const replacements = {};
-    const bwLen = bottomWords.length;
-    for (let j = 0; j < bwLen; j++) {
+    for (let j = 0, bwLen = bottomWords.length; j < bwLen; j++) {
       const bottomWord = bottomWords[j];
-      const verseObject = VerseObjectUtils.wordVerseObjectFromBottomWord(
-          bottomWord);
-      const index = VerseObjectUtils.indexOfVerseObject(
-          wordMap, verseObject);
+      const verseObject = VerseObjectUtils.wordVerseObjectFromBottomWord(bottomWord);
+      const index = VerseObjectUtils.indexOfVerseObject(wordMap, verseObject);
       if (index === -1) {
         throw {message: 'VerseObject not found in verseText while merging:' + JSON.stringify(verseObject), type: 'InvalidatedAlignments'};
       }
@@ -95,12 +91,18 @@ export const merge = (alignments, wordBank, verseString,
     const groupedConsecutiveIndices =
       ArrayUtils.groupConsecutiveNumbers(indices, wordMap);
     // loop through groupedConsecutiveIndices to reduce and place where needed.
-    const gLen = groupedConsecutiveIndices.length;
-    for (let j = 0; j < gLen; j++) {
+    for (let j = 0, gLen = groupedConsecutiveIndices.length; j < gLen; j++) {
       const consecutiveIndices = groupedConsecutiveIndices[j];
       // map the consecutiveIndices to replacement verseObjects
-      const replacementVerseObjects = consecutiveIndices.map(
-          (index) => replacements[index]);
+      const replacementVerseObjects = [];
+      for (let k = 0, repLen = consecutiveIndices.length; k < repLen; k++) {
+        const index = consecutiveIndices[k];
+        const mapped = wordMap[index];
+        if (mapped.array && (mapped.pos >= 0) && (mapped.includeBetween >= 0)) {
+          replacementVerseObjects.push(mapped.array[mapped.includeBetween]);
+        }
+        replacementVerseObjects.push(replacements[index]);
+      }
       // remove and use the first index in group to place the aligned verseObject milestone later
       const indexToReplace = consecutiveIndices.shift();
       // the rest of the consecutiveIndices need to be queued to be deleted later after shift
