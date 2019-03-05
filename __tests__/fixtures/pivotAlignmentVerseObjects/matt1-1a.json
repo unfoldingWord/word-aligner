@@ -55,11 +55,19 @@
           "occurrences": 1
         },
         {
+          "text": " ",
+          "type": "text"
+        },
+        {
           "tag": "w",
           "type": "word",
           "text": "book",
           "occurrence": 1,
           "occurrences": 1
+        },
+        {
+          "text": " ",
+          "type": "text"
         },
         {
           "tag": "w",
@@ -69,6 +77,10 @@
           "occurrences": 2
         }
       ]
+    },
+    {
+      "text": " ",
+      "type": "text"
     },
     {
       "tag": "zaln",
@@ -85,11 +97,19 @@
           "occurrences": 1
         },
         {
+          "text": " ",
+          "type": "text"
+        },
+        {
           "tag": "w",
           "type": "word",
           "text": "genealogy",
           "occurrence": 1,
           "occurrences": 1
+        },
+        {
+          "text": " ",
+          "type": "text"
         },
         {
           "tag": "w",
@@ -99,6 +119,10 @@
           "occurrences": 2
         }
       ]
+    },
+    {
+      "text": " ",
+      "type": "text"
     },
     {
       "tag": "zaln",
@@ -115,6 +139,10 @@
           "occurrences": 1
         }
       ]
+    },
+    {
+      "text": " ",
+      "type": "text"
     },
     {
       "tag": "zaln",
