@@ -1,7 +1,7 @@
 /* eslint-disable no-negated-condition */
 import _ from 'lodash';
 import usfm from 'usfm-js';
-import tokenizer from 'string-punctuation-tokenizer';
+import * as tokenizer from 'string-punctuation-tokenizer';
 import * as ArrayUtils from './array';
 
 /**
@@ -95,9 +95,9 @@ export const getOrderedVerseObjects = (verseObjects) => {
     const verseObject = _verseObjects[i];
     if (verseObject.type === 'word') {
       verseObject.occurrence = getOccurrence(
-          _verseObjects,
-          i,
-          verseObject.text);
+        _verseObjects,
+        i,
+        verseObject.text);
       verseObject.occurrences = getOccurrences(_verseObjects, verseObject.text);
       wordMap.push({array: _verseObjects, pos: i});
     }
@@ -165,7 +165,7 @@ const fillGap = (text, lastPos, pos, newVerseObjects, end = false) => {
  */
 const tokenizeText = (text, newVerseObjects, wordMap, nonWordVerseObjectCount, verseText) => {
   if (text) {
-    const tokens = tokenizer.tokenizeWithPunctuation(text);
+    const tokens = tokenizer.tokenize({text, includePunctuation: true});
     const tokenLength = tokens.length;
     let verseObject;
     let lastPos = 0;
@@ -178,12 +178,12 @@ const tokenizeText = (text, newVerseObjects, wordMap, nonWordVerseObjectCount, v
       if (tokenizer.word.test(word) || tokenizer.number.test(word)) { // if the text has word or number characters, its a word object
         const wordIndex = wordMap.length;
         let occurrence = tokenizer.occurrenceInString(
-            verseText,
-            wordIndex,
-            word);
+          verseText,
+          wordIndex,
+          word);
         const occurrences = tokenizer.occurrencesInString(
-            verseText,
-            word);
+          verseText,
+          word);
         if (occurrence > occurrences) occurrence = occurrences;
         verseObject = {
           tag: 'w',
@@ -238,7 +238,7 @@ const getWordsFromNestedVerseObjects = (verseObjects, newVerseObjects, wordMap, 
         const newChildVerseObjects = [];
         nonWordVerseObjectCount = tokenizeText(vsObjText, newChildVerseObjects, wordMap, nonWordVerseObjectCount, verseText);
         nonWordVerseObjectCount = getWordsFromNestedVerseObjects(verseObject.children, newChildVerseObjects,
-            wordMap, verseText, nonWordVerseObjectCount);
+                                                                 wordMap, verseText, nonWordVerseObjectCount);
         verseObject.children = newChildVerseObjects;
       } else {
         nonWordVerseObjectCount = tokenizeText(vsObjText, newVerseObjects, wordMap, nonWordVerseObjectCount, verseText);
@@ -461,7 +461,7 @@ const flattenVerseObjects = (verse, words) => {
       } else if (object.type === 'milestone') { // get children of milestone
         // add content attibute to children
         const newObject = addContentAttributeToChildren(object.children,
-            object);
+          object);
         flattenVerseObjects(newObject, words);
       } else {
         words.push(object);
@@ -527,7 +527,7 @@ export const addVerseObjectToAlignment = (verseObject, alignment) => {
   if (verseObject.type === 'milestone' && verseObject.children.length > 0) {
     /** @type{WordObject} */
     const wordObject = alignmentObjectFromVerseObject(
-        verseObject
+      verseObject
     );
     const duplicate = alignment.topWords.find(function(obj) {
       return (obj.word === wordObject.word) &&
@@ -542,7 +542,7 @@ export const addVerseObjectToAlignment = (verseObject, alignment) => {
   } else if (verseObject.type === 'word' && !verseObject.children) {
     /** @type{WordObject} */
     const wordObject = alignmentObjectFromVerseObject(
-        verseObject
+      verseObject
     );
     alignment.bottomWords.push(wordObject);
   }
@@ -568,11 +568,8 @@ export const populateOccurrencesInWordObjects = (words) => {
   return words.map((wordObject) => {
     const wordText = getWordText(wordObject);
     if (wordText) { // if verseObject is word
-      wordObject.occurrence = getOccurrence(
-          words, index++, wordText);
-      wordObject.occurrences = getOccurrences(
-          words, wordText
-      );
+      wordObject.occurrence = getOccurrence(words, index++, wordText);
+      wordObject.occurrences = getOccurrences(words, wordText);
       return wordObject;
     }
     return null;
@@ -585,7 +582,7 @@ export const populateOccurrencesInWordObjects = (words) => {
  * @return {[WordObject]} - array of wordObjects
  */
 export const wordObjectArrayFromString = (string) => {
-  const wordObjectArray = tokenizer.tokenize(string).map((word, index) => {
+  const wordObjectArray = tokenizer.tokenize({text: string}).map((word, index) => {
     const occurrence = tokenizer.occurrenceInString(string, index, word);
     const occurrences = tokenizer.occurrencesInString(string, word);
     return {
@@ -606,7 +603,7 @@ export const wordObjectArrayFromString = (string) => {
 export const sortWordObjectsByString = (wordObjectArray, stringData) => {
   if (stringData.verseObjects) {
     stringData = populateOccurrencesInWordObjects(
-        stringData.verseObjects);
+      stringData.verseObjects);
   } else if (Array.isArray(stringData)) {
     stringData = populateOccurrencesInWordObjects(stringData);
   } else {
