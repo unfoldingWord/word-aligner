@@ -8,6 +8,9 @@ import wordaligner, {VerseObjectUtils} from '../src/';
 const RESOURCES = path.join('__tests__', 'fixtures', 'pivotAlignmentVerseObjects');
 
 describe("Merge Alignment into Verse Objects", () => {
+  it('handles nested spans and broken footnotes in Hindi', () => {
+    mergeTest('hi_irv_luk-4-19');
+  });
   it('handles one to one', () => {
     mergeTest('oneToOne');
   });
@@ -82,6 +85,9 @@ describe("Merge Alignment into Verse Objects", () => {
 });
 
 describe("UnMerge Alignment from Verse Objects", () => {
+  it('handles nested spans and broken footnotes in Hindi', () => {
+    mergeTest('hi_irv_luk-4-19');
+  });
   it('handles one to one', () => {
     unmergeTest('oneToOne');
   });
