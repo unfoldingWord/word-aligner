@@ -1,0 +1,421 @@
+{
+  "alignedVerseString": "Παῦλος δοῦλος Θεοῦ ἀπόστολος δὲ Ἰησοῦ Χριστοῦ κατὰ πίστιν ἐκλεκτῶν Θεοῦ καὶ ἐπίγνωσιν ἀληθείας τῆς κατ’ εὐσέβειαν",
+  "verseString": "\\wj \\wj*  \\w और|x-occurrence=\"1\" x-occurrences=\"1\"\\w* \\it\\+wj\\w प्रभु|x-occurrence=\"1\" x-occurrences=\"1\"\\w* \\w के|x-occurrence=\"1\" x-occurrences=\"2\"\\w* \\w प्रसन्न|x-occurrence=\"1\" x-occurrences=\"1\"\\w* \\w रहने|x-occurrence=\"1\" x-occurrences=\"1\"\\w* \\w के|x-occurrence=\"2\" x-occurrences=\"2\"\\w* \\w वर्ष|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\\f + \\f*\\f* \\f* \\f*  \\fr 4.19 \\fq प्रभु के प्रसन्न रहने के वर्ष: \\ft बन्दी दास और दासी की; भूमि और सम्पत्ति की; ऋण और दायित्वों से सामान्य छुटकारे का वर्ष; (लैव्य 25: 8)।\\f*    \\+wj* \\it* \\wj \\wj*  \\w का|x-occurrence=\"1\" x-occurrences=\"1\"\\w* \\w प्रचार|x-occurrence=\"1\" x-occurrences=\"1\"\\w* \\w करूँ|x-occurrence=\"1\" x-occurrences=\"1\"\\w*।”\n\\p ",
+  "verseObjects": [
+    {
+      "endTag": "wj*",
+      "nextChar": " ",
+      "tag": "wj"
+    },
+    {
+      "text": "  ",
+      "type": "text"
+    },
+    {
+      "nextChar": " ",
+      "occurrence": "1",
+      "occurrences": "1",
+      "tag": "w",
+      "type": "word"
+    },
+    {
+      "occurrence": 1,
+      "occurrences": 1,
+      "tag": "w",
+      "text": "और",
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "nextChar": " ",
+              "occurrence": "1",
+              "occurrences": "1",
+              "tag": "w",
+              "type": "word"
+            },
+            {
+              "occurrence": 1,
+              "occurrences": 1,
+              "tag": "w",
+              "text": "प्रभु",
+              "type": "word"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "nextChar": " ",
+              "occurrence": "1",
+              "occurrences": "2",
+              "tag": "w",
+              "type": "word"
+            },
+            {
+              "occurrence": 1,
+              "occurrences": 2,
+              "tag": "w",
+              "text": "के",
+              "type": "word"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "nextChar": " ",
+              "occurrence": "1",
+              "occurrences": "1",
+              "tag": "w",
+              "type": "word"
+            },
+            {
+              "occurrence": 1,
+              "occurrences": 1,
+              "tag": "w",
+              "text": "प्रसन्न",
+              "type": "word"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "nextChar": " ",
+              "occurrence": "1",
+              "occurrences": "1",
+              "tag": "w",
+              "type": "word"
+            },
+            {
+              "occurrence": 1,
+              "occurrences": 1,
+              "tag": "w",
+              "text": "रहने",
+              "type": "word"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "nextChar": " ",
+              "occurrence": "2",
+              "occurrences": "2",
+              "tag": "w",
+              "type": "word"
+            },
+            {
+              "occurrence": 2,
+              "occurrences": 2,
+              "tag": "w",
+              "text": "के",
+              "type": "word"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "nextChar": " ",
+              "occurrence": "1",
+              "occurrences": "1",
+              "tag": "w",
+              "type": "word"
+            },
+            {
+              "occurrence": 1,
+              "occurrences": 1,
+              "tag": "w",
+              "text": "वर्ष",
+              "type": "word"
+            },
+            {
+              "content": "+ ",
+              "nesting": 1,
+              "tag": "f",
+              "type": "footnote"
+            }
+          ],
+          "endTag": "",
+          "tag": "+wj"
+        }
+      ],
+      "endTag": "",
+      "tag": "it"
+    },
+    {
+      "tag": "f*"
+    },
+    {
+      "nextChar": " ",
+      "tag": "f*"
+    },
+    {
+      "nextChar": " ",
+      "tag": "f*"
+    },
+    {
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "content": " ",
+      "endMarkerChar": " ",
+      "tag": "f*"
+    },
+    {
+      "content": "4.19 ",
+      "tag": "fr"
+    },
+    {
+      "content": "प्रभु के प्रसन्न रहने के वर्ष: ",
+      "tag": "fq"
+    },
+    {
+      "content": "बन्दी दास और दासी की; भूमि और सम्पत्ति की; ऋण और दायित्वों से सामान्य छुटकारे का वर्ष; (लैव्य 25: 8)।",
+      "tag": "ft"
+    },
+    {
+      "nextChar": " ",
+      "tag": "f*"
+    },
+    {
+      "text": "    ",
+      "type": "text"
+    },
+    {
+      "nextChar": " ",
+      "tag": "+wj*"
+    },
+    {
+      "nextChar": " ",
+      "tag": "it*"
+    },
+    {
+      "endTag": "wj*",
+      "nextChar": " ",
+      "tag": "wj"
+    },
+    {
+      "text": "  ",
+      "type": "text"
+    },
+    {
+      "nextChar": " ",
+      "occurrence": "1",
+      "occurrences": "1",
+      "tag": "w",
+      "type": "word"
+    },
+    {
+      "occurrence": 1,
+      "occurrences": 1,
+      "tag": "w",
+      "text": "का",
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "nextChar": " ",
+      "occurrence": "1",
+      "occurrences": "1",
+      "tag": "w",
+      "type": "word"
+    },
+    {
+      "children": [
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "w",
+          "text": "प्रचार",
+          "type": "word"
+        }
+      ],
+      "content": "κηρύξαι",
+      "lemma": "κηρύσσω",
+      "morph": "Gr,V,NAA,,,,,",
+      "occurrence": 1,
+      "occurrences": 1,
+      "strong": "G27840",
+      "tag": "zaln",
+      "type": "milestone"
+    },
+    {
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "nextChar": " ",
+      "occurrence": "1",
+      "occurrences": "1",
+      "tag": "w",
+      "type": "word"
+    },
+    {
+      "children": [
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "w",
+          "text": "करूँ",
+          "type": "word"
+        }
+      ],
+      "content": "δεκτόν",
+      "lemma": "δεκτός",
+      "morph": "Gr,NS,,,,AMS,",
+      "occurrence": 1,
+      "occurrences": 1,
+      "strong": "G11840",
+      "tag": "zaln",
+      "type": "milestone"
+    },
+    {
+      "text": "।",
+      "type": "text"
+    },
+    {
+      "text": "”\n",
+      "type": "text"
+    },
+    {
+      "nextChar": " ",
+      "tag": "p",
+      "type": "paragraph"
+    },
+    {
+      "text": " ",
+      "type": "text"
+    }
+  ],
+  "alignment": [
+    {
+      "topWords": [
+        {
+          "word": "κηρύξαι",
+          "strong": "G27840",
+          "lemma": "κηρύσσω",
+          "morph": "Gr,V,NAA,,,,,",
+          "occurrence": 1,
+          "occurrences": 1
+        }
+      ],
+      "bottomWords": [
+        {
+          "word": "प्रचार",
+          "occurrence": 1,
+          "occurrences": 1,
+          "type": "bottomWord"
+        }
+      ]
+    },
+    {
+      "topWords": [
+        {
+          "word": "ἐνιαυτὸν",
+          "strong": "G17630",
+          "lemma": "ἐνιαυτός",
+          "morph": "Gr,N,,,,,AMS,",
+          "occurrence": 1,
+          "occurrences": 1
+        }
+      ],
+      "bottomWords": []
+    },
+    {
+      "topWords": [
+        {
+          "word": "Κυρίου",
+          "strong": "G29620",
+          "lemma": "κύριος",
+          "morph": "Gr,N,,,,,GMS,",
+          "occurrence": 1,
+          "occurrences": 1
+        }
+      ],
+      "bottomWords": []
+    },
+    {
+      "topWords": [
+        {
+          "word": "δεκτόν",
+          "strong": "G11840",
+          "lemma": "δεκτός",
+          "morph": "Gr,NS,,,,AMS,",
+          "occurrence": 1,
+          "occurrences": 1
+        }
+      ],
+      "bottomWords": [
+        {
+          "word": "करूँ",
+          "occurrence": 1,
+          "occurrences": 1,
+          "type": "bottomWord"
+        }
+      ]
+    }
+  ],
+  "wordBank": [
+    {
+      "word": "और",
+      "occurrence": 1,
+      "occurrences": 1,
+      "type": "bottomWord"
+    },
+    {
+      "word": "के",
+      "occurrence": 1,
+      "occurrences": 2,
+      "type": "bottomWord"
+    },
+    {
+      "word": "प्रसन्न",
+      "occurrence": 1,
+      "occurrences": 1,
+      "type": "bottomWord"
+    },
+    {
+      "word": "के",
+      "occurrence": 2,
+      "occurrences": 2,
+      "type": "bottomWord"
+    },
+    {
+      "word": "प्रभु",
+      "occurrence": 1,
+      "occurrences": 1,
+      "type": "bottomWord"
+    },
+    {
+      "word": "रहने",
+      "occurrence": 1,
+      "occurrences": 1,
+      "type": "bottomWord"
+    },
+    {
+      "word": "वर्ष",
+      "occurrence": 1,
+      "occurrences": 1,
+      "type": "bottomWord"
+    },
+    {
+      "word": "का",
+      "occurrence": 1,
+      "occurrences": 1,
+      "type": "bottomWord"
+    }
+  ]
+}
