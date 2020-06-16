@@ -1,6 +1,7 @@
 jest.unmock('fs-extra');
 import fs from 'fs-extra';
 import path from 'path-extra';
+import stringify from 'json-stringify-safe';
 import {VerseObjectUtils} from '../src/';
 
 describe('VerseObjectUtils.sortWordObjectsByString', () => {
@@ -406,5 +407,18 @@ describe("getWordListForVerse", () => {
 
     // then
     expect(results).toEqual(testData.wordList);
+  });
+
+  it('handles multiple original language words in alignment', () => {
+    // given
+    const testFile = path.join('__tests__', 'fixtures', 'verseObjects', 'est-8-6.ust.json');
+    const testData = fs.readJSONSync(testFile);
+
+    // when
+    const results = VerseObjectUtils.getWordListForVerse(testData.verseObjects);
+
+    // then
+    // TRICKY: handle circular references
+    expect(stringify(results, null, 2)).toEqual(stringify(testData.wordList, null, 2));
   });
 });
