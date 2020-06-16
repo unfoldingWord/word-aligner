@@ -1,0 +1,4949 @@
+{
+  "verseObjects": {
+    "verseObjects": [
+      {
+        "type": "text",
+        "text": "“"
+      },
+      {
+        "tag": "zaln",
+        "type": "milestone",
+        "strong": "H3588a",
+        "lemma": "כִּי",
+        "morph": "He,C",
+        "occurrence": 1,
+        "occurrences": 1,
+        "content": "כִּ֠י",
+        "children": [
+          {
+            "text": "I",
+            "tag": "w",
+            "type": "word",
+            "occurrence": 1,
+            "occurrences": 2
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "text": "am",
+            "tag": "w",
+            "type": "word",
+            "occurrence": 1,
+            "occurrences": 1
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "text": "asking",
+            "tag": "w",
+            "type": "word",
+            "occurrence": 1,
+            "occurrences": 1
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "text": "this",
+            "tag": "w",
+            "type": "word",
+            "occurrence": 1,
+            "occurrences": 1
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "text": "because",
+            "tag": "w",
+            "type": "word",
+            "occurrence": 1,
+            "occurrences": 1
+          }
+        ],
+        "endTag": "zaln-e\\*"
+      },
+      {
+        "type": "text",
+        "text": " "
+      },
+      {
+        "tag": "zaln",
+        "type": "milestone",
+        "strong": "H0349c",
+        "lemma": "אֵיךְ",
+        "morph": "He,Ti",
+        "occurrence": 1,
+        "occurrences": 1,
+        "content": "אֵיכָכָ֤ה",
+        "children": [
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H3201",
+            "lemma": "יָכֹל",
+            "morph": "He,Vqi1cs",
+            "occurrence": 1,
+            "occurrences": 2,
+            "content": "אוּכַל֙",
+            "children": [
+              {
+                "text": "I",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 2,
+                "occurrences": 2
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "text": "could",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "text": "not",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "text": "bear",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          }
+        ],
+        "endTag": "zaln-e\\*"
+      },
+      {
+        "type": "text",
+        "text": " "
+      },
+      {
+        "tag": "zaln",
+        "type": "milestone",
+        "strong": "c:H7200",
+        "lemma": "רָאָה",
+        "morph": "He,C:Vqq1cs",
+        "occurrence": 1,
+        "occurrences": 2,
+        "content": "וְֽ⁠רָאִ֔יתִי",
+        "children": [
+          {
+            "text": "to",
+            "tag": "w",
+            "type": "word",
+            "occurrence": 1,
+            "occurrences": 1
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "text": "see",
+            "tag": "w",
+            "type": "word",
+            "occurrence": 1,
+            "occurrences": 1
+          }
+        ],
+        "endTag": "zaln-e\\*"
+      },
+      {
+        "type": "text",
+        "text": " "
+      },
+      {
+        "tag": "zaln",
+        "type": "milestone",
+        "strong": "H4138",
+        "lemma": "מוֹלֶדֶת",
+        "morph": "He,Ncfsc:Sp1cs",
+        "occurrence": 1,
+        "occurrences": 1,
+        "content": "מוֹלַדְתִּֽ⁠י",
+        "children": [
+          {
+            "text": "my",
+            "tag": "w",
+            "type": "word",
+            "occurrence": 1,
+            "occurrences": 2
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "text": "relatives",
+            "tag": "w",
+            "type": "word",
+            "occurrence": 1,
+            "occurrences": 1
+          }
+        ],
+        "endTag": "zaln-e\\*"
+      },
+      {
+        "type": "text",
+        "text": " "
+      },
+      {
+        "tag": "zaln",
+        "type": "milestone",
+        "strong": "H0853",
+        "lemma": "אֵת",
+        "morph": "He,To",
+        "occurrence": 1,
+        "occurrences": 1,
+        "content": "אֶת",
+        "children": [
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H5971a",
+            "lemma": "עַם",
+            "morph": "He,Ncmsc:Sp1cs",
+            "occurrence": 1,
+            "occurrences": 1,
+            "content": "עַמִּ֑⁠י",
+            "children": [
+              {
+                "text": "and",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "text": "my",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 2,
+                "occurrences": 2
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "text": "whole",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "text": "people",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          }
+        ],
+        "endTag": "zaln-e\\*"
+      },
+      {
+        "type": "text",
+        "text": " "
+      },
+      {
+        "tag": "zaln",
+        "type": "milestone",
+        "strong": "b:H7451c",
+        "lemma": "רַע",
+        "morph": "He,Rd:Ncfsa",
+        "occurrence": 1,
+        "occurrences": 1,
+        "content": "בָּ⁠רָעָ֖ה",
+        "children": [
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H0834a",
+            "lemma": "אֲשֶׁר",
+            "morph": "He,Tr",
+            "occurrence": 1,
+            "occurrences": 1,
+            "content": "אֲשֶׁר",
+            "children": [
+              {
+                "tag": "zaln",
+                "type": "milestone",
+                "strong": "H4672",
+                "lemma": "מָצָא",
+                "morph": "He,Vqi3ms",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": "יִמְצָ֣א",
+                "children": [
+                  {
+                    "text": "destroyed",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1
+                  }
+                ],
+                "endTag": "zaln-e\\*"
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          }
+        ],
+        "endTag": "zaln-e\\*"
+      },
+      {
+        "type": "text",
+        "text": ".”\n\n"
+      },
+      {
+        "tag": "ts\\*",
+        "nextChar": "\n"
+      },
+      {
+        "tag": "p",
+        "type": "paragraph",
+        "text": " \n"
+      }
+    ]
+  },
+  "wordList": [
+    {
+      "type": "text",
+      "text": "“"
+    },
+    {
+      "text": "I",
+      "tag": "w",
+      "type": "word",
+      "occurrence": 1,
+      "occurrences": 2,
+      "content": [
+        {
+          "tag": "zaln",
+          "type": "milestone",
+          "strong": "H3588a",
+          "lemma": "כִּי",
+          "morph": "He,C",
+          "occurrence": 1,
+          "occurrences": 1,
+          "content": "כִּ֠י",
+          "children": [
+            "[Circular ~.1]",
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.1.content.0]"
+              ]
+            },
+            {
+              "text": "am",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.1.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.1.content.0]"
+              ]
+            },
+            {
+              "text": "asking",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.1.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.1.content.0]"
+              ]
+            },
+            {
+              "text": "this",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.1.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.1.content.0]"
+              ]
+            },
+            {
+              "text": "because",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.1.content.0]"
+              ]
+            }
+          ],
+          "endTag": "zaln-e\\*"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": " ",
+      "content": [
+        {
+          "tag": "zaln",
+          "type": "milestone",
+          "strong": "H3588a",
+          "lemma": "כִּי",
+          "morph": "He,C",
+          "occurrence": 1,
+          "occurrences": 1,
+          "content": "כִּ֠י",
+          "children": [
+            {
+              "text": "I",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 2,
+              "content": [
+                "[Circular ~.2.content.0]"
+              ]
+            },
+            "[Circular ~.2]",
+            {
+              "text": "am",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.2.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.2.content.0]"
+              ]
+            },
+            {
+              "text": "asking",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.2.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.2.content.0]"
+              ]
+            },
+            {
+              "text": "this",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.2.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.2.content.0]"
+              ]
+            },
+            {
+              "text": "because",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.2.content.0]"
+              ]
+            }
+          ],
+          "endTag": "zaln-e\\*"
+        }
+      ]
+    },
+    {
+      "text": "am",
+      "tag": "w",
+      "type": "word",
+      "occurrence": 1,
+      "occurrences": 1,
+      "content": [
+        {
+          "tag": "zaln",
+          "type": "milestone",
+          "strong": "H3588a",
+          "lemma": "כִּי",
+          "morph": "He,C",
+          "occurrence": 1,
+          "occurrences": 1,
+          "content": "כִּ֠י",
+          "children": [
+            {
+              "text": "I",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 2,
+              "content": [
+                "[Circular ~.3.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.3.content.0]"
+              ]
+            },
+            "[Circular ~.3]",
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.3.content.0]"
+              ]
+            },
+            {
+              "text": "asking",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.3.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.3.content.0]"
+              ]
+            },
+            {
+              "text": "this",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.3.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.3.content.0]"
+              ]
+            },
+            {
+              "text": "because",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.3.content.0]"
+              ]
+            }
+          ],
+          "endTag": "zaln-e\\*"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": " ",
+      "content": [
+        {
+          "tag": "zaln",
+          "type": "milestone",
+          "strong": "H3588a",
+          "lemma": "כִּי",
+          "morph": "He,C",
+          "occurrence": 1,
+          "occurrences": 1,
+          "content": "כִּ֠י",
+          "children": [
+            {
+              "text": "I",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 2,
+              "content": [
+                "[Circular ~.4.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.4.content.0]"
+              ]
+            },
+            {
+              "text": "am",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.4.content.0]"
+              ]
+            },
+            "[Circular ~.4]",
+            {
+              "text": "asking",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.4.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.4.content.0]"
+              ]
+            },
+            {
+              "text": "this",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.4.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.4.content.0]"
+              ]
+            },
+            {
+              "text": "because",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.4.content.0]"
+              ]
+            }
+          ],
+          "endTag": "zaln-e\\*"
+        }
+      ]
+    },
+    {
+      "text": "asking",
+      "tag": "w",
+      "type": "word",
+      "occurrence": 1,
+      "occurrences": 1,
+      "content": [
+        {
+          "tag": "zaln",
+          "type": "milestone",
+          "strong": "H3588a",
+          "lemma": "כִּי",
+          "morph": "He,C",
+          "occurrence": 1,
+          "occurrences": 1,
+          "content": "כִּ֠י",
+          "children": [
+            {
+              "text": "I",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 2,
+              "content": [
+                "[Circular ~.5.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.5.content.0]"
+              ]
+            },
+            {
+              "text": "am",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.5.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.5.content.0]"
+              ]
+            },
+            "[Circular ~.5]",
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.5.content.0]"
+              ]
+            },
+            {
+              "text": "this",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.5.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.5.content.0]"
+              ]
+            },
+            {
+              "text": "because",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.5.content.0]"
+              ]
+            }
+          ],
+          "endTag": "zaln-e\\*"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": " ",
+      "content": [
+        {
+          "tag": "zaln",
+          "type": "milestone",
+          "strong": "H3588a",
+          "lemma": "כִּי",
+          "morph": "He,C",
+          "occurrence": 1,
+          "occurrences": 1,
+          "content": "כִּ֠י",
+          "children": [
+            {
+              "text": "I",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 2,
+              "content": [
+                "[Circular ~.6.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.6.content.0]"
+              ]
+            },
+            {
+              "text": "am",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.6.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.6.content.0]"
+              ]
+            },
+            {
+              "text": "asking",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.6.content.0]"
+              ]
+            },
+            "[Circular ~.6]",
+            {
+              "text": "this",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.6.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.6.content.0]"
+              ]
+            },
+            {
+              "text": "because",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.6.content.0]"
+              ]
+            }
+          ],
+          "endTag": "zaln-e\\*"
+        }
+      ]
+    },
+    {
+      "text": "this",
+      "tag": "w",
+      "type": "word",
+      "occurrence": 1,
+      "occurrences": 1,
+      "content": [
+        {
+          "tag": "zaln",
+          "type": "milestone",
+          "strong": "H3588a",
+          "lemma": "כִּי",
+          "morph": "He,C",
+          "occurrence": 1,
+          "occurrences": 1,
+          "content": "כִּ֠י",
+          "children": [
+            {
+              "text": "I",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 2,
+              "content": [
+                "[Circular ~.7.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.7.content.0]"
+              ]
+            },
+            {
+              "text": "am",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.7.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.7.content.0]"
+              ]
+            },
+            {
+              "text": "asking",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.7.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.7.content.0]"
+              ]
+            },
+            "[Circular ~.7]",
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.7.content.0]"
+              ]
+            },
+            {
+              "text": "because",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.7.content.0]"
+              ]
+            }
+          ],
+          "endTag": "zaln-e\\*"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": " ",
+      "content": [
+        {
+          "tag": "zaln",
+          "type": "milestone",
+          "strong": "H3588a",
+          "lemma": "כִּי",
+          "morph": "He,C",
+          "occurrence": 1,
+          "occurrences": 1,
+          "content": "כִּ֠י",
+          "children": [
+            {
+              "text": "I",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 2,
+              "content": [
+                "[Circular ~.8.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.8.content.0]"
+              ]
+            },
+            {
+              "text": "am",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.8.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.8.content.0]"
+              ]
+            },
+            {
+              "text": "asking",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.8.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.8.content.0]"
+              ]
+            },
+            {
+              "text": "this",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.8.content.0]"
+              ]
+            },
+            "[Circular ~.8]",
+            {
+              "text": "because",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.8.content.0]"
+              ]
+            }
+          ],
+          "endTag": "zaln-e\\*"
+        }
+      ]
+    },
+    {
+      "text": "because",
+      "tag": "w",
+      "type": "word",
+      "occurrence": 1,
+      "occurrences": 1,
+      "content": [
+        {
+          "tag": "zaln",
+          "type": "milestone",
+          "strong": "H3588a",
+          "lemma": "כִּי",
+          "morph": "He,C",
+          "occurrence": 1,
+          "occurrences": 1,
+          "content": "כִּ֠י",
+          "children": [
+            {
+              "text": "I",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 2,
+              "content": [
+                "[Circular ~.9.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.9.content.0]"
+              ]
+            },
+            {
+              "text": "am",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.9.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.9.content.0]"
+              ]
+            },
+            {
+              "text": "asking",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.9.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.9.content.0]"
+              ]
+            },
+            {
+              "text": "this",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.9.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.9.content.0]"
+              ]
+            },
+            "[Circular ~.9]"
+          ],
+          "endTag": "zaln-e\\*"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": " "
+    },
+    [
+      {
+        "text": "I",
+        "tag": "w",
+        "type": "word",
+        "occurrence": 2,
+        "occurrences": 2,
+        "content": [
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H3201",
+            "lemma": "יָכֹל",
+            "morph": "He,Vqi1cs",
+            "occurrence": 1,
+            "occurrences": 2,
+            "content": "אוּכַל֙",
+            "children": [
+              "[Circular ~.11.0]",
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.11.0.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.0.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "could",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.11.0.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.0.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.11.0.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.0.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "not",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.11.0.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.0.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.11.0.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.0.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "bear",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.11.0.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.0.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          },
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H0349c",
+            "lemma": "אֵיךְ",
+            "morph": "He,Ti",
+            "occurrence": 1,
+            "occurrences": 1,
+            "content": "אֵיכָכָ֤ה",
+            "children": [
+              {
+                "tag": "zaln",
+                "type": "milestone",
+                "strong": "H3201",
+                "lemma": "יָכֹל",
+                "morph": "He,Vqi1cs",
+                "occurrence": 1,
+                "occurrences": 2,
+                "content": "אוּכַל֙",
+                "children": [
+                  "[Circular ~.11.0]",
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.11.0.content.1.children.0]",
+                      "[Circular ~.11.0.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "could",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.11.0.content.1.children.0]",
+                      "[Circular ~.11.0.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.11.0.content.1.children.0]",
+                      "[Circular ~.11.0.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "not",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.11.0.content.1.children.0]",
+                      "[Circular ~.11.0.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.11.0.content.1.children.0]",
+                      "[Circular ~.11.0.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "bear",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.11.0.content.1.children.0]",
+                      "[Circular ~.11.0.content.1]"
+                    ]
+                  }
+                ],
+                "endTag": "zaln-e\\*"
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": " ",
+        "content": [
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H3201",
+            "lemma": "יָכֹל",
+            "morph": "He,Vqi1cs",
+            "occurrence": 1,
+            "occurrences": 2,
+            "content": "אוּכַל֙",
+            "children": [
+              {
+                "text": "I",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 2,
+                "occurrences": 2,
+                "content": [
+                  "[Circular ~.11.1.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.1.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              "[Circular ~.11.1]",
+              {
+                "text": "could",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.11.1.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.1.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.11.1.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.1.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "not",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.11.1.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.1.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.11.1.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.1.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "bear",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.11.1.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.1.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          },
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H0349c",
+            "lemma": "אֵיךְ",
+            "morph": "He,Ti",
+            "occurrence": 1,
+            "occurrences": 1,
+            "content": "אֵיכָכָ֤ה",
+            "children": [
+              {
+                "tag": "zaln",
+                "type": "milestone",
+                "strong": "H3201",
+                "lemma": "יָכֹל",
+                "morph": "He,Vqi1cs",
+                "occurrence": 1,
+                "occurrences": 2,
+                "content": "אוּכַל֙",
+                "children": [
+                  {
+                    "text": "I",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 2,
+                    "occurrences": 2,
+                    "content": [
+                      "[Circular ~.11.1.content.1.children.0]",
+                      "[Circular ~.11.1.content.1]"
+                    ]
+                  },
+                  "[Circular ~.11.1]",
+                  {
+                    "text": "could",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.11.1.content.1.children.0]",
+                      "[Circular ~.11.1.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.11.1.content.1.children.0]",
+                      "[Circular ~.11.1.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "not",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.11.1.content.1.children.0]",
+                      "[Circular ~.11.1.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.11.1.content.1.children.0]",
+                      "[Circular ~.11.1.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "bear",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.11.1.content.1.children.0]",
+                      "[Circular ~.11.1.content.1]"
+                    ]
+                  }
+                ],
+                "endTag": "zaln-e\\*"
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          }
+        ]
+      },
+      {
+        "text": "could",
+        "tag": "w",
+        "type": "word",
+        "occurrence": 1,
+        "occurrences": 1,
+        "content": [
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H3201",
+            "lemma": "יָכֹל",
+            "morph": "He,Vqi1cs",
+            "occurrence": 1,
+            "occurrences": 2,
+            "content": "אוּכַל֙",
+            "children": [
+              {
+                "text": "I",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 2,
+                "occurrences": 2,
+                "content": [
+                  "[Circular ~.11.2.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.2.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.11.2.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.2.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              "[Circular ~.11.2]",
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.11.2.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.2.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "not",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.11.2.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.2.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.11.2.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.2.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "bear",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.11.2.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.2.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          },
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H0349c",
+            "lemma": "אֵיךְ",
+            "morph": "He,Ti",
+            "occurrence": 1,
+            "occurrences": 1,
+            "content": "אֵיכָכָ֤ה",
+            "children": [
+              {
+                "tag": "zaln",
+                "type": "milestone",
+                "strong": "H3201",
+                "lemma": "יָכֹל",
+                "morph": "He,Vqi1cs",
+                "occurrence": 1,
+                "occurrences": 2,
+                "content": "אוּכַל֙",
+                "children": [
+                  {
+                    "text": "I",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 2,
+                    "occurrences": 2,
+                    "content": [
+                      "[Circular ~.11.2.content.1.children.0]",
+                      "[Circular ~.11.2.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.11.2.content.1.children.0]",
+                      "[Circular ~.11.2.content.1]"
+                    ]
+                  },
+                  "[Circular ~.11.2]",
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.11.2.content.1.children.0]",
+                      "[Circular ~.11.2.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "not",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.11.2.content.1.children.0]",
+                      "[Circular ~.11.2.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.11.2.content.1.children.0]",
+                      "[Circular ~.11.2.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "bear",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.11.2.content.1.children.0]",
+                      "[Circular ~.11.2.content.1]"
+                    ]
+                  }
+                ],
+                "endTag": "zaln-e\\*"
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": " ",
+        "content": [
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H3201",
+            "lemma": "יָכֹל",
+            "morph": "He,Vqi1cs",
+            "occurrence": 1,
+            "occurrences": 2,
+            "content": "אוּכַל֙",
+            "children": [
+              {
+                "text": "I",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 2,
+                "occurrences": 2,
+                "content": [
+                  "[Circular ~.11.3.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.3.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.11.3.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.3.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "could",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.11.3.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.3.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              "[Circular ~.11.3]",
+              {
+                "text": "not",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.11.3.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.3.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.11.3.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.3.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "bear",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.11.3.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.3.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          },
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H0349c",
+            "lemma": "אֵיךְ",
+            "morph": "He,Ti",
+            "occurrence": 1,
+            "occurrences": 1,
+            "content": "אֵיכָכָ֤ה",
+            "children": [
+              {
+                "tag": "zaln",
+                "type": "milestone",
+                "strong": "H3201",
+                "lemma": "יָכֹל",
+                "morph": "He,Vqi1cs",
+                "occurrence": 1,
+                "occurrences": 2,
+                "content": "אוּכַל֙",
+                "children": [
+                  {
+                    "text": "I",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 2,
+                    "occurrences": 2,
+                    "content": [
+                      "[Circular ~.11.3.content.1.children.0]",
+                      "[Circular ~.11.3.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.11.3.content.1.children.0]",
+                      "[Circular ~.11.3.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "could",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.11.3.content.1.children.0]",
+                      "[Circular ~.11.3.content.1]"
+                    ]
+                  },
+                  "[Circular ~.11.3]",
+                  {
+                    "text": "not",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.11.3.content.1.children.0]",
+                      "[Circular ~.11.3.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.11.3.content.1.children.0]",
+                      "[Circular ~.11.3.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "bear",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.11.3.content.1.children.0]",
+                      "[Circular ~.11.3.content.1]"
+                    ]
+                  }
+                ],
+                "endTag": "zaln-e\\*"
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          }
+        ]
+      },
+      {
+        "text": "not",
+        "tag": "w",
+        "type": "word",
+        "occurrence": 1,
+        "occurrences": 1,
+        "content": [
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H3201",
+            "lemma": "יָכֹל",
+            "morph": "He,Vqi1cs",
+            "occurrence": 1,
+            "occurrences": 2,
+            "content": "אוּכַל֙",
+            "children": [
+              {
+                "text": "I",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 2,
+                "occurrences": 2,
+                "content": [
+                  "[Circular ~.11.4.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.4.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.11.4.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.4.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "could",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.11.4.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.4.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.11.4.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.4.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              "[Circular ~.11.4]",
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.11.4.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.4.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "bear",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.11.4.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.4.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          },
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H0349c",
+            "lemma": "אֵיךְ",
+            "morph": "He,Ti",
+            "occurrence": 1,
+            "occurrences": 1,
+            "content": "אֵיכָכָ֤ה",
+            "children": [
+              {
+                "tag": "zaln",
+                "type": "milestone",
+                "strong": "H3201",
+                "lemma": "יָכֹל",
+                "morph": "He,Vqi1cs",
+                "occurrence": 1,
+                "occurrences": 2,
+                "content": "אוּכַל֙",
+                "children": [
+                  {
+                    "text": "I",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 2,
+                    "occurrences": 2,
+                    "content": [
+                      "[Circular ~.11.4.content.1.children.0]",
+                      "[Circular ~.11.4.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.11.4.content.1.children.0]",
+                      "[Circular ~.11.4.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "could",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.11.4.content.1.children.0]",
+                      "[Circular ~.11.4.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.11.4.content.1.children.0]",
+                      "[Circular ~.11.4.content.1]"
+                    ]
+                  },
+                  "[Circular ~.11.4]",
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.11.4.content.1.children.0]",
+                      "[Circular ~.11.4.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "bear",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.11.4.content.1.children.0]",
+                      "[Circular ~.11.4.content.1]"
+                    ]
+                  }
+                ],
+                "endTag": "zaln-e\\*"
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": " ",
+        "content": [
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H3201",
+            "lemma": "יָכֹל",
+            "morph": "He,Vqi1cs",
+            "occurrence": 1,
+            "occurrences": 2,
+            "content": "אוּכַל֙",
+            "children": [
+              {
+                "text": "I",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 2,
+                "occurrences": 2,
+                "content": [
+                  "[Circular ~.11.5.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.5.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.11.5.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.5.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "could",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.11.5.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.5.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.11.5.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.5.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "not",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.11.5.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.5.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              "[Circular ~.11.5]",
+              {
+                "text": "bear",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.11.5.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.5.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          },
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H0349c",
+            "lemma": "אֵיךְ",
+            "morph": "He,Ti",
+            "occurrence": 1,
+            "occurrences": 1,
+            "content": "אֵיכָכָ֤ה",
+            "children": [
+              {
+                "tag": "zaln",
+                "type": "milestone",
+                "strong": "H3201",
+                "lemma": "יָכֹל",
+                "morph": "He,Vqi1cs",
+                "occurrence": 1,
+                "occurrences": 2,
+                "content": "אוּכַל֙",
+                "children": [
+                  {
+                    "text": "I",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 2,
+                    "occurrences": 2,
+                    "content": [
+                      "[Circular ~.11.5.content.1.children.0]",
+                      "[Circular ~.11.5.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.11.5.content.1.children.0]",
+                      "[Circular ~.11.5.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "could",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.11.5.content.1.children.0]",
+                      "[Circular ~.11.5.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.11.5.content.1.children.0]",
+                      "[Circular ~.11.5.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "not",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.11.5.content.1.children.0]",
+                      "[Circular ~.11.5.content.1]"
+                    ]
+                  },
+                  "[Circular ~.11.5]",
+                  {
+                    "text": "bear",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.11.5.content.1.children.0]",
+                      "[Circular ~.11.5.content.1]"
+                    ]
+                  }
+                ],
+                "endTag": "zaln-e\\*"
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          }
+        ]
+      },
+      {
+        "text": "bear",
+        "tag": "w",
+        "type": "word",
+        "occurrence": 1,
+        "occurrences": 1,
+        "content": [
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H3201",
+            "lemma": "יָכֹל",
+            "morph": "He,Vqi1cs",
+            "occurrence": 1,
+            "occurrences": 2,
+            "content": "אוּכַל֙",
+            "children": [
+              {
+                "text": "I",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 2,
+                "occurrences": 2,
+                "content": [
+                  "[Circular ~.11.6.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.6.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.11.6.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.6.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "could",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.11.6.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.6.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.11.6.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.6.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "not",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.11.6.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.6.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.11.6.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0349c",
+                    "lemma": "אֵיךְ",
+                    "morph": "He,Ti",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֵיכָכָ֤ה",
+                    "children": [
+                      "[Circular ~.11.6.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              "[Circular ~.11.6]"
+            ],
+            "endTag": "zaln-e\\*"
+          },
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H0349c",
+            "lemma": "אֵיךְ",
+            "morph": "He,Ti",
+            "occurrence": 1,
+            "occurrences": 1,
+            "content": "אֵיכָכָ֤ה",
+            "children": [
+              {
+                "tag": "zaln",
+                "type": "milestone",
+                "strong": "H3201",
+                "lemma": "יָכֹל",
+                "morph": "He,Vqi1cs",
+                "occurrence": 1,
+                "occurrences": 2,
+                "content": "אוּכַל֙",
+                "children": [
+                  {
+                    "text": "I",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 2,
+                    "occurrences": 2,
+                    "content": [
+                      "[Circular ~.11.6.content.1.children.0]",
+                      "[Circular ~.11.6.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.11.6.content.1.children.0]",
+                      "[Circular ~.11.6.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "could",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.11.6.content.1.children.0]",
+                      "[Circular ~.11.6.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.11.6.content.1.children.0]",
+                      "[Circular ~.11.6.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "not",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.11.6.content.1.children.0]",
+                      "[Circular ~.11.6.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.11.6.content.1.children.0]",
+                      "[Circular ~.11.6.content.1]"
+                    ]
+                  },
+                  "[Circular ~.11.6]"
+                ],
+                "endTag": "zaln-e\\*"
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          }
+        ]
+      }
+    ],
+    {
+      "type": "text",
+      "text": " "
+    },
+    {
+      "text": "to",
+      "tag": "w",
+      "type": "word",
+      "occurrence": 1,
+      "occurrences": 1,
+      "content": [
+        {
+          "tag": "zaln",
+          "type": "milestone",
+          "strong": "c:H7200",
+          "lemma": "רָאָה",
+          "morph": "He,C:Vqq1cs",
+          "occurrence": 1,
+          "occurrences": 2,
+          "content": "וְֽ⁠רָאִ֔יתִי",
+          "children": [
+            "[Circular ~.13]",
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.13.content.0]"
+              ]
+            },
+            {
+              "text": "see",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.13.content.0]"
+              ]
+            }
+          ],
+          "endTag": "zaln-e\\*"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": " ",
+      "content": [
+        {
+          "tag": "zaln",
+          "type": "milestone",
+          "strong": "c:H7200",
+          "lemma": "רָאָה",
+          "morph": "He,C:Vqq1cs",
+          "occurrence": 1,
+          "occurrences": 2,
+          "content": "וְֽ⁠רָאִ֔יתִי",
+          "children": [
+            {
+              "text": "to",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.14.content.0]"
+              ]
+            },
+            "[Circular ~.14]",
+            {
+              "text": "see",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.14.content.0]"
+              ]
+            }
+          ],
+          "endTag": "zaln-e\\*"
+        }
+      ]
+    },
+    {
+      "text": "see",
+      "tag": "w",
+      "type": "word",
+      "occurrence": 1,
+      "occurrences": 1,
+      "content": [
+        {
+          "tag": "zaln",
+          "type": "milestone",
+          "strong": "c:H7200",
+          "lemma": "רָאָה",
+          "morph": "He,C:Vqq1cs",
+          "occurrence": 1,
+          "occurrences": 2,
+          "content": "וְֽ⁠רָאִ֔יתִי",
+          "children": [
+            {
+              "text": "to",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.15.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.15.content.0]"
+              ]
+            },
+            "[Circular ~.15]"
+          ],
+          "endTag": "zaln-e\\*"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": " "
+    },
+    {
+      "text": "my",
+      "tag": "w",
+      "type": "word",
+      "occurrence": 1,
+      "occurrences": 2,
+      "content": [
+        {
+          "tag": "zaln",
+          "type": "milestone",
+          "strong": "H4138",
+          "lemma": "מוֹלֶדֶת",
+          "morph": "He,Ncfsc:Sp1cs",
+          "occurrence": 1,
+          "occurrences": 1,
+          "content": "מוֹלַדְתִּֽ⁠י",
+          "children": [
+            "[Circular ~.17]",
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.17.content.0]"
+              ]
+            },
+            {
+              "text": "relatives",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.17.content.0]"
+              ]
+            }
+          ],
+          "endTag": "zaln-e\\*"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": " ",
+      "content": [
+        {
+          "tag": "zaln",
+          "type": "milestone",
+          "strong": "H4138",
+          "lemma": "מוֹלֶדֶת",
+          "morph": "He,Ncfsc:Sp1cs",
+          "occurrence": 1,
+          "occurrences": 1,
+          "content": "מוֹלַדְתִּֽ⁠י",
+          "children": [
+            {
+              "text": "my",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 2,
+              "content": [
+                "[Circular ~.18.content.0]"
+              ]
+            },
+            "[Circular ~.18]",
+            {
+              "text": "relatives",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": [
+                "[Circular ~.18.content.0]"
+              ]
+            }
+          ],
+          "endTag": "zaln-e\\*"
+        }
+      ]
+    },
+    {
+      "text": "relatives",
+      "tag": "w",
+      "type": "word",
+      "occurrence": 1,
+      "occurrences": 1,
+      "content": [
+        {
+          "tag": "zaln",
+          "type": "milestone",
+          "strong": "H4138",
+          "lemma": "מוֹלֶדֶת",
+          "morph": "He,Ncfsc:Sp1cs",
+          "occurrence": 1,
+          "occurrences": 1,
+          "content": "מוֹלַדְתִּֽ⁠י",
+          "children": [
+            {
+              "text": "my",
+              "tag": "w",
+              "type": "word",
+              "occurrence": 1,
+              "occurrences": 2,
+              "content": [
+                "[Circular ~.19.content.0]"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " ",
+              "content": [
+                "[Circular ~.19.content.0]"
+              ]
+            },
+            "[Circular ~.19]"
+          ],
+          "endTag": "zaln-e\\*"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": " "
+    },
+    [
+      {
+        "text": "and",
+        "tag": "w",
+        "type": "word",
+        "occurrence": 1,
+        "occurrences": 1,
+        "content": [
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H5971a",
+            "lemma": "עַם",
+            "morph": "He,Ncmsc:Sp1cs",
+            "occurrence": 1,
+            "occurrences": 1,
+            "content": "עַמִּ֑⁠י",
+            "children": [
+              "[Circular ~.21.0]",
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.21.0.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.0.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "my",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 2,
+                "occurrences": 2,
+                "content": [
+                  "[Circular ~.21.0.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.0.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.21.0.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.0.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "whole",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.21.0.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.0.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.21.0.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.0.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "people",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.21.0.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.0.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          },
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H0853",
+            "lemma": "אֵת",
+            "morph": "He,To",
+            "occurrence": 1,
+            "occurrences": 1,
+            "content": "אֶת",
+            "children": [
+              {
+                "tag": "zaln",
+                "type": "milestone",
+                "strong": "H5971a",
+                "lemma": "עַם",
+                "morph": "He,Ncmsc:Sp1cs",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": "עַמִּ֑⁠י",
+                "children": [
+                  "[Circular ~.21.0]",
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.21.0.content.1.children.0]",
+                      "[Circular ~.21.0.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "my",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 2,
+                    "occurrences": 2,
+                    "content": [
+                      "[Circular ~.21.0.content.1.children.0]",
+                      "[Circular ~.21.0.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.21.0.content.1.children.0]",
+                      "[Circular ~.21.0.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "whole",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.21.0.content.1.children.0]",
+                      "[Circular ~.21.0.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.21.0.content.1.children.0]",
+                      "[Circular ~.21.0.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "people",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.21.0.content.1.children.0]",
+                      "[Circular ~.21.0.content.1]"
+                    ]
+                  }
+                ],
+                "endTag": "zaln-e\\*"
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": " ",
+        "content": [
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H5971a",
+            "lemma": "עַם",
+            "morph": "He,Ncmsc:Sp1cs",
+            "occurrence": 1,
+            "occurrences": 1,
+            "content": "עַמִּ֑⁠י",
+            "children": [
+              {
+                "text": "and",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.21.1.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.1.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              "[Circular ~.21.1]",
+              {
+                "text": "my",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 2,
+                "occurrences": 2,
+                "content": [
+                  "[Circular ~.21.1.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.1.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.21.1.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.1.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "whole",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.21.1.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.1.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.21.1.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.1.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "people",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.21.1.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.1.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          },
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H0853",
+            "lemma": "אֵת",
+            "morph": "He,To",
+            "occurrence": 1,
+            "occurrences": 1,
+            "content": "אֶת",
+            "children": [
+              {
+                "tag": "zaln",
+                "type": "milestone",
+                "strong": "H5971a",
+                "lemma": "עַם",
+                "morph": "He,Ncmsc:Sp1cs",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": "עַמִּ֑⁠י",
+                "children": [
+                  {
+                    "text": "and",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.21.1.content.1.children.0]",
+                      "[Circular ~.21.1.content.1]"
+                    ]
+                  },
+                  "[Circular ~.21.1]",
+                  {
+                    "text": "my",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 2,
+                    "occurrences": 2,
+                    "content": [
+                      "[Circular ~.21.1.content.1.children.0]",
+                      "[Circular ~.21.1.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.21.1.content.1.children.0]",
+                      "[Circular ~.21.1.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "whole",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.21.1.content.1.children.0]",
+                      "[Circular ~.21.1.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.21.1.content.1.children.0]",
+                      "[Circular ~.21.1.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "people",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.21.1.content.1.children.0]",
+                      "[Circular ~.21.1.content.1]"
+                    ]
+                  }
+                ],
+                "endTag": "zaln-e\\*"
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          }
+        ]
+      },
+      {
+        "text": "my",
+        "tag": "w",
+        "type": "word",
+        "occurrence": 2,
+        "occurrences": 2,
+        "content": [
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H5971a",
+            "lemma": "עַם",
+            "morph": "He,Ncmsc:Sp1cs",
+            "occurrence": 1,
+            "occurrences": 1,
+            "content": "עַמִּ֑⁠י",
+            "children": [
+              {
+                "text": "and",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.21.2.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.2.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.21.2.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.2.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              "[Circular ~.21.2]",
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.21.2.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.2.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "whole",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.21.2.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.2.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.21.2.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.2.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "people",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.21.2.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.2.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          },
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H0853",
+            "lemma": "אֵת",
+            "morph": "He,To",
+            "occurrence": 1,
+            "occurrences": 1,
+            "content": "אֶת",
+            "children": [
+              {
+                "tag": "zaln",
+                "type": "milestone",
+                "strong": "H5971a",
+                "lemma": "עַם",
+                "morph": "He,Ncmsc:Sp1cs",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": "עַמִּ֑⁠י",
+                "children": [
+                  {
+                    "text": "and",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.21.2.content.1.children.0]",
+                      "[Circular ~.21.2.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.21.2.content.1.children.0]",
+                      "[Circular ~.21.2.content.1]"
+                    ]
+                  },
+                  "[Circular ~.21.2]",
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.21.2.content.1.children.0]",
+                      "[Circular ~.21.2.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "whole",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.21.2.content.1.children.0]",
+                      "[Circular ~.21.2.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.21.2.content.1.children.0]",
+                      "[Circular ~.21.2.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "people",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.21.2.content.1.children.0]",
+                      "[Circular ~.21.2.content.1]"
+                    ]
+                  }
+                ],
+                "endTag": "zaln-e\\*"
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": " ",
+        "content": [
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H5971a",
+            "lemma": "עַם",
+            "morph": "He,Ncmsc:Sp1cs",
+            "occurrence": 1,
+            "occurrences": 1,
+            "content": "עַמִּ֑⁠י",
+            "children": [
+              {
+                "text": "and",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.21.3.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.3.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.21.3.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.3.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "my",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 2,
+                "occurrences": 2,
+                "content": [
+                  "[Circular ~.21.3.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.3.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              "[Circular ~.21.3]",
+              {
+                "text": "whole",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.21.3.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.3.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.21.3.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.3.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "people",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.21.3.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.3.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          },
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H0853",
+            "lemma": "אֵת",
+            "morph": "He,To",
+            "occurrence": 1,
+            "occurrences": 1,
+            "content": "אֶת",
+            "children": [
+              {
+                "tag": "zaln",
+                "type": "milestone",
+                "strong": "H5971a",
+                "lemma": "עַם",
+                "morph": "He,Ncmsc:Sp1cs",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": "עַמִּ֑⁠י",
+                "children": [
+                  {
+                    "text": "and",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.21.3.content.1.children.0]",
+                      "[Circular ~.21.3.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.21.3.content.1.children.0]",
+                      "[Circular ~.21.3.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "my",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 2,
+                    "occurrences": 2,
+                    "content": [
+                      "[Circular ~.21.3.content.1.children.0]",
+                      "[Circular ~.21.3.content.1]"
+                    ]
+                  },
+                  "[Circular ~.21.3]",
+                  {
+                    "text": "whole",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.21.3.content.1.children.0]",
+                      "[Circular ~.21.3.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.21.3.content.1.children.0]",
+                      "[Circular ~.21.3.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "people",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.21.3.content.1.children.0]",
+                      "[Circular ~.21.3.content.1]"
+                    ]
+                  }
+                ],
+                "endTag": "zaln-e\\*"
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          }
+        ]
+      },
+      {
+        "text": "whole",
+        "tag": "w",
+        "type": "word",
+        "occurrence": 1,
+        "occurrences": 1,
+        "content": [
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H5971a",
+            "lemma": "עַם",
+            "morph": "He,Ncmsc:Sp1cs",
+            "occurrence": 1,
+            "occurrences": 1,
+            "content": "עַמִּ֑⁠י",
+            "children": [
+              {
+                "text": "and",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.21.4.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.4.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.21.4.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.4.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "my",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 2,
+                "occurrences": 2,
+                "content": [
+                  "[Circular ~.21.4.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.4.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.21.4.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.4.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              "[Circular ~.21.4]",
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.21.4.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.4.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "people",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.21.4.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.4.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          },
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H0853",
+            "lemma": "אֵת",
+            "morph": "He,To",
+            "occurrence": 1,
+            "occurrences": 1,
+            "content": "אֶת",
+            "children": [
+              {
+                "tag": "zaln",
+                "type": "milestone",
+                "strong": "H5971a",
+                "lemma": "עַם",
+                "morph": "He,Ncmsc:Sp1cs",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": "עַמִּ֑⁠י",
+                "children": [
+                  {
+                    "text": "and",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.21.4.content.1.children.0]",
+                      "[Circular ~.21.4.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.21.4.content.1.children.0]",
+                      "[Circular ~.21.4.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "my",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 2,
+                    "occurrences": 2,
+                    "content": [
+                      "[Circular ~.21.4.content.1.children.0]",
+                      "[Circular ~.21.4.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.21.4.content.1.children.0]",
+                      "[Circular ~.21.4.content.1]"
+                    ]
+                  },
+                  "[Circular ~.21.4]",
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.21.4.content.1.children.0]",
+                      "[Circular ~.21.4.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "people",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.21.4.content.1.children.0]",
+                      "[Circular ~.21.4.content.1]"
+                    ]
+                  }
+                ],
+                "endTag": "zaln-e\\*"
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "text": " ",
+        "content": [
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H5971a",
+            "lemma": "עַם",
+            "morph": "He,Ncmsc:Sp1cs",
+            "occurrence": 1,
+            "occurrences": 1,
+            "content": "עַמִּ֑⁠י",
+            "children": [
+              {
+                "text": "and",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.21.5.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.5.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.21.5.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.5.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "my",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 2,
+                "occurrences": 2,
+                "content": [
+                  "[Circular ~.21.5.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.5.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.21.5.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.5.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "whole",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.21.5.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.5.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              "[Circular ~.21.5]",
+              {
+                "text": "people",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.21.5.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.5.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          },
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H0853",
+            "lemma": "אֵת",
+            "morph": "He,To",
+            "occurrence": 1,
+            "occurrences": 1,
+            "content": "אֶת",
+            "children": [
+              {
+                "tag": "zaln",
+                "type": "milestone",
+                "strong": "H5971a",
+                "lemma": "עַם",
+                "morph": "He,Ncmsc:Sp1cs",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": "עַמִּ֑⁠י",
+                "children": [
+                  {
+                    "text": "and",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.21.5.content.1.children.0]",
+                      "[Circular ~.21.5.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.21.5.content.1.children.0]",
+                      "[Circular ~.21.5.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "my",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 2,
+                    "occurrences": 2,
+                    "content": [
+                      "[Circular ~.21.5.content.1.children.0]",
+                      "[Circular ~.21.5.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.21.5.content.1.children.0]",
+                      "[Circular ~.21.5.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "whole",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.21.5.content.1.children.0]",
+                      "[Circular ~.21.5.content.1]"
+                    ]
+                  },
+                  "[Circular ~.21.5]",
+                  {
+                    "text": "people",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.21.5.content.1.children.0]",
+                      "[Circular ~.21.5.content.1]"
+                    ]
+                  }
+                ],
+                "endTag": "zaln-e\\*"
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          }
+        ]
+      },
+      {
+        "text": "people",
+        "tag": "w",
+        "type": "word",
+        "occurrence": 1,
+        "occurrences": 1,
+        "content": [
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H5971a",
+            "lemma": "עַם",
+            "morph": "He,Ncmsc:Sp1cs",
+            "occurrence": 1,
+            "occurrences": 1,
+            "content": "עַמִּ֑⁠י",
+            "children": [
+              {
+                "text": "and",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.21.6.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.6.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.21.6.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.6.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "my",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 2,
+                "occurrences": 2,
+                "content": [
+                  "[Circular ~.21.6.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.6.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.21.6.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.6.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "text": "whole",
+                "tag": "w",
+                "type": "word",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": [
+                  "[Circular ~.21.6.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.6.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": " ",
+                "content": [
+                  "[Circular ~.21.6.content.0]",
+                  {
+                    "tag": "zaln",
+                    "type": "milestone",
+                    "strong": "H0853",
+                    "lemma": "אֵת",
+                    "morph": "He,To",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": "אֶת",
+                    "children": [
+                      "[Circular ~.21.6.content.0]"
+                    ],
+                    "endTag": "zaln-e\\*"
+                  }
+                ]
+              },
+              "[Circular ~.21.6]"
+            ],
+            "endTag": "zaln-e\\*"
+          },
+          {
+            "tag": "zaln",
+            "type": "milestone",
+            "strong": "H0853",
+            "lemma": "אֵת",
+            "morph": "He,To",
+            "occurrence": 1,
+            "occurrences": 1,
+            "content": "אֶת",
+            "children": [
+              {
+                "tag": "zaln",
+                "type": "milestone",
+                "strong": "H5971a",
+                "lemma": "עַם",
+                "morph": "He,Ncmsc:Sp1cs",
+                "occurrence": 1,
+                "occurrences": 1,
+                "content": "עַמִּ֑⁠י",
+                "children": [
+                  {
+                    "text": "and",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.21.6.content.1.children.0]",
+                      "[Circular ~.21.6.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.21.6.content.1.children.0]",
+                      "[Circular ~.21.6.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "my",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 2,
+                    "occurrences": 2,
+                    "content": [
+                      "[Circular ~.21.6.content.1.children.0]",
+                      "[Circular ~.21.6.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.21.6.content.1.children.0]",
+                      "[Circular ~.21.6.content.1]"
+                    ]
+                  },
+                  {
+                    "text": "whole",
+                    "tag": "w",
+                    "type": "word",
+                    "occurrence": 1,
+                    "occurrences": 1,
+                    "content": [
+                      "[Circular ~.21.6.content.1.children.0]",
+                      "[Circular ~.21.6.content.1]"
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " ",
+                    "content": [
+                      "[Circular ~.21.6.content.1.children.0]",
+                      "[Circular ~.21.6.content.1]"
+                    ]
+                  },
+                  "[Circular ~.21.6]"
+                ],
+                "endTag": "zaln-e\\*"
+              }
+            ],
+            "endTag": "zaln-e\\*"
+          }
+        ]
+      }
+    ],
+    {
+      "type": "text",
+      "text": " "
+    },
+    [
+      [
+        {
+          "text": "destroyed",
+          "tag": "w",
+          "type": "word",
+          "occurrence": 1,
+          "occurrences": 1,
+          "content": [
+            {
+              "tag": "zaln",
+              "type": "milestone",
+              "strong": "H4672",
+              "lemma": "מָצָא",
+              "morph": "He,Vqi3ms",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": "יִמְצָ֣א",
+              "children": [
+                "[Circular ~.23.0.0]"
+              ],
+              "endTag": "zaln-e\\*"
+            },
+            {
+              "tag": "zaln",
+              "type": "milestone",
+              "strong": "H0834a",
+              "lemma": "אֲשֶׁר",
+              "morph": "He,Tr",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": "אֲשֶׁר",
+              "children": [
+                {
+                  "tag": "zaln",
+                  "type": "milestone",
+                  "strong": "H4672",
+                  "lemma": "מָצָא",
+                  "morph": "He,Vqi3ms",
+                  "occurrence": 1,
+                  "occurrences": 1,
+                  "content": "יִמְצָ֣א",
+                  "children": [
+                    "[Circular ~.23.0.0]"
+                  ],
+                  "endTag": "zaln-e\\*"
+                }
+              ],
+              "endTag": "zaln-e\\*"
+            },
+            {
+              "tag": "zaln",
+              "type": "milestone",
+              "strong": "b:H7451c",
+              "lemma": "רַע",
+              "morph": "He,Rd:Ncfsa",
+              "occurrence": 1,
+              "occurrences": 1,
+              "content": "בָּ⁠רָעָ֖ה",
+              "children": [
+                {
+                  "tag": "zaln",
+                  "type": "milestone",
+                  "strong": "H0834a",
+                  "lemma": "אֲשֶׁר",
+                  "morph": "He,Tr",
+                  "occurrence": 1,
+                  "occurrences": 1,
+                  "content": "אֲשֶׁר",
+                  "children": [
+                    {
+                      "tag": "zaln",
+                      "type": "milestone",
+                      "strong": "H4672",
+                      "lemma": "מָצָא",
+                      "morph": "He,Vqi3ms",
+                      "occurrence": 1,
+                      "occurrences": 1,
+                      "content": "יִמְצָ֣א",
+                      "children": [
+                        "[Circular ~.23.0.0]"
+                      ],
+                      "endTag": "zaln-e\\*"
+                    }
+                  ],
+                  "endTag": "zaln-e\\*"
+                }
+              ],
+              "endTag": "zaln-e\\*"
+            }
+          ]
+        }
+      ]
+    ],
+    {
+      "type": "text",
+      "text": ".”\n\n"
+    },
+    {
+      "tag": "ts\\*",
+      "nextChar": "\n"
+    },
+    {
+      "tag": "p",
+      "type": "paragraph",
+      "text": " \n"
+    }
+  ]
+}
