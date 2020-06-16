@@ -428,29 +428,17 @@ export const getWordListFromVerseObjectArray = (verseObjects) => {
   return wordList;
 };
 
-/**
- * maps original language content to each child and flattens them into array, recursive processing
- * @param {Array} childrens - list to process
- * @param {Array} ancestors - ordered list of all original language ancestors
- * @return {[]} returns flat array of all children
- */
-const addContentAttributeToChildren = (childrens, ancestors) => {
+const addContentAttributeToChildren = (childrens, parentObject, grandParentObject) => {
   const childrensWithAttribute = [];
 
-  for (let i = 0, lc = childrens.length; i < lc; i++) {
+  for (let i = 0; i < childrens.length; i++) {
     let child = childrens[i];
     if (child.children) {
-      child = addContentAttributeToChildren(child.children, [child, ...ancestors]);
-    } else if (ancestors[0].content) {
-      if (!child.content) {
-        child.content = [];
-      }
-      for (let j = 0, la = ancestors.length; j < la; j++) {
-        const ancestor = ancestors[j];
-        if (ancestor.content) {
-          child.content.push(ancestor);
-        }
-      }
+      child = addContentAttributeToChildren(child.children, child, parentObject);
+    } else if (!child.content && parentObject.content) {
+      const childrenContent = [parentObject];
+      if (grandParentObject) childrenContent.push(grandParentObject);
+      child.content = childrenContent;
     }
     childrensWithAttribute.push(child);
   }
@@ -464,7 +452,7 @@ const addContentAttributeToChildren = (childrens, ancestors) => {
  * @param {array} words - output array that will be filled with flattened verseObjects
  */
 const flattenVerseObjects = (verse, words) => {
-  for (let i = 0, l = verse.length; i < l; i++) {
+  for (let i = 0; i < verse.length; i++) {
     const object = verse[i];
     if (object) {
       if (object.type === 'word') {
@@ -472,7 +460,8 @@ const flattenVerseObjects = (verse, words) => {
         words.push(object);
       } else if (object.type === 'milestone') { // get children of milestone
         // add content attibute to children
-        const newObject = addContentAttributeToChildren(object.children, [object]);
+        const newObject = addContentAttributeToChildren(object.children,
+          object);
         flattenVerseObjects(newObject, words);
       } else {
         words.push(object);
