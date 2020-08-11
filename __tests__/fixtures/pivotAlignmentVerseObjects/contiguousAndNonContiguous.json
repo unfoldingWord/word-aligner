@@ -42,6 +42,10 @@
           "occurrences": 1
         },
         {
+          "text": " ",
+          "type": "text"
+        },
+        {
           "tag": "w",
           "type": "word",
           "text": "b",
@@ -49,6 +53,10 @@
           "occurrences": 1
         }
       ]
+    },
+    {
+      "text": " ",
+      "type": "text"
     },
     {
       "tag": "zaln",
@@ -70,6 +78,10 @@
       ]
     },
     {
+      "text": " ",
+      "type": "text"
+    },
+    {
       "tag": "zaln",
       "type": "milestone",
       "content": "Ἰησοῦ",
@@ -89,6 +101,10 @@
       ]
     },
     {
+      "text": " ",
+      "type": "text"
+    },
+    {
       "tag": "zaln",
       "type": "milestone",
       "content": "Χριστοῦ",
@@ -104,6 +120,10 @@
           "text": "e",
           "occurrence": 1,
           "occurrences": 1
+        },
+        {
+          "text": " ",
+          "type": "text"
         },
         {
           "tag": "w",

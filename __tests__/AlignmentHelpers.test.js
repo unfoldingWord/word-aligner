@@ -8,6 +8,9 @@ import wordaligner, {VerseObjectUtils} from '../src/';
 const RESOURCES = path.join('__tests__', 'fixtures', 'pivotAlignmentVerseObjects');
 
 describe("Merge Alignment into Verse Objects", () => {
+  it('handles nested spans and broken footnotes in Hindi', () => {
+    mergeTest('hi_irv_luk-4-19');
+  });
   it('handles one to one', () => {
     mergeTest('oneToOne');
   });
@@ -76,9 +79,15 @@ describe("Merge Alignment into Verse Objects", () => {
   it('handles titus 1-12', () => {
     mergeTest('tit1-12');
   });
+  it('handles gal 3-17', () => {
+    mergeTest('gal-3-17');
+  });
 });
 
 describe("UnMerge Alignment from Verse Objects", () => {
+  it('handles nested spans and broken footnotes in Hindi', () => {
+    mergeTest('hi_irv_luk-4-19');
+  });
   it('handles one to one', () => {
     unmergeTest('oneToOne');
   });
@@ -136,9 +145,12 @@ describe("UnMerge Alignment from Verse Objects", () => {
   it('handles titus 1-12', () => {
     unmergeTest('tit1-12');
   });
+  it('handles gal 3-17', () => {
+    unmergeTest('gal-3-17');
+  });
 });
 
-describe("export USFM3 from Verse Objects", () => {
+describe("export USFM3 with merged alignments", () => {
   it('handles acts-1-11', () => {
     exportTest('acts-1-11');
   });
@@ -297,20 +309,56 @@ const unmergeTest = (name = {}) => {
   expect(output).toEqual({alignment, wordBank});
 };
 
-function normalizeAtributes(tag, source) {
+function normalizeAtributesAlign(tag, source) {
   let parts = source.split(tag);
   const length = parts.length;
   for (let i = 1; i < length; i++) {
     const part = parts[i];
-    let lines = part.split('\n');
+    let endMarker = "\n";
+    const posEndMarker = part.indexOf("\\*");
+    if (posEndMarker >= 0) {
+      const posNewLine = part.indexOf('\n');
+      if ((posNewLine < 0) || (posNewLine > posEndMarker)) {
+        endMarker = "\\*"; // old format ended at new line
+      }
+    }
+    let lines = part.split(endMarker);
     let attributes = lines[0].split(' ');
     attributes = attributes.sort();
-    lines[0] = attributes.join(' ');
-    parts[i] = lines.join('\n');
+    const newAttributes = attributes.join(' ');
+    lines[0] = newAttributes;
+    parts[i] = lines.join(endMarker);
   }
   const normalized = parts.join(tag);
   return normalized;
 }
+
+function normalizeAtributesWord(tag, source) {
+  let parts = source.split(tag);
+  const length = parts.length;
+  for (let i = 1; i < length; i++) {
+    const item = parts[i];
+    if (item.substr(0, 1) !== '*') {
+      let sections = item.split('|');
+      if (sections <= 1) {
+        console.log("Broken word tag: " + item);
+      } else {
+        const text = sections[0];
+        let attributes = sections[1].split(' ');
+        attributes = attributes.sort();
+        while (attributes.length && (attributes[0] === '')) {
+          attributes.splice(0, 1);
+        }
+        attributes = attributes.join(' ');
+        parts[i] = text + '|' + attributes;
+      }
+    }
+  }
+  const normalized = parts.join(tag);
+  return normalized;
+}
+
+
 
 /**
  * Generator for testing merging of alignment into verseObjects
@@ -330,15 +378,18 @@ const exportTest = (name = {}) => {
       1: output
     }
   };
-  let usfm = usfmjs.toUSFM(outputData, {chunk: true});
+  let usfm = usfmjs.toUSFM(outputData, {chunk: true, forcedNewLines: true});
   const split = usfm.split("\\v 1");
   usfm = split.length > 1 ? split[1] : "";
   if (usfm.substr(0, 1) === ' ') {
     usfm = usfm.substr(1);
   }
   const tag = "\\zaln-s | ";
-  const outputNormal = normalizeAtributes(tag, usfm);
-  const expectedNormal = normalizeAtributes(tag, expectedUsfm);
+  let outputNormal = normalizeAtributesAlign(tag, usfm);
+  let expectedNormal = normalizeAtributesAlign(tag, expectedUsfm);
+  const wordTag = '\\w';
+  outputNormal = normalizeAtributesWord(wordTag, outputNormal);
+  expectedNormal = normalizeAtributesWord(wordTag, expectedNormal);
   expect(outputNormal).toEqual(expectedNormal);
 };
 

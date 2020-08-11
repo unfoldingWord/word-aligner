@@ -411,6 +411,10 @@
       "type": "milestone"
     },
     {
+      "text": " ",
+      "type": "text"
+    },
+    {
       "children": [
         {
           "occurrence": 1,
@@ -420,11 +424,19 @@
           "type": "word"
         },
         {
+          "text": " ",
+          "type": "text"
+        },
+        {
           "occurrence": 1,
           "occurrences": 1,
           "tag": "w",
           "text": "was",
           "type": "word"
+        },
+        {
+          "text": " ",
+          "type": "text"
         },
         {
           "occurrence": 1,
@@ -434,6 +446,10 @@
           "type": "word"
         },
         {
+          "text": " ",
+          "type": "text"
+        },
+        {
           "occurrence": 1,
           "occurrences": 1,
           "tag": "w",
@@ -441,11 +457,19 @@
           "type": "word"
         },
         {
+          "text": " ",
+          "type": "text"
+        },
+        {
           "occurrence": 1,
           "occurrences": 1,
           "tag": "w",
           "text": "with",
           "type": "word"
+        },
+        {
+          "text": " ",
+          "type": "text"
         },
         {
           "occurrence": 1,
@@ -478,6 +502,10 @@
           "type": "word"
         },
         {
+          "text": " ",
+          "type": "text"
+        },
+        {
           "occurrence": 1,
           "occurrences": 1,
           "tag": "w",
@@ -493,6 +521,10 @@
       "strong": "G38530",
       "tag": "zaln",
       "type": "milestone"
+    },
+    {
+      "text": " ",
+      "type": "text"
     },
     {
       "children": [
@@ -514,6 +546,10 @@
       "type": "milestone"
     },
     {
+      "text": " ",
+      "type": "text"
+    },
+    {
       "children": [
         {
           "occurrence": 1,
@@ -533,6 +569,10 @@
       "type": "milestone"
     },
     {
+      "text": " ",
+      "type": "text"
+    },
+    {
       "children": [
         {
           "occurrence": 1,
@@ -540,6 +580,10 @@
           "tag": "w",
           "text": "to",
           "type": "word"
+        },
+        {
+          "text": " ",
+          "type": "text"
         },
         {
           "occurrence": 1,
@@ -557,6 +601,10 @@
       "strong": "G55630",
       "tag": "zaln",
       "type": "milestone"
+    },
+    {
+      "text": " ",
+      "type": "text"
     },
     {
       "children": [
@@ -613,6 +661,10 @@
       "type": "milestone"
     },
     {
+      "text": " ",
+      "type": "text"
+    },
+    {
       "children": [
         {
           "occurrence": 2,
@@ -622,11 +674,19 @@
           "type": "word"
         },
         {
+          "text": " ",
+          "type": "text"
+        },
+        {
           "occurrence": 1,
           "occurrences": 1,
           "tag": "w",
           "text": "wait",
           "type": "word"
+        },
+        {
+          "text": " ",
+          "type": "text"
         },
         {
           "occurrence": 1,
@@ -644,6 +704,10 @@
       "strong": "G40370",
       "tag": "zaln",
       "type": "milestone"
+    },
+    {
+      "text": " ",
+      "type": "text"
     },
     {
       "children": [
@@ -665,6 +729,10 @@
       "type": "milestone"
     },
     {
+      "text": " ",
+      "type": "text"
+    },
+    {
       "children": [
         {
           "occurrence": 1,
@@ -684,6 +752,10 @@
       "type": "milestone"
     },
     {
+      "text": " ",
+      "type": "text"
+    },
+    {
       "children": [
         {
           "occurrence": 1,
@@ -691,6 +763,10 @@
           "tag": "w",
           "text": "of",
           "type": "word"
+        },
+        {
+          "text": " ",
+          "type": "text"
         },
         {
           "occurrence": 2,
@@ -708,6 +784,10 @@
       "strong": "G35880",
       "tag": "zaln",
       "type": "milestone"
+    },
+    {
+      "text": " ",
+      "type": "text"
     },
     {
       "children": [
@@ -742,34 +822,30 @@
           "type": "word"
         },
         {
+          "text": " ",
+          "type": "text"
+        },
+        {
           "occurrence": 1,
           "occurrences": 1,
           "tag": "w",
           "text": "which",
           "type": "word"
-        }
-      ],
-      "content": "ἣν",
-      "lemma": "ὅς",
-      "morph": "Gr,RR,,,,AFS,",
-      "occurrence": 1,
-      "occurrences": 1,
-      "strong": "G37390",
-      "tag": "zaln",
-      "type": "milestone"
-    },
-    {
-      "text": ", ",
-      "type": "text"
-    },
-    {
-      "children": [
+        },
+        {
+          "text": ", ",
+          "type": "text"
+        },
         {
           "occurrence": 3,
           "occurrences": 3,
           "tag": "w",
           "text": "he",
           "type": "word"
+        },
+        {
+          "text": " ",
+          "type": "text"
         },
         {
           "occurrence": 1,
@@ -793,7 +869,7 @@
       "type": "text"
     },
     {
-      "attrib": "|who=\"Jesus\"",
+      "attrib": " |who=\"Jesus\"",
       "children": [
         {
           "text": "\"",
@@ -819,6 +895,10 @@
           "type": "milestone"
         },
         {
+          "text": " ",
+          "type": "text"
+        },
+        {
           "children": [
             {
               "occurrence": 1,
@@ -828,11 +908,19 @@
               "type": "word"
             },
             {
+              "text": " ",
+              "type": "text"
+            },
+            {
               "occurrence": 1,
               "occurrences": 1,
               "tag": "w",
               "text": "from",
               "type": "word"
+            },
+            {
+              "text": " ",
+              "type": "text"
             },
             {
               "occurrence": 1,

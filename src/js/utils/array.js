@@ -11,8 +11,22 @@ export const groupConsecutiveNumbers = (numbers, wordMap) => (
       const current = wordMap[currentValue];
       const last = (currentIndex > 0) ? wordMap[originalArray[currentIndex - 1]] : {};
       // if this iteration is consecutive to the last, add it to the previous run
-      if ((current.array === last.array) && // make sure they are stored in the same array
-            (current.pos - last.pos === 1)) {
+      let isConsecutive = false;
+      if (current.array === last.array) { // make sure they are stored in the same array
+        const diff = current.pos - last.pos;
+        if (diff === 1) {
+          isConsecutive = true;
+        } else { // include inter word spacing if present
+          if (diff === 2) {
+            const verseObjectBetween = current.array[current.pos - 1];
+            if (verseObjectBetween && (verseObjectBetween.type === "text")) {
+              isConsecutive = true;
+              current.includeBetween = current.pos - 1;
+            }
+          }
+        }
+      }
+      if (isConsecutive) {
         accumulator[accumulator.length - 1].push(currentValue);
       } else { // the start of a new run including first element
         // create a new subarray with this as the start
@@ -31,14 +45,16 @@ export const groupConsecutiveNumbers = (numbers, wordMap) => (
  * @return {Array} - the resulting array after indexes were safely removed
  */
 export const deleteIndices = (array, indices, wordMap) => {
-  indices.sort((a, b) => b - a);
-  const length = indices.length;
-  for (let i = 0; i < length; i++) {
+  indices.sort((a, b) => b - a); // reverse sort
+  for (let i = 0, len = indices.length; i < len; i++) {
     const index = indices[i];
     if (index >= 0) {
       const location = wordMap[index];
       if (location) {
         location.array.splice(location.pos, 1);
+        if (location.includeBetween >= 0) {
+          location.array.splice(location.includeBetween, 1);
+        }
       }
     }
   }
@@ -50,6 +66,6 @@ export const deleteIndices = (array, indices, wordMap) => {
  * @param {array} arr - Array to be flattened
  * @return {array} - Flattened array
  */
-export const flattenArray = arr => {
+export const flattenArray = (arr) => {
   return [].concat(...arr);
 };

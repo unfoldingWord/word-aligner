@@ -1,6 +1,7 @@
 jest.unmock('fs-extra');
 import fs from 'fs-extra';
 import path from 'path-extra';
+import stringify from 'json-stringify-safe';
 import {VerseObjectUtils} from '../src/';
 
 describe('VerseObjectUtils.sortWordObjectsByString', () => {
@@ -54,11 +55,19 @@ describe('VerseObjectUtils.getWordsFromVerseObjects', () => {
       occurrences: 2
     },
     {
+      "text": " ",
+      "type": "text"
+    },
+    {
       tag: 'w',
       type: 'word',
       text: 'of',
       occurrence: 1,
       occurrences: 2
+    },
+    {
+      "text": " ",
+      "type": "text"
     },
     {
       tag: 'w',
@@ -76,11 +85,19 @@ describe('VerseObjectUtils.getWordsFromVerseObjects', () => {
       occurrences: 2
     },
     {
+      "text": " ",
+      "type": "text"
+    },
+    {
       tag: 'w',
       type: 'word',
       text: 'of',
       occurrence: 2,
       occurrences: 2
+    },
+    {
+      "text": " ",
+      "type": "text"
     },
     {
       tag: 'w',
@@ -100,6 +117,10 @@ describe('VerseObjectUtils.getWordsFromVerseObjects', () => {
       text: 'de',
       occurrence: 1,
       occurrences: 1
+    },
+    {
+      "text": " ",
+      "type": "text"
     },
     {
       tag: 'w',
@@ -123,6 +144,10 @@ describe("getOrderedVerseObjectsFromString", () => {
         occurrences: 1
       },
       {
+        "text": " ",
+        "type": "text"
+      },
+      {
         tag: "w",
         type: "word",
         text: "world",
@@ -130,9 +155,10 @@ describe("getOrderedVerseObjectsFromString", () => {
         occurrences: 1
       }
     ];
+    const expectedWordCount = expected.filter(item => (item.type === "word")).length;
     const {newVerseObjects, wordMap} = VerseObjectUtils.getOrderedVerseObjectsFromString(string);
     expect(newVerseObjects).toEqual(expected);
-    expect(wordMap.length).toEqual(expected.length);
+    expect(wordMap.length).toEqual(expectedWordCount);
   });
 
   it('handles words with punctuation', () => {
@@ -178,11 +204,19 @@ describe("getOrderedVerseObjectsFromString", () => {
         occurrences: 2
       },
       {
+        "text": " ",
+        "type": "text"
+      },
+      {
         tag: "w",
         type: "word",
         text: "of",
         occurrence: 1,
         occurrences: 2
+      },
+      {
+        "text": " ",
+        "type": "text"
       },
       {
         tag: "w",
@@ -203,11 +237,19 @@ describe("getOrderedVerseObjectsFromString", () => {
         occurrences: 2
       },
       {
+        "text": " ",
+        "type": "text"
+      },
+      {
         tag: "w",
         type: "word",
         text: "of",
         occurrence: 2,
         occurrences: 2
+      },
+      {
+        "text": " ",
+        "type": "text"
       },
       {
         tag: "w",
@@ -238,11 +280,19 @@ describe("getOrderedVerseObjectsFromString", () => {
         occurrences: 2
       },
       {
+        "text": " ",
+        "type": "text"
+      },
+      {
         tag: "w",
         type: "word",
         text: "of",
         occurrence: 1,
         occurrences: 2
+      },
+      {
+        "text": " ",
+        "type": "text"
       },
       {
         tag: "w",
@@ -263,11 +313,19 @@ describe("getOrderedVerseObjectsFromString", () => {
         occurrences: 2
       },
       {
+        "text": " ",
+        "type": "text"
+      },
+      {
         tag: "w",
         type: "word",
         text: "of",
         occurrence: 2,
         occurrences: 2
+      },
+      {
+        "text": " ",
+        "type": "text"
       },
       {
         tag: "w",
@@ -322,6 +380,20 @@ describe("getWordListFromVerseObjectArray", () => {
     const verseWords = VerseObjectUtils.mergeVerseData(results);
     expect(verseWords).toEqual(expected);
   });
+
+  it('handles numbers', () => {
+    // given
+    const testFile = path.join('__tests__', 'fixtures', 'verseObjects', 'gal-3-17.json');
+    const testData = fs.readJSONSync(testFile);
+    const expected = "Now what I mean is this The law which came 430 years afterward does not set aside the covenant previously established by God so as to nullify the promise";
+
+    // when
+    const results = VerseObjectUtils.getWordListFromVerseObjectArray(testData);
+
+    // then
+    const verseWords = VerseObjectUtils.mergeVerseData(results);
+    expect(verseWords).toEqual(expected);
+  });
 });
 
 describe("getWordListForVerse", () => {
@@ -335,5 +407,18 @@ describe("getWordListForVerse", () => {
 
     // then
     expect(results).toEqual(testData.wordList);
+  });
+
+  it('handles multiple original language words in alignment', () => {
+    // given
+    const testFile = path.join('__tests__', 'fixtures', 'verseObjects', 'est-8-6.ust.json');
+    const testData = fs.readJSONSync(testFile);
+
+    // when
+    const results = VerseObjectUtils.getWordListForVerse(testData.verseObjects);
+
+    // then
+    // TRICKY: handle circular references
+    expect(stringify(results, null, 2)).toEqual(stringify(testData.wordList, null, 2));
   });
 });

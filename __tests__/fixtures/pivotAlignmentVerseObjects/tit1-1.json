@@ -3,427 +3,527 @@
   "verseString": "Paul, a servant of God and an apostle of Jesus Christ, for the faith of God's chosen people and the knowledge of the truth that agrees with godliness,",
   "verseObjects": [
     {
-      "strongs": "G39720",
+      "children": [
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "w",
+          "text": "Paul",
+          "type": "word"
+        }
+      ],
+      "content": "Παῦλος",
       "lemma": "Παῦλος",
       "morph": "Gr,N,,,,,NMS,",
       "occurrence": 1,
       "occurrences": 1,
+      "strongs": "G39720",
       "tag": "zaln",
-      "type": "milestone",
-      "content": "Παῦλος",
+      "type": "milestone"
+    },
+    {
+      "text": ", ",
+      "type": "text"
+    },
+    {
       "children": [
         {
-          "tag": "w",
-          "type": "word",
-          "text": "Paul",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "tag": "w",
+          "text": "a",
+          "type": "word"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "w",
+          "text": "servant",
+          "type": "word"
         }
-      ]
-    },
-    {
-      "type": "text",
-      "text": ", "
-    },
-    {
-      "strongs": "G14010",
+      ],
+      "content": "δοῦλος",
       "lemma": "δοῦλος",
       "morph": "Gr,N,,,,,NMS,",
       "occurrence": 1,
       "occurrences": 1,
+      "strongs": "G14010",
       "tag": "zaln",
-      "type": "milestone",
-      "content": "δοῦλος",
-      "children": [
-        {
-          "tag": "w",
-          "type": "word",
-          "text": "a",
-          "occurrence": 1,
-          "occurrences": 1
-        },
-        {
-          "tag": "w",
-          "type": "word",
-          "text": "servant",
-          "occurrence": 1,
-          "occurrences": 1
-        }
-      ]
+      "type": "milestone"
     },
     {
-      "strongs": "G23160",
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "children": [
+        {
+          "occurrence": 1,
+          "occurrences": 4,
+          "tag": "w",
+          "text": "of",
+          "type": "word"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "occurrence": 1,
+          "occurrences": 2,
+          "tag": "w",
+          "text": "God",
+          "type": "word"
+        }
+      ],
+      "content": "Θεοῦ",
       "lemma": "θεός",
       "morph": "Gr,N,,,,,GMS,",
       "occurrence": 1,
       "occurrences": 2,
+      "strongs": "G23160",
       "tag": "zaln",
-      "type": "milestone",
-      "content": "Θεοῦ",
-      "children": [
-        {
-          "tag": "w",
-          "type": "word",
-          "text": "of",
-          "occurrence": 1,
-          "occurrences": 4
-        },
-        {
-          "tag": "w",
-          "type": "word",
-          "text": "God",
-          "occurrence": 1,
-          "occurrences": 2
-        }
-      ]
+      "type": "milestone"
     },
     {
-      "strongs": "G06520",
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "children": [
+        {
+          "occurrence": 1,
+          "occurrences": 2,
+          "tag": "w",
+          "text": "and",
+          "type": "word"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "w",
+          "text": "an",
+          "type": "word"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "w",
+          "text": "apostle",
+          "type": "word"
+        }
+      ],
+      "content": "ἀπόστολος",
       "lemma": "ἀπόστολος",
       "morph": "Gr,N,,,,,NMS,",
       "occurrence": 1,
       "occurrences": 1,
+      "strongs": "G06520",
       "tag": "zaln",
-      "type": "milestone",
-      "content": "ἀπόστολος",
-      "children": [
-        {
-          "tag": "w",
-          "type": "word",
-          "text": "and",
-          "occurrence": 1,
-          "occurrences": 2
-        },
-        {
-          "tag": "w",
-          "type": "word",
-          "text": "an",
-          "occurrence": 1,
-          "occurrences": 1
-        },
-        {
-          "tag": "w",
-          "type": "word",
-          "text": "apostle",
-          "occurrence": 1,
-          "occurrences": 1
-        }
-      ]
+      "type": "milestone"
     },
     {
-      "strongs": "G11610",
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "children": [
+        {
+          "occurrence": 2,
+          "occurrences": 4,
+          "tag": "w",
+          "text": "of",
+          "type": "word"
+        }
+      ],
+      "content": "δὲ",
       "lemma": "δέ",
       "morph": "Gr,CC,,,,,,,,",
       "occurrence": 1,
       "occurrences": 1,
+      "strongs": "G11610",
       "tag": "zaln",
-      "type": "milestone",
-      "content": "δὲ",
-      "children": [
-        {
-          "tag": "w",
-          "type": "word",
-          "text": "of",
-          "occurrence": 2,
-          "occurrences": 4
-        }
-      ]
+      "type": "milestone"
     },
     {
-      "strongs": "G24240",
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "children": [
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "w",
+          "text": "Jesus",
+          "type": "word"
+        }
+      ],
+      "content": "Ἰησοῦ",
       "lemma": "Ἰησοῦς",
       "morph": "Gr,N,,,,,GMS,",
       "occurrence": 1,
       "occurrences": 1,
+      "strongs": "G24240",
       "tag": "zaln",
-      "type": "milestone",
-      "content": "Ἰησοῦ",
-      "children": [
-        {
-          "tag": "w",
-          "type": "word",
-          "text": "Jesus",
-          "occurrence": 1,
-          "occurrences": 1
-        }
-      ]
+      "type": "milestone"
     },
     {
-      "strongs": "G55470",
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "children": [
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "w",
+          "text": "Christ",
+          "type": "word"
+        }
+      ],
+      "content": "Χριστοῦ",
       "lemma": "χριστός",
       "morph": "Gr,N,,,,,GMS,",
       "occurrence": 1,
       "occurrences": 1,
+      "strongs": "G55470",
       "tag": "zaln",
-      "type": "milestone",
-      "content": "Χριστοῦ",
+      "type": "milestone"
+    },
+    {
+      "text": ", ",
+      "type": "text"
+    },
+    {
       "children": [
         {
-          "tag": "w",
-          "type": "word",
-          "text": "Christ",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "tag": "w",
+          "text": "for",
+          "type": "word"
         }
-      ]
-    },
-    {
-      "type": "text",
-      "text": ", "
-    },
-    {
-      "strongs": "G25960",
+      ],
+      "content": "κατὰ",
       "lemma": "κατά",
       "morph": "Gr,P,,,,,A,,,",
       "occurrence": 1,
       "occurrences": 1,
+      "strongs": "G25960",
       "tag": "zaln",
-      "type": "milestone",
-      "content": "κατὰ",
-      "children": [
-        {
-          "tag": "w",
-          "type": "word",
-          "text": "for",
-          "occurrence": 1,
-          "occurrences": 1
-        }
-      ]
+      "type": "milestone"
     },
     {
-      "strongs": "G41020",
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "children": [
+        {
+          "occurrence": 1,
+          "occurrences": 3,
+          "tag": "w",
+          "text": "the",
+          "type": "word"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "w",
+          "text": "faith",
+          "type": "word"
+        }
+      ],
+      "content": "πίστιν",
       "lemma": "πίστις",
       "morph": "Gr,N,,,,,AFS,",
       "occurrence": 1,
       "occurrences": 1,
+      "strongs": "G41020",
       "tag": "zaln",
-      "type": "milestone",
-      "content": "πίστιν",
-      "children": [
-        {
-          "tag": "w",
-          "type": "word",
-          "text": "the",
-          "occurrence": 1,
-          "occurrences": 3
-        },
-        {
-          "tag": "w",
-          "type": "word",
-          "text": "faith",
-          "occurrence": 1,
-          "occurrences": 1
-        }
-      ]
+      "type": "milestone"
     },
     {
-      "strongs": "G23160",
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "children": [
+        {
+          "occurrence": 3,
+          "occurrences": 4,
+          "tag": "w",
+          "text": "of",
+          "type": "word"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "occurrence": 2,
+          "occurrences": 2,
+          "tag": "w",
+          "text": "God",
+          "type": "word"
+        }
+      ],
+      "content": "Θεοῦ",
       "lemma": "θεός",
       "morph": "Gr,N,,,,,GMS,",
       "occurrence": 2,
       "occurrences": 2,
+      "strongs": "G23160",
       "tag": "zaln",
-      "type": "milestone",
-      "content": "Θεοῦ",
+      "type": "milestone"
+    },
+    {
+      "text": "'",
+      "type": "text"
+    },
+    {
+      "occurrence": 1,
+      "occurrences": 1,
+      "tag": "w",
+      "text": "s",
+      "type": "word"
+    },
+    {
+      "text": " ",
+      "type": "text"
+    },
+    {
       "children": [
         {
+          "occurrence": 1,
+          "occurrences": 1,
           "tag": "w",
-          "type": "word",
-          "text": "of",
-          "occurrence": 3,
-          "occurrences": 4
+          "text": "chosen",
+          "type": "word"
         },
         {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "occurrence": 1,
+          "occurrences": 1,
           "tag": "w",
-          "type": "word",
-          "text": "God",
-          "occurrence": 2,
-          "occurrences": 2
+          "text": "people",
+          "type": "word"
         }
-      ]
-    },
-    {
-      "type": "text",
-      "text": "'"
-    },
-    {
-      "tag": "w",
-      "type": "word",
-      "text": "s",
-      "occurrence": 1,
-      "occurrences": 1
-    },
-    {
-      "strongs": "G15880",
+      ],
+      "content": "ἐκλεκτῶν",
       "lemma": "ἐκλεκτός",
       "morph": "Gr,NS,,,,GMP,",
       "occurrence": 1,
       "occurrences": 1,
+      "strongs": "G15880",
       "tag": "zaln",
-      "type": "milestone",
-      "content": "ἐκλεκτῶν",
-      "children": [
-        {
-          "tag": "w",
-          "type": "word",
-          "text": "chosen",
-          "occurrence": 1,
-          "occurrences": 1
-        },
-        {
-          "tag": "w",
-          "type": "word",
-          "text": "people",
-          "occurrence": 1,
-          "occurrences": 1
-        }
-      ]
+      "type": "milestone"
     },
     {
-      "strongs": "G25320",
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "children": [
+        {
+          "occurrence": 2,
+          "occurrences": 2,
+          "tag": "w",
+          "text": "and",
+          "type": "word"
+        }
+      ],
+      "content": "καὶ",
       "lemma": "καί",
       "morph": "Gr,CC,,,,,,,,",
       "occurrence": 1,
       "occurrences": 1,
+      "strongs": "G25320",
       "tag": "zaln",
-      "type": "milestone",
-      "content": "καὶ",
-      "children": [
-        {
-          "tag": "w",
-          "type": "word",
-          "text": "and",
-          "occurrence": 2,
-          "occurrences": 2
-        }
-      ]
+      "type": "milestone"
     },
     {
-      "strongs": "G19220",
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "children": [
+        {
+          "occurrence": 2,
+          "occurrences": 3,
+          "tag": "w",
+          "text": "the",
+          "type": "word"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "w",
+          "text": "knowledge",
+          "type": "word"
+        }
+      ],
+      "content": "ἐπίγνωσιν",
       "lemma": "ἐπίγνωσις",
       "morph": "Gr,N,,,,,AFS,",
       "occurrence": 1,
       "occurrences": 1,
+      "strongs": "G19220",
       "tag": "zaln",
-      "type": "milestone",
-      "content": "ἐπίγνωσιν",
-      "children": [
-        {
-          "tag": "w",
-          "type": "word",
-          "text": "the",
-          "occurrence": 2,
-          "occurrences": 3
-        },
-        {
-          "tag": "w",
-          "type": "word",
-          "text": "knowledge",
-          "occurrence": 1,
-          "occurrences": 1
-        }
-      ]
+      "type": "milestone"
     },
     {
-      "strongs": "G02250",
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "children": [
+        {
+          "occurrence": 4,
+          "occurrences": 4,
+          "tag": "w",
+          "text": "of",
+          "type": "word"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "occurrence": 3,
+          "occurrences": 3,
+          "tag": "w",
+          "text": "the",
+          "type": "word"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "w",
+          "text": "truth",
+          "type": "word"
+        }
+      ],
+      "content": "ἀληθείας",
       "lemma": "ἀλήθεια",
       "morph": "Gr,N,,,,,GFS,",
       "occurrence": 1,
       "occurrences": 1,
+      "strongs": "G02250",
       "tag": "zaln",
-      "type": "milestone",
-      "content": "ἀληθείας",
-      "children": [
-        {
-          "tag": "w",
-          "type": "word",
-          "text": "of",
-          "occurrence": 4,
-          "occurrences": 4
-        },
-        {
-          "tag": "w",
-          "type": "word",
-          "text": "the",
-          "occurrence": 3,
-          "occurrences": 3
-        },
-        {
-          "tag": "w",
-          "type": "word",
-          "text": "truth",
-          "occurrence": 1,
-          "occurrences": 1
-        }
-      ]
+      "type": "milestone"
     },
     {
-      "strongs": "G35880",
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "children": [
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "w",
+          "text": "that",
+          "type": "word"
+        }
+      ],
+      "content": "τῆς",
       "lemma": "ὁ",
       "morph": "Gr,RR,,,,GFS,",
       "occurrence": 1,
       "occurrences": 1,
+      "strongs": "G35880",
       "tag": "zaln",
-      "type": "milestone",
-      "content": "τῆς",
-      "children": [
-        {
-          "tag": "w",
-          "type": "word",
-          "text": "that",
-          "occurrence": 1,
-          "occurrences": 1
-        }
-      ]
+      "type": "milestone"
     },
     {
-      "strongs": "G25960",
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "children": [
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "w",
+          "text": "agrees",
+          "type": "word"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "w",
+          "text": "with",
+          "type": "word"
+        }
+      ],
+      "content": "κατ’",
       "lemma": "κατά",
       "morph": "Gr,P,,,,,A,,,",
       "occurrence": 1,
       "occurrences": 1,
+      "strongs": "G25960",
       "tag": "zaln",
-      "type": "milestone",
-      "content": "κατ’",
-      "children": [
-        {
-          "tag": "w",
-          "type": "word",
-          "text": "agrees",
-          "occurrence": 1,
-          "occurrences": 1
-        },
-        {
-          "tag": "w",
-          "type": "word",
-          "text": "with",
-          "occurrence": 1,
-          "occurrences": 1
-        }
-      ]
+      "type": "milestone"
     },
     {
-      "strongs": "G21500",
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "children": [
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "w",
+          "text": "godliness",
+          "type": "word"
+        }
+      ],
+      "content": "εὐσέβειαν",
       "lemma": "εὐσέβεια",
       "morph": "Gr,N,,,,,AFS,",
       "occurrence": 1,
       "occurrences": 1,
+      "strongs": "G21500",
       "tag": "zaln",
-      "type": "milestone",
-      "content": "εὐσέβειαν",
-      "children": [
-        {
-          "tag": "w",
-          "type": "word",
-          "text": "godliness",
-          "occurrence": 1,
-          "occurrences": 1
-        }
-      ]
+      "type": "milestone"
     },
     {
-      "type": "text",
-      "text": ","
+      "text": ",",
+      "type": "text"
     }
   ],
   "alignment": [

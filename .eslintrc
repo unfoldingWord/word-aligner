@@ -15,6 +15,17 @@
       }
     ],
     "no-throw-literal": "off",
+    "arrow-parens": "off",
+    "comma-dangle": "off",
+    "quotes": "off",
+    "indent": ["warn", 2,
+      {
+        "CallExpression": {"arguments": "first"},
+        "FunctionDeclaration": {"parameters": "first"},
+        "SwitchCase": 1,
+        "ignoreComments": true
+      }
+    ],
     "semi": [
       "error",
       "always",
@@ -27,6 +38,8 @@
   },
   "parser": "babel-eslint",
   "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
     "ecmaFeatures": {
       "modules": true
     }
