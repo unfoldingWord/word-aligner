@@ -69,6 +69,62 @@ describe('MorphUtils tests', () => {
   }
 
   describe('Greek', () => {
+    it('Test MorphUtils.getMorphLocalizationKeys() - test paul', () => {
+      const goodMorph = 'Gr,N,,,,,NMS,'; // width 13
+      const expectedMorphKeys = ["noun", "nominative", "masculine", "singular"];
+      const morphKeys = MorphUtils.getMorphLocalizationKeys(goodMorph);
+      expect(morphKeys).toEqual(expectedMorphKeys);
+    });
+
+    it('Test MorphUtils.getMorphLocalizationKeys() - test SR paul', () => {
+      const goodMorph = 'Gr,N,....NMS'; // width 12
+      const expectedMorphKeys = ["noun", "nominative", "masculine", "singular"];
+      const morphKeys = MorphUtils.getMorphLocalizationKeys(goodMorph);
+      expect(morphKeys).toEqual(expectedMorphKeys);
+    });
+
+    it('Test MorphUtils.getMorphLocalizationKeys() - test ἐπιδιορθώσῃ', () => {
+      const goodMorph = 'Gr,V,SAM2..S'; // width 12
+      const expectedMorphKeys = ["verb", "subjunctive", "aorist", "middle", "second", "singular"];
+      const morphKeys = MorphUtils.getMorphLocalizationKeys(goodMorph);
+      expect(morphKeys).toEqual(expectedMorphKeys);
+    });
+
+    it('Test MorphUtils.getMorphLocalizationKeys() - test διεταξάμην', () => {
+      const goodMorph = 'Gr,V,IAM1..S'; // width 12
+      const expectedMorphKeys = ["verb", "indicative", "aorist", "middle", "first", "singular"];
+      const morphKeys = MorphUtils.getMorphLocalizationKeys(goodMorph);
+      expect(morphKeys).toEqual(expectedMorphKeys);
+    });
+
+    it('Test MorphUtils.getMorphLocalizationKeys() - test ἔλεγχε', () => {
+      const goodMorph = 'Gr,V,MPA2..S'; // width 12
+      const expectedMorphKeys = ["verb", "imperative", "present", "active", "second", "singular"];
+      const morphKeys = MorphUtils.getMorphLocalizationKeys(goodMorph);
+      expect(morphKeys).toEqual(expectedMorphKeys);
+    });
+
+    it('Test MorphUtils.getMorphLocalizationKeys() - test εἶναι', () => {
+      const goodMorph = 'Gr,V,NPA....'; // width 12
+      const expectedMorphKeys = ["verb", "infinitive", "present", "active"];
+      const morphKeys = MorphUtils.getMorphLocalizationKeys(goodMorph);
+      expect(morphKeys).toEqual(expectedMorphKeys);
+    });
+
+    it('Test MorphUtils.getMorphLocalizationKeys() - test λείποντα', () => {
+      const goodMorph = 'Gr,V,PPA.ANP'; // width 12
+      const expectedMorphKeys = ["verb", "participle", "present", "active", "accusative", "neuter", "plural"];
+      const morphKeys = MorphUtils.getMorphLocalizationKeys(goodMorph);
+      expect(morphKeys).toEqual(expectedMorphKeys);
+    });
+
+    it('Test MorphUtils.getMorphLocalizationKeys() - test πρὸς', () => {
+      const goodMorph = 'Gr,P,.......'; // width 12
+      const expectedMorphKeys = ["preposition"];
+      const morphKeys = MorphUtils.getMorphLocalizationKeys(goodMorph);
+      expect(morphKeys).toEqual(expectedMorphKeys);
+    });
+
     it('Test MorphUtils.getMorphLocalizationKeys() - Unknown codes still return in comma delimited list', () => {
       const badMorph = 'AbCZEF,HI';
       const expectedMorphKeys = ['*Z', '*E', '*F', '*H', '*I'];

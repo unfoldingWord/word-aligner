@@ -183,6 +183,97 @@ morphCodeLocalizationMapAr.verb_stems = {
   G: 'ittaphal',
 };
 
+// These reflect the columns on for the SR  on pages 9 and 10 of: https://greekcntr.org/resources/NTGRG.pdf
+const formVI = { // Form for VI
+  I: 'indicative',
+  M: 'imperative',
+  S: 'subjunctive',
+  O: 'optative',
+  N: 'infinitive',
+  P: 'participle',
+};
+
+const formNADX = { // Form for NADX
+  C: 'comparative',
+  S: 'superlatives',
+  D: 'diminutive',
+  I: 'indeclinable',
+};
+
+export const morphCodeLocalizationMapSrGrk = {
+  2: { // Function
+    N: {
+      key: 'noun',
+      4: {...formNADX},
+    },
+    R: {
+      key: 'pronoun',
+    },
+    A: {
+      key: 'adjective',
+      4: {...formNADX},
+    },
+    V: {
+      key: 'verb',
+      4: {...formVI},
+    },
+    D: {
+      key: 'adverb',
+      4: {...formNADX},
+    },
+    P: {
+      key: 'preposition',
+    },
+    C: {
+      key: 'conjunction',
+    },
+    I: {
+      key: 'interjection',
+      4: {...formVI},
+    },
+    X: {
+      key: 'determiner', // new
+      4: {...formNADX},
+    },
+  },
+  5: { // Tense
+    P: 'present',
+    I: 'imperfect',
+    F: 'future',
+    A: 'aorist',
+    E: 'perfect',
+    L: 'pluperfect',
+  },
+  6: { // Voice
+    A: 'active',
+    M: 'middle',
+    P: 'passive',
+  },
+  7: { // Person
+    1: 'first',
+    2: 'second',
+    3: 'third',
+  },
+  8: { // Case
+    N: 'nominative',
+    G: 'genitive',
+    D: 'dative',
+    A: 'accusative',
+    V: 'vocative',
+  },
+  9: { // Gender
+    M: 'masculine',
+    F: 'feminine',
+    N: 'neuter',
+    A: 'any', // new
+  },
+  10: { // Number
+    S: 'singular',
+    P: 'plural',
+    A: 'any', // new
+  },
+};
+
 // These reflect the columns on page 55 of https://greekcntr.org/downloads/project.pdf
 // This helps us translate codes starting and the 3rd place (the 2nd index) of a morph string
 // The numbered keys are the index of that code in the string, where the letter index is the code
