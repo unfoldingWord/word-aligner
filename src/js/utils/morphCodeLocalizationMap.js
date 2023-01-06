@@ -204,22 +204,25 @@ export const morphCodeLocalizationMapSrGrk = {
   2: { // Function
     N: {
       key: 'noun',
-      4: {...formNADX},
+      4: formNADX,
     },
     R: {
       key: 'pronoun',
     },
     A: {
       key: 'adjective',
-      4: {...formNADX},
+      4: formNADX,
+    },
+    S: { // new
+      key: 'substantive_adjective'
     },
     V: {
       key: 'verb',
-      4: {...formVI},
+      4: formVI,
     },
     D: {
       key: 'adverb',
-      4: {...formNADX},
+      4: formNADX,
     },
     P: {
       key: 'preposition',
@@ -229,11 +232,15 @@ export const morphCodeLocalizationMapSrGrk = {
     },
     I: {
       key: 'interjection',
-      4: {...formVI},
+      4: formVI,
+    },
+    E: {
+      key: 'determiner',
+      4: formNADX,
     },
     X: {
-      key: 'determiner', // new
-      4: {...formNADX},
+      key: 'extraneous', // new
+      4: formNADX,
     },
   },
   5: { // Tense

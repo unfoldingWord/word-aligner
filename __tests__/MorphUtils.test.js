@@ -12,13 +12,14 @@ const outputFolder = path.join(__dirname, 'fixtures/morphs');
 describe('MorphUtils tests', () => {
   it.skip('test whole book', () => { // reads all the words from book and saves parsed morphs to file
     const morphs = {};
-    const bookId = "mal";
+    const bookId = "tit";
     const bookPath = path.join(OT_PATH, bookId);
+    // const bookPath = path.join('__tests__', 'fixtures', 'SR');
     const files = fs.readdirSync(bookPath);
-    for (let file of files) {
+    for (const file of files) {
       const chapter = fs.readJsonSync(path.join(bookPath, file));
       const verses = Object.keys(chapter);
-      for (let verseNum of verses) {
+      for (const verseNum of verses) {
         const verse = chapter[verseNum];
         const objects = verse.verseObjects;
         getMorphs(objects, morphs);
@@ -26,9 +27,9 @@ describe('MorphUtils tests', () => {
     }
     let output = "";
     const morphEntry = Object.keys(morphs).sort();
-    for (let morph of morphEntry) {
+    for (const morph of morphEntry) {
       const morphKeys = MorphUtils.getMorphLocalizationKeys(morph);
-      for (let key of morphKeys) {
+      for (const key of morphKeys) {
         if (key.startsWith('*') && (key !== '*:')) {
           console.log("In '" + morph + "', '" + key + "' is not translated!");
         }
@@ -46,7 +47,7 @@ describe('MorphUtils tests', () => {
 
   const morphsPath = path.join('__tests__', 'fixtures', 'morphs');
   const files = fs.readdirSync(morphsPath);
-  for (let file of files) {
+  for (const file of files) {
     const parse = path.parse(file);
     if (parse.ext !== '.json') {
       continue;
@@ -59,7 +60,7 @@ describe('MorphUtils tests', () => {
         const morphKeys = MorphUtils.getMorphLocalizationKeys(morph);
         // process.stdout.write('  "'+morph+'": "'+morphKeys+'",\n');
         expect(morphKeys).toEqual(allMorphs[morph]);
-        for (let key of morphKeys) {
+        for (const key of morphKeys) {
           if (key.startsWith('*') && (key !== '*:')) {
             assert.fail("Invalid parsed morph '" + key + "' in " + JSON.stringify(morphKeys));
           }
@@ -121,6 +122,13 @@ describe('MorphUtils tests', () => {
     it('Test MorphUtils.getMorphLocalizationKeys() - test πρὸς', () => {
       const goodMorph = 'Gr,P,.......'; // width 12
       const expectedMorphKeys = ["preposition"];
+      const morphKeys = MorphUtils.getMorphLocalizationKeys(goodMorph);
+      expect(morphKeys).toEqual(expectedMorphKeys);
+    });
+
+    it('Test MorphUtils.getMorphLocalizationKeys() - test καθαρὰ', () => {
+      const goodMorph = 'Gr,S,....NNP'; // width 12
+      const expectedMorphKeys = ["substantive_adjective", "nominative", "neuter", "plural"];
       const morphKeys = MorphUtils.getMorphLocalizationKeys(goodMorph);
       expect(morphKeys).toEqual(expectedMorphKeys);
     });
