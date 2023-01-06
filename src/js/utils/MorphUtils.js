@@ -136,7 +136,7 @@ export const getMorphLocalizationKeysGreekSR = (morph) => {
   const morphKeys = [];
   // Will parsed out the morph string to its 12 places, the 1st being language,
   // 2nd always empty, 3rd role, 4th type, and so on
-  const regex = /([A-Z0-9,.][a-z]*)/g; // Delimited by boundry of a comma or uppercase letter
+  const regex = /([A-Z0-9,.][a-z]*)/g; // Delimited by boundry of a comma, period, or uppercase letter
   const codes = morph.match(regex).map((code) => [',', '.'].includes(code) ? null : code);
   if (codes.length < 3) {
     return morph;
