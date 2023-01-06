@@ -29,14 +29,14 @@ export const hasAlignments = (alignments) => {
  * @return {Array} - sorted array of verseObjects to be used for verseText of targetLanguage
  */
 export const merge = (alignments, wordBank, verseString,
-    useVerseText = false) => {
+  useVerseText = false) => {
   // get the definitive list of verseObjects from the verse, unaligned but in order
   const {newVerseObjects: unalignedOrdered, wordMap} =
         VerseObjectUtils.getOrderedVerseObjectsFromString(verseString);
   // assign verseObjects with unaligned objects to be replaced with aligned ones
   // check each word in the verse string is also in the word bank or alignments
   const verseObjectsNotInAlignmentData = verseStringWordsContainedInAlignments(
-      alignments, wordBank, wordMap);
+    alignments, wordBank, wordMap);
   if (verseObjectsNotInAlignmentData.length > 0) {
     if (hasAlignments(alignments)) { // if verse has some alignments
       const verseWordsJoined = verseObjectsNotInAlignmentData.map(({text}) => text).join(', ');
@@ -53,9 +53,9 @@ export const merge = (alignments, wordBank, verseString,
   for (let i = 0; i < wbLen; i++) {
     const bottomWord = wordBank[i];
     const verseObject = VerseObjectUtils.wordVerseObjectFromBottomWord(
-        bottomWord);
+      bottomWord);
     const index = VerseObjectUtils.indexOfVerseObject(
-        wordMap, verseObject);
+      wordMap, verseObject);
     if (index > -1) {
       const location = wordMap[index];
       location.array[location.pos] = verseObject;
@@ -132,7 +132,7 @@ export const merge = (alignments, wordBank, verseString,
  *                      the given alignments
  */
 export function verseStringWordsContainedInAlignments(
-    alignments, wordBank, wordMap) {
+  alignments, wordBank, wordMap) {
   const unalignedMap = wordMap.filter((wordItem) => {
     const verseObject = wordItem.array[wordItem.pos];
     const checkIfWordMatches = function(verseObject) {
@@ -251,7 +251,7 @@ export const orderAlignments = function(alignmentVerse, alignmentUnOrdered) {
   let orderedObjects = null;
   if (typeof alignmentVerse === 'string') {
     orderedObjects = VerseObjectUtils.getOrderedVerseObjectsFromString(
-        alignmentVerse);
+      alignmentVerse);
   } else {
     orderedObjects = VerseObjectUtils.getOrderedVerseObjects(alignmentVerse);
   }
@@ -288,7 +288,7 @@ export const orderAlignments = function(alignmentVerse, alignmentUnOrdered) {
         }
         if (index < 0) { // if still not found in topWords, it's an unaligned topWord
           const wordObject = VerseObjectUtils.alignmentObjectFromVerseObject(
-              nextWord);
+            nextWord);
           alignment.push({topWords: [wordObject], bottomWords: []});
         }
       }
@@ -309,7 +309,7 @@ export const orderAlignments = function(alignmentVerse, alignmentUnOrdered) {
 export const addVerseObjectToAlignment = (verseObject, alignment) => {
   if (verseObject.type === 'milestone' && verseObject.children.length > 0) {
     const wordObject = VerseObjectUtils.alignmentObjectFromVerseObject(
-        verseObject);
+      verseObject);
     const duplicate = alignment.topWords.find(function(obj) {
       return (obj.word === wordObject.word) &&
         (obj.occurrence === wordObject.occurrence);
@@ -322,7 +322,7 @@ export const addVerseObjectToAlignment = (verseObject, alignment) => {
     });
   } else if (verseObject.type === 'word' && !verseObject.children) {
     const wordObject = VerseObjectUtils.alignmentObjectFromVerseObject(
-        verseObject);
+      verseObject);
     alignment.bottomWords.push(wordObject);
   }
 };
@@ -457,7 +457,7 @@ export const generateWordBank = (verseData) => {
  * @return {{alignments, wordBank}} - Reset alignments data
  */
 export const getBlankAlignmentDataForVerse = (
-    ugntVerse, targetLanguageVerse) => {
+  ugntVerse, targetLanguageVerse) => {
   const alignments = generateBlankAlignments(ugntVerse);
   const wordBank = generateWordBank(targetLanguageVerse);
   return {alignments, wordBank};

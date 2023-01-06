@@ -1,5 +1,10 @@
 /* eslint-disable no-use-before-define */
-import {morphCodeLocalizationMapGrk, morphCodeLocalizationMapAr, morphCodeLocalizationMapHeb} from './morphCodeLocalizationMap';
+import {
+  morphCodeLocalizationMapGrk,
+  morphCodeLocalizationMapAr,
+  morphCodeLocalizationMapHeb,
+  morphCodeLocalizationMapSrGrk
+} from './morphCodeLocalizationMap';
 
 /**
  * @description - Get a list of all the localization keys for a morph string in Greek
@@ -17,6 +22,9 @@ export const getMorphLocalizationKeys = (morph) => {
 
     case 'gr':
     default:
+      if (morph && morph.length === 12) {
+        return getMorphLocalizationKeysGreekSR(morph);
+      }
       return getMorphLocalizationKeysGreek(morph);
   }
 };
@@ -115,3 +123,51 @@ export const getMorphLocalizationKeysGreek = (morph) => {
   });
   return morphKeys;
 };
+/**
+ * @description - Get a list of all the localization keys for a morph string in Greek
+ * @param {String} morph - the morph string, e.g. Gr,N,,,,,GMS,
+ * @return {Array} - List of localization keys (unknown codes are prefixed with `*`)
+ */
+export const getMorphLocalizationKeysGreekSR = (morph) => {
+  if (!morph || typeof morph !== 'string' || !morph.trim().length) {
+    return [];
+  }
+
+  const morphKeys = [];
+  // Will parsed out the morph string to its 12 places, the 1st being language,
+  // 2nd always empty, 3rd role, 4th type, and so on
+  const regex = /([A-Z0-9,.][a-z]*)/g; // Delimited by boundry of a comma, period, or uppercase letter
+  const codes = morph.match(regex).map((code) => [',', '.'].includes(code) ? null : code);
+  if (codes.length < 3) {
+    return morph;
+  }
+
+  const morpMapGrk = morphCodeLocalizationMapSrGrk;
+  if (morpMapGrk[2].hasOwnProperty(codes[2])) {
+    morphKeys.push(morpMapGrk[2][codes[2]].key);
+  } else {
+    morphKeys.push('*' + codes[2]); // no known localization key, so prefixing with '*'
+  }
+  if (codes[4]) {
+    const col2 = morpMapGrk[2];
+    const col2Form = col2[codes[2]];
+    if (col2.hasOwnProperty(codes[2]) && col2Form[4] && col2Form[4].hasOwnProperty(codes[4])) {
+      morphKeys.push(col2Form[4][codes[4]]);
+    } else {
+      morphKeys.push('*' + codes[4]);
+    } // unknown type, prefixing with '*'
+  }
+  codes.forEach((code, index) => {
+    // 0 and 1  are ignored, already did 2 and 3 above
+    if (index < 5 || !code) {
+      return;
+    }
+    if (morpMapGrk[index].hasOwnProperty(code)) {
+      morphKeys.push(morpMapGrk[index][code]);
+    } else {
+      morphKeys.push('*' + code);
+    } // unknown code, prefixing with '*'
+  });
+  return morphKeys;
+};
+
