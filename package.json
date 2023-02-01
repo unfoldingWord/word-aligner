@@ -1,6 +1,6 @@
 {
   "name": "word-aligner",
-  "version": "1.0.1",
+  "version": "1.0.2-alpha",
   "description": "A library for handling word alignment",
   "main": "lib/index.js",
   "scripts": {

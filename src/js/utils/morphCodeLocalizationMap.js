@@ -242,6 +242,13 @@ export const morphCodeLocalizationMapSrGrk = {
       key: 'extraneous', // new
       4: formNADX,
     },
+    T: {
+      key: 'particle',
+      3: { // particle types
+        F: 'foreign',
+        E: 'error',
+      },
+    },
   },
   5: { // Tense
     P: 'present',
