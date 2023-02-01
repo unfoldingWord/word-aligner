@@ -9,41 +9,117 @@ const RESOURCE_PATH = path.join(ospath.home(), 'translationCore', 'resources');
 const OT_PATH = path.join(RESOURCE_PATH, 'hbo/bibles/uhb/v1.4.1');
 const outputFolder = path.join(__dirname, 'fixtures/morphs');
 
+export const BIBLE_BOOKS = {
+  oldTestament: {
+    'gen': 'Genesis',
+    'exo': 'Exodus',
+    'lev': 'Leviticus',
+    'num': 'Numbers',
+    'deu': 'Deuteronomy',
+    'jos': 'Joshua',
+    'jdg': 'Judges',
+    'rut': 'Ruth',
+    '1sa': '1 Samuel',
+    '2sa': '2 Samuel',
+    '1ki': '1 Kings',
+    '2ki': '2 Kings',
+    '1ch': '1 Chronicles',
+    '2ch': '2 Chronicles',
+    'ezr': 'Ezra',
+    'neh': 'Nehemiah',
+    'est': 'Esther',
+    'job': 'Job',
+    'psa': 'Psalms',
+    'pro': 'Proverbs',
+    'ecc': 'Ecclesiastes',
+    'sng': 'Song of Solomon',
+    'isa': 'Isaiah',
+    'jer': 'Jeremiah',
+    'lam': 'Lamentations',
+    'ezk': 'Ezekiel',
+    'dan': 'Daniel',
+    'hos': 'Hosea',
+    'jol': 'Joel',
+    'amo': 'Amos',
+    'oba': 'Obadiah',
+    'jon': 'Jonah',
+    'mic': 'Micah',
+    'nam': 'Nahum',
+    'hab': 'Habakkuk',
+    'zep': 'Zephaniah',
+    'hag': 'Haggai',
+    'zec': 'Zechariah',
+    'mal': 'Malachi',
+  },
+  newTestament: {
+    'mat': 'Matthew',
+    'mrk': 'Mark',
+    'luk': 'Luke',
+    'jhn': 'John',
+    'act': 'Acts',
+    'rom': 'Romans',
+    '1co': '1 Corinthians',
+    '2co': '2 Corinthians',
+    'gal': 'Galatians',
+    'eph': 'Ephesians',
+    'php': 'Philippians',
+    'col': 'Colossians',
+    '1th': '1 Thessalonians',
+    '2th': '2 Thessalonians',
+    '1ti': '1 Timothy',
+    '2ti': '2 Timothy',
+    'tit': 'Titus',
+    'phm': 'Philemon',
+    'heb': 'Hebrews',
+    'jas': 'James',
+    '1pe': '1 Peter',
+    '2pe': '2 Peter',
+    '1jn': '1 John',
+    '2jn': '2 John',
+    '3jn': '3 John',
+    'jud': 'Jude',
+    'rev': 'Revelation',
+  },
+};
+
+
 describe('MorphUtils tests', () => {
-  it.skip('test whole book', () => { // reads all the words from book and saves parsed morphs to file
-    const morphs = {};
-    const bookId = "tit";
-    const bookPath = path.join(OT_PATH, bookId);
-    // const bookPath = path.join('__tests__', 'fixtures', 'SR');
-    const files = fs.readdirSync(bookPath);
-    for (const file of files) {
-      const chapter = fs.readJsonSync(path.join(bookPath, file));
-      const verses = Object.keys(chapter);
-      for (const verseNum of verses) {
-        const verse = chapter[verseNum];
-        const objects = verse.verseObjects;
-        getMorphs(objects, morphs);
-      }
-    }
-    let output = "";
-    const morphEntry = Object.keys(morphs).sort();
-    for (const morph of morphEntry) {
-      const morphKeys = MorphUtils.getMorphLocalizationKeys(morph);
-      for (const key of morphKeys) {
-        if (key.startsWith('*') && (key !== '*:')) {
-          console.log("In '" + morph + "', '" + key + "' is not translated!");
+  for (const bookId of Object.keys(BIBLE_BOOKS.newTestament)) {
+    const outputFolder = path.join(__dirname, 'fixtures/morphs/SR');
+    it.skip(`test book ${bookId}`, () => { // reads all the words from book and saves parsed morphs to file
+      const morphs = {};
+      // const bookPath = path.join(OT_PATH, bookId);
+      const bookPath = path.join(RESOURCE_PATH, 'el-x-koine/bibles/ugnt/v0.35-SR_photonomad0', bookId);
+      const files = fs.readdirSync(bookPath);
+      for (const file of files) {
+        const chapter = fs.readJsonSync(path.join(bookPath, file));
+        const verses = Object.keys(chapter);
+        for (const verseNum of verses) {
+          const verse = chapter[verseNum];
+          const objects = verse.verseObjects;
+          getMorphs(objects, morphs);
         }
       }
-      morphs[morph] = morphKeys;
-      if (output) {
-        output += ',\n';
+      let output = "";
+      const morphEntry = Object.keys(morphs).sort();
+      for (const morph of morphEntry) {
+        const morphKeys = MorphUtils.getMorphLocalizationKeys(morph);
+        for (const key of morphKeys) {
+          if (key.startsWith('*') && (key !== '*:')) {
+            console.log("In '" + morph + "', '" + key + "' is not translated!");
+          }
+        }
+        morphs[morph] = morphKeys;
+        if (output) {
+          output += ',\n';
+        }
+        output += '  "' + morph + '": ' + JSON.stringify(morphKeys);
       }
-      output += '  "' + morph + '": ' + JSON.stringify(morphKeys);
-    }
-    output = '{\n' + output + '\n}\n';
-    const outFile = path.join(outputFolder, bookId + '-morphs.json');
-    fs.outputFileSync(outFile, output);
-  });
+      output = '{\n' + output + '\n}\n';
+      const outFile = path.join(outputFolder, bookId + '-morphs.json');
+      fs.outputFileSync(outFile, output);
+    });
+  }
 
   const morphsPath = path.join('__tests__', 'fixtures', 'morphs');
   const files = fs.readdirSync(morphsPath);
@@ -80,6 +156,13 @@ describe('MorphUtils tests', () => {
     it('Test MorphUtils.getMorphLocalizationKeys() - test SR paul', () => {
       const goodMorph = 'Gr,N,....NMS'; // width 12
       const expectedMorphKeys = ["noun", "nominative", "masculine", "singular"];
+      const morphKeys = MorphUtils.getMorphLocalizationKeys(goodMorph);
+      expect(morphKeys).toEqual(expectedMorphKeys);
+    });
+
+    it('Test MorphUtils.getMorphLocalizationKeys() - test SR Οὐκ', () => {
+      const goodMorph = 'Gr,T,.......'; // width 12
+      const expectedMorphKeys = ["particle"];
       const morphKeys = MorphUtils.getMorphLocalizationKeys(goodMorph);
       expect(morphKeys).toEqual(expectedMorphKeys);
     });
