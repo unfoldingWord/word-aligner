@@ -82,6 +82,9 @@ describe("Merge Alignment into Verse Objects", () => {
   it('handles gal 3-17', () => {
     mergeTest('gal-3-17');
   });
+  it('handles psa-49-13', () => {
+    mergeTest('psa-49-13');
+  });
 });
 
 describe("UnMerge Alignment from Verse Objects", () => {

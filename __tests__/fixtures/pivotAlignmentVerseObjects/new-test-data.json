@@ -1,0 +1,730 @@
+{
+  "alignedVerseString": "\\zaln-s |x-strong=\"H2088\" x-lemma=\"זֶה\" x-morph=\"He,Pdxms\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"זֶ֣ה\"\\*\\w This|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\\zaln-e\\*,\n\\zaln-s |x-strong=\"H1870\" x-lemma=\"דֶּרֶךְ\" x-morph=\"He,Ncbsc:Sp3mp\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"דַ֭רְכָּ⁠ם\"\\*\\w their|x-occurrence=\"1\" x-occurrences=\"2\"\\w*\n\\w way|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\\zaln-e\\*, {\\zaln-s |x-strong=\"H3689\" x-lemma=\"כֶּסֶל\" x-morph=\"He,Ncmsa\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"כֵּ֣סֶל\"\\*\\w is|x-occurrence=\"1\" x-occurrences=\"1\"\\w*}\n\\w folly|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\\zaln-e\\*\n\\zaln-s |x-strong=\"l\" x-lemma=\"\" x-morph=\"He,R:Sp3mp\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"לָ֑⁠מוֹ\"\\*\\w to|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\n\\w them|x-occurrence=\"1\" x-occurrences=\"2\"\\w*\\zaln-e\\*,\n\\q2 \\zaln-s |x-strong=\"c:H0310a\" x-lemma=\"אַחַר\" x-morph=\"He,C:R:Sp3mp\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"וְ⁠אַחֲרֵי⁠הֶ֓ם\"\\*\\w but|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\n\\w after|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\n\\w them|x-occurrence=\"2\" x-occurrences=\"2\"\\w*\\zaln-e\\*,\n\\zaln-s |x-strong=\"H7521\" x-lemma=\"רָצָה\" x-morph=\"He,Vqi3mp\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"יִרְצ֣וּ\"\\*\\w they|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\n\\w delight|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\\zaln-e\\*\n\\zaln-s |x-strong=\"b:H6310\" x-lemma=\"פֶּה\" x-morph=\"He,R:Ncmsc:Sp3mp\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"בְּ⁠פִי⁠הֶ֖ם\"\\*\\w in|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\n\\w their|x-occurrence=\"2\" x-occurrences=\"2\"\\w*\n\\w mouths|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\\zaln-e\\*.\n\\qs \\zaln-s |x-strong=\"H5542\" x-lemma=\"סֶלָה\" x-morph=\"He,Tj\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"סֶֽלָה\"\\*\\w Selah|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\\zaln-e\\* \\qs*\n",
+  "verseString": "This, their way, {is} folly to them,\n\\q2 but after them, they delight in their mouths.\n\\qs Selah \\qs*\n",
+  "verseObjects": [
+    {
+      "tag": "zaln",
+      "type": "milestone",
+      "strong": "H2088",
+      "lemma": "זֶה",
+      "morph": "He,Pdxms",
+      "occurrence": "1",
+      "occurrences": "1",
+      "content": "זֶ֣ה",
+      "children": [
+        {
+          "text": "This",
+          "tag": "w",
+          "type": "word",
+          "occurrence": "1",
+          "occurrences": "1"
+        }
+      ],
+      "endTag": "zaln-e\\*"
+    },
+    {
+      "type": "text",
+      "text": ", "
+    },
+    {
+      "tag": "zaln",
+      "type": "milestone",
+      "strong": "H1870",
+      "lemma": "דֶּרֶךְ",
+      "morph": "He,Ncbsc:Sp3mp",
+      "occurrence": "1",
+      "occurrences": "1",
+      "content": "דַ֭רְכָּ⁠ם",
+      "children": [
+        {
+          "text": "their",
+          "tag": "w",
+          "type": "word",
+          "occurrence": "1",
+          "occurrences": "2"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "way",
+          "tag": "w",
+          "type": "word",
+          "occurrence": "1",
+          "occurrences": "1"
+        }
+      ],
+      "endTag": "zaln-e\\*"
+    },
+    {
+      "type": "text",
+      "text": ", {"
+    },
+    {
+      "tag": "zaln",
+      "type": "milestone",
+      "strong": "H3689",
+      "lemma": "כֶּסֶל",
+      "morph": "He,Ncmsa",
+      "occurrence": "1",
+      "occurrences": "1",
+      "content": "כֵּ֣סֶל",
+      "children": [
+        {
+          "text": "is",
+          "tag": "w",
+          "type": "word",
+          "occurrence": "1",
+          "occurrences": "1"
+        },
+        {
+          "type": "text",
+          "text": "} "
+        },
+        {
+          "text": "folly",
+          "tag": "w",
+          "type": "word",
+          "occurrence": "1",
+          "occurrences": "1"
+        }
+      ],
+      "endTag": "zaln-e\\*"
+    },
+    {
+      "type": "text",
+      "text": " "
+    },
+    {
+      "tag": "zaln",
+      "type": "milestone",
+      "strong": "l",
+      "lemma": "",
+      "morph": "He,R:Sp3mp",
+      "occurrence": "1",
+      "occurrences": "1",
+      "content": "לָ֑⁠מוֹ",
+      "children": [
+        {
+          "text": "to",
+          "tag": "w",
+          "type": "word",
+          "occurrence": "1",
+          "occurrences": "1"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "them",
+          "tag": "w",
+          "type": "word",
+          "occurrence": "1",
+          "occurrences": "2"
+        }
+      ],
+      "endTag": "zaln-e\\*"
+    },
+    {
+      "type": "text",
+      "text": ",\n"
+    },
+    {
+      "tag": "q2",
+      "nextChar": " ",
+      "type": "quote"
+    },
+    {
+      "tag": "zaln",
+      "type": "milestone",
+      "strong": "c:H0310a",
+      "lemma": "אַחַר",
+      "morph": "He,C:R:Sp3mp",
+      "occurrence": "1",
+      "occurrences": "1",
+      "content": "וְ⁠אַחֲרֵי⁠הֶ֓ם",
+      "children": [
+        {
+          "text": "but",
+          "tag": "w",
+          "type": "word",
+          "occurrence": "1",
+          "occurrences": "1"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "after",
+          "tag": "w",
+          "type": "word",
+          "occurrence": "1",
+          "occurrences": "1"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "them",
+          "tag": "w",
+          "type": "word",
+          "occurrence": "2",
+          "occurrences": "2"
+        }
+      ],
+      "endTag": "zaln-e\\*"
+    },
+    {
+      "type": "text",
+      "text": ", "
+    },
+    {
+      "tag": "zaln",
+      "type": "milestone",
+      "strong": "H7521",
+      "lemma": "רָצָה",
+      "morph": "He,Vqi3mp",
+      "occurrence": "1",
+      "occurrences": "1",
+      "content": "יִרְצ֣וּ",
+      "children": [
+        {
+          "text": "they",
+          "tag": "w",
+          "type": "word",
+          "occurrence": "1",
+          "occurrences": "1"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "delight",
+          "tag": "w",
+          "type": "word",
+          "occurrence": "1",
+          "occurrences": "1"
+        }
+      ],
+      "endTag": "zaln-e\\*"
+    },
+    {
+      "type": "text",
+      "text": " "
+    },
+    {
+      "tag": "zaln",
+      "type": "milestone",
+      "strong": "b:H6310",
+      "lemma": "פֶּה",
+      "morph": "He,R:Ncmsc:Sp3mp",
+      "occurrence": "1",
+      "occurrences": "1",
+      "content": "בְּ⁠פִי⁠הֶ֖ם",
+      "children": [
+        {
+          "text": "in",
+          "tag": "w",
+          "type": "word",
+          "occurrence": "1",
+          "occurrences": "1"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "their",
+          "tag": "w",
+          "type": "word",
+          "occurrence": "2",
+          "occurrences": "2"
+        },
+        {
+          "type": "text",
+          "text": " "
+        },
+        {
+          "text": "mouths",
+          "tag": "w",
+          "type": "word",
+          "occurrence": "1",
+          "occurrences": "1"
+        }
+      ],
+      "endTag": "zaln-e\\*"
+    },
+    {
+      "type": "text",
+      "text": ".\n"
+    },
+    {
+      "tag": "qs",
+      "nextChar": " ",
+      "type": "quote",
+      "children": [
+        {
+          "tag": "zaln",
+          "type": "milestone",
+          "strong": "H5542",
+          "lemma": "סֶלָה",
+          "morph": "He,Tj",
+          "occurrence": "1",
+          "occurrences": "1",
+          "content": "סֶֽלָה",
+          "children": [
+            {
+              "text": "Selah",
+              "tag": "w",
+              "type": "word",
+              "occurrence": "1",
+              "occurrences": "1"
+            }
+          ],
+          "endTag": "zaln-e\\*"
+        },
+        {
+          "type": "text",
+          "text": " "
+        }
+      ],
+      "endTag": "qs*"
+    },
+    {
+      "type": "text",
+      "text": "\n"
+    }
+  ],
+  "alignment": [
+    {
+      "sourceNgram": [
+        {
+          "strong": "H2088",
+          "lemma": "זֶה",
+          "morph": "He,Pdxms",
+          "occurrence": 1,
+          "occurrences": 1,
+          "unmatched": true,
+          "text": "זֶ֣ה"
+        }
+      ],
+      "targetNgram": [
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "index": 0,
+          "text": "This"
+        }
+      ],
+      "topWords": [
+        {
+          "strong": "H2088",
+          "lemma": "זֶה",
+          "morph": "He,Pdxms",
+          "occurrence": 1,
+          "occurrences": 1,
+          "word": "זֶ֣ה"
+        }
+      ],
+      "bottomWords": [
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "index": 0,
+          "text": "This",
+          "word": "This"
+        }
+      ]
+    },
+    {
+      "sourceNgram": [
+        {
+          "strong": "H1870",
+          "lemma": "דֶּרֶךְ",
+          "morph": "He,Ncbsc:Sp3mp",
+          "occurrence": 1,
+          "occurrences": 1,
+          "unmatched": true,
+          "text": "דַ֭רְכָּ⁠ם"
+        }
+      ],
+      "targetNgram": [
+        {
+          "occurrence": 1,
+          "occurrences": 2,
+          "index": 1,
+          "text": "their"
+        },
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "index": 2,
+          "text": "way"
+        }
+      ],
+      "topWords": [
+        {
+          "strong": "H1870",
+          "lemma": "דֶּרֶךְ",
+          "morph": "He,Ncbsc:Sp3mp",
+          "occurrence": 1,
+          "occurrences": 1,
+          "word": "דַ֭רְכָּ⁠ם"
+        }
+      ],
+      "bottomWords": [
+        {
+          "occurrence": 1,
+          "occurrences": 2,
+          "index": 1,
+          "text": "their",
+          "word": "their"
+        },
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "index": 2,
+          "text": "way",
+          "word": "way"
+        }
+      ]
+    },
+    {
+      "sourceNgram": [
+        {
+          "strong": "H3689",
+          "lemma": "כֶּסֶל",
+          "morph": "He,Ncmsa",
+          "occurrence": 1,
+          "occurrences": 1,
+          "unmatched": true,
+          "text": "כֵּ֣סֶל"
+        }
+      ],
+      "targetNgram": [
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "index": 3,
+          "text": "is"
+        },
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "index": 4,
+          "text": "folly"
+        }
+      ],
+      "topWords": [
+        {
+          "strong": "H3689",
+          "lemma": "כֶּסֶל",
+          "morph": "He,Ncmsa",
+          "occurrence": 1,
+          "occurrences": 1,
+          "word": "כֵּ֣סֶל"
+        }
+      ],
+      "bottomWords": [
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "index": 3,
+          "text": "is",
+          "word": "is"
+        },
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "index": 4,
+          "text": "folly",
+          "word": "folly"
+        }
+      ]
+    },
+    {
+      "sourceNgram": [
+        {
+          "strong": "l",
+          "lemma": "",
+          "morph": "He,R:Sp3mp",
+          "occurrence": 1,
+          "occurrences": 1,
+          "unmatched": true,
+          "text": "לָ֑⁠מוֹ"
+        }
+      ],
+      "targetNgram": [
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "index": 5,
+          "text": "to"
+        },
+        {
+          "occurrence": 1,
+          "occurrences": 2,
+          "index": 6,
+          "text": "them"
+        }
+      ],
+      "topWords": [
+        {
+          "strong": "l",
+          "lemma": "",
+          "morph": "He,R:Sp3mp",
+          "occurrence": 1,
+          "occurrences": 1,
+          "word": "לָ֑⁠מוֹ"
+        }
+      ],
+      "bottomWords": [
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "index": 5,
+          "text": "to",
+          "word": "to"
+        },
+        {
+          "occurrence": 1,
+          "occurrences": 2,
+          "index": 6,
+          "text": "them",
+          "word": "them"
+        }
+      ]
+    },
+    {
+      "sourceNgram": [
+        {
+          "strong": "c:H0310a",
+          "lemma": "אַחַר",
+          "morph": "He,C:R:Sp3mp",
+          "occurrence": 1,
+          "occurrences": 1,
+          "unmatched": true,
+          "text": "וְ⁠אַחֲרֵי⁠הֶ֓ם"
+        }
+      ],
+      "targetNgram": [
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "index": 7,
+          "text": "but"
+        },
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "index": 8,
+          "text": "after"
+        },
+        {
+          "occurrence": 2,
+          "occurrences": 2,
+          "index": 9,
+          "text": "them"
+        }
+      ],
+      "topWords": [
+        {
+          "strong": "c:H0310a",
+          "lemma": "אַחַר",
+          "morph": "He,C:R:Sp3mp",
+          "occurrence": 1,
+          "occurrences": 1,
+          "word": "וְ⁠אַחֲרֵי⁠הֶ֓ם"
+        }
+      ],
+      "bottomWords": [
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "index": 7,
+          "text": "but",
+          "word": "but"
+        },
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "index": 8,
+          "text": "after",
+          "word": "after"
+        },
+        {
+          "occurrence": 2,
+          "occurrences": 2,
+          "index": 9,
+          "text": "them",
+          "word": "them"
+        }
+      ]
+    },
+    {
+      "sourceNgram": [
+        {
+          "strong": "H7521",
+          "lemma": "רָצָה",
+          "morph": "He,Vqi3mp",
+          "occurrence": 1,
+          "occurrences": 1,
+          "unmatched": true,
+          "text": "יִרְצ֣וּ"
+        }
+      ],
+      "targetNgram": [
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "index": 10,
+          "text": "they"
+        },
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "index": 11,
+          "text": "delight"
+        }
+      ],
+      "topWords": [
+        {
+          "strong": "H7521",
+          "lemma": "רָצָה",
+          "morph": "He,Vqi3mp",
+          "occurrence": 1,
+          "occurrences": 1,
+          "word": "יִרְצ֣וּ"
+        }
+      ],
+      "bottomWords": [
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "index": 10,
+          "text": "they",
+          "word": "they"
+        },
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "index": 11,
+          "text": "delight",
+          "word": "delight"
+        }
+      ]
+    },
+    {
+      "sourceNgram": [
+        {
+          "strong": "b:H6310",
+          "lemma": "פֶּה",
+          "morph": "He,R:Ncmsc:Sp3mp",
+          "occurrence": 1,
+          "occurrences": 1,
+          "unmatched": true,
+          "text": "בְּ⁠פִי⁠הֶ֖ם"
+        }
+      ],
+      "targetNgram": [
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "index": 12,
+          "text": "in"
+        },
+        {
+          "occurrence": 2,
+          "occurrences": 2,
+          "index": 13,
+          "text": "their"
+        },
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "index": 14,
+          "text": "mouths"
+        }
+      ],
+      "topWords": [
+        {
+          "strong": "b:H6310",
+          "lemma": "פֶּה",
+          "morph": "He,R:Ncmsc:Sp3mp",
+          "occurrence": 1,
+          "occurrences": 1,
+          "word": "בְּ⁠פִי⁠הֶ֖ם"
+        }
+      ],
+      "bottomWords": [
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "index": 12,
+          "text": "in",
+          "word": "in"
+        },
+        {
+          "occurrence": 2,
+          "occurrences": 2,
+          "index": 13,
+          "text": "their",
+          "word": "their"
+        },
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "index": 14,
+          "text": "mouths",
+          "word": "mouths"
+        }
+      ]
+    },
+    {
+      "sourceNgram": [
+        {
+          "strong": "H5542",
+          "lemma": "סֶלָה",
+          "morph": "He,Tj",
+          "occurrence": 1,
+          "occurrences": 1,
+          "unmatched": true,
+          "text": "סֶֽלָה"
+        }
+      ],
+      "targetNgram": [
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "index": 15,
+          "text": "Selah"
+        }
+      ],
+      "topWords": [
+        {
+          "strong": "H5542",
+          "lemma": "סֶלָה",
+          "morph": "He,Tj",
+          "occurrence": 1,
+          "occurrences": 1,
+          "word": "סֶֽלָה"
+        }
+      ],
+      "bottomWords": [
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "index": 15,
+          "text": "Selah",
+          "word": "Selah"
+        }
+      ]
+    }
+  ],
+  "wordBank": []
+}
