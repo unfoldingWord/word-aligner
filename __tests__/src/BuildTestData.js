@@ -32,12 +32,37 @@ const writeJSON = (filename, json) => {
 };
 
 /**
+ * Recursively normalizes verse objects by converting occurrence properties to a standardized format.
+ * Traverses the verse objects array and their nested children, applying occurrence conversions where needed.
+ *
+ * @param {Array} verseObjects - Array of verse objects to normalize. Each object may contain occurrence
+ *                                properties and/or children arrays that will be processed recursively.
+ */
+function normalizeVerseObjects(verseObjects) {
+  if (Array.isArray(verseObjects)) {
+    for (let i = 0; i < verseObjects.length; i++) {
+      const item = verseObjects[i];
+      if (item.occurrence) {
+        const newItem = AlignmentHelpers.convertOccurrencesInWord(item);
+        if (newItem) {
+          verseObjects[i] = newItem;
+        }
+      }
+      if (item.children) {
+        normalizeVerseObjects(item.children);
+      }
+    }
+  }
+}
+
+/**
  * Converts an aligned verse string to verse objects
  * @param {string} alignedVerseString - The USFM aligned verse string to convert
  * @return {Array} - Array of verse objects
  */
 function getVerseObjects(alignedVerseString) {
   const verseObjects = usfmHelpers.usfmVerseToJson(alignedVerseString);
+  normalizeVerseObjects(verseObjects);
   return verseObjects;
 }
 
@@ -56,11 +81,14 @@ function buildTestData() {
     if (!testData.verseObjects.length) {
       console.log('Generating verseObjects from alignedVerseString');
       const verseObjects = getVerseObjects(testData.alignedVerseString);
+
       if (verseObjects) {
         testData.verseObjects = verseObjects;
       }
     }
+  }
 
+  if (testData.alignedVerseString && testData.verseObjects.length) {
     if (!testData.alignment.length) {
       console.log('Generating alignment and wordBank from alignedVerseString');
       AlignmentHelpers.extractAlignmentsFromTargetVerse(testData.alignedVerseString);

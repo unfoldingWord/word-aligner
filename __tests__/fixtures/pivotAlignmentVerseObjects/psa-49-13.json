@@ -9,19 +9,18 @@
       "strong": "H2088",
       "lemma": "זֶה",
       "morph": "He,Pdxms",
-      "occurrence": "1",
-      "occurrences": "1",
+      "occurrence": 1,
+      "occurrences": 1,
       "content": "זֶ֣ה",
       "children": [
         {
           "text": "This",
           "tag": "w",
           "type": "word",
-          "occurrence": "1",
-          "occurrences": "1"
+          "occurrence": 1,
+          "occurrences": 1
         }
-      ],
-      "endTag": "zaln-e\\*"
+      ]
     },
     {
       "type": "text",
@@ -33,16 +32,16 @@
       "strong": "H1870",
       "lemma": "דֶּרֶךְ",
       "morph": "He,Ncbsc:Sp3mp",
-      "occurrence": "1",
-      "occurrences": "1",
+      "occurrence": 1,
+      "occurrences": 1,
       "content": "דַ֭רְכָּ⁠ם",
       "children": [
         {
           "text": "their",
           "tag": "w",
           "type": "word",
-          "occurrence": "1",
-          "occurrences": "2"
+          "occurrence": 1,
+          "occurrences": 2
         },
         {
           "type": "text",
@@ -52,11 +51,10 @@
           "text": "way",
           "tag": "w",
           "type": "word",
-          "occurrence": "1",
-          "occurrences": "1"
+          "occurrence": 1,
+          "occurrences": 1
         }
-      ],
-      "endTag": "zaln-e\\*"
+      ]
     },
     {
       "type": "text",
@@ -68,16 +66,16 @@
       "strong": "H3689",
       "lemma": "כֶּסֶל",
       "morph": "He,Ncmsa",
-      "occurrence": "1",
-      "occurrences": "1",
+      "occurrence": 1,
+      "occurrences": 1,
       "content": "כֵּ֣סֶל",
       "children": [
         {
           "text": "is",
           "tag": "w",
           "type": "word",
-          "occurrence": "1",
-          "occurrences": "1"
+          "occurrence": 1,
+          "occurrences": 1
         },
         {
           "type": "text",
@@ -87,11 +85,10 @@
           "text": "folly",
           "tag": "w",
           "type": "word",
-          "occurrence": "1",
-          "occurrences": "1"
+          "occurrence": 1,
+          "occurrences": 1
         }
-      ],
-      "endTag": "zaln-e\\*"
+      ]
     },
     {
       "type": "text",
@@ -103,16 +100,16 @@
       "strong": "l",
       "lemma": "",
       "morph": "He,R:Sp3mp",
-      "occurrence": "1",
-      "occurrences": "1",
+      "occurrence": 1,
+      "occurrences": 1,
       "content": "לָ֑⁠מוֹ",
       "children": [
         {
           "text": "to",
           "tag": "w",
           "type": "word",
-          "occurrence": "1",
-          "occurrences": "1"
+          "occurrence": 1,
+          "occurrences": 1
         },
         {
           "type": "text",
@@ -122,11 +119,10 @@
           "text": "them",
           "tag": "w",
           "type": "word",
-          "occurrence": "1",
-          "occurrences": "2"
+          "occurrence": 1,
+          "occurrences": 2
         }
-      ],
-      "endTag": "zaln-e\\*"
+      ]
     },
     {
       "type": "text",
@@ -143,16 +139,16 @@
       "strong": "c:H0310a",
       "lemma": "אַחַר",
       "morph": "He,C:R:Sp3mp",
-      "occurrence": "1",
-      "occurrences": "1",
+      "occurrence": 1,
+      "occurrences": 1,
       "content": "וְ⁠אַחֲרֵי⁠הֶ֓ם",
       "children": [
         {
           "text": "but",
           "tag": "w",
           "type": "word",
-          "occurrence": "1",
-          "occurrences": "1"
+          "occurrence": 1,
+          "occurrences": 1
         },
         {
           "type": "text",
@@ -162,8 +158,8 @@
           "text": "after",
           "tag": "w",
           "type": "word",
-          "occurrence": "1",
-          "occurrences": "1"
+          "occurrence": 1,
+          "occurrences": 1
         },
         {
           "type": "text",
@@ -173,11 +169,10 @@
           "text": "them",
           "tag": "w",
           "type": "word",
-          "occurrence": "2",
-          "occurrences": "2"
+          "occurrence": 2,
+          "occurrences": 2
         }
-      ],
-      "endTag": "zaln-e\\*"
+      ]
     },
     {
       "type": "text",
@@ -189,16 +184,16 @@
       "strong": "H7521",
       "lemma": "רָצָה",
       "morph": "He,Vqi3mp",
-      "occurrence": "1",
-      "occurrences": "1",
+      "occurrence": 1,
+      "occurrences": 1,
       "content": "יִרְצ֣וּ",
       "children": [
         {
           "text": "they",
           "tag": "w",
           "type": "word",
-          "occurrence": "1",
-          "occurrences": "1"
+          "occurrence": 1,
+          "occurrences": 1
         },
         {
           "type": "text",
@@ -208,11 +203,10 @@
           "text": "delight",
           "tag": "w",
           "type": "word",
-          "occurrence": "1",
-          "occurrences": "1"
+          "occurrence": 1,
+          "occurrences": 1
         }
-      ],
-      "endTag": "zaln-e\\*"
+      ]
     },
     {
       "type": "text",
@@ -224,16 +218,16 @@
       "strong": "b:H6310",
       "lemma": "פֶּה",
       "morph": "He,R:Ncmsc:Sp3mp",
-      "occurrence": "1",
-      "occurrences": "1",
+      "occurrence": 1,
+      "occurrences": 1,
       "content": "בְּ⁠פִי⁠הֶ֖ם",
       "children": [
         {
           "text": "in",
           "tag": "w",
           "type": "word",
-          "occurrence": "1",
-          "occurrences": "1"
+          "occurrence": 1,
+          "occurrences": 1
         },
         {
           "type": "text",
@@ -243,8 +237,8 @@
           "text": "their",
           "tag": "w",
           "type": "word",
-          "occurrence": "2",
-          "occurrences": "2"
+          "occurrence": 2,
+          "occurrences": 2
         },
         {
           "type": "text",
@@ -254,11 +248,10 @@
           "text": "mouths",
           "tag": "w",
           "type": "word",
-          "occurrence": "1",
-          "occurrences": "1"
+          "occurrence": 1,
+          "occurrences": 1
         }
-      ],
-      "endTag": "zaln-e\\*"
+      ]
     },
     {
       "type": "text",
@@ -275,19 +268,18 @@
           "strong": "H5542",
           "lemma": "סֶלָה",
           "morph": "He,Tj",
-          "occurrence": "1",
-          "occurrences": "1",
+          "occurrence": 1,
+          "occurrences": 1,
           "content": "סֶֽלָה",
           "children": [
             {
               "text": "Selah",
               "tag": "w",
               "type": "word",
-              "occurrence": "1",
-              "occurrences": "1"
+              "occurrence": 1,
+              "occurrences": 1
             }
-          ],
-          "endTag": "zaln-e\\*"
+          ]
         },
         {
           "type": "text",

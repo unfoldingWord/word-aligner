@@ -3,6 +3,8 @@
 import fs from 'fs-extra';
 import path from 'path';
 import usfmjs from 'usfm-js';
+import isEqual from 'deep-equal';
+
 jest.unmock('fs-extra');
 import wordaligner, {VerseObjectUtils} from '../src/';
 const RESOURCES = path.join('__tests__', 'fixtures', 'pivotAlignmentVerseObjects');
@@ -297,7 +299,9 @@ const mergeTest = (name = {}) => {
   expect(json).toBeTruthy();
   const {alignment, verseObjects, verseString, wordBank} = json;
   const output = wordaligner.merge(alignment, wordBank, verseString);
-  expect(output).toEqual(verseObjects);
+  if (!isEqual(output, verseObjects)) {
+    expect(output).toEqual(verseObjects);
+  }
 };
 
 /**

@@ -113,9 +113,27 @@ export const merge = (alignments, wordBank, verseString,
       const milestone = VerseObjectUtils.nestMilestones(milestones);
       // replace the original verseObject from the verse text with the aligned milestone verseObject
       const location = wordMap[indexToReplace];
+      if (location.parentIndex >= 0) {
+        milestone.parentIndex = location.parentIndex; // preserve the parent index
+      }
       location.array[location.pos] = milestone;
     }
   }
+
+  // unalignedOrdered verse objects have been flattened - restore hierarchy
+  for (let i = 0, oLen = unalignedOrdered.length; i < oLen; i++) {
+    const verseObject = unalignedOrdered[i];
+    if (verseObject.parentIndex >= 0) {
+      const parent = unalignedOrdered[verseObject.parentIndex];
+      if (parent) {
+        parent.children = parent.children || [];
+        parent.children.push(verseObject);
+      }
+      delete verseObject.parentIndex;
+      unalignedOrdered[i] = null;
+    }
+  }
+
   // deleteIndices that were queued due to consecutive bottomWords in alignments
   const verseObjects = ArrayUtils.deleteIndices(unalignedOrdered, indicesToDelete, wordMap);
   return verseObjects;
