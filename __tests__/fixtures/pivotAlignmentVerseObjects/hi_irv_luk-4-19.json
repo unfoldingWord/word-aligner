@@ -155,7 +155,7 @@
       "tag": "f*"
     },
     {
-      "nextChar": " ",
+      "endMarkerChar": " ",
       "tag": "f*"
     },
     {
@@ -192,11 +192,11 @@
       "type": "text"
     },
     {
-      "nextChar": " ",
+      "endMarkerChar": " ",
       "tag": "+wj*"
     },
     {
-      "nextChar": " ",
+      "endMarkerChar": " ",
       "tag": "it*"
     },
     {
@@ -227,36 +227,59 @@
       "type": "text"
     },
     {
+      "children": [
+        {
+          "children": [
+            {
+              "occurrence": 1,
+              "occurrences": 1,
+              "tag": "w",
+              "text": "प्रचार",
+              "type": "word"
+            }
+          ],
+          "content": "κηρύξαι",
+          "lemma": "κηρύσσω",
+          "morph": "Gr,V,NAA,,,,,",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "G27840",
+          "tag": "zaln",
+          "type": "milestone"
+        }
+      ],
       "nextChar": " ",
       "occurrence": "1",
       "occurrences": "1",
       "tag": "w",
       "type": "word"
-    },
-    {
-      "children": [
-        {
-          "occurrence": 1,
-          "occurrences": 1,
-          "tag": "w",
-          "text": "प्रचार",
-          "type": "word"
-        }
-      ],
-      "content": "κηρύξαι",
-      "lemma": "κηρύσσω",
-      "morph": "Gr,V,NAA,,,,,",
-      "occurrence": 1,
-      "occurrences": 1,
-      "strong": "G27840",
-      "tag": "zaln",
-      "type": "milestone"
     },
     {
       "text": " ",
       "type": "text"
     },
     {
+      "children": [
+        {
+          "children": [
+            {
+              "occurrence": 1,
+              "occurrences": 1,
+              "tag": "w",
+              "text": "करूँ",
+              "type": "word"
+            }
+          ],
+          "content": "δεκτόν",
+          "lemma": "δεκτός",
+          "morph": "Gr,NS,,,,AMS,",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "G11840",
+          "tag": "zaln",
+          "type": "milestone"
+        }
+      ],
       "nextChar": " ",
       "occurrence": "1",
       "occurrences": "1",
@@ -264,40 +287,19 @@
       "type": "word"
     },
     {
+      "text": "।”\n",
+      "type": "text"
+    },
+    {
       "children": [
         {
-          "occurrence": 1,
-          "occurrences": 1,
-          "tag": "w",
-          "text": "करूँ",
-          "type": "word"
+          "text": " ",
+          "type": "text"
         }
       ],
-      "content": "δεκτόν",
-      "lemma": "δεκτός",
-      "morph": "Gr,NS,,,,AMS,",
-      "occurrence": 1,
-      "occurrences": 1,
-      "strong": "G11840",
-      "tag": "zaln",
-      "type": "milestone"
-    },
-    {
-      "text": "।",
-      "type": "text"
-    },
-    {
-      "text": "”\n",
-      "type": "text"
-    },
-    {
       "nextChar": " ",
       "tag": "p",
       "type": "paragraph"
-    },
-    {
-      "text": " ",
-      "type": "text"
     }
   ],
   "alignment": [

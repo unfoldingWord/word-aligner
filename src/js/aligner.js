@@ -58,6 +58,7 @@ function restoreVerseObjects(verseObjects) {
   const filteredObjects = verseObjects.filter(item => item !== null && item !== undefined);
   // combine consecutive text objects in nested verseObjects
   const cleanedVerseObjects = combineConsecutiveText(filteredObjects);
+  cleanChildReferences({children: cleanedVerseObjects}, 'parentIndex');
   return cleanedVerseObjects;
 }
 
@@ -71,7 +72,8 @@ function cleanChildReferences(verseObject, key = 'parentIndex') {
   const children = verseObject.children || [];
   for (let j = 0, cLen = children.length; j < cLen; j++) {
     const child = children[j];
-    if (child[key]) {
+    const childKeyValue = child[key];
+    if (childKeyValue >= 0) {
       delete child[key];
     }
     if (child.children) {
@@ -241,8 +243,8 @@ export const merge = (alignments, wordBank, verseString,
 
   // deleteIndices that were queued due to consecutive bottomWords in alignments
   const verseObjects = ArrayUtils.deleteIndices(unalignedOrdered, indicesToDelete, wordMap);
-  const cleanedObjects = restoreVerseObjects(verseObjects);
-  return cleanedObjects;
+  const restoredObjects = restoreVerseObjects(verseObjects);
+  return restoredObjects;
 };
 
 /**

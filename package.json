@@ -1,6 +1,6 @@
 {
   "name": "word-aligner",
-  "version": "1.0.4-beta",
+  "version": "1.1.0-beta",
   "description": "A library for handling word alignment",
   "main": "lib/index.js",
   "scripts": {
@@ -9,8 +9,8 @@
     "compile": "rimraf lib && babel src/ -d lib/",
     "prebuild": "rm -rf ./lib",
     "build": "babel ./src -d ./lib",
-    "build:test-data": "node __tests__/src/BuildTestData.js",
-    "debug:test-data": "node --inspect-brk __tests__/src/BuildTestData.js",
+    "build:test-data": "node scripts/BuildTestData.js",
+    "debug:test-data": "node --inspect-brk scripts/BuildTestData.js",
     "prepare": "if [ ! -d './lib/' ]; then npm run build; fi",
     "prepublishOnly": "npm test && npm run build",
     "postpublish": "git tag v$npm_package_version && git push origin v$npm_package_version"
@@ -40,7 +40,7 @@
   },
   "homepage": "https://github.com/unfoldingWord/word-aligner#readme",
   "peerDependencies": {
-    "usfm-js": "^3.4.3"
+    "usfm-js": "^3.5.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -61,7 +61,7 @@
     "path": "0.12.7",
     "path-extra": "^4.2.1",
     "rimraf": "^2.6.2",
-    "usfm-js": "3.4.3",
+    "usfm-js": "/Users/blm0/Development/Electron/usfm-js/usfm-js-3.5.0-beta.tgz",
     "word-aligner-rcl": "/Users/blm0/Development/RCL/word-aligner-rcl/word-aligner-rcl-v1.3.7-beta.4.tgz"
   },
   "dependencies": {
