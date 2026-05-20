@@ -141,7 +141,10 @@ const fillGap = (text, lastPos, pos, newVerseObjects, end = false, parentIndex =
   let verseObject = null;
   const gap = text.substring(lastPos, pos);
   const lastVerseObject = newVerseObjects.length && newVerseObjects[newVerseObjects.length - 1];
-  if (lastVerseObject && (lastVerseObject.type === 'text')) { // append to previous text
+  const lastParentIndex = (typeof lastVerseObject.parentIndex === 'number') ? lastVerseObject.parentIndex : -1;
+  const canAppendToPreviousText = lastVerseObject && (lastVerseObject.type === 'text')
+      && (lastParentIndex === parentIndex);
+  if (canAppendToPreviousText) { // append to previous text
     lastVerseObject.text += gap;
   } else if (end || gap) { // save gap
     verseObject = {

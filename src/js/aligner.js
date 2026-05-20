@@ -21,6 +21,123 @@ export const hasAlignments = (alignments) => {
 };
 
 /**
+ * Combines consecutive text objects in an array of verse objects recursively.
+ * When multiple text objects appear consecutively, they are merged into a single text object.
+ * Also processes nested children arrays recursively.
+ * @param {Array} objects - Array of verse objects to process
+ * @return {Array} - Array with consecutive text objects combined
+ */
+const combineConsecutiveText = (objects) => {
+  const result = [];
+  for (let i = 0; i < objects.length; i++) {
+    const current = objects[i];
+
+    if (current.type === 'text' && result.length > 0 && result[result.length - 1].type === 'text') {
+      // combine with previous text object
+      result[result.length - 1].text += current.text;
+    } else {
+      // recursively process children if they exist
+      if (current.children && Array.isArray(current.children)) {
+        current.children = combineConsecutiveText(current.children);
+      }
+      result.push(current);
+    }
+  }
+  return result;
+};
+
+/**
+ * Restores verse objects from a flattened state by rebuilding their hierarchical structure,
+ * removing null/undefined objects, and combining consecutive text objects.
+ * @param {Array} verseObjects - Array of verse objects to restore
+ * @return {Array} - Cleaned and restored array of verse objects
+ */
+function restoreVerseObjects(verseObjects) {
+  restoreHierarchy(verseObjects);
+  // remove null objects
+  const filteredObjects = verseObjects.filter(item => item !== null && item !== undefined);
+  // combine consecutive text objects in nested verseObjects
+  const cleanedVerseObjects = combineConsecutiveText(filteredObjects);
+  return cleanedVerseObjects;
+}
+
+/**
+ * Recursively removes a specified property (default 'parentIndex') from all children
+ * in a verse object's hierarchy.
+ * @param {Object} verseObject - The verse object whose children should be cleaned
+ * @param {string} [key='parentIndex'] - The property key to remove from children
+ */
+function cleanChildReferences(verseObject, key = 'parentIndex') {
+  const children = verseObject.children || [];
+  for (let j = 0, cLen = children.length; j < cLen; j++) {
+    const child = children[j];
+    if (child[key]) {
+      delete child[key];
+    }
+    if (child.children) {
+      cleanChildReferences(child, key);
+    }
+  }
+}
+
+/**
+ * Restores the hierarchical structure of flattened verse objects.
+ * Verse objects that have a parentIndex property are moved into their parent's children array
+ * and then removed from the top-level array by setting them to null.
+ *
+ * @param {Array} unalignedOrdered - Array of flattened verse objects that may contain parentIndex properties
+ */
+function restoreHierarchy(unalignedOrdered) {
+  const toRemove = [];
+
+  for (let i = 0, oLen = unalignedOrdered.length; i < oLen; i++) {
+    const verseObject = unalignedOrdered[i];
+    const parentIndex = verseObject.parentIndex;
+    if (parentIndex >= 0) {
+      const parent = unalignedOrdered.find(obj => obj && obj.originalIndex === parentIndex);
+      if (parent) {
+        parent.children = parent.children || [];
+        parent.children.push(verseObject);
+      }
+      delete verseObject.parentIndex;
+      delete verseObject.originalIndex;
+      cleanChildReferences(verseObject, 'parentIndex');
+      toRemove.push(i);
+    }
+  }
+
+  // remove from original location by nulling
+  for (let i = toRemove.length - 1; i >= 0; i--) {
+    const toRemoveElement = toRemove[i];
+    unalignedOrdered.splice(toRemoveElement, 1);
+  }
+
+  // clean up originalIndex property
+  for (let i = 0, oLen = unalignedOrdered.length; i < oLen; i++) {
+    const verseObject = unalignedOrdered[i];
+    if (verseObject && (verseObject.originalIndex >= 0)) {
+      delete verseObject.originalIndex;
+    }
+    cleanChildReferences(verseObject, 'originalIndex');
+  }
+}
+
+/**
+ * Saves the original position of each verse object in the array by adding an originalIndex property.
+ * This allows tracking of objects' positions before any modifications or deletions occur.
+ *
+ * @param {Array} unalignedOrdered - Array of verse objects whose positions need to be saved
+ */
+function savePosition(unalignedOrdered) {
+  for (let i = 0, dLen = unalignedOrdered.length; i < dLen; i++) {
+    const verseObject = unalignedOrdered[i];
+    if (verseObject) {
+      verseObject.originalIndex = i; // so we can keep track of where the object was before deletions
+    }
+  }
+}
+
+/**
  * @description pivots alignments into bottomWords/targetLanguage verseObjectArray sorted by verseText
  * @param {Array} alignments - array of aligned word objects {bottomWords, topWords}
  * @param {Array} wordBank - array of topWords
@@ -120,23 +237,12 @@ export const merge = (alignments, wordBank, verseString,
     }
   }
 
-  // unalignedOrdered verse objects have been flattened - restore hierarchy
-  for (let i = 0, oLen = unalignedOrdered.length; i < oLen; i++) {
-    const verseObject = unalignedOrdered[i];
-    if (verseObject.parentIndex >= 0) {
-      const parent = unalignedOrdered[verseObject.parentIndex];
-      if (parent) {
-        parent.children = parent.children || [];
-        parent.children.push(verseObject);
-      }
-      delete verseObject.parentIndex;
-      unalignedOrdered[i] = null;
-    }
-  }
+  savePosition(unalignedOrdered); // save original position of each verseObject to keep track even after deletions
 
   // deleteIndices that were queued due to consecutive bottomWords in alignments
   const verseObjects = ArrayUtils.deleteIndices(unalignedOrdered, indicesToDelete, wordMap);
-  return verseObjects;
+  const cleanedObjects = restoreVerseObjects(verseObjects);
+  return cleanedObjects;
 };
 
 /**

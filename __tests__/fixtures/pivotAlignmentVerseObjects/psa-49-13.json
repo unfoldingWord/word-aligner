@@ -4,293 +4,295 @@
   "verseString": "This, their way, {is} folly to them,\n\\q2 but after them, they delight in their mouths.\n\\qs Selah \\qs*\n",
   "verseObjects": [
     {
-      "tag": "zaln",
-      "type": "milestone",
-      "strong": "H2088",
+      "children": [
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "w",
+          "text": "This",
+          "type": "word"
+        }
+      ],
+      "content": "זֶ֣ה",
       "lemma": "זֶה",
       "morph": "He,Pdxms",
       "occurrence": 1,
       "occurrences": 1,
-      "content": "זֶ֣ה",
+      "strong": "H2088",
+      "tag": "zaln",
+      "type": "milestone"
+    },
+    {
+      "text": ", ",
+      "type": "text"
+    },
+    {
       "children": [
         {
-          "text": "This",
-          "tag": "w",
-          "type": "word",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 2,
+          "tag": "w",
+          "text": "their",
+          "type": "word"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "w",
+          "text": "way",
+          "type": "word"
         }
-      ]
-    },
-    {
-      "type": "text",
-      "text": ", "
-    },
-    {
-      "tag": "zaln",
-      "type": "milestone",
-      "strong": "H1870",
+      ],
+      "content": "דַ֭רְכָּ⁠ם",
       "lemma": "דֶּרֶךְ",
       "morph": "He,Ncbsc:Sp3mp",
       "occurrence": 1,
       "occurrences": 1,
-      "content": "דַ֭רְכָּ⁠ם",
+      "strong": "H1870",
+      "tag": "zaln",
+      "type": "milestone"
+    },
+    {
+      "text": ", {",
+      "type": "text"
+    },
+    {
       "children": [
         {
-          "text": "their",
-          "tag": "w",
-          "type": "word",
           "occurrence": 1,
-          "occurrences": 2
+          "occurrences": 1,
+          "tag": "w",
+          "text": "is",
+          "type": "word"
         },
         {
-          "type": "text",
-          "text": " "
+          "text": "} ",
+          "type": "text"
         },
         {
-          "text": "way",
-          "tag": "w",
-          "type": "word",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "tag": "w",
+          "text": "folly",
+          "type": "word"
         }
-      ]
-    },
-    {
-      "type": "text",
-      "text": ", {"
-    },
-    {
-      "tag": "zaln",
-      "type": "milestone",
-      "strong": "H3689",
+      ],
+      "content": "כֵּ֣סֶל",
       "lemma": "כֶּסֶל",
       "morph": "He,Ncmsa",
       "occurrence": 1,
       "occurrences": 1,
-      "content": "כֵּ֣סֶל",
+      "strong": "H3689",
+      "tag": "zaln",
+      "type": "milestone"
+    },
+    {
+      "text": " ",
+      "type": "text"
+    },
+    {
       "children": [
         {
-          "text": "is",
-          "tag": "w",
-          "type": "word",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "tag": "w",
+          "text": "to",
+          "type": "word"
         },
         {
-          "type": "text",
-          "text": "} "
+          "text": " ",
+          "type": "text"
         },
         {
-          "text": "folly",
-          "tag": "w",
-          "type": "word",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 2,
+          "tag": "w",
+          "text": "them",
+          "type": "word"
         }
-      ]
-    },
-    {
-      "type": "text",
-      "text": " "
-    },
-    {
-      "tag": "zaln",
-      "type": "milestone",
-      "strong": "l",
+      ],
+      "content": "לָ֑⁠מוֹ",
       "lemma": "",
       "morph": "He,R:Sp3mp",
       "occurrence": 1,
       "occurrences": 1,
-      "content": "לָ֑⁠מוֹ",
+      "strong": "l",
+      "tag": "zaln",
+      "type": "milestone"
+    },
+    {
+      "text": ",\n",
+      "type": "text"
+    },
+    {
       "children": [
         {
-          "text": "to",
-          "tag": "w",
-          "type": "word",
+          "children": [
+            {
+              "occurrence": 1,
+              "occurrences": 1,
+              "tag": "w",
+              "text": "but",
+              "type": "word"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "occurrence": 1,
+              "occurrences": 1,
+              "tag": "w",
+              "text": "after",
+              "type": "word"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "occurrence": 2,
+              "occurrences": 2,
+              "tag": "w",
+              "text": "them",
+              "type": "word"
+            }
+          ],
+          "content": "וְ⁠אַחֲרֵי⁠הֶ֓ם",
+          "lemma": "אַחַר",
+          "morph": "He,C:R:Sp3mp",
           "occurrence": 1,
-          "occurrences": 1
+          "occurrences": 1,
+          "strong": "c:H0310a",
+          "tag": "zaln",
+          "type": "milestone"
         },
         {
-          "type": "text",
-          "text": " "
+          "text": ", ",
+          "type": "text"
         },
         {
-          "text": "them",
-          "tag": "w",
-          "type": "word",
+          "children": [
+            {
+              "occurrence": 1,
+              "occurrences": 1,
+              "tag": "w",
+              "text": "they",
+              "type": "word"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "occurrence": 1,
+              "occurrences": 1,
+              "tag": "w",
+              "text": "delight",
+              "type": "word"
+            }
+          ],
+          "content": "יִרְצ֣וּ",
+          "lemma": "רָצָה",
+          "morph": "He,Vqi3mp",
           "occurrence": 1,
-          "occurrences": 2
+          "occurrences": 1,
+          "strong": "H7521",
+          "tag": "zaln",
+          "type": "milestone"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "children": [
+            {
+              "occurrence": 1,
+              "occurrences": 1,
+              "tag": "w",
+              "text": "in",
+              "type": "word"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "occurrence": 2,
+              "occurrences": 2,
+              "tag": "w",
+              "text": "their",
+              "type": "word"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "occurrence": 1,
+              "occurrences": 1,
+              "tag": "w",
+              "text": "mouths",
+              "type": "word"
+            }
+          ],
+          "content": "בְּ⁠פִי⁠הֶ֖ם",
+          "lemma": "פֶּה",
+          "morph": "He,R:Ncmsc:Sp3mp",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "b:H6310",
+          "tag": "zaln",
+          "type": "milestone"
+        },
+        {
+          "text": ".\n",
+          "type": "text"
         }
-      ]
-    },
-    {
-      "type": "text",
-      "text": ",\n"
-    },
-    {
-      "tag": "q2",
+      ],
       "nextChar": " ",
+      "tag": "q2",
       "type": "quote"
     },
     {
-      "tag": "zaln",
-      "type": "milestone",
-      "strong": "c:H0310a",
-      "lemma": "אַחַר",
-      "morph": "He,C:R:Sp3mp",
-      "occurrence": 1,
-      "occurrences": 1,
-      "content": "וְ⁠אַחֲרֵי⁠הֶ֓ם",
       "children": [
         {
-          "text": "but",
-          "tag": "w",
-          "type": "word",
-          "occurrence": 1,
-          "occurrences": 1
-        },
-        {
-          "type": "text",
-          "text": " "
-        },
-        {
-          "text": "after",
-          "tag": "w",
-          "type": "word",
-          "occurrence": 1,
-          "occurrences": 1
-        },
-        {
-          "type": "text",
-          "text": " "
-        },
-        {
-          "text": "them",
-          "tag": "w",
-          "type": "word",
-          "occurrence": 2,
-          "occurrences": 2
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "text": ", "
-    },
-    {
-      "tag": "zaln",
-      "type": "milestone",
-      "strong": "H7521",
-      "lemma": "רָצָה",
-      "morph": "He,Vqi3mp",
-      "occurrence": 1,
-      "occurrences": 1,
-      "content": "יִרְצ֣וּ",
-      "children": [
-        {
-          "text": "they",
-          "tag": "w",
-          "type": "word",
-          "occurrence": 1,
-          "occurrences": 1
-        },
-        {
-          "type": "text",
-          "text": " "
-        },
-        {
-          "text": "delight",
-          "tag": "w",
-          "type": "word",
-          "occurrence": 1,
-          "occurrences": 1
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "text": " "
-    },
-    {
-      "tag": "zaln",
-      "type": "milestone",
-      "strong": "b:H6310",
-      "lemma": "פֶּה",
-      "morph": "He,R:Ncmsc:Sp3mp",
-      "occurrence": 1,
-      "occurrences": 1,
-      "content": "בְּ⁠פִי⁠הֶ֖ם",
-      "children": [
-        {
-          "text": "in",
-          "tag": "w",
-          "type": "word",
-          "occurrence": 1,
-          "occurrences": 1
-        },
-        {
-          "type": "text",
-          "text": " "
-        },
-        {
-          "text": "their",
-          "tag": "w",
-          "type": "word",
-          "occurrence": 2,
-          "occurrences": 2
-        },
-        {
-          "type": "text",
-          "text": " "
-        },
-        {
-          "text": "mouths",
-          "tag": "w",
-          "type": "word",
-          "occurrence": 1,
-          "occurrences": 1
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "text": ".\n"
-    },
-    {
-      "tag": "qs",
-      "nextChar": " ",
-      "type": "quote",
-      "children": [
-        {
-          "tag": "zaln",
-          "type": "milestone",
-          "strong": "H5542",
+          "children": [
+            {
+              "occurrence": 1,
+              "occurrences": 1,
+              "tag": "w",
+              "text": "Selah",
+              "type": "word"
+            }
+          ],
+          "content": "סֶֽלָה",
           "lemma": "סֶלָה",
           "morph": "He,Tj",
           "occurrence": 1,
           "occurrences": 1,
-          "content": "סֶֽלָה",
-          "children": [
-            {
-              "text": "Selah",
-              "tag": "w",
-              "type": "word",
-              "occurrence": 1,
-              "occurrences": 1
-            }
-          ]
+          "strong": "H5542",
+          "tag": "zaln",
+          "type": "milestone"
         },
         {
-          "type": "text",
-          "text": " "
+          "text": " ",
+          "type": "text"
         }
       ],
-      "endTag": "qs*"
+      "endTag": "qs*",
+      "nextChar": " ",
+      "tag": "qs",
+      "type": "quote"
     },
     {
-      "type": "text",
-      "text": "\n"
+      "text": "\n",
+      "type": "text"
     }
   ],
   "alignment": [
