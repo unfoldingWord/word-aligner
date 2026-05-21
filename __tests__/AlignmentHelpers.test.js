@@ -391,7 +391,7 @@ const exportTest = (name = {}) => {
   if (usfm.substr(0, 1) === ' ') {
     usfm = usfm.substr(1);
   }
-  const tag = "\\zaln-s | ";
+  const tag = "\\zaln-s |";
   let outputNormal = normalizeAtributesAlign(tag, usfm);
   let expectedNormal = normalizeAtributesAlign(tag, expectedUsfm);
   const wordTag = '\\w';
