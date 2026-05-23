@@ -99,11 +99,11 @@ function restoreHierarchy(unalignedOrdered) {
       const parent = unalignedOrdered.find(obj => obj && obj.originalIndex === parentIndex);
       if (parent && parent.children) {
         parent.children.push(verseObject);
+        toRemove.push(i);
       }
       delete verseObject.parentIndex;
       delete verseObject.originalIndex;
       cleanChildReferences(verseObject, 'parentIndex');
-      toRemove.push(i);
     }
   }
 
