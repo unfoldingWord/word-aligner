@@ -79,11 +79,7 @@
       "type": "milestone"
     },
     {
-      "text": ", ",
-      "type": "text"
-    },
-    {
-      "text": "\"",
+      "text": ", \"",
       "type": "text"
     },
     {
@@ -560,11 +556,7 @@
       "type": "milestone"
     },
     {
-      "text": ",",
-      "type": "text"
-    },
-    {
-      "text": "'\n",
+      "text": ",'\n",
       "type": "text"
     },
     {
@@ -987,15 +979,7 @@
       "type": "milestone"
     },
     {
-      "text": ".",
-      "type": "text"
-    },
-    {
-      "text": "'",
-      "type": "text"
-    },
-    {
-      "text": "\"\n",
+      "text": ".'\"\n",
       "type": "text"
     },
     {

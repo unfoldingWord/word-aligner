@@ -155,7 +155,7 @@
       "tag": "f*"
     },
     {
-      "nextChar": " ",
+      "endMarkerChar": " ",
       "tag": "f*"
     },
     {
@@ -192,11 +192,11 @@
       "type": "text"
     },
     {
-      "nextChar": " ",
+      "endMarkerChar": " ",
       "tag": "+wj*"
     },
     {
-      "nextChar": " ",
+      "endMarkerChar": " ",
       "tag": "it*"
     },
     {
@@ -283,11 +283,7 @@
       "type": "milestone"
     },
     {
-      "text": "।",
-      "type": "text"
-    },
-    {
-      "text": "”\n",
+      "text": "।”\n",
       "type": "text"
     },
     {

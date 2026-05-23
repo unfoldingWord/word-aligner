@@ -3,6 +3,8 @@
 import fs from 'fs-extra';
 import path from 'path';
 import usfmjs from 'usfm-js';
+import isEqual from 'deep-equal';
+
 jest.unmock('fs-extra');
 import wordaligner, {VerseObjectUtils} from '../src/';
 const RESOURCES = path.join('__tests__', 'fixtures', 'pivotAlignmentVerseObjects');
@@ -81,6 +83,9 @@ describe("Merge Alignment into Verse Objects", () => {
   });
   it('handles gal 3-17', () => {
     mergeTest('gal-3-17');
+  });
+  it('handles psa-49-13', () => {
+    mergeTest('psa-49-13');
   });
 });
 
@@ -294,7 +299,9 @@ const mergeTest = (name = {}) => {
   expect(json).toBeTruthy();
   const {alignment, verseObjects, verseString, wordBank} = json;
   const output = wordaligner.merge(alignment, wordBank, verseString);
-  expect(output).toEqual(verseObjects);
+  if (!isEqual(output, verseObjects)) {
+    expect(output).toEqual(verseObjects);
+  }
 };
 
 /**
@@ -384,7 +391,7 @@ const exportTest = (name = {}) => {
   if (usfm.substr(0, 1) === ' ') {
     usfm = usfm.substr(1);
   }
-  const tag = "\\zaln-s | ";
+  const tag = "\\zaln-s |";
   let outputNormal = normalizeAtributesAlign(tag, usfm);
   let expectedNormal = normalizeAtributesAlign(tag, expectedUsfm);
   const wordTag = '\\w';

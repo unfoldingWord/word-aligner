@@ -129,25 +129,38 @@ const getVerseObjectsText = (verseObjects) => {
 };
 
 /**
- * make sure we pick up white space between tokens
- * @param {string} text - string to tokenize
- * @param {Number} lastPos - position of end of last token
- * @param {Number} pos - position to grab up to
- * @param {Array} newVerseObjects - nested verse objects
- * @param {Boolean} end - if true, then at end of line
- * @return {{lastPos: *, verseObject: *}} - new verse object and updated position
+ * Fills gaps (whitespace and text) between tokens in the verse object array.
+ * Ensures whitespace between tokens is preserved by creating text verse objects.
+ * If possible, appends to the previous text object if it exists at the same nesting level;
+ * otherwise creates a new text verse object.
+ *
+ * @param {string} text - The complete string being tokenized
+ * @param {Number} lastPos - Position of the end of the last processed token
+ * @param {Number} pos - Position to process up to (start of next token or end of string)
+ * @param {Array} newVerseObjects - Array of verse objects being populated
+ * @param {Boolean} [end=false] - If true, forces creation of text object even if gap is empty (for end of line)
+ * @param {Number} [parentIndex=-1] - Index of parent verse object if nested, -1 if at root level
+ * @return {Number} Updated position after processing the gap (lastPos + gap.length)
  */
-const fillGap = (text, lastPos, pos, newVerseObjects, end = false) => {
+const fillGap = (text, lastPos, pos, newVerseObjects, end = false, parentIndex = -1) => {
   let verseObject = null;
   const gap = text.substring(lastPos, pos);
   const lastVerseObject = newVerseObjects.length && newVerseObjects[newVerseObjects.length - 1];
-  if (lastVerseObject && (lastVerseObject.type === 'text')) { // append to previous text
+  const lastParentIndex = (typeof lastVerseObject.parentIndex === 'number') ? lastVerseObject.parentIndex : -1;
+  const canAppendToPreviousText = lastVerseObject && (lastVerseObject.type === 'text')
+    && (lastParentIndex === parentIndex);
+  if (canAppendToPreviousText) { // append to previous text
     lastVerseObject.text += gap;
   } else if (end || gap) { // save gap
     verseObject = {
       type: 'text',
       text: gap,
     };
+
+    if (parentIndex >= 0) {
+      verseObject.parentIndex = parentIndex;
+    }
+
     newVerseObjects.push(verseObject);
   }
   lastPos += gap.length;
@@ -155,15 +168,20 @@ const fillGap = (text, lastPos, pos, newVerseObjects, end = false) => {
 };
 
 /**
- * parse text into tokens
- * @param {string} text - string to tokenize
- * @param {Array} newVerseObjects - nested verse objects
- * @param {Array} wordMap - ordered map of word locations in verseObjects
- * @param {Number} nonWordVerseObjectCount - keeps count of entries that are not actually words
- * @param {String} verseText - text of the entire verse
- * @return {Number} new nonWordVerseObjectCount
+ * Parses text into tokens and creates word or text verse objects.
+ * Tokenizes the input text and identifies words (containing word/number characters)
+ * versus punctuation/text. For words, creates word objects with occurrence tracking.
+ * For non-word tokens, creates text objects. Preserves whitespace between tokens.
+ *
+ * @param {string} text - The string to tokenize
+ * @param {Array} newVerseObjects - Array to populate with newly created verse objects
+ * @param {Array} wordMap - Ordered map tracking word locations in verseObjects for occurrence counting
+ * @param {Number} nonWordVerseObjectCount - Counter for entries that are not words (text/punctuation)
+ * @param {String} verseText - Complete text of the entire verse for occurrence calculation
+ * @param {Number} [parentIndex=-1] - Index of parent verse object if this text is nested, -1 if at root level
+ * @return {Number} Updated nonWordVerseObjectCount after processing
  */
-const tokenizeText = (text, newVerseObjects, wordMap, nonWordVerseObjectCount, verseText) => {
+const tokenizeText = (text, newVerseObjects, wordMap, nonWordVerseObjectCount, verseText, parentIndex = -1) => {
   if (text) {
     const tokens = tokenizer.tokenize({text, includePunctuation: true});
     const tokenLength = tokens.length;
@@ -173,7 +191,7 @@ const tokenizeText = (text, newVerseObjects, wordMap, nonWordVerseObjectCount, v
       const word = tokens[j];
       const pos = text.indexOf(word, lastPos);
       if (pos > lastPos) { // make sure we are not dropping white space
-        lastPos = fillGap(text, lastPos, pos, newVerseObjects);
+        lastPos = fillGap(text, lastPos, pos, newVerseObjects, false, parentIndex);
       }
       if (tokenizer.word.test(word) || tokenizer.number.test(word)) { // if the text has word or number characters, its a word object
         const wordIndex = wordMap.length;
@@ -192,7 +210,8 @@ const tokenizeText = (text, newVerseObjects, wordMap, nonWordVerseObjectCount, v
           occurrence,
           occurrences,
         };
-        wordMap.push({array: newVerseObjects, pos: newVerseObjects.length});
+        const pos = newVerseObjects.length;
+        wordMap.push({array: newVerseObjects, pos, parentIndex});
       } else { // the text does not have word characters
         nonWordVerseObjectCount++;
         verseObject = {
@@ -201,28 +220,50 @@ const tokenizeText = (text, newVerseObjects, wordMap, nonWordVerseObjectCount, v
         };
       }
       lastPos += word.length;
+
+      if (parentIndex >= 0) {
+        verseObject.parentIndex = parentIndex;
+      }
+
       newVerseObjects.push(verseObject);
     }
     if (lastPos < text.length) {
-      lastPos = fillGap(text, lastPos, text.length, newVerseObjects, true);
+      lastPos = fillGap(text, lastPos, text.length, newVerseObjects, true, parentIndex);
     }
   }
   return nonWordVerseObjectCount;
 };
 
 /**
- * step through verse objects extracting words
- * @param {Array} verseObjects - original array of verse objects with words split
- * @param {Array} newVerseObjects - new array of verse objects with words split
- * @param {Array} wordMap - ordered map of word locations in verseObjects
- * @param {String} verseText - text of the entire verse
- * @param {Number} nonWordVerseObjectCount - keeps count of entries that are not actually words
- * @return {Number} updated nonWordVerseObjectCount
+ * Recursively processes nested verse objects to extract and tokenize words.
+ * Traverses through verse objects, preserving non-text objects (like milestones) while
+ * extracting and tokenizing any text content. Handles nested children recursively.
+ * Maintains parent-child relationships through parentIndex tracking.
+ *
+ * @param {Array} verseObjects - Original array of verse objects to process (may contain nested structures)
+ * @param {Array} newVerseObjects - Output array to populate with processed verse objects with words split
+ * @param {Array} wordMap - Ordered map tracking word locations in verseObjects for occurrence counting
+ * @param {String} verseText - Complete text of the entire verse for occurrence calculation
+ * @param {Number} nonWordVerseObjectCount - Counter for entries that are not words (text/punctuation)
+ * @param {Number} [parentIndex=-1] - Index of parent verse object for nested elements, -1 if at root level
+ * @return {Number} Updated nonWordVerseObjectCount after processing all verse objects
  */
-const getWordsFromNestedVerseObjects = (verseObjects, newVerseObjects, wordMap, verseText, nonWordVerseObjectCount) => {
+const getWordsFromNestedVerseObjects = (
+  verseObjects,
+  newVerseObjects,
+  wordMap,
+  verseText,
+  nonWordVerseObjectCount,
+  parentIndex = -1
+) => {
   const voLength = verseObjects.length;
   for (let i = 0; i < voLength; i++) {
     const verseObject = verseObjects[i];
+
+    if (parentIndex >= 0) { // keep track of where the parent is
+      verseObject.parentIndex = parentIndex;
+    }
+
     let vsObjText = verseObject.text;
     if ((verseObject.type !== 'text')) {
       // preseserve non-text verseObject except for text part which will be split into words
@@ -234,17 +275,19 @@ const getWordsFromNestedVerseObjects = (verseObjects, newVerseObjects, wordMap, 
         verseObject.nextChar = ' '; // preserve space before text
       }
       newVerseObjects.push(verseObject);
+      const indexOfThisObject = newVerseObjects.length - 1;
       if (verseObject.children) {
         const newChildVerseObjects = [];
-        nonWordVerseObjectCount = tokenizeText(vsObjText, newChildVerseObjects, wordMap, nonWordVerseObjectCount, verseText);
+        nonWordVerseObjectCount = tokenizeText(vsObjText, newChildVerseObjects, wordMap, nonWordVerseObjectCount, verseText, indexOfThisObject);
         nonWordVerseObjectCount = getWordsFromNestedVerseObjects(verseObject.children, newChildVerseObjects,
-                                                                 wordMap, verseText, nonWordVerseObjectCount);
+          wordMap, verseText, nonWordVerseObjectCount,
+          indexOfThisObject);
         verseObject.children = newChildVerseObjects;
       } else {
-        nonWordVerseObjectCount = tokenizeText(vsObjText, newVerseObjects, wordMap, nonWordVerseObjectCount, verseText);
+        nonWordVerseObjectCount = tokenizeText(vsObjText, newVerseObjects, wordMap, nonWordVerseObjectCount, verseText, indexOfThisObject);
       }
     } else {
-      nonWordVerseObjectCount = tokenizeText(vsObjText, newVerseObjects, wordMap, nonWordVerseObjectCount, verseText);
+      nonWordVerseObjectCount = tokenizeText(vsObjText, newVerseObjects, wordMap, nonWordVerseObjectCount, verseText, parentIndex);
     }
   }
   return nonWordVerseObjectCount;
