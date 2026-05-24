@@ -84,8 +84,11 @@ describe("Merge Alignment into Verse Objects", () => {
   it('handles gal 3-17', () => {
     mergeTest('gal-3-17');
   });
-  it('handles psa-49-13', () => {
+  it('handles psa-49-13 - Selah', () => {
     mergeTest('psa-49-13');
+  });
+  it('handles psa-49-13 - Selah Extra', () => {
+    mergeTest('psa-49-13-selah-extra');
   });
 });
 

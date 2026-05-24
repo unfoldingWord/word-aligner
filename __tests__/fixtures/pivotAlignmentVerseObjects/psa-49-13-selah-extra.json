@@ -1,7 +1,7 @@
 {
   "comment": "merge with inline qs",
-  "alignedVerseString": "\\zaln-s |x-strong=\"H2088\" x-lemma=\"זֶה\" x-morph=\"He,Pdxms\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"זֶ֣ה\"\\*\\w This|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\\zaln-e\\*,\n\\zaln-s |x-strong=\"H1870\" x-lemma=\"דֶּרֶךְ\" x-morph=\"He,Ncbsc:Sp3mp\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"דַ֭רְכָּ⁠ם\"\\*\\w their|x-occurrence=\"1\" x-occurrences=\"2\"\\w*\n\\w way|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\\zaln-e\\*, {\\zaln-s |x-strong=\"H3689\" x-lemma=\"כֶּסֶל\" x-morph=\"He,Ncmsa\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"כֵּ֣סֶל\"\\*\\w is|x-occurrence=\"1\" x-occurrences=\"1\"\\w*}\n\\w folly|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\\zaln-e\\*\n\\zaln-s |x-strong=\"l\" x-lemma=\"\" x-morph=\"He,R:Sp3mp\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"לָ֑⁠מוֹ\"\\*\\w to|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\n\\w them|x-occurrence=\"1\" x-occurrences=\"2\"\\w*\\zaln-e\\*,\n\\q2 \\zaln-s |x-strong=\"c:H0310a\" x-lemma=\"אַחַר\" x-morph=\"He,C:R:Sp3mp\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"וְ⁠אַחֲרֵי⁠הֶ֓ם\"\\*\\w but|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\n\\w after|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\n\\w them|x-occurrence=\"2\" x-occurrences=\"2\"\\w*\\zaln-e\\*,\n\\zaln-s |x-strong=\"H7521\" x-lemma=\"רָצָה\" x-morph=\"He,Vqi3mp\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"יִרְצ֣וּ\"\\*\\w they|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\n\\w delight|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\\zaln-e\\*\n\\zaln-s |x-strong=\"b:H6310\" x-lemma=\"פֶּה\" x-morph=\"He,R:Ncmsc:Sp3mp\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"בְּ⁠פִי⁠הֶ֖ם\"\\*\\w in|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\n\\w their|x-occurrence=\"2\" x-occurrences=\"2\"\\w*\n\\w mouths|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\\zaln-e\\*.\n\\qs \\zaln-s |x-strong=\"H5542\" x-lemma=\"סֶלָה\" x-morph=\"He,Tj\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"סֶֽלָה\"\\*\\w Selah|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\\zaln-e\\* \\qs*\n",
-  "verseString": "This, their way, {is} folly to them,\n\\q2 but after them, they delight in their mouths.\n\\qs Selah \\qs*\n",
+  "alignedVerseString": "\\zaln-s |x-strong=\"H2088\" x-lemma=\"זֶה\" x-morph=\"He,Pdxms\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"זֶ֣ה\"\\*\\w This|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\\zaln-e\\*,\n\\zaln-s |x-strong=\"H1870\" x-lemma=\"דֶּרֶךְ\" x-morph=\"He,Ncbsc:Sp3mp\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"דַ֭רְכָּ⁠ם\"\\*\\w their|x-occurrence=\"1\" x-occurrences=\"2\"\\w*\n\\w way|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\\zaln-e\\*, {\\zaln-s |x-strong=\"H3689\" x-lemma=\"כֶּסֶל\" x-morph=\"He,Ncmsa\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"כֵּ֣סֶל\"\\*\\w is|x-occurrence=\"1\" x-occurrences=\"1\"\\w*}\n\\w folly|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\\zaln-e\\*\n\\zaln-s |x-strong=\"l\" x-lemma=\"\" x-morph=\"He,R:Sp3mp\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"לָ֑⁠מוֹ\"\\*\\w to|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\n\\w them|x-occurrence=\"1\" x-occurrences=\"2\"\\w*\\zaln-e\\*,\n\\q2 \\zaln-s |x-strong=\"c:H0310a\" x-lemma=\"אַחַר\" x-morph=\"He,C:R:Sp3mp\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"וְ⁠אַחֲרֵי⁠הֶ֓ם\"\\*\\w but|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\n\\w after|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\n\\w them|x-occurrence=\"2\" x-occurrences=\"2\"\\w*\\zaln-e\\*,\n\\zaln-s |x-strong=\"H7521\" x-lemma=\"רָצָה\" x-morph=\"He,Vqi3mp\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"יִרְצ֣וּ\"\\*\\w they|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\n\\w delight|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\\zaln-e\\*\n\\zaln-s |x-strong=\"b:H6310\" x-lemma=\"פֶּה\" x-morph=\"He,R:Ncmsc:Sp3mp\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"בְּ⁠פִי⁠הֶ֖ם\"\\*\\w in|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\n\\w their|x-occurrence=\"2\" x-occurrences=\"2\"\\w*\n\\w mouths|x-occurrence=\"1\" x-occurrences=\"1\"\\w*\\zaln-e\\*.\n\\qs \\zaln-s |x-strong=\"H5542\" x-lemma=\"סֶלָה\" x-morph=\"He,Tj\" x-occurrence=\"1\" x-occurrences=\"1\" x-content=\"סֶֽלָה\"\\*\\w Selah|x-occurrence=\"1\" x-occurrences=\"1\"\\w* Dudes \\zaln-e\\* \\qs*\n",
+  "verseString": "This, their way, {is} folly to them,\n\\q2 but after them, they delight in their mouths.\n\\qs Selah Dudes \\qs*\n",
   "verseObjects": [
     {
       "children": [
@@ -277,6 +277,17 @@
           "strong": "H5542",
           "tag": "zaln",
           "type": "milestone"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "occurrence": 1,
+          "occurrences": 1,
+          "tag": "w",
+          "text": "Dudes",
+          "type": "word"
         },
         {
           "text": " ",
@@ -719,5 +730,12 @@
       ]
     }
   ],
-  "wordBank": []
+  "wordBank": [
+    {
+      "word": "Dudes",
+      "occurrence": 1,
+      "occurrences": 1,
+      "type": "bottomWord"
+    }
+  ]
 }
