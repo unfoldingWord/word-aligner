@@ -97,7 +97,8 @@ function restoreHierarchy(unalignedOrdered) {
     const parentIndex = verseObject.parentIndex;
     if (parentIndex >= 0) {
       const parent = unalignedOrdered.find(obj => obj && obj.originalIndex === parentIndex);
-      if (parent && parent.children) {
+      if (parent && (parent.children || parent.endTag)) {
+        parent.children = parent.children || [];
         parent.children.push(verseObject);
         toRemove.push(i);
       }
