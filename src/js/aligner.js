@@ -73,7 +73,7 @@ function cleanChildReferences(verseObject, key = 'parentIndex') {
   for (let j = 0, cLen = children.length; j < cLen; j++) {
     const child = children[j];
     const childKeyValue = child[key];
-    if (childKeyValue >= 0) {
+    if (childKeyValue !== undefined) {
       delete child[key];
     }
     if (child.children) {
@@ -177,6 +177,10 @@ export const merge = (alignments, wordBank, verseString,
       wordMap, verseObject);
     if (index > -1) {
       const location = wordMap[index];
+      const originalVerseObject = location.array[location.pos];
+      if (originalVerseObject.parentIndex !== undefined) {
+        verseObject.parentIndex = originalVerseObject.parentIndex;
+      }
       location.array[location.pos] = verseObject;
     } else if (hasAlignments(alignments)) { // if verse has some alignments
       throw {message: `Word "${bottomWord.word}" is in wordBank, but missing from target language verse.`, type: 'InvalidatedAlignments'};
