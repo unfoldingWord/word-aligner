@@ -258,32 +258,38 @@
       "type": "text"
     },
     {
+      "children": [
+        {
+          "children": [
+            {
+              "occurrence": 1,
+              "occurrences": 1,
+              "tag": "w",
+              "text": "Selah",
+              "type": "word"
+            }
+          ],
+          "content": "סֶֽלָה",
+          "lemma": "סֶלָה",
+          "morph": "He,Tj",
+          "occurrence": 1,
+          "occurrences": 1,
+          "strong": "H5542",
+          "tag": "zaln",
+          "type": "milestone"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        }
+      ],
       "endTag": "qs*",
       "nextChar": " ",
       "tag": "qs",
       "type": "quote"
     },
     {
-      "children": [
-        {
-          "occurrence": 1,
-          "occurrences": 1,
-          "tag": "w",
-          "text": "Selah",
-          "type": "word"
-        }
-      ],
-      "content": "סֶֽלָה",
-      "lemma": "סֶלָה",
-      "morph": "He,Tj",
-      "occurrence": 1,
-      "occurrences": 1,
-      "strong": "H5542",
-      "tag": "zaln",
-      "type": "milestone"
-    },
-    {
-      "text": " \n",
+      "text": "\n",
       "type": "text"
     }
   ],
